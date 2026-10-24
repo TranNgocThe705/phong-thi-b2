@@ -2781,6 +2781,172 @@ textarea:focus-visible,
   margin-bottom: 40px;
 }
 
+/* ============ Full 4-Skill VSTEP CBT Exam Simulator ============ */
+.cbt-featured {
+  background: var(--ink);
+  color: #FFFFFF;
+  border-radius: var(--r-lg);
+  padding: 28px 32px;
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 28px;
+  flex-wrap: wrap;
+  position: relative;
+  overflow: hidden;
+}
+
+.cbt-featured::after {
+  content: "";
+  position: absolute;
+  right: -30px;
+  top: -50px;
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.18), transparent 70%);
+  pointer-events: none;
+}
+
+.cbt-featured h2 {
+  font-size: clamp(22px, 2.6vw, 28px);
+  font-weight: 800;
+  margin: 10px 0 8px;
+  letter-spacing: -0.02em;
+}
+
+.cbt-featured p {
+  font-size: 14.5px;
+  color: #CBD5E1;
+  max-width: 620px;
+  line-height: 1.6;
+}
+
+.cbt-pillars {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.cbt-pillar {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: var(--r-sm);
+  padding: 10px 14px;
+}
+
+.cbt-pillar b {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.cbt-pillar span {
+  font-size: 12px;
+  color: #94A3B8;
+}
+
+.cbt-bar {
+  background: var(--surface);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-md);
+  padding: 16px 22px;
+  margin-bottom: 22px;
+  position: sticky;
+  top: 72px;
+  z-index: 40;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.05);
+}
+
+.cbt-bar__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.cbt-stepper {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.cbt-step {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  border-radius: var(--r-pill);
+  font-size: 13px;
+  font-weight: 600;
+  border: 1px solid var(--line);
+  background: var(--surface-2);
+  color: var(--ink-2);
+  transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease, transform 120ms var(--ease-out);
+}
+
+.cbt-step.on {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #FFFFFF;
+}
+
+.cbt-step.done {
+  background: var(--green-soft);
+  border-color: var(--green-border);
+  color: var(--green);
+}
+
+.cbt-step__num {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(15, 23, 42, 0.08);
+  display: grid;
+  place-items: center;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.cbt-step.on .cbt-step__num {
+  background: rgba(255, 255, 255, 0.22);
+  color: #FFFFFF;
+}
+
+.cbt-step.done .cbt-step__num {
+  background: var(--green);
+  color: #FFFFFF;
+}
+
+.btn--teal {
+  background: var(--teal-soft);
+  border-color: #5EEAD4;
+  color: var(--teal);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .btn--teal:hover {
+    background: var(--teal);
+    border-color: var(--teal);
+    color: #FFFFFF;
+  }
+}
+
+.stamp--c1 {
+  color: var(--primary);
+  background: var(--primary-soft);
+}
+
+.stamp--b1 {
+  color: var(--amber);
+  background: var(--amber-soft);
+}
+
 /* ============ Responsive Breakpoints ============ */
 @media (max-width: 1040px) {
   .hero {
@@ -2865,6 +3031,9 @@ textarea:focus-visible,
   }
   .p2-texts, .rescue-grid, .strat-grid {
     grid-template-columns: 1fr;
+  }
+  .cbt-pillars {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 

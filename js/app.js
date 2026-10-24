@@ -832,6 +832,7 @@ function viewWriting(sel){
             <button class="btn btn--sm btn--ghost" id="wTimerBtn">${ICO.clock}<span>Đếm ngược ${t.time} phút</span></button>
             <button class="btn btn--sm" id="wLocal">Phân tích cục bộ</button>
             <button class="btn btn--sm btn--solid" id="wAI">Chấm điểm AI theo Rubric</button>
+            <button class="btn btn--sm btn--teal" id="wUpgrade">AI nâng cấp lên B2/C1</button>
           </div>
         </div>
         <div id="wReport" style="padding:0 24px 24px"></div>
@@ -897,6 +898,21 @@ function viewWriting(sel){
     try{
       const out = await AI.gradeWriting(t, text);
       $("#wReport").innerHTML = `<div class="ai-report"><span class="tag">Kết quả chấm của Giám khảo AI (4 tiêu chí VSTEP)</span><div class="ai-md">${mdLite(out)}</div></div>`;
+    }catch(e){
+      $("#wReport").innerHTML = `<div class="notice" style="margin-top:14px"><span>Lỗi kết nối AI: ${esc(e.message)}</span></div>`;
+    }
+  };
+  $("#wUpgrade").onclick = async () => {
+    const text = area.value.trim();
+    if(countWords(text) < 20){ $("#wReport").innerHTML = '<div class="notice" style="margin-top:14px"><span>Hãy viết tối thiểu 20 từ để AI có chất liệu nâng cấp bài viết của bạn lên chuẩn B2 và C1.</span></div>'; return; }
+    if(!AI.available()){
+      $("#wReport").innerHTML = `<div class="notice" style="margin-top:14px"><span>Chưa cấu hình API Key. Hãy kết nối khóa Gemini miễn phí tại <a href="#/cai-dat"><b>trang Cài đặt AI</b></a> để AI nâng cấp bài viết lên B2/C1.</span></div>`;
+      return;
+    }
+    $("#wReport").innerHTML = '<div class="ai-report"><span class="tag">AI đang nâng cấp bài viết lên B2 &amp; C1…</span><p style="font-size:13.5px;color:var(--ink-2);margin-top:8px">Đang giữ nguyên ý tưởng gốc của bạn và viết lại theo chuẩn Band 7.0 (B2) và Band 8.5+ (C1)…</p></div>';
+    try{
+      const out = await AI.upgradeWriting(t, text);
+      $("#wReport").innerHTML = `<div class="ai-report"><span class="tag">Bản nâng cấp bài viết của bạn lên chuẩn B2 &amp; C1</span><div class="ai-md">${mdLite(out)}</div></div>`;
     }catch(e){
       $("#wReport").innerHTML = `<div class="notice" style="margin-top:14px"><span>Lỗi kết nối AI: ${esc(e.message)}</span></div>`;
     }
@@ -1029,7 +1045,7 @@ function viewSpeaking(part){
       if(silent) return;
       const m = LocalAnalyzer.speaking(text, dur);
       report.innerHTML = `
-        <div class="ai-report">
+          <div class="ai-report">
           <span class="tag">Chỉ số giọng nói (${fmtTime(dur)})</span>
           <table class="mini-table">
             <tr><td>Tốc độ nói</td><td>${m.wpm} từ/phút (Mức chuẩn B2: 100–150)</td></tr>
@@ -1038,7 +1054,10 @@ function viewSpeaking(part){
             <tr><td>Từ nối học thuật</td><td>${m.conn} loại</td></tr>
           </table>
           <ul class="tips">${m.tips.map(x => `<li>${x}</li>`).join("")}</ul>
-          ${AI.available() ? `<button class="btn btn--solid btn--sm" id="spAI" style="margin-top:10px"><span>Chấm bài nói bằng AI theo Rubric VSTEP</span>${ICO.next}</button>` : '<p style="font-size:12.5px;color:var(--ink-3);margin-top:10px">Kết nối API Key ở mục Cài đặt AI để chấm chi tiết bản ghi lời nói này.</p>'}
+          ${AI.available() ? `<div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px">
+            <button class="btn btn--solid btn--sm" id="spAI"><span>Chấm bài nói bằng AI theo Rubric</span>${ICO.next}</button>
+            <button class="btn btn--teal btn--sm" id="spUpgrade"><span>AI nâng cấp bài nói lên B2/C1</span></button>
+          </div>` : '<p style="font-size:12.5px;color:var(--ink-3);margin-top:10px">Kết nối API Key ở mục Cài đặt AI để chấm chi tiết và nâng cấp bài nói lên B2/C1.</p>'}
         </div>`;
       const aiBtn = $("#spAI");
       if(aiBtn) aiBtn.onclick = async () => {
@@ -1052,6 +1071,19 @@ function viewSpeaking(part){
           aiBtn.textContent = "Thử lại"; aiBtn.disabled = false;
         }
       };
+      const upBtn = $("#spUpgrade");
+      if(upBtn) upBtn.onclick = async () => {
+        if(countWords(text) < 10){ report.insertAdjacentHTML("beforeend", `<div class="notice" style="margin-top:10px"><span>Cần tối thiểu 10 từ trong bản ghi âm để AI nâng cấp lên B2/C1.</span></div>`); return; }
+        upBtn.disabled = true; upBtn.textContent = "AI đang nâng cấp lên B2/C1…";
+        try{
+          const out = await AI.upgradeSpeaking({ topic: it.topic, part: part === "p1" ? 1 : part === "p2" ? 2 : 3 }, text);
+          report.insertAdjacentHTML("beforeend", `<div class="ai-report" style="margin-top:12px"><span class="tag">Bản nâng cấp bài nói lên chuẩn B2 &amp; C1</span><div class="ai-md">${mdLite(out)}</div></div>`);
+          upBtn.textContent = "Đã nâng cấp B2/C1"; upBtn.disabled = false;
+        }catch(e){
+          report.insertAdjacentHTML("beforeend", `<div class="notice" style="margin-top:10px"><span>Lỗi AI: ${esc(e.message)}</span></div>`);
+          upBtn.textContent = "Thử lại nâng cấp"; upBtn.disabled = false;
+        }
+      };
     }
     if(STT.supported){
       $("#recStart").onclick = startRec;
@@ -1063,9 +1095,32 @@ function viewSpeaking(part){
 
 /* ================= THI THỬ ================= */
 function viewMock(){
-  app.innerHTML = moduleHead("Phòng thi CBT", "Thi thử VSTEP B2 có bấm giờ",
-    "Mô phỏng giao diện thi trên máy tính: đồng hồ đếm ngược, bảng phiếu trả lời đánh dấu câu cần xem lại, chấm điểm ngay theo thang 10 chuẩn VSTEP.",
-    "3 chế độ đề thi") + `
+  app.innerHTML = moduleHead("Phòng thi CBT", "Thi thử VSTEP B2 trên máy tính",
+    "Trải nghiệm kỳ thi chuẩn VSTEP đầy đủ 4 kỹ năng (Nghe, Đọc, Viết, Nói) như phần mềm thi thật tại các điểm trường đại học, hoặc chọn các bài thi trắc nghiệm nhanh theo nhu cầu.",
+    "4 chế độ thi") + `
+    <div class="cbt-featured">
+      <div style="flex:1;min-width:280px">
+        <span class="tag" style="background:rgba(56,189,248,0.16);border-color:rgba(56,189,248,0.35);color:#BAE6FD">Kỳ thi tiêu chuẩn 4 kỹ năng trên máy (Full VSTEP CBT)</span>
+        <h2>Thi chuẩn VSTEP đầy đủ 4 kỹ năng: Nghe – Đọc – Viết – Nói</h2>
+        <p>Mô phỏng đúng quy trình phòng thi thật trên máy tính: làm lần lượt 4 kỹ năng có đồng hồ đếm ngược riêng từng phần, tự động chấm trắc nghiệm Nghe &amp; Đọc, kết hợp Giám khảo AI chấm tự động 2 bài Viết và 3 phần Nói để xuất bảng điểm VSTEP B1 / B2 / C1.</p>
+        <div class="cbt-pillars">
+          <div class="cbt-pillar"><b>1. Nghe (Listening)</b><span>3 Part • 25 câu • 40 phút</span></div>
+          <div class="cbt-pillar"><b>2. Đọc (Reading)</b><span>4 Passage • 40 câu • 60 phút</span></div>
+          <div class="cbt-pillar"><b>3. Viết (Writing)</b><span>Task 1 &amp; 2 • 60 phút</span></div>
+          <div class="cbt-pillar"><b>4. Nói (Speaking)</b><span>Part 1, 2, 3 • 12 phút</span></div>
+        </div>
+      </div>
+      <div>
+        <button class="btn btn--paper" id="startFullCBT" style="padding:14px 24px;font-size:14.5px">
+          <span>Vào thi Full 4 kỹ năng</span>${ICO.next}
+        </button>
+      </div>
+    </div>
+
+    <div class="section-head" style="margin-top:28px">
+      <span class="section-head__no">Thi trắc nghiệm nhanh</span>
+      <h2 style="font-size:21px">Chế độ luyện đề rút gọn</h2>
+    </div>
     <div class="mock-cards">
       <button class="mock-opt" data-mode="quick">
         <span class="t">Đề khởi động nhanh</span>
@@ -1086,9 +1141,632 @@ function viewMock(){
         <span class="meta">Làm đề Reading chính thức</span>
       </button>
     </div>
-    <p style="font-size:13px;color:var(--ink-3);margin-top:16px">Tiêu chuẩn quy đổi tham khảo: Điểm đạt từ <b>6.0 / 10</b> trở lên tương đương mức đạt chuẩn B2 (Bậc 4/6).</p>`;
+    <p style="font-size:13px;color:var(--ink-3);margin-top:16px">Quy chế tính điểm chuẩn VSTEP: Điểm trung bình 4 kỹ năng làm tròn đến 0.5 — Từ <b>4.0–5.5</b> đạt B1, từ <b>6.0–8.0</b> đạt B2, từ <b>8.5–10.0</b> đạt C1.</p>`;
 
+  $("#startFullCBT").onclick = () => runFullCBTExam();
   $$(".mock-opt").forEach(b => b.onclick = () => runMock(b.dataset.mode));
+}
+
+/* ================= PHÒNG THI FULL 4 KỸ NĂNG CHUẨN CBT ================= */
+function runFullCBTExam(){
+  /* Chuẩn bị dữ liệu 4 kỹ năng */
+  const listenGroups = LISTENING.slice();
+  const listenQs = listenGroups.flatMap(g => g.qs.map(q => ({ ...q, gid: g.gid, part: g.part, groupTitle: g.title })));
+  const listenPicks = new Array(listenQs.length).fill(undefined);
+
+  const readPassages = READING_OFFICIAL.slice();
+  const readQs = readPassages.flatMap((p, pi) => p.questions.map(q => ({
+    id: "ro" + q.n, n: q.n, pi, passageTitle: p.title, q: q.q, opts: q.opts,
+    a: LETTERS.indexOf(READING_OFFICIAL_KEY[String(q.n)]), ex: READING_OFFICIAL_EX[String(q.n)]
+  })));
+  const readPicks = new Array(readQs.length).fill(undefined);
+  const readFlags = new Array(readQs.length).fill(false);
+
+  const w1Task = WRITING.find(w => w.task === 1 && w.official) || WRITING.find(w => w.task === 1);
+  const w2Task = WRITING.find(w => w.task === 2 && w.official) || WRITING.find(w => w.task === 2);
+  const writeData = { w1: "", w2: "", activeTask: 1 };
+
+  const s1Item = SPEAKING_P1[0];
+  const s2Item = SPEAKING_P2[0];
+  const s3Item = SPEAKING_P3[0];
+  const speakData = { s1: "", s2: "", s3: "", activePart: 1 };
+
+  const STAGES = [
+    { key: "listening", name: "1. Nghe hiểu", secs: 40 * 60 },
+    { key: "reading", name: "2. Đọc hiểu", secs: 60 * 60 },
+    { key: "writing", name: "3. Viết (2 bài)", secs: 60 * 60 },
+    { key: "speaking", name: "4. Nói (3 phần)", secs: 12 * 60 }
+  ];
+  let stageIdx = 0;
+  let stageLeft = STAGES[0].secs;
+  let totalElapsed = 0;
+  let readCurPassage = 0;
+  let listenCurGroup = 0;
+  let submitted = false;
+
+  app.innerHTML = `
+    <div class="cbt-bar">
+      <div class="cbt-bar__top">
+        <div class="cbt-stepper" id="cbtStepper">
+          ${STAGES.map((st, i) => `
+            <button class="cbt-step ${i === 0 ? "on" : ""}" data-st="${i}">
+              <span class="cbt-step__num">${i + 1}</span>
+              <span>${st.name}</span>
+            </button>`).join("")}
+        </div>
+        <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+          <div class="timer">
+            <span style="font-size:12.5px;font-weight:600;color:var(--ink-3)" id="cbtStageLabel">Thời gian phần Nghe:</span>
+            <span class="t" id="cbtTimer">${fmtTime(stageLeft)}</span>
+          </div>
+          <button class="btn btn--sm" id="cbtNextStage"><span>Chuyển phần tiếp</span>${ICO.next}</button>
+          <button class="btn btn--sm btn--solid" id="cbtSubmitAll">Nộp bài 4 kỹ năng</button>
+        </div>
+      </div>
+      <div class="timer-bar" style="margin-top:10px"><i id="cbtTimerBar" style="transform:scaleX(1)"></i></div>
+    </div>
+    <div id="cbtStageMount"></div>`;
+
+  const timerEl = $("#cbtTimer"), barEl = $("#cbtTimerBar"), labelEl = $("#cbtStageLabel");
+  const timerInt = setInterval(() => {
+    if(submitted) return;
+    stageLeft--;
+    totalElapsed++;
+    timerEl.textContent = fmtTime(stageLeft);
+    barEl.style.transform = `scaleX(${Math.max(0, stageLeft / STAGES[stageIdx].secs).toFixed(4)})`;
+    if(stageLeft <= 180) timerEl.classList.add("warn"); else timerEl.classList.remove("warn");
+    if(stageLeft <= 0){
+      if(stageIdx < STAGES.length - 1){
+        goStage(stageIdx + 1);
+      } else {
+        finishFullCBT(true);
+      }
+    }
+  }, 1000);
+
+  function goStage(nextIdx){
+    TTS.stop();
+    if(STT.active) STT.stop();
+    stageIdx = nextIdx;
+    stageLeft = STAGES[stageIdx].secs;
+    labelEl.textContent = "Thời gian " + STAGES[stageIdx].name.replace(/^\d+\.\s*/, "") + ":";
+    timerEl.textContent = fmtTime(stageLeft);
+    barEl.style.transform = "scaleX(1)";
+    $$("#cbtStepper .cbt-step").forEach((b, i) => {
+      b.classList.toggle("on", i === stageIdx);
+      b.classList.toggle("done", i < stageIdx);
+    });
+    $("#cbtNextStage").style.display = stageIdx < STAGES.length - 1 ? "inline-flex" : "none";
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    renderStage();
+  }
+
+  $$("#cbtStepper .cbt-step").forEach(b => b.onclick = () => goStage(+b.dataset.st));
+  $("#cbtNextStage").onclick = () => {
+    if(stageIdx < STAGES.length - 1) goStage(stageIdx + 1);
+  };
+  $("#cbtSubmitAll").onclick = () => finishFullCBT(false);
+
+  function renderStage(){
+    const mount = $("#cbtStageMount");
+    if(stageIdx === 0) renderListeningStage(mount);
+    else if(stageIdx === 1) renderReadingStage(mount);
+    else if(stageIdx === 2) renderWritingStage(mount);
+    else renderSpeakingStage(mount);
+  }
+
+  /* ---- STAGE 1: LISTENING ---- */
+  function renderListeningStage(mount){
+    const g = listenGroups[listenCurGroup];
+    const groupStartIdx = listenQs.findIndex(q => q.gid === g.gid);
+    const ansCount = listenPicks.filter(x => x !== undefined).length;
+
+    mount.innerHTML = `
+      <div class="topic-bar">
+        ${listenGroups.map((lg, i) => `<button class="chip ${i === listenCurGroup ? "on" : ""}" data-lg="${i}">Part ${lg.part}: ${esc(lg.title.split("—")[0].trim())}</button>`).join("")}
+      </div>
+      <div class="quiz-layout">
+        <div class="quiz-main">
+          <div class="tape" id="cbtTape">
+            <div class="tape__wave" aria-hidden="true">
+              <div class="tape__bar"></div><div class="tape__bar"></div><div class="tape__bar"></div>
+              <div class="tape__bar"></div><div class="tape__bar"></div><div class="tape__bar"></div>
+            </div>
+            <div class="tape__info">
+              <b>Phần Nghe Part ${g.part}: ${esc(g.title)}</b>
+              <span id="cbtListenStatus">Bấm Phát bài nghe để nghe đoạn băng và chọn đáp án bên dưới</span>
+            </div>
+            <div class="tape__ctrl">
+              <button class="btn btn--tape btn--sm" id="cbtPlayBtn">${ICO.play}<span>Phát bài nghe</span></button>
+              <button class="btn btn--tape btn--sm" id="cbtStopBtn">${ICO.stop}<span>Dừng</span></button>
+            </div>
+          </div>
+          <div style="margin-top:18px;display:flex;flex-direction:column;gap:14px">
+            ${g.qs.map((q, localI) => {
+              const qIdx = groupStartIdx + localI;
+              return `<div class="sheet q-card sheet--pad">
+                <div class="q-card__top">
+                  <span class="q-card__no">Câu ${qIdx + 1} / ${listenQs.length}<em>Listening Part ${g.part}</em></span>
+                </div>
+                <div class="q-card__text" style="font-size:18.5px;margin:12px 0 16px">${esc(q.q)}</div>
+                <div class="opts">
+                  ${q.opts.map((o, oi) => `<button class="opt ${listenPicks[qIdx] === oi ? "sel" : ""}" data-qi="${qIdx}" data-oi="${oi}"><span class="key">${LETTERS[oi]}</span><span>${esc(o)}</span></button>`).join("")}
+                </div>
+              </div>`;
+            }).join("")}
+          </div>
+          <div class="q-nav" style="background:var(--surface);padding:16px 20px;border-radius:var(--r-md);border:1px solid var(--line-soft);margin-top:18px">
+            <button class="btn btn--ghost" id="lPrevG" ${listenCurGroup === 0 ? "disabled" : ""}>${ICO.prev}<span>Đoạn nghe trước</span></button>
+            <span class="q-nav__mid">Đoạn nghe ${listenCurGroup + 1} / ${listenGroups.length}</span>
+            <button class="btn btn--solid" id="lNextG">${listenCurGroup < listenGroups.length - 1 ? `<span>Đoạn nghe tiếp</span>${ICO.next}` : `<span>Sang kỹ năng Đọc</span>${ICO.next}`}</button>
+          </div>
+        </div>
+        <aside class="quiz-side">
+          <div class="side-block">
+            <h4><span>Phiếu trả lời Nghe</span><span id="cbtListenCount">${ansCount}/${listenQs.length}</span></h4>
+            <div class="grid-q">
+              ${listenQs.map((q, qi) => `<button class="gq ${listenPicks[qi] !== undefined ? "ans" : ""} ${q.gid === g.gid ? "cur" : ""}" data-jump-q="${qi}">${qi + 1}</button>`).join("")}
+            </div>
+          </div>
+        </aside>
+      </div>`;
+
+    $$("[data-lg]", mount).forEach(b => b.onclick = () => { TTS.stop(); listenCurGroup = +b.dataset.lg; renderListeningStage(mount); });
+    const tape = $("#cbtTape", mount);
+    const stEl = $("#cbtListenStatus", mount);
+    $("#cbtPlayBtn", mount).onclick = () => {
+      TTS.speak(g.script, {
+        rate: 1,
+        onLine: (li) => { stEl.textContent = `Đang phát câu thoại ${li + 1} / ${g.script.length}…`; },
+        onEnd: () => { tape.classList.remove("playing"); stEl.textContent = "Đã phát xong đoạn băng."; }
+      });
+      tape.classList.add("playing");
+    };
+    $("#cbtStopBtn", mount).onclick = () => { TTS.stop(); tape.classList.remove("playing"); stEl.textContent = "Đã dừng âm thanh."; };
+    $$(".opt[data-qi]", mount).forEach(btn => btn.onclick = () => {
+      const qi = +btn.dataset.qi, oi = +btn.dataset.oi;
+      listenPicks[qi] = oi;
+      renderListeningStage(mount);
+    });
+    $$("[data-jump-q]", mount).forEach(b => b.onclick = () => {
+      const targetQ = listenQs[+b.dataset.jumpQ];
+      const gIdx = listenGroups.findIndex(x => x.gid === targetQ.gid);
+      if(gIdx >= 0){ TTS.stop(); listenCurGroup = gIdx; renderListeningStage(mount); }
+    });
+    $("#lPrevG", mount).onclick = () => { if(listenCurGroup > 0){ TTS.stop(); listenCurGroup--; renderListeningStage(mount); } };
+    $("#lNextG", mount).onclick = () => {
+      TTS.stop();
+      if(listenCurGroup < listenGroups.length - 1){ listenCurGroup++; renderListeningStage(mount); }
+      else goStage(1);
+    };
+  }
+
+  /* ---- STAGE 2: READING ---- */
+  function renderReadingStage(mount){
+    const p = readPassages[readCurPassage];
+    const pQs = readQs.filter(q => q.pi === readCurPassage);
+    const ansCount = readPicks.filter(x => x !== undefined).length;
+
+    mount.innerHTML = `
+      <div class="topic-bar">
+        ${readPassages.map((rp, i) => `<button class="chip ${i === readCurPassage ? "on" : ""}" data-rp="${i}">Passage ${i + 1} (Câu ${i * 10 + 1}–${(i + 1) * 10})</button>`).join("")}
+      </div>
+      <div class="quiz-layout">
+        <div class="quiz-main">
+          <div class="sheet passage-panel">
+            <h3>${esc(p.title.replace(/^PASSAGE \d+ - /, "Passage " + (readCurPassage + 1) + ": "))}</h3>
+            <span class="src">Đề thi VSTEP Reading Bậc 3–5 (40 câu / 60 phút)</span>
+            <div class="passage-body" style="max-height:420px;overflow-y:auto;padding-right:8px">${esc(p.body)}</div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:14px">
+            ${pQs.map(q => {
+              const qi = q.n - 1;
+              return `<div class="sheet q-card sheet--pad" id="cbt-rq-${qi}">
+                <div class="q-card__top">
+                  <span class="q-card__no">Câu ${q.n} / 40<em>Passage ${readCurPassage + 1}</em></span>
+                  <button class="q-card__flag ${readFlags[qi] ? "on" : ""}" data-rflag="${qi}">${ICO.flag}<span>Xem lại</span></button>
+                </div>
+                <div class="q-card__text" style="font-size:18.5px;margin:12px 0 16px">${esc(q.q)}</div>
+                <div class="opts">
+                  ${q.opts.map((o, oi) => `<button class="opt ${readPicks[qi] === oi ? "sel" : ""}" data-rqi="${qi}" data-roi="${oi}"><span class="key">${LETTERS[oi]}</span><span>${esc(o)}</span></button>`).join("")}
+                </div>
+              </div>`;
+            }).join("")}
+          </div>
+          <div class="q-nav" style="background:var(--surface);padding:16px 20px;border-radius:var(--r-md);border:1px solid var(--line-soft);margin-top:18px">
+            <button class="btn btn--ghost" id="rPrevP" ${readCurPassage === 0 ? "disabled" : ""}>${ICO.prev}<span>Passage trước</span></button>
+            <span class="q-nav__mid">Passage ${readCurPassage + 1} / 4</span>
+            <button class="btn btn--solid" id="rNextP">${readCurPassage < 3 ? `<span>Passage tiếp theo</span>${ICO.next}` : `<span>Sang kỹ năng Viết</span>${ICO.next}`}</button>
+          </div>
+        </div>
+        <aside class="quiz-side">
+          <div class="side-block">
+            <h4><span>Phiếu trả lời Đọc</span><span>${ansCount}/40</span></h4>
+            <div class="grid-q">
+              ${readQs.map((q, qi) => `<button class="gq ${readPicks[qi] !== undefined ? "ans" : ""} ${readFlags[qi] ? "flag" : ""} ${q.pi === readCurPassage ? "cur" : ""}" data-rjump="${qi}">${qi + 1}</button>`).join("")}
+            </div>
+          </div>
+        </aside>
+      </div>`;
+
+    $$("[data-rp]", mount).forEach(b => b.onclick = () => { readCurPassage = +b.dataset.rp; renderReadingStage(mount); });
+    $$(".opt[data-rqi]", mount).forEach(btn => btn.onclick = () => {
+      const qi = +btn.dataset.rqi, oi = +btn.dataset.roi;
+      readPicks[qi] = oi;
+      renderReadingStage(mount);
+    });
+    $$("[data-rflag]", mount).forEach(btn => btn.onclick = () => {
+      const qi = +btn.dataset.rflag;
+      readFlags[qi] = !readFlags[qi];
+      renderReadingStage(mount);
+    });
+    $$("[data-rjump]", mount).forEach(b => b.onclick = () => {
+      const qi = +b.dataset.rjump;
+      const targetP = Math.floor(qi / 10);
+      if(targetP !== readCurPassage){ readCurPassage = targetP; renderReadingStage(mount); }
+      const el = $(`#cbt-rq-${qi}`, mount);
+      if(el) el.scrollIntoView({ behavior: "smooth", block: "center" });
+    });
+    $("#rPrevP", mount).onclick = () => { if(readCurPassage > 0){ readCurPassage--; renderReadingStage(mount); window.scrollTo(0, 0); } };
+    $("#rNextP", mount).onclick = () => {
+      if(readCurPassage < 3){ readCurPassage++; renderReadingStage(mount); window.scrollTo(0, 0); }
+      else goStage(2);
+    };
+  }
+
+  /* ---- STAGE 3: WRITING ---- */
+  function renderWritingStage(mount){
+    const curT = writeData.activeTask === 1 ? w1Task : w2Task;
+    const curText = writeData.activeTask === 1 ? writeData.w1 : writeData.w2;
+
+    mount.innerHTML = `
+      <div class="topic-bar">
+        <button class="chip ${writeData.activeTask === 1 ? "on" : ""}" data-wt="1">Task 1: Viết Thư/Email (≥120 từ • Hệ số 1) <span class="n">${countWords(writeData.w1)} từ</span></button>
+        <button class="chip ${writeData.activeTask === 2 ? "on" : ""}" data-wt="2">Task 2: Viết Luận văn Essay (≥250 từ • Hệ số 2) <span class="n">${countWords(writeData.w2)} từ</span></button>
+      </div>
+      <div class="write-layout">
+        <div class="sheet write-paper">
+          <div style="padding:22px 26px 0">
+            <span class="tag">Writing Task ${curT.task}: ${esc(curT.type)} (Khuyến nghị ${curT.time} phút | Tối thiểu ${curT.target} từ)</span>
+            <div class="prompt-box">${esc(curT.prompt).replace(/\n/g, "<br>")}</div>
+          </div>
+          <textarea id="cbtWriteArea" placeholder="Nhập bài làm Task ${curT.task} của bạn vào đây… Hệ thống tự động lưu khi bạn chuyển qua lại giữa Task 1 và Task 2.">${esc(curText)}</textarea>
+          <div class="write-tools">
+            <div class="wordmeter ${countWords(curText) >= curT.target ? "hit" : ""}" id="cbtWMeter">
+              <div><b id="cbtWNum">${countWords(curText)}</b> / ≥${curT.target} từ</div>
+              <div class="wordmeter__bar"><div class="wordmeter__fill" id="cbtWBar" style="transform:scaleX(${Math.min(1, countWords(curText) / curT.target).toFixed(3)})"></div></div>
+            </div>
+            <div style="display:flex;gap:8px">
+              ${writeData.activeTask === 1
+                ? `<button class="btn btn--sm btn--solid" id="cbtToTask2"><span>Chuyển sang viết Task 2</span>${ICO.next}</button>`
+                : `<button class="btn btn--sm btn--solid" id="cbtToSpeak"><span>Hoàn thành Viết — Sang thi Nói</span>${ICO.next}</button>`}
+            </div>
+          </div>
+        </div>
+        <div class="sheet sheet--pad">
+          <h4 style="font-size:14px;font-weight:700">Tiêu chí chấm Writing VSTEP</h4>
+          <ul class="tips">
+            <li><b>Task Fulfillment:</b> Trả lời đầy đủ mọi yêu cầu trong đề bài và đảm bảo số từ tối thiểu (${curT.target} từ).</li>
+            <li><b>Organization:</b> Chia đoạn rõ ràng, sử dụng linh hoạt các từ nối học thuật (However, Moreover, Therefore, In conclusion).</li>
+            <li><b>Vocabulary &amp; Grammar:</b> Đa dạng hóa cấu trúc câu phức và từ vựng mức B2/C1.</li>
+          </ul>
+          <hr class="hr-dash">
+          <h4 style="font-size:14px;font-weight:700">Trạng thái bài viết của bạn</h4>
+          <div class="side-stat"><span class="k">Task 1 (Thư/Email)</span><span class="v" id="cbtStatW1">${countWords(writeData.w1)} / 120 từ</span></div>
+          <div class="side-stat"><span class="k">Task 2 (Luận văn)</span><span class="v" id="cbtStatW2">${countWords(writeData.w2)} / 250 từ</span></div>
+        </div>
+      </div>`;
+
+    const area = $("#cbtWriteArea", mount);
+    area.oninput = () => {
+      if(writeData.activeTask === 1) writeData.w1 = area.value;
+      else writeData.w2 = area.value;
+      const n = countWords(area.value);
+      $("#cbtWNum", mount).textContent = n;
+      $("#cbtWBar", mount).style.transform = `scaleX(${Math.min(1, n / curT.target).toFixed(3)})`;
+      $("#cbtWMeter", mount).classList.toggle("hit", n >= curT.target);
+      $("#cbtStatW1", mount).textContent = countWords(writeData.w1) + " / 120 từ";
+      $("#cbtStatW2", mount).textContent = countWords(writeData.w2) + " / 250 từ";
+    };
+    $$("[data-wt]", mount).forEach(b => b.onclick = () => { writeData.activeTask = +b.dataset.wt; renderWritingStage(mount); });
+    if($("#cbtToTask2", mount)) $("#cbtToTask2", mount).onclick = () => { writeData.activeTask = 2; renderWritingStage(mount); };
+    if($("#cbtToSpeak", mount)) $("#cbtToSpeak", mount).onclick = () => goStage(3);
+  }
+
+  /* ---- STAGE 4: SPEAKING ---- */
+  function renderSpeakingStage(mount){
+    const pt = speakData.activePart;
+    const it = pt === 1 ? s1Item : pt === 2 ? s2Item : s3Item;
+    const curKey = "s" + pt;
+
+    const promptHtml = pt === 1
+      ? `<p style="color:var(--ink-2);margin-bottom:10px">Hãy trả lời lần lượt 3 câu hỏi xã giao sau về chủ đề <b>${esc(it.topic)}</b>:</p>
+         <ul class="phrases">${it.questions.map(q => `<li>• <b>${esc(q)}</b></li>`).join("")}</ul>`
+      : pt === 2
+      ? `<p style="color:var(--ink-2);margin-bottom:10px"><b>Tình huống:</b> ${esc(it.situation)}</p>
+         <p style="font-size:13.5px;color:var(--ink-3)">Hãy phân tích ưu/nhược điểm của các phương án và bảo vệ lựa chọn tốt nhất của bạn.</p>`
+      : `<div class="mindmap">
+           <span style="font-size:12px;font-weight:700;color:var(--primary)">Phát triển chủ đề theo sơ đồ tư duy:</span>
+           <div class="mindmap__wrap">
+             <div class="mindmap__center">${esc(it.mindmap.center)}</div>
+             <div class="mindmap__branches">${it.mindmap.branches.map(b => `<div class="mindmap__branch">${esc(b)}</div>`).join("")}</div>
+           </div>
+         </div>
+         <div style="font-size:13px;font-weight:700;margin-top:14px">Câu hỏi thảo luận mở rộng:</div>
+         <ul class="phrases">${(it.followups || []).map(f => `<li>• <i>${esc(f)}</i></li>`).join("")}</ul>`;
+
+    mount.innerHTML = `
+      <div class="topic-bar">
+        <button class="chip ${pt === 1 ? "on" : ""}" data-spt="1">Part 1: Social Interaction (3p) <span class="n">${countWords(speakData.s1)} từ</span></button>
+        <button class="chip ${pt === 2 ? "on" : ""}" data-spt="2">Part 2: Solution Discussion (4p) <span class="n">${countWords(speakData.s2)} từ</span></button>
+        <button class="chip ${pt === 3 ? "on" : ""}" data-spt="3">Part 3: Topic Development (5p) <span class="n">${countWords(speakData.s3)} từ</span></button>
+      </div>
+      <div class="speak-layout">
+        <div class="sheet cue-card">
+          <span class="lbl">Speaking Part ${pt}</span>
+          <h3>${esc(it.topic)}</h3>
+          ${promptHtml}
+        </div>
+        <div class="sheet rec-panel" id="cbtSpeakPanel">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
+            <span style="font-size:13.5px;font-weight:700"><span class="rec-dot"></span>Thu âm trả lời Part ${pt} (hoặc nhập trực tiếp bên dưới)</span>
+            <span class="rec-time" id="cbtRecTime">00:00</span>
+          </div>
+          <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap">
+            ${STT.supported ? `
+              <button class="btn btn--red btn--sm" id="cbtRecStart">${ICO.mic}<span>Bắt đầu thu âm giọng nói</span></button>
+              <button class="btn btn--ghost btn--sm" id="cbtRecStop">${ICO.stop}<span>Dừng thu âm</span></button>
+            ` : `<span style="font-size:12.5px;color:var(--ink-3)">Trình duyệt không bật nhận diện giọng nói — hãy gõ nội dung câu trả lời tiếng Anh của bạn vào khung bên dưới để Giám khảo AI chấm điểm.</span>`}
+          </div>
+          <textarea class="stt-box" id="cbtSpeakText" style="width:100%;min-height:160px;resize:vertical;outline:none" placeholder="Bấm Thu âm để giọng nói tự chuyển thành chữ tại đây, hoặc bạn có thể tự gõ/chỉnh sửa câu trả lời tiếng Anh của mình…">${esc(speakData[curKey])}</textarea>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px;flex-wrap:wrap;gap:10px">
+            <span style="font-size:13px;color:var(--ink-3)" id="cbtSpCount">Độ dài câu trả lời: <b>${countWords(speakData[curKey])}</b> từ</span>
+            ${pt < 3
+              ? `<button class="btn btn--solid btn--sm" id="cbtNextSpPart"><span>Chuyển sang Speaking Part ${pt + 1}</span>${ICO.next}</button>`
+              : `<button class="btn btn--solid" id="cbtFinishBtn"><span>Nộp bài toàn bộ 4 kỹ năng &amp; Chấm điểm</span>${ICO.next}</button>`}
+          </div>
+        </div>
+      </div>`;
+
+    const txtArea = $("#cbtSpeakText", mount);
+    txtArea.oninput = () => {
+      speakData[curKey] = txtArea.value;
+      $("#cbtSpCount", mount).innerHTML = `Độ dài câu trả lời: <b>${countWords(txtArea.value)}</b> từ`;
+    };
+    $$("[data-spt]", mount).forEach(b => b.onclick = () => {
+      if(STT.active) STT.stop();
+      speakData.activePart = +b.dataset.spt;
+      renderSpeakingStage(mount);
+    });
+    if($("#cbtNextSpPart", mount)) $("#cbtNextSpPart", mount).onclick = () => {
+      if(STT.active) STT.stop();
+      speakData.activePart = pt + 1;
+      renderSpeakingStage(mount);
+    };
+    if($("#cbtFinishBtn", mount)) $("#cbtFinishBtn", mount).onclick = () => finishFullCBT(false);
+
+    if(STT.supported){
+      let recT0 = 0, recIv = null;
+      const panel = $("#cbtSpeakPanel", mount), timeEl = $("#cbtRecTime", mount);
+      $("#cbtRecStart", mount).onclick = () => {
+        recT0 = Date.now();
+        panel.classList.add("recording");
+        const baseText = speakData[curKey] ? speakData[curKey].trim() + " " : "";
+        recIv = setInterval(() => { timeEl.textContent = fmtTime((Date.now() - recT0) / 1000); }, 250);
+        STT.start((fin, inter) => {
+          txtArea.value = baseText + fin + inter;
+          speakData[curKey] = txtArea.value;
+          $("#cbtSpCount", mount).innerHTML = `Độ dài câu trả lời: <b>${countWords(txtArea.value)}</b> từ`;
+        });
+      };
+      $("#cbtRecStop", mount).onclick = () => {
+        clearInterval(recIv);
+        panel.classList.remove("recording");
+        STT.stop();
+      };
+    }
+  }
+
+  /* ---- KẾT THÚC & CHẤM ĐIỂM FULL 4 KỸ NĂNG ---- */
+  async function finishFullCBT(auto){
+    if(submitted) return;
+    if(!auto && !confirm("Bạn có chắc chắn muốn nộp bài thi VSTEP 4 kỹ năng và xem bảng điểm tổng kết không?")) return;
+    submitted = true;
+    clearInterval(timerInt);
+    TTS.stop();
+    if(STT.active) STT.stop();
+
+    /* 1. Chấm Nghe & Đọc chính xác theo đáp án */
+    let listenOk = 0;
+    listenQs.forEach((q, i) => {
+      const good = listenPicks[i] === q.a;
+      if(good) listenOk++;
+      Store.addAnswer(q.id, listenPicks[i] === undefined ? -1 : listenPicks[i], good);
+    });
+    let readOk = 0;
+    readQs.forEach((q, i) => {
+      const good = readPicks[i] === q.a;
+      if(good) readOk++;
+      Store.addAnswer(q.id, readPicks[i] === undefined ? -1 : readPicks[i], good);
+    });
+
+    const listenScore = +(listenOk / listenQs.length * 10).toFixed(1);
+    const readScore = +(readOk / readQs.length * 10).toFixed(1);
+
+    /* 2. Điểm ước lượng cục bộ cho Viết & Nói (hiển thị tức thì, sau đó AI cập nhật) */
+    const w1Local = LocalAnalyzer.scoreWritingNumeric(writeData.w1, w1Task);
+    const w2Local = LocalAnalyzer.scoreWritingNumeric(writeData.w2, w2Task);
+    let writeScore = +((w1Local + w2Local * 2) / 3).toFixed(1);
+
+    const s1Local = LocalAnalyzer.scoreSpeakingNumeric(speakData.s1, 50);
+    const s2Local = LocalAnalyzer.scoreSpeakingNumeric(speakData.s2, 90);
+    const s3Local = LocalAnalyzer.scoreSpeakingNumeric(speakData.s3, 110);
+    let speakScore = +((s1Local + s2Local + s3Local) / 3).toFixed(1);
+
+    const calcOverall = (l, r, w, s) => Math.round(((l + r + w + s) / 4) * 2) / 2;
+    let overallScore = calcOverall(listenScore, readScore, writeScore, speakScore);
+
+    const badgeInfo = sc => {
+      if(sc >= 8.5) return { text: "Đạt Bậc 5 (C1)", cls: "stamp--c1" };
+      if(sc >= 6.0) return { text: "Đạt Bậc 4 (B2)", cls: "stamp--pass" };
+      if(sc >= 4.0) return { text: "Đạt Bậc 3 (B1)", cls: "stamp--b1" };
+      return { text: "Chưa đạt B1/B2", cls: "stamp--fail" };
+    };
+
+    const timeUsed = fmtTime(totalElapsed);
+    Store.addMock({
+      date: todayStr(),
+      label: "Full 4 kỹ năng CBT",
+      score: overallScore,
+      pct: Math.round(overallScore * 10),
+      total: listenQs.length + readQs.length,
+      ok: listenOk + readOk,
+      timeUsed,
+      at: Date.now()
+    });
+
+    const renderResultView = (aiGradingState, aiReportHtml) => {
+      const b = badgeInfo(overallScore);
+      app.innerHTML = `
+        <a href="#/thi-thu" class="backlink">${ICO.prev}<span>Quay lại Phòng thi CBT</span></a>
+        <div class="sheet result-head">
+          <div>
+            <span class="tag">Phiếu điểm VSTEP 4 Kỹ năng (Thời gian làm bài: ${timeUsed})</span>
+            <div style="display:flex;gap:36px;margin-top:16px;flex-wrap:wrap">
+              <div class="result-score"><div class="big" id="resOverall">${overallScore.toFixed(1)}<small>/10</small></div><div class="lbl">Điểm tổng kết 4 kỹ năng</div></div>
+              <div class="result-score"><div class="big">${listenOk + readOk}<small>/${listenQs.length + readQs.length}</small></div><div class="lbl">Trắc nghiệm Nghe &amp; Đọc</div></div>
+            </div>
+          </div>
+          <div class="stamp ${b.cls}" id="resStamp">${b.text}</div>
+        </div>
+        <div class="result-grid">
+          <div class="result-cell">
+            <div class="k">1. Nghe hiểu (Listening)</div>
+            <div class="v ${listenScore >= 6 ? "v--green" : "v--red"}">${listenScore}<small>/10 (${listenOk}/${listenQs.length})</small></div>
+          </div>
+          <div class="result-cell">
+            <div class="k">2. Đọc hiểu (Reading)</div>
+            <div class="v ${readScore >= 6 ? "v--green" : "v--red"}">${readScore}<small>/10 (${readOk}/${readQs.length})</small></div>
+          </div>
+          <div class="result-cell">
+            <div class="k">3. Viết (Writing Task 1 &amp; 2)</div>
+            <div class="v ${writeScore >= 6 ? "v--green" : "v--red"}" id="resWriteScore">${writeScore}<small>/10 ${aiGradingState === "done" ? "(AI chấm)" : "(Cục bộ)"}</small></div>
+          </div>
+          <div class="result-cell">
+            <div class="k">4. Nói (Speaking Part 1–3)</div>
+            <div class="v ${speakScore >= 6 ? "v--green" : "v--red"}" id="resSpeakScore">${speakScore}<small>/10 ${aiGradingState === "done" ? "(AI chấm)" : "(Cục bộ)"}</small></div>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:10px;margin:22px 0;flex-wrap:wrap">
+          <button class="btn btn--solid" id="cbtBtnAI">${aiGradingState === "loading" ? "Giám khảo AI đang chấm tự động…" : "Chấm lại Viết & Nói bằng Giám khảo AI"}</button>
+          <button class="btn btn--teal" id="cbtUpgradeWrite">AI nâng cấp bài Viết lên B2/C1</button>
+          <button class="btn btn--teal" id="cbtUpgradeSpeak">AI nâng cấp bài Nói lên B2/C1</button>
+          <button class="btn" id="cbtReviewMC">Xem giải thích 65 câu Nghe &amp; Đọc</button>
+        </div>
+
+        <div id="cbtAIOut">${aiReportHtml || ""}</div>
+        <div id="cbtUpgradeOut"></div>
+        <div id="cbtReviewOut"></div>`;
+
+      $("#cbtBtnAI").onclick = () => runAIGrading();
+      $("#cbtUpgradeWrite").onclick = async () => {
+        const outEl = $("#cbtUpgradeOut");
+        const combinedW = (writeData.w2 && countWords(writeData.w2) >= countWords(writeData.w1)) ? { task: w2Task, text: writeData.w2 } : { task: w1Task, text: writeData.w1 };
+        if(countWords(combinedW.text) < 15){
+          outEl.innerHTML = `<div class="notice" style="margin-bottom:16px"><span>Bạn chưa viết đủ nội dung (tối thiểu 15 từ) ở phần thi Viết để AI nâng cấp lên B2/C1.</span></div>`;
+          return;
+        }
+        if(!AI.available()){
+          outEl.innerHTML = `<div class="notice" style="margin-bottom:16px"><span>Hãy kết nối API Key tại <a href="#/cai-dat"><b>trang Cài đặt AI</b></a> để sử dụng tính năng nâng cấp B2/C1.</span></div>`;
+          return;
+        }
+        outEl.innerHTML = `<div class="ai-report" style="margin-bottom:16px"><span class="tag">AI đang nâng cấp bài Viết (Task ${combinedW.task.task}) lên B2 &amp; C1…</span></div>`;
+        try{
+          const res = await AI.upgradeWriting(combinedW.task, combinedW.text);
+          outEl.innerHTML = `<div class="ai-report" style="margin-bottom:16px"><span class="tag">Bản nâng cấp bài Viết (Task ${combinedW.task.task}) lên chuẩn B2 &amp; C1</span><div class="ai-md">${mdLite(res)}</div></div>`;
+        }catch(e){
+          outEl.innerHTML = `<div class="notice" style="margin-bottom:16px"><span>Lỗi AI: ${esc(e.message)}</span></div>`;
+        }
+      };
+
+      $("#cbtUpgradeSpeak").onclick = async () => {
+        const outEl = $("#cbtUpgradeOut");
+        const bestS = countWords(speakData.s3) >= 10 ? { item: { ...s3Item, part: 3 }, text: speakData.s3 }
+          : countWords(speakData.s2) >= 10 ? { item: { ...s2Item, part: 2 }, text: speakData.s2 }
+          : { item: { ...s1Item, part: 1 }, text: speakData.s1 };
+        if(countWords(bestS.text) < 10){
+          outEl.innerHTML = `<div class="notice" style="margin-bottom:16px"><span>Bạn chưa có nội dung trả lời (tối thiểu 10 từ) ở phần thi Nói để AI nâng cấp lên B2/C1.</span></div>`;
+          return;
+        }
+        if(!AI.available()){
+          outEl.innerHTML = `<div class="notice" style="margin-bottom:16px"><span>Hãy kết nối API Key tại <a href="#/cai-dat"><b>trang Cài đặt AI</b></a> để sử dụng tính năng nâng cấp B2/C1.</span></div>`;
+          return;
+        }
+        outEl.innerHTML = `<div class="ai-report" style="margin-bottom:16px"><span class="tag">AI đang nâng cấp bài Nói (Part ${bestS.item.part}) lên B2 &amp; C1…</span></div>`;
+        try{
+          const res = await AI.upgradeSpeaking(bestS.item, bestS.text);
+          outEl.innerHTML = `<div class="ai-report" style="margin-bottom:16px"><span class="tag">Bản nâng cấp bài Nói (Part ${bestS.item.part}) lên chuẩn B2 &amp; C1</span><div class="ai-md">${mdLite(res)}</div></div>`;
+        }catch(e){
+          outEl.innerHTML = `<div class="notice" style="margin-bottom:16px"><span>Lỗi AI: ${esc(e.message)}</span></div>`;
+        }
+      };
+
+      $("#cbtReviewMC").onclick = () => {
+        const allMC = [
+          ...listenQs.map((q, i) => ({ ...q, pick: listenPicks[i], secName: "Listening Part " + q.part })),
+          ...readQs.map((q, i) => ({ ...q, pick: readPicks[i], secName: "Reading Passage " + (q.pi + 1) }))
+        ];
+        $("#cbtReviewOut").innerHTML = allMC.map((q, idx) => {
+          const good = q.pick === q.a;
+          return `<div class="sheet sheet--pad" style="margin-bottom:14px">
+            <div class="q-card__no" style="color:${good ? "var(--green)" : "var(--red)"}">Câu ${idx + 1} (${good ? "Đúng" : "Sai"}) — ${esc(q.secName)}</div>
+            <div class="q-card__text" style="font-size:18px">${esc(q.q)}</div>
+            <div class="opts">
+              ${q.opts.map((o, j) => `<div class="opt ${j === q.a ? "correct" : j === q.pick ? "wrong" : "dim"}"><span class="key">${LETTERS[j]}</span><span>${esc(o)}</span></div>`).join("")}
+            </div>
+            ${good ? "" : `<div class="explain explain--no"><span class="explain__tag">Đáp án đúng: ${LETTERS[q.a]}${q.pick === undefined ? " (Chưa trả lời)" : ""}</span><p>${q.ex || ""}</p></div>`}
+          </div>`;
+        }).join("");
+        $("#cbtReviewOut").scrollIntoView({ behavior: "smooth" });
+      };
+    };
+
+    async function runAIGrading(){
+      const hasAnyWritingOrSpeaking = countWords(writeData.w1) + countWords(writeData.w2) + countWords(speakData.s1) + countWords(speakData.s2) + countWords(speakData.s3) >= 10;
+      if(!AI.available()){
+        renderResultView("local", `<div class="notice" style="margin-bottom:18px"><span><b>Đang hiển thị điểm chấm cục bộ cho Viết &amp; Nói.</b> Để Giám khảo AI chấm tự động toàn bộ 2 bài Viết và 3 phần Nói theo thang VSTEP, bạn hãy kết nối API Key miễn phí tại <a href="#/cai-dat"><b>trang Cài đặt AI</b></a>.</span></div>`);
+        return;
+      }
+      if(!hasAnyWritingOrSpeaking){
+        renderResultView("local", `<div class="notice" style="margin-bottom:18px"><span>Bạn đã bỏ trống phần thi Viết và Nói nên điểm 2 kỹ năng này là 0.0/10.</span></div>`);
+        return;
+      }
+      renderResultView("loading", `<div class="ai-report" style="margin-bottom:18px"><span class="tag">Hội đồng Giám khảo AI đang chấm tự động phần Viết &amp; Nói…</span><p style="font-size:13.5px;color:var(--ink-2);margin-top:8px">Đang chấm Task 1, Task 2 (Writing) và Part 1, Part 2, Part 3 (Speaking) theo Rubric VSTEP…</p></div>`);
+      try{
+        const res = await AI.gradeFullExam({
+          w1Task, w1Text: writeData.w1,
+          w2Task, w2Text: writeData.w2,
+          s1Item, s1Text: speakData.s1,
+          s2Item, s2Text: speakData.s2,
+          s3Item, s3Text: speakData.s3
+        });
+        if(res.scores){
+          if(typeof res.scores.writing === "number") writeScore = +res.scores.writing.toFixed(1);
+          if(typeof res.scores.speaking === "number") speakScore = +res.scores.speaking.toFixed(1);
+          overallScore = calcOverall(listenScore, readScore, writeScore, speakScore);
+          if(Store.d.mocks[0]) { Store.d.mocks[0].score = overallScore; Store.d.mocks[0].pct = Math.round(overallScore * 10); Store.save(); }
+        }
+        renderResultView("done", `<div class="ai-report" style="margin-bottom:18px"><span class="tag">Biên bản chấm thi tự động của Giám khảo AI (Writing &amp; Speaking)</span><div class="ai-md">${mdLite(res.report)}</div></div>`);
+      }catch(e){
+        renderResultView("local", `<div class="notice" style="margin-bottom:18px"><span>Không thể kết nối AI để chấm tự động (${esc(e.message)}). Hệ thống đang giữ điểm ước lượng cục bộ.</span></div>`);
+      }
+    }
+
+    runAIGrading();
+  }
+
+  renderStage();
 }
 
 function buildMockItems(mode){
