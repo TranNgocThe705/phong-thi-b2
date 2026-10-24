@@ -1,5 +1,5 @@
 /* ============================================================
-   AI INTEGRATION — Gemini / OpenAI-compatible + bộ chấm cục bộ
+   Tích hợp AI (Gemini / OpenAI) và Bộ phân tích cục bộ
    - Người dùng tự cắm API key ở trang Cài đặt (lưu localStorage)
    - Không có key: bộ phân tích cục bộ (rule-based) vẫn chạy đủ
    ============================================================ */

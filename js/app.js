@@ -1,5 +1,5 @@
 /* ============================================================
-   PHÒNG THI B2 — SPA chính
+   Phòng Thi B2 | Ứng dụng luyện thi VSTEP 4 kỹ năng
    ============================================================ */
 "use strict";
 
@@ -11,6 +11,20 @@ const pickN = (arr, n) => shuffle(arr).slice(0, n);
 const fmtTime = s => { s = Math.max(0, Math.round(s)); return String(Math.floor(s / 60)).padStart(2, "0") + ":" + String(s % 60).padStart(2, "0"); };
 const todayStr = () => new Date().toISOString().slice(0, 10);
 const LETTERS = ["A", "B", "C", "D"];
+
+/* ================= SVG ICONS ================= */
+const ICO = {
+  next: '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 10h10M11 6l4 4-4 4"/></svg>',
+  prev: '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 10H5M9 6l-4 4 4 4"/></svg>',
+  play: '<svg viewBox="0 0 20 20" fill="currentColor"><path d="M6.5 4.5v11l9-5.5-9-5.5z"/></svg>',
+  stop: '<svg viewBox="0 0 20 20" fill="currentColor"><rect x="5" y="5" width="10" height="10" rx="1.5"/></svg>',
+  speaker: '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5L5 8H2v4h3l4 3V5z"/><path d="M13 7.5a3.5 3.5 0 010 5M15.5 5a7 7 0 010 10"/></svg>',
+  clock: '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="7.5"/><path d="M10 6v4l2.5 2"/></svg>',
+  flag: '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 3v14M4 4h10l-2 3.5L14 11H4"/></svg>',
+  book: '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4.5A2.5 2.5 0 015.5 2H16v14H5.5A2.5 2.5 0 003 18.5v-14z"/><path d="M3 16h13"/></svg>',
+  mic: '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2.5" width="6" height="9" rx="3"/><path d="M4.5 9.5a5.5 5.5 0 0011 0M10 15v3M7 18h6"/></svg>',
+  flip: '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h11l-3-3M16 13H5l3 3"/></svg>'
+};
 
 /* ================= STORE ================= */
 const Store = {
@@ -132,19 +146,21 @@ const Dict = {
     const wrap = document.createElement("div");
     wrap.className = "dictw";
     wrap.innerHTML = `
-      <button class="dictw__fab mono" id="dictFab">TRẢ TỪ</button>
-      <div class="dictw__panel sheet" id="dictPanel">
+      <button class="dictw__fab" id="dictFab" aria-label="Mở từ điển tra nhanh">${ICO.book}<span>Tra từ nhanh</span></button>
+      <div class="dictw__panel" id="dictPanel" role="dialog" aria-label="Từ điển và dịch câu">
         <div class="dictw__head">
-          <button class="dictw__tab mono on" data-m="dict">TỪ ĐIỂN</button>
-          <button class="dictw__tab mono" data-m="trans">DỊCH CÂU</button>
-          <button class="dictw__x mono" id="dictX">✕</button>
+          <button class="dictw__tab on" data-m="dict">Từ điển Anh-Anh</button>
+          <button class="dictw__tab" data-m="trans">Dịch nhanh</button>
+          <button class="dictw__x" id="dictX" aria-label="Đóng">✕</button>
         </div>
         <div class="dictw__body">
           <div class="dictw__row">
-            <input id="dictInput" placeholder="gõ một từ tiếng Anh…" autocomplete="off">
-            <button class="btn btn--sm" id="dictGo">TRA</button>
+            <input id="dictInput" placeholder="Gõ một từ tiếng Anh…" autocomplete="off">
+            <button class="btn btn--sm btn--solid" id="dictGo">Tra</button>
           </div>
-          <div id="dictOut" class="dictw__out"></div>
+          <div id="dictOut" class="dictw__out">
+            <p class="dictw__src">Mẹo: Nhấp đúp chuột vào bất kỳ từ tiếng Anh nào trên trang để tra nghĩa tức thì.</p>
+          </div>
         </div>
       </div>`;
     document.body.appendChild(wrap);
@@ -155,8 +171,8 @@ const Dict = {
       $$(".dictw__tab", wrap).forEach(x => x.classList.remove("on"));
       t.classList.add("on");
       this.mode = t.dataset.m;
-      $("#dictInput").placeholder = this.mode === "dict" ? "gõ một từ tiếng Anh…" : "dán câu/tiếng Việt hoặc tiếng Anh…";
-      $("#dictGo").textContent = this.mode === "dict" ? "TRA" : "DỊCH";
+      $("#dictInput").placeholder = this.mode === "dict" ? "Gõ một từ tiếng Anh…" : "Dán câu tiếng Việt hoặc tiếng Anh…";
+      $("#dictGo").textContent = this.mode === "dict" ? "Tra" : "Dịch";
       $("#dictOut").innerHTML = "";
     });
     const go = () => this.go($("#dictInput").value.trim());
@@ -174,7 +190,7 @@ const Dict = {
   async go(q){
     const out = $("#dictOut");
     if(!q) return;
-    out.innerHTML = '<p class="dictw__loading mono">ĐANG TRA…</p>';
+    out.innerHTML = '<p class="dictw__loading">Đang tra cứu dữ liệu…</p>';
     try{
       if(this.mode === "dict"){
         let j;
@@ -184,7 +200,6 @@ const Dict = {
           j = await r.json();
         }catch(err){
           if(err.message === "notfound") throw err;
-          /* API từ điển bị chặn/mất mạng — fallback dịch + đọc mẫu */
           j = null;
         }
         if(j){
@@ -192,11 +207,11 @@ const Dict = {
           const ph = e0.phonetic || (e0.phonetics || []).map(p => p.text).filter(Boolean)[0] || "";
           let html = `<div class="dictw__word"><b>${esc(e0.word)}</b> <span class="mono">${esc(ph)}</span></div>`;
           const aud = (e0.phonetics || []).map(p => p.audio).filter(Boolean)[0];
-          if(aud) html += `<button class="btn btn--sm" id="dictAudio">▶ PHÁT ÂM</button>`;
+          if(aud) html += `<button class="btn btn--sm" id="dictAudio">${ICO.speaker}<span>Phát âm</span></button>`;
           (e0.meanings || []).slice(0, 3).forEach(m => {
-            html += `<div class="dictw__pos mono">${esc(m.partOfSpeech)}</div>`;
+            html += `<div class="dictw__pos">${esc(m.partOfSpeech)}</div>`;
             m.definitions.slice(0, 2).forEach(d => {
-              html += `<div class="dictw__def">– ${esc(d.definition)}${d.example ? `<i>“${esc(d.example)}”</i>` : ""}</div>`;
+              html += `<div class="dictw__def">• ${esc(d.definition)}${d.example ? `<i>“${esc(d.example)}”</i>` : ""}</div>`;
             });
           });
           out.innerHTML = html;
@@ -205,17 +220,17 @@ const Dict = {
           const t = await this.translate(q, "en|vi");
           out.innerHTML = `<div class="dictw__word"><b>${esc(q)}</b></div>
             <div class="dictw__trans">${esc(t)}</div>
-            <button class="btn btn--sm" id="dictAudio">▶ ĐỌC TỪ</button>
-            <p class="dictw__src mono">Từ điển Anh–Anh chưa trả lời được (mạng chặn) — hiển thị nghĩa dịch qua MyMemory + giọng đọc máy.</p>`;
+            <button class="btn btn--sm" id="dictAudio">${ICO.speaker}<span>Đọc từ</span></button>
+            <p class="dictw__src">Hiển thị nghĩa dịch qua MyMemory + phát âm trình duyệt.</p>`;
           $("#dictAudio").onclick = () => TTS.speak([{v:0,t:q}]);
         }
       } else {
         const hasVi = /[ăâđêôơưàáảãạằắẳẵặèéẻẽẹìíỉĩịòóỏõọùúủũụỳýỷỹỵđ]/i.test(q);
         const t = await this.translate(q, hasVi ? "vi|en" : "en|vi");
-        out.innerHTML = `<div class="dictw__trans">${esc(t)}</div><p class="dictw__src mono">MyMemory · ${(hasVi ? "vi|en" : "en|vi").replace("|", " → ")}</p>`;
+        out.innerHTML = `<div class="dictw__trans">${esc(t)}</div><p class="dictw__src">Nguồn dịch: MyMemory (${hasVi ? "Việt sang Anh" : "Anh sang Việt"})</p>`;
       }
     }catch(err){
-      out.innerHTML = `<p class="dictw__err">Không tra được “${esc(q)}”. Từ điển chỉ hỗ trợ tiếng Anh; thử kiểm tra chính tả, hoặc chuyển sang thẻ DỊCH CÂU.</p>`;
+      out.innerHTML = `<p class="dictw__err">Không tìm thấy từ “${esc(q)}”. Hãy kiểm tra lại chính tả hoặc chuyển sang thẻ Dịch nhanh.</p>`;
     }
   },
   async translate(text, pair){
@@ -241,49 +256,82 @@ function route(){
   window.scrollTo(0, 0);
   $$(".nav a").forEach(a => a.classList.toggle("on", a.getAttribute("href") === "#" + hash));
   $("#nav").classList.remove("open");
+  app.classList.remove("view-enter");
+  void app.offsetWidth;
+  app.classList.add("view-enter");
   fn();
 }
 window.addEventListener("hashchange", route);
 
 /* ================= MẪU DÙNG CHUNG ================= */
-function moduleHead(no, title, desc, meta){
+function moduleHead(badgeText, title, desc, meta){
   return `<div class="module-top">
-    <div class="tag">PHẦN ${no} ${meta ? "· " + meta : ""}</div>
+    <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+      <span class="tag">${badgeText}</span>
+      ${meta ? `<span style="font-size:13px;font-weight:600;color:var(--ink-3)">${meta}</span>` : ""}
+    </div>
     <h1>${title}</h1>
     <p>${desc}</p>
   </div>`;
 }
-function officialBadge(){ return '<span class="badge-off mono">ĐỀ CHÍNH THỨC</span>'; }
+function officialBadge(){ return '<span class="badge-off">Đề chính thức</span>'; }
 
 /* ================= QUIZ ENGINE (practice) ================= */
 function mountQuiz(mount, cfg){
-  /* cfg: {items, title, getPassage(item)|null, sourceNote, onChange} */
   const items = cfg.items;
   let idx = 0;
-  let rec; /* trạng thái đã làm của câu hiện tại, nạp lại khi render */
+  let rec;
 
   function render(){
     const q = items[idx];
     rec = Store.d.answers[q.id];
     const passHtml = cfg.getPassage ? cfg.getPassage(q) : "";
+    const progRatio = ((idx + 1) / items.length).toFixed(3);
+    const doneCount = items.filter(it => Store.d.answers[it.id] !== undefined).length;
+    const okCount = items.filter(it => Store.d.answers[it.id]?.ok).length;
+
     mount.innerHTML = `
-      ${passHtml ? `<div class="sheet passage-panel">${passHtml}</div>` : ""}
-      <div class="sheet q-card sheet--pad">
-        <div class="q-card__top">
-          <span class="q-card__no">CÂU ${idx + 1}/${items.length}<em>${q.tag || ""}</em></span>
-          <span class="mono" style="font-size:10px;color:var(--ink-3)">${q.src ? esc(q.src).toUpperCase() : ""}</span>
+      <div class="quiz-layout">
+        <div class="quiz-main">
+          ${passHtml ? `<div class="sheet passage-panel">${passHtml}</div>` : ""}
+          <div class="sheet q-card sheet--pad">
+            <div class="q-prog" aria-hidden="true">
+              <div class="q-prog__fill" style="transform:scaleX(${progRatio})"></div>
+            </div>
+            <div class="q-card__top">
+              <span class="q-card__no">Câu ${idx + 1} / ${items.length}${q.tag ? `<em>${q.tag}</em>` : ""}</span>
+              <span style="font-size:12.5px;font-weight:600;color:var(--ink-3)">${q.src ? esc(q.src) : ""}</span>
+            </div>
+            <div class="q-card__text">${q.q}</div>
+            <div class="opts" id="qOpts">
+              ${q.opts.map((o, i) => `<button class="opt" data-i="${i}"><span class="key">${LETTERS[i]}</span><span>${o}</span></button>`).join("")}
+            </div>
+            <div id="qExplain"></div>
+            <div class="q-nav">
+              <button class="btn btn--ghost" id="qPrev" ${idx === 0 ? "disabled" : ""}>${ICO.prev}<span>Câu trước</span></button>
+              <span class="q-nav__mid">${rec ? (rec.ok ? "Đã trả lời chính xác" : "Đã trả lời (chưa đúng)") : "Chọn 1 đáp án để xem giải thích"}</span>
+              <button class="btn btn--solid" id="qNext" ${idx === items.length - 1 ? "disabled" : ""}><span>Câu tiếp</span>${ICO.next}</button>
+            </div>
+            <p class="kbd-hint">Phím tắt: <b>A–D</b> chọn đáp án, phím mũi tên <b>Trái / Phải</b> chuyển câu, nhấp đúp vào từ tiếng Anh bất kỳ để tra từ điển.</p>
+          </div>
         </div>
-        <div class="q-card__text">${q.q}</div>
-        <div class="opts" id="qOpts">
-          ${q.opts.map((o, i) => `<button class="opt" data-i="${i}"><span class="key">${LETTERS[i]}</span><span>${o}</span></button>`).join("")}
-        </div>
-        <div id="qExplain"></div>
-        <div class="q-nav">
-          <button class="btn btn--ghost" id="qPrev" ${idx === 0 ? "disabled" : ""}>← TRƯỚC</button>
-          <span class="q-nav__mid">${rec ? "đã làm · " + (rec.ok ? "đúng" : "sai") : "chưa trả lời"}</span>
-          <button class="btn" id="qNext" ${idx === items.length - 1 ? "disabled" : ""}>TIẾP →</button>
-        </div>
-        <p class="kbd-hint">Phím tắt: <b>A–D</b> chọn đáp án · <b>←/→</b> chuyển câu · nhấn đúp chuột vào từ để tra từ điển</p>
+        <aside class="quiz-side">
+          <div class="side-block">
+            <h4><span>Tiến độ bộ câu hỏi</span><span>${doneCount}/${items.length}</span></h4>
+            <div class="side-stat"><span class="k">Số câu đúng</span><span class="v" style="color:var(--green)">${okCount}</span></div>
+            <div class="side-stat"><span class="k">Cần ôn lại</span><span class="v" style="color:var(--red)">${doneCount - okCount}</span></div>
+          </div>
+          <div class="side-block">
+            <h4><span>Danh sách câu</span><span style="font-size:11.5px;font-weight:500;color:var(--ink-3)">Chuyển nhanh</span></h4>
+            <div class="grid-q" id="qNavGrid">
+              ${items.map((it, i) => {
+                const st = Store.d.answers[it.id];
+                const cls = st !== undefined ? (st.ok ? "done-ok" : "done-no") : "";
+                return `<button class="gq ${cls} ${i === idx ? "cur" : ""}" data-gi="${i}">${i + 1}</button>`;
+              }).join("")}
+            </div>
+          </div>
+        </aside>
       </div>`;
 
     const paint = () => {
@@ -299,8 +347,8 @@ function mountQuiz(mount, cfg){
     if(rec !== undefined){ paint(); showEx(); }
 
     function showEx(){
-      $("#qExplain", mount).innerHTML = `<div class="explain">
-        <span class="explain__tag">GIẢI THÍCH ${rec.ok ? "· CHÍNH XÁC" : "· ĐÁP ÁN: " + LETTERS[q.a]}</span>
+      $("#qExplain", mount).innerHTML = `<div class="explain ${rec.ok ? "explain--ok" : "explain--no"}">
+        <span class="explain__tag">${rec.ok ? "Chính xác! Giải thích chi tiết:" : "Đáp án đúng là " + LETTERS[q.a] + " — Giải thích:"}</span>
         <p>${q.ex || ""}</p></div>`;
     }
 
@@ -310,13 +358,20 @@ function mountQuiz(mount, cfg){
       Store.addAnswer(q.id, i, i === q.a);
       rec = Store.d.answers[q.id];
       paint(); showEx();
+      const gBtn = $(`.gq[data-gi="${idx}"]`, mount);
+      if(gBtn) gBtn.classList.add(rec.ok ? "done-ok" : "done-no");
     });
+
+    $$("#qNavGrid .gq", mount).forEach(b => b.onclick = () => {
+      idx = +b.dataset.gi;
+      render();
+    });
+
     const prev = $("#qPrev", mount); if(prev) prev.onclick = () => { idx--; render(); };
     const next = $("#qNext", mount); if(next) next.onclick = () => { idx++; render(); };
     focusHotkeys();
   }
 
-  /* phím tắt A–D chọn đáp án, ←/→ chuyển câu — chỉ hoạt động khi quiz trong khung nhìn */
   let hotkeyEl = null;
   function focusHotkeys(){
     if(hotkeyEl) hotkeyEl.removeEventListener("keydown", hotkeyEl.__hk);
@@ -347,86 +402,112 @@ function viewHome(){
   const streak = Store.streak();
   const ai = AI.available();
   const modDefs = [
-    ["01", "Ngữ pháp & cấu trúc", "12 chủ đề điểm rơi của đề VSTEP — thì, bị động, điều kiện, tường thuật…", "60 câu", "#/ngu-phap"],
-    ["02", "Từ vựng B2", "Collocation, phrasal verbs, từ theo chủ đề + bộ flashcard lặp lại.", "60 câu + 48 thẻ", "#/tu-vung"],
-    ["03", "Đọc hiểu", "4 phần đúng format VSTEP — kể cả 4 passage trong đề mẫu chính thức.", "62 câu", "#/doc"],
-    ["04", "Nghe", "Máy đọc hội thoại 2 giọng trực tiếp trong trình duyệt, không cần file audio.", "25 câu", "#/nghe"],
-    ["05", "Viết", "Dàn ý + bài mẫu chuẩn B2. Bộ chấm cục bộ và AI chấm theo 4 tiêu chí VSTEP.", "8 đề", "#/viet"],
-    ["06", "Nói", "Ghi âm nhận diện giọng nói, đo tốc độ nói, AI chấm theo rubric, cứu nguy khi bí ý.", "10 đề", "#/noi"],
-    ["07", "Chiến thuật", "Cách đoán nghĩa từ ngữ cảnh, phân tích ý đề, mẹo từng phần thi.", "6 kỹ năng", "#/chien-thuat"],
-    ["08", "Sổ lỗi", "Mọi câu bạn từng làm sai, xếp sẵn kèm giải thích — ôn đúng chỗ yếu.", "tự động", "#/so-loi"]
+    ["Nền tảng", "Ngữ pháp & Cấu trúc", "12 chuyên đề trọng tâm thường gặp nhất trong đề VSTEP: thì, câu bị động, câu điều kiện, mệnh đề quan hệ.", "60 câu hỏi", "#/ngu-phap"],
+    ["Nền tảng", "Từ vựng B2 & Flashcard", "Collocation, phrasal verbs, từ vựng theo 6 chủ đề học thuật kèm hệ thống thẻ ghi nhớ lặp lại ngắt quãng.", "60 câu + 48 thẻ", "#/tu-vung"],
+    ["Kỹ năng 1", "Đọc hiểu VSTEP", "Luyện đủ 4 phần Reading chuẩn cấu trúc, bao gồm trọn bộ 4 bài đọc từ đề minh họa chính thức của Bộ GD&ĐT.", "62 câu hỏi", "#/doc"],
+    ["Kỹ năng 2", "Nghe hiểu 2 giọng đọc", "Hệ thống hội thoại 2 giọng nam và nữ phát trực tiếp trên trình duyệt kèm lời thoại đối chiếu chi tiết.", "25 câu hỏi", "#/nghe"],
+    ["Kỹ năng 3", "Viết thư & Luận văn", "Dàn ý, từ nối học thuật, bài mẫu chuẩn B2 cùng công cụ đếm từ và chấm bài chi tiết theo 4 tiêu chí VSTEP.", "8 đề luyện", "#/viet"],
+    ["Kỹ năng 4", "Phòng thu luyện Nói", "Nhận diện giọng nói trực tiếp, đo tốc độ WPM, phát hiện từ đệm, sơ đồ tư duy Part 3 và trợ lý gợi ý khi bí.", "10 chủ đề", "#/noi"],
+    ["Phương pháp", "Chiến thuật phòng thi", "Kỹ năng đoán nghĩa từ lạ qua ngữ cảnh, phân bổ thời gian 60 phút và công thức trả lời nhanh từng phần.", "6 chuyên đề", "#/chien-thuat"],
+    ["Ôn tập", "Sổ lỗi tự động", "Tự động lưu lại mọi câu bạn từng làm sai kèm lời giải thích để ôn đúng điểm yếu trước ngày thi.", "Cá nhân hóa", "#/so-loi"]
   ];
   app.innerHTML = `
   <section class="hero">
-    <div>
-      <div class="hero__kicker"><span class="tag">VSTEP · B2 PREP DOSSIER · ${todayStr()}</span><span class="rule"></span></div>
-      <h1>Luyện B2 như<br><span class="u">vào phòng thi thật</span>.</h1>
-      <p class="hero__sub">Đề luyện bám cấu trúc VSTEP 4 kỹ năng, có cả 4 bài đọc &amp; đáp án trong <b>đề mẫu chính thức của Bộ GD&amp;ĐT</b>. Làm bài — xem điểm — soi từng chỗ sai — để AI chấm từng câu văn, câu nói của bạn.</p>
-      <div class="hero__cta">
-        <a class="btn btn--solid" href="#/thi-thu">VÀO THI THỬ →</a>
-        <a class="btn" href="#/ngu-phap">LUYỆN TỪ ĐẦU</a>
+    <div class="hero__main">
+      <div>
+        <div class="hero__kicker">
+          <span class="tag">Chuẩn cấu trúc VSTEP B2 (Bậc 4/6)</span>
+          <span style="font-size:13px;font-weight:600;color:var(--ink-3)">Cập nhật ${todayStr()}</span>
+        </div>
+        <h1>Không gian luyện thi B2 trực quan, tập trung và thực chiến.</h1>
+        <p class="hero__sub">Luyện trọn vẹn 4 kỹ năng Nghe, Đọc, Viết, Nói trên giao diện mô phỏng phòng thi máy tính (CBT), tích hợp bộ đề mẫu chính thức của Bộ GD&amp;ĐT cùng giám khảo AI chấm chữa chi tiết.</p>
+        <div class="hero__cta">
+          <a class="btn btn--solid" href="#/thi-thu"><span>Vào phòng thi thử CBT</span>${ICO.next}</a>
+          <a class="btn" href="#/ngu-phap"><span>Luyện từ nền tảng</span></a>
+          <a class="btn btn--ghost" href="#/tu-vung"><span>Học Flashcard B2</span></a>
+        </div>
+      </div>
+      <div class="hero__highlights">
+        <div class="hero__stat"><b>207</b><span>Câu trắc nghiệm</span></div>
+        <div class="hero__stat"><b>48</b><span>Thẻ từ vựng B2</span></div>
+        <div class="hero__stat"><b>18</b><span>Đề Viết &amp; Nói</span></div>
+        <div class="hero__stat"><b>6.0</b><span>Mục tiêu chuẩn B2</span></div>
       </div>
     </div>
-    <div class="sheet score-sheet sheet--pad">
-      <div class="score-sheet__title"><span>HỒ SƠ LUYỆN TẬP</span><span>№ 02/ĐT-B2</span></div>
-      <div class="score-sheet__row"><span class="k">CÂU ĐÃ LÀM</span><span class="v">${total}<small> câu</small></span></div>
-      <div class="score-sheet__row"><span class="k">ĐỘ CHÍNH XÁC</span><span class="v ${all.pct >= 70 ? "v--green" : all.pct > 0 && all.pct < 50 ? "v--red" : ""}">${all.pct || "—"}<small>%</small></span></div>
-      <div class="score-sheet__row"><span class="k">CHUỖI NGÀY HỌC</span><span class="v">${streak}<small> ngày</small></span></div>
-      <div class="score-sheet__row"><span class="k">TRỢ LÝ AI</span><span class="v ${ai ? "v--green" : ""}" style="font-size:15px">${ai ? "SẴN SÀNG ✓" : "CHƯA CẮM KEY"}</span></div>
-      <a class="btn btn--red" style="width:100%;justify-content:center;margin-top:14px" href="#/cai-dat">${ai ? "CÀI ĐẶT AI" : "CẮM API KEY MIỄN PHÍ"}</a>
+    <div class="sheet score-sheet">
+      <div>
+        <div class="score-sheet__title"><span>Tiến độ học tập của bạn</span><span class="tag">Mục tiêu B2</span></div>
+        <div class="score-sheet__row"><span class="k">Tổng số câu đã làm</span><span class="v">${total}<small> câu</small></span></div>
+        <div class="score-sheet__row"><span class="k">Tỷ lệ chính xác</span><span class="v ${all.pct >= 70 ? "v--green" : all.pct > 0 && all.pct < 50 ? "v--red" : ""}">${all.pct || "0"}<small>%</small></span></div>
+        <div class="score-sheet__row"><span class="k">Chuỗi ngày học liên tiếp</span><span class="v">${streak}<small> ngày</small></span></div>
+        <div class="score-sheet__row"><span class="k">Giám khảo AI (Viết &amp; Nói)</span><span class="v ${ai ? "v--green" : ""}" style="font-size:15px">${ai ? "Đã kích hoạt" : "Chưa kết nối"}</span></div>
+      </div>
+      <a class="btn ${ai ? "btn--ghost" : "btn--solid"}" style="width:100%;margin-top:16px" href="#/cai-dat">
+        <span>${ai ? "Quản lý cấu hình AI" : "Kết nối API Key Gemini miễn phí"}</span>
+      </a>
     </div>
   </section>
 
-  <div class="ticker"><div class="ticker__in">
-    ${( '<span><b>60</b> câu ngữ pháp</span><span><b>60</b> câu từ vựng</span><span><b>48</b> flashcard</span><span><b>62</b> câu đọc hiểu</span><span><b>40</b> câu trong đề chính thức</span><span><b>25</b> câu nghe</span><span><b>8</b> đề viết</span><span><b>10</b> đề nói</span><span><b>AI</b> chấm viết &amp; nói</span><span><b>API</b> từ điển + dịch</span>').repeat(2)}
-  </div></div>
-
-  <section>
-    <div class="section-head"><span class="section-head__no">MỤC LỤC</span><h2>Mô-đun luyện tập</h2><span class="section-head__meta">8 PHẦN</span></div>
+  <section style="margin-top:36px">
+    <div class="section-head">
+      <span class="section-head__no">Lộ trình toàn diện</span>
+      <h2>Các học phần luyện tập</h2>
+      <span class="section-head__meta">8 học phần chuyên sâu</span>
+    </div>
     <div class="mods">
       ${modDefs.map(m => `
         <a class="mod" href="${m[4]}">
-          <span class="mod__no">PHẦN ${m[0]}<em>${m[3]}</em></span>
-          <h3>${m[1]}</h3><p>${m[2]}</p>
-          <span class="mod__go">MỞ <span class="arr">→</span></span>
+          <div class="mod__top">
+            <span class="mod__badge">${m[0]}</span>
+            <span class="mod__meta">${m[3]}</span>
+          </div>
+          <h3>${m[1]}</h3>
+          <p>${m[2]}</p>
+          <div class="mod__foot">
+            <span class="mod__go"><span>Bắt đầu học</span>${ICO.next}</span>
+          </div>
         </a>`).join("")}
     </div>
   </section>
 
   <section class="exam-band">
     <div>
-      <span class="tag">PHÒNG THI SỐ 02 — MÔ PHỎNG</span>
-      <h3>Thi thử có <em>bấm giờ, phiếu trả lời</em> và chấm điểm theo thang VSTEP.</h3>
+      <span class="tag">Mô phỏng phòng thi máy tính (CBT)</span>
+      <h3>Làm đề thi thử có bấm giờ, bảng phiếu trả lời trực quan và chấm điểm thang 10 VSTEP.</h3>
     </div>
     <div class="exam-band__meta">
-      <div><b>3</b><span>cỡ đề</span></div>
-      <div><b>60'</b><span>tối đa</span></div>
-      <div><b>10</b><span>thang điểm</span></div>
+      <div><b>3</b><span>Chế độ đề</span></div>
+      <div><b>60p</b><span>Thời lượng</span></div>
+      <div><b>10</b><span>Thang điểm</span></div>
     </div>
-    <a class="btn btn--paper" href="#/thi-thu">XUẤT PHÍCH →</a>
+    <a class="btn btn--paper" href="#/thi-thu"><span>Bắt đầu thi thử</span>${ICO.next}</a>
   </section>
 
   <section class="dossier">
-    <div class="section-head"><span class="section-head__no">HỒ SƠ</span><h2>Sổ điểm của bạn</h2><span class="section-head__meta">${Store.d.days.length} NGÀY HỌC</span></div>
+    <div class="section-head">
+      <span class="section-head__no">Phân tích năng lực</span>
+      <h2>Thống kê kết quả học tập</h2>
+      <span class="section-head__meta">${Store.d.days.length} ngày hoạt động</span>
+    </div>
     <div class="dossier__grid">
       <div class="dossier__col">
-        <h4 class="tag">ĐỘ CHÍNH XÁC THEO KỸ NĂNG</h4>
+        <h4>Độ chính xác theo từng kỹ năng</h4>
         <div class="acc-rows">
-          ${[["Ngữ pháp","g"],["Từ vựng","v"],["Đọc hiểu","r"],["Nghe","l"]].map(([name, p]) => {
+          ${[["Ngữ pháp & Cấu trúc","g"],["Từ vựng học thuật","v"],["Đọc hiểu (Reading)","r"],["Nghe hiểu (Listening)","l"]].map(([name, p]) => {
             const a = Store.accBy(p);
-            const w = a.total ? a.pct : 0;
-            return `<div class="acc-row"><div class="acc-row__top"><span>${name}</span><span>${a.total ? a.pct + "% (" + a.ok + "/" + a.total + ")" : "chưa có dữ liệu"}</span></div>
-              <div class="acc-row__bar"><div class="acc-row__fill ${a.total && a.pct < 50 ? "acc-row__fill--red" : ""}" style="width:${w}%"></div></div></div>`;
+            const ratio = a.total ? (a.pct / 100).toFixed(2) : 0;
+            return `<div class="acc-row"><div class="acc-row__top"><span>${name}</span><span>${a.total ? a.pct + "% (" + a.ok + "/" + a.total + " câu)" : "Chưa làm bài"}</span></div>
+              <div class="acc-row__bar"><div class="acc-row__fill ${a.total && a.pct < 50 ? "acc-row__fill--red" : a.total && a.pct >= 70 ? "acc-row__fill--green" : ""}" style="transform:scaleX(${ratio})"></div></div></div>`;
           }).join("")}
         </div>
       </div>
       <div class="dossier__col">
-        <h4 class="tag">LỊCH SỬ THI THỬ</h4>
+        <h4>Lịch sử làm bài thi thử</h4>
         <div class="hist">
           ${Store.d.mocks.length ? Store.d.mocks.slice(0, 6).map(m => `
             <div class="hist-row"><span class="d">${m.date}</span><span class="m">${esc(m.label)}</span><span class="m">${m.timeUsed}</span>
             <span class="pct ${m.pct >= 60 ? "ok" : "no"}">${m.score}/10</span></div>`).join("")
-          : '<p class="hist-empty">Chưa có kỳ thi thử nào — phòng thi số 02 đang chờ bạn.</p>'}
+          : '<p class="hist-empty">Bạn chưa hoàn thành bài thi thử nào. Hãy thử sức với Đề nhanh 20 phút để đánh giá trình độ hiện tại.</p>'}
         </div>
       </div>
     </div>
@@ -437,14 +518,14 @@ function viewHome(){
 function viewGrammar(){
   const topics = [...new Set(GRAMMAR.map(q => q.topic))];
   let filter = "all";
-  app.innerHTML = moduleHead("01", "Ngữ pháp &amp; cấu trúc",
-    "12 chủ đề điểm rơi của VSTEP B2. Chọn đáp án là chấm ngay, kèm giải thích chi tiết — câu nào sai sẽ tự vào Sổ lỗi.",
-    "60 CÂU") + `
+  app.innerHTML = moduleHead("Học phần 1", "Ngữ pháp &amp; Cấu trúc B2",
+    "12 chuyên đề ngữ pháp cốt lõi của VSTEP B2. Chọn đáp án để xem giải thích ngay lập tức; những câu trả lời sai sẽ tự động được lưu vào Sổ lỗi.",
+    "60 câu trắc nghiệm") + `
     <div class="topic-bar" id="topicBar">
-      <button class="chip on" data-t="all">TẤT CẢ <span class="n">${GRAMMAR.length}</span></button>
-      ${topics.map(t => `<button class="chip" data-t="${esc(t)}">${esc(t).toUpperCase()} <span class="n">${GRAMMAR.filter(q => q.topic === t).length}</span></button>`).join("")}
+      <button class="chip on" data-t="all">Tất cả chủ đề <span class="n">${GRAMMAR.length}</span></button>
+      ${topics.map(t => `<button class="chip" data-t="${esc(t)}">${esc(t)} <span class="n">${GRAMMAR.filter(q => q.topic === t).length}</span></button>`).join("")}
     </div>
-    <div class="quiz-layout"><div class="quiz-main" id="quizMount"></div></div>`;
+    <div id="quizMount"></div>`;
   const mount = $("#quizMount");
   const render = () => {
     const items = (filter === "all" ? GRAMMAR : GRAMMAR.filter(q => q.topic === filter))
@@ -461,13 +542,13 @@ function viewGrammar(){
 /* ================= TỪ VỰNG ================= */
 function viewVocab(tab){
   tab = tab || "quiz";
-  app.innerHTML = moduleHead("02", "Từ vựng B2",
-    "Collocation, phrasal verbs, chọn từ và từ vựng theo 6 chủ đề thi hay gặp. Có thêm bộ flashcard lặp lại cho từ khó.",
-    "60 CÂU + 48 THẺ") + `
+  app.innerHTML = moduleHead("Học phần 2", "Từ vựng B2 &amp; Flashcard",
+    "Rèn luyện collocation, phrasal verbs và từ vựng theo 6 chủ đề thường gặp trong đề thi, kết hợp thẻ ghi nhớ Flashcard lật 3D theo phương pháp lặp lại ngắt quãng.",
+    "60 câu hỏi & 48 thẻ từ") + `
     <div class="topic-bar">
-      <button class="chip ${tab === "quiz" ? "on" : ""}" data-tab="quiz">LUYỆN ĐỀ</button>
-      <button class="chip ${tab === "cards" ? "on" : ""}" data-tab="cards">FLASHCARD</button>
-      <span class="mono" style="font-size:10px;color:var(--ink-3);align-self:center;margin-left:6px">NHẤP ĐÚP CHUỘT VÀO TỪ BẤT KỲ ĐỂ TRA TỪ ĐIỂN</span>
+      <button class="chip ${tab === "quiz" ? "on" : ""}" data-tab="quiz">Luyện câu hỏi trắc nghiệm</button>
+      <button class="chip ${tab === "cards" ? "on" : ""}" data-tab="cards">Học thẻ Flashcard 3D</button>
+      <span style="font-size:12.5px;color:var(--ink-3);margin-left:auto">Mẹo: Nhấp đúp chuột vào từ tiếng Anh bất kỳ để mở từ điển</span>
     </div>
     <div id="vocabBody"></div>`;
   $$(".chip[data-tab]").forEach(c => c.onclick = () => { location.hash = "#/tu-vung"; viewVocab(c.dataset.tab); $$(".chip[data-tab]").forEach(x => x.classList.toggle("on", x === c)); });
@@ -478,10 +559,10 @@ function vocabQuiz(){
   let filter = "all";
   $("#vocabBody").innerHTML = `
     <div class="topic-bar" id="setBar">
-      <button class="chip on" data-t="all">TẤT CẢ <span class="n">${VOCAB.length}</span></button>
-      ${sets.map(s => `<button class="chip" data-t="${esc(s)}">${esc(s).toUpperCase()} <span class="n">${VOCAB.filter(q => q.set === s).length}</span></button>`).join("")}
+      <button class="chip on" data-t="all">Tất cả <span class="n">${VOCAB.length}</span></button>
+      ${sets.map(s => `<button class="chip" data-t="${esc(s)}">${esc(s)} <span class="n">${VOCAB.filter(q => q.set === s).length}</span></button>`).join("")}
     </div>
-    <div class="quiz-layout"><div class="quiz-main" id="quizMount"></div></div>`;
+    <div id="quizMount"></div>`;
   const mount = $("#quizMount");
   const render = () => mountQuiz(mount, { items: (filter === "all" ? VOCAB : VOCAB.filter(q => q.set === filter))
     .map(q => ({ id: q.id, q: esc(q.q), opts: q.opts.map(esc), a: q.a, ex: q.ex, tag: esc(q.set) })) });
@@ -498,33 +579,52 @@ function vocabCards(){
   const render = () => {
     const c = deck[i];
     const known = Object.keys(Store.d.cards).length;
+    const mastered = Object.values(Store.d.cards).filter(x => x.box >= 3).length;
     $("#vocabBody").innerHTML = `
       <div class="fc-stage">
-        <div class="fc-card" id="fcCard">
-          <span class="fc-side mono">${flipped ? "MẶT SAU" : "MẶT TRƯỚC"} · THẺ ${i + 1}/${deck.length}</span>
-          ${flipped
-            ? `<div><div class="fc-vi">${esc(c.vi)}</div><div class="fc-en">“${esc(c.en)}”</div></div>`
-            : `<div><div class="fc-word">${esc(c.word)}</div><div class="fc-pos mono">${esc(c.pos)} · hộp ${boxOf(c)}/3</div></div>`}
+        <div class="fc-card ${flipped ? "is-flipped" : ""}" id="fcCard" tabindex="0" role="button" aria-label="Thẻ từ vựng ${esc(c.word)}, bấm để lật thẻ">
+          <div class="fc-card__inner">
+            <div class="fc-face fc-face--front">
+              <span class="fc-side">Mặt trước (${i + 1}/${deck.length})</span>
+              <span class="fc-box-badge">Hộp ghi nhớ ${boxOf(c)}/3</span>
+              <div class="fc-word">${esc(c.word)}</div>
+              <div class="fc-pos">${esc(c.pos)}</div>
+              <span style="font-size:12.5px;color:var(--ink-3);margin-top:22px">Nhấp vào thẻ để lật xem nghĩa &amp; câu ví dụ</span>
+            </div>
+            <div class="fc-face fc-face--back">
+              <span class="fc-side">Mặt sau (${i + 1}/${deck.length})</span>
+              <span class="fc-box-badge">${esc(c.word)} (${esc(c.pos)})</span>
+              <div class="fc-vi">${esc(c.vi)}</div>
+              <div class="fc-en">“${esc(c.en)}”</div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="fc-controls">
-        <button class="btn btn--ghost" id="fcPrev">← TRƯỚC</button>
-        <button class="btn btn--solid" id="fcFlip">${flipped ? "QUAY LẠI" : "LẬT THẺ"}</button>
-        ${flipped ? `<button class="btn btn--red" id="fcNo">CHƯA NHỚ</button><button class="btn" id="fcYes" style="border-color:var(--green);color:var(--green)">ĐÃ NHỚ ↑ HỘP</button>` : ""}
-        <button class="btn btn--ghost" id="fcAudio">🔊 LOA</button>
+        <button class="btn btn--ghost" id="fcPrev">${ICO.prev}<span>Thẻ trước</span></button>
+        <button class="btn" id="fcFlip">${ICO.flip}<span>Lật thẻ</span></button>
+        <button class="btn btn--red" id="fcNo">Chưa nhớ (Về hộp 1)</button>
+        <button class="btn btn--green" id="fcYes">Đã nhớ (Tăng hộp)</button>
+        <button class="btn btn--ghost" id="fcAudio">${ICO.speaker}<span>Phát âm</span></button>
       </div>
-      <p class="fc-count">HỌC BÀI: ${known}/${CARDS.length} THẺ ĐÃ GẶP · NGUYÊN TẮC: “CHƯA NHỚ” ĐẨY THẺ VỀ HỘP 1, “ĐÃ NHỚ” TĂNG HỘP</p>`;
-    $("#fcCard").onclick = () => { flipped = !flipped; render(); };
+      <p class="fc-count">Đã học: <b>${known}/${CARDS.length}</b> thẻ | Đã thuộc lòng (Hộp 3): <b>${mastered}</b> thẻ</p>`;
+
+    const toggleFlip = () => {
+      flipped = !flipped;
+      $("#fcCard").classList.toggle("is-flipped", flipped);
+    };
+    $("#fcCard").onclick = toggleFlip;
+    $("#fcCard").onkeydown = e => { if(e.key === " " || e.key === "Enter"){ e.preventDefault(); toggleFlip(); } };
+    $("#fcFlip").onclick = toggleFlip;
     $("#fcPrev").onclick = () => { i = (i - 1 + deck.length) % deck.length; flipped = false; render(); };
-    $("#fcFlip").onclick = () => { flipped = !flipped; render(); };
     $("#fcAudio").onclick = () => {
       fetch("https://api.dictionaryapi.dev/api/v2/entries/en/" + encodeURIComponent(c.word))
         .then(r => r.ok ? r.json() : Promise.reject())
         .then(j => { const a = (j[0].phonetics || []).map(p => p.audio).filter(Boolean)[0]; if(a) new Audio(a).play(); else TTS.speak([{v:0,t:c.word}]); })
         .catch(() => TTS.speak([{v:0,t:c.word}]));
     };
-    if($("#fcYes")) $("#fcYes").onclick = () => { Store.d.cards[c.id] = { box: Math.min(3, boxOf(c) + 1), at: Date.now() }; Store.save(); i = (i + 1) % deck.length; flipped = false; render(); };
-    if($("#fcNo")) $("#fcNo").onclick = () => { Store.d.cards[c.id] = { box: 1, at: Date.now() }; Store.save(); i = (i + 1) % deck.length; flipped = false; render(); };
+    $("#fcYes").onclick = () => { Store.d.cards[c.id] = { box: Math.min(3, boxOf(c) + 1), at: Date.now() }; Store.save(); i = (i + 1) % deck.length; flipped = false; render(); };
+    $("#fcNo").onclick = () => { Store.d.cards[c.id] = { box: 1, at: Date.now() }; Store.save(); i = (i + 1) % deck.length; flipped = false; render(); };
   };
   render();
 }
@@ -532,14 +632,14 @@ function vocabCards(){
 /* ================= ĐỌC HIỂU ================= */
 function viewReading(part){
   part = part || "p1";
-  app.innerHTML = moduleHead("03", "Đọc hiểu",
-    "Bốn phần đúng format VSTEP Reading. Phần 4 là 4 bài đọc trong <b>đề mẫu chính thức</b> kèm đáp án gốc và bảng quy đổi điểm.",
-    "62 CÂU · 60 PHÚT KHI THI") + `
+  app.innerHTML = moduleHead("Học phần 3", "Đọc hiểu VSTEP (Reading)",
+    "Luyện tập 4 dạng bài đọc hiểu chuẩn VSTEP. Phần 4 bao gồm toàn bộ 4 bài đọc dài trong đề minh họa chính thức kèm đáp án gốc và giải thích chi tiết.",
+    "62 câu hỏi | 60 phút khi thi") + `
     <div class="topic-bar">
-      <button class="chip ${part === "p1" ? "on" : ""}" data-p="p1">P1 · THÔNG BÁO NGẮN</button>
-      <button class="chip ${part === "p2" ? "on" : ""}" data-p="p2">P2 · ĐỐI CHIẾU CHI TIẾT</button>
-      <button class="chip ${part === "p3" ? "on" : ""}" data-p="p3">P3 · ĐIỀN CÂU</button>
-      <button class="chip ${part === "p4" ? "on" : ""}" data-p="p4">P4 · ĐỀ CHÍNH THỨC (40 CÂU)</button>
+      <button class="chip ${part === "p1" ? "on" : ""}" data-p="p1">Phần 1: Thông báo ngắn</button>
+      <button class="chip ${part === "p2" ? "on" : ""}" data-p="p2">Phần 2: Đối chiếu đoạn văn</button>
+      <button class="chip ${part === "p3" ? "on" : ""}" data-p="p3">Phần 3: Điền câu vào đoạn</button>
+      <button class="chip ${part === "p4" ? "on" : ""}" data-p="p4">Phần 4: Đề chính thức (40 câu)</button>
     </div>
     <div id="readBody"></div>`;
   $$(".chip[data-p]").forEach(c => c.onclick = () => {
@@ -549,52 +649,52 @@ function viewReading(part){
   const body = $("#readBody");
 
   if(part === "p1"){
-    body.innerHTML = `<div class="quiz-layout"><div class="quiz-main" id="quizMount"></div></div>`;
+    body.innerHTML = `<div id="quizMount"></div>`;
     mountQuiz($("#quizMount"), {
-      items: READING_P1.map(q => ({ id: q.id, q: esc(q.q), opts: q.opts.map(esc), a: q.a, ex: q.ex, tag: "P1", src: q.src })),
-      getPassage: q => `<h3>Notice</h3><span class="src">${esc(READING_P1.find(x => x.id === q.id).src)}</span><div class="passage-body">${esc(READING_P1.find(x => x.id === q.id).passage).replace(/\n/g, "<br>")}</div>`
+      items: READING_P1.map(q => ({ id: q.id, q: esc(q.q), opts: q.opts.map(esc), a: q.a, ex: q.ex, tag: "Phần 1", src: q.src })),
+      getPassage: q => `<h3>Văn bản thông báo</h3><span class="src">${esc(READING_P1.find(x => x.id === q.id).src)}</span><div class="passage-body">${esc(READING_P1.find(x => x.id === q.id).passage).replace(/\n/g, "<br>")}</div>`
     });
   }
   else if(part === "p2"){
     body.innerHTML = `
       <div class="sheet passage-panel">
-        <h3>Bốn hoạt động cuối tuần</h3><span class="src">Đọc 4 đoạn và chọn đoạn phù hợp với mỗi nhận định</span>
+        <h3>Bốn hoạt động cuối tuần</h3><span class="src">Đọc 4 đoạn giới thiệu dưới đây và chọn đoạn phù hợp với từng nhận định</span>
         <div class="p2-texts">${READING_P2_TEXTS.map(t => `
-          <div class="p2-text"><b class="mono">ĐOẠN ${t.key}</b> — ${esc(t.title)}<br>${esc(t.body)}</div>`).join("")}
+          <div class="p2-text"><b>Đoạn ${t.key}: ${esc(t.title)}</b><br>${esc(t.body)}</div>`).join("")}
         </div>
       </div>
-      <div class="quiz-layout"><div class="quiz-main" id="quizMount"></div></div>`;
+      <div id="quizMount"></div>`;
     mountQuiz($("#quizMount"), {
-      items: READING_P2.map(q => ({ id: q.id, q: esc(q.q), opts: q.opts.map(esc), a: q.a, ex: q.ex, tag: "P2" }))
+      items: READING_P2.map(q => ({ id: q.id, q: esc(q.q), opts: q.opts.map(esc), a: q.a, ex: q.ex, tag: "Phần 2" }))
     });
   }
   else if(part === "p3"){
     body.innerHTML = `
       <div class="sheet passage-panel">
-        <h3>${esc(READING_P3_PASSAGE.title)}</h3><span class="src">Chọn câu phù hợp cho mỗi chỗ trống trong bài</span>
+        <h3>${esc(READING_P3_PASSAGE.title)}</h3><span class="src">Chọn câu phù hợp nhất để điền vào mỗi vị trí trống trong bài đọc</span>
         <div class="passage-body">${esc(READING_P3_PASSAGE.body).replace(/__(\(\d+\))__/g, '<span class="blank-no">$1</span>').replace(/\n/g, "<br>")}</div>
       </div>
-      <div class="quiz-layout"><div class="quiz-main" id="quizMount"></div></div>`;
+      <div id="quizMount"></div>`;
     mountQuiz($("#quizMount"), {
-      items: READING_P3.map(q => ({ id: q.id, q: esc(q.q), opts: q.opts.map(esc), a: q.a, ex: q.ex, tag: "P3" }))
+      items: READING_P3.map(q => ({ id: q.id, q: esc(q.q), opts: q.opts.map(esc), a: q.a, ex: q.ex, tag: "Phần 3" }))
     });
   }
   else {
     body.innerHTML = `
       <div class="topic-bar" id="psBar">
-        ${READING_OFFICIAL.map((p, i) => `<button class="chip ${i === 0 ? "on" : ""}" data-i="${i}">BÀI ${i + 1} · ${esc(p.title.replace("PASSAGE ", "").split(" - ")[1] || "").toUpperCase()}</button>`).join("")}
-        <span class="badge-off mono" style="align-self:center">ĐỀ MẪU CHÍNH THỨC · 10 CÂU/ BÀI</span>
+        ${READING_OFFICIAL.map((p, i) => `<button class="chip ${i === 0 ? "on" : ""}" data-i="${i}">Bài đọc ${i + 1}: ${esc(p.title.replace("PASSAGE ", "").split(" - ")[1] || "")}</button>`).join("")}
+        <span class="badge-off">Đề mẫu chính thức (10 câu / bài)</span>
       </div>
-      <div class="quiz-layout"><div class="quiz-main" id="quizMount"></div></div>`;
+      <div id="quizMount"></div>`;
     let cur = 0;
     const render = () => {
       const p = READING_OFFICIAL[cur];
       mountQuiz($("#quizMount"), {
         items: p.questions.map(q => {
           const n = q.n, key = READING_OFFICIAL_KEY[String(n)];
-          return { id: "ro" + n, q: esc(q.q), opts: q.opts.map(esc), a: LETTERS.indexOf(key), ex: READING_OFFICIAL_EX[String(n)], tag: "P4 · câu " + n + "/40", src: "đề chính thức" };
+          return { id: "ro" + n, q: esc(q.q), opts: q.opts.map(esc), a: LETTERS.indexOf(key), ex: READING_OFFICIAL_EX[String(n)], tag: "Câu " + n + "/40", src: "Đề chính thức" };
         }),
-        getPassage: () => `<h3>${esc(p.title.replace(/^PASSAGE \d+ - /, ""))}</h3><span class="src">VSTEP SAMPLE TEST (LEVEL 3-5) — ĐỀ MINH HỌA QĐ 730/QĐ-BGDĐT</span><div class="passage-body">${esc(p.body)}</div>`
+        getPassage: () => `<h3>${esc(p.title.replace(/^PASSAGE \d+ - /, ""))}</h3><span class="src">Đề minh họa VSTEP Bậc 3–5 (Quyết định 730/QĐ-BGDĐT)</span><div class="passage-body">${esc(p.body)}</div>`
       });
     };
     $$("#psBar .chip").forEach(c => c.onclick = () => { $$("#psBar .chip").forEach(x => x.classList.remove("on")); c.classList.add("on"); cur = +c.dataset.i; render(); });
@@ -604,60 +704,95 @@ function viewReading(part){
 
 /* ================= NGHE ================= */
 function viewListening(){
-  app.innerHTML = moduleHead("04", "Nghe",
-    "Trình duyệt đọc hội thoại bằng hai giọng nam–nữ (Web Speech API), không cần tải audio. Nghe trước — trả lời sau — rồi mở transcript đối chiếu. 8 câu đầu là câu hỏi &amp; đáp án <b>đề mẫu chính thức</b>.",
-    "25 CÂU") + `
-    <div class="notice" style="margin-bottom:24px"><span class="mono">LƯU Ý</span>
-      <span>Tốc độ đọc mặc định 1.0 — đề thật chỉ được nghe <b>một lần</b>, hãy bấm PLAY đúng lúc sẵn sàng. Nếu máy không có giọng tiếng Anh, cài thêm gói ngôn ngữ hoặc dùng Chrome/Edge.</span></div>
+  app.innerHTML = moduleHead("Học phần 4", "Nghe hiểu VSTEP (Listening)",
+    "Trình phát hội thoại bằng hai giọng đọc Nam – Nữ trực tiếp trên trình duyệt. Hãy đọc trước câu hỏi, bấm Phát âm thanh để nghe và trả lời, sau đó mở Lời thoại (Transcript) để kiểm tra.",
+    "25 câu hỏi") + `
+    <div class="notice" style="margin-bottom:24px">
+      <div><b>Hướng dẫn luyện nghe hiệu quả:</b> Trong phòng thi VSTEP thật, thí sinh chỉ được nghe <b>một lần duy nhất</b>. Bạn có thể chọn tốc độ 0.85× khi mới luyện và tăng lên 1.0× khi đã quen nhịp.</div>
+    </div>
     <div id="listenBody"></div>`;
   const body = $("#listenBody");
   LISTENING.forEach(g => {
     const wrap = document.createElement("div");
     wrap.className = "listen-group";
     wrap.innerHTML = `
-      <div class="sheet sheet--pad" style="margin-bottom:18px;padding:18px 22px;display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap">
-        <div><span class="tag">PART ${g.part} · ${g.qs.length} CÂU</span>
-          <div style="font-size:19px;font-weight:700;margin-top:4px">${esc(g.title)} ${g.official ? officialBadge() : ""}</div></div>
-        <div style="display:flex;gap:8px;align-items:center">
-          <span class="mono" style="font-size:10px;color:var(--ink-3)">TỐC ĐỘ</span>
+      <div class="sheet sheet--pad" style="margin-bottom:14px;padding:18px 22px;display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap">
+        <div>
+          <span class="tag">Part ${g.part} (${g.qs.length} câu)</span>
+          <div style="font-size:19px;font-weight:800;margin-top:6px">${esc(g.title)} ${g.official ? officialBadge() : ""}</div>
+        </div>
+        <div style="display:flex;gap:6px;align-items:center">
+          <span style="font-size:12.5px;font-weight:600;color:var(--ink-3);margin-right:4px">Tốc độ đọc:</span>
           <button class="btn btn--sm btn--ghost" data-rate="0.85">0.85×</button>
-          <button class="btn btn--sm" data-rate="1">1×</button>
+          <button class="btn btn--sm btn--solid" data-rate="1">1.0×</button>
           <button class="btn btn--sm btn--ghost" data-rate="1.15">1.15×</button>
         </div>
       </div>
       <div class="tape" data-gid="${g.gid}">
-        <div class="tape__reels"><div class="reel"></div><div class="reel"></div></div>
-        <div class="tape__info"><b>MÁY ĐỌC — ${esc(g.title).toUpperCase()}</b><span>bấm play khi đã sẵn sàng · mỗi lần play đọc lại từ đầu</span></div>
+        <div class="tape__wave" aria-hidden="true">
+          <div class="tape__bar"></div><div class="tape__bar"></div><div class="tape__bar"></div>
+          <div class="tape__bar"></div><div class="tape__bar"></div><div class="tape__bar"></div>
+        </div>
+        <div class="tape__info">
+          <b>Trình phát hội thoại: ${esc(g.title)}</b>
+          <span id="status-${g.gid}">Sẵn sàng phát âm thanh (2 giọng đọc tiếng Anh)</span>
+        </div>
         <div class="tape__ctrl">
-          <button class="btn btn--tape btn--sm">▶ PLAY</button>
-          <button class="btn btn--tape btn--sm">■ STOP</button>
+          <button class="btn btn--tape btn--sm">${ICO.play}<span>Phát bài nghe</span></button>
+          <button class="btn btn--tape btn--sm">${ICO.stop}<span>Dừng</span></button>
         </div>
       </div>
       <div class="script-box" id="sb-${g.gid}">
-        <h5>TRANSCRIPT — chỉ mở sau khi làm xong</h5>
-        ${g.script.map(l => `<div class="script-line ${l.v === 2 ? "v2" : l.v === 0 ? "nar" : ""}"><span class="spk">${l.v === 0 ? "»" : l.v === 1 ? "F" : "M"}</span><span>${esc(l.t)}</span></div>`).join("")}
+        <h5>Lời thoại bài nghe (Transcript) — Chỉ mở sau khi đã chọn đáp án</h5>
+        ${g.script.map((l, idx) => `<div class="script-line ${l.v === 2 ? "v2" : l.v === 0 ? "nar" : ""}" data-line="${idx}"><span class="spk">${l.v === 0 ? "Dẫn" : l.v === 1 ? "Nữ" : "Nam"}</span><span>${esc(l.t)}</span></div>`).join("")}
       </div>
-      <div class="quiz-layout" style="margin-top:22px"><div class="quiz-main" id="q-${g.gid}"></div></div>`;
+      <div style="margin-top:18px" id="q-${g.gid}"></div>`;
     body.appendChild(wrap);
     let rate = 1;
-    $$("[data-rate]", wrap).forEach(b => b.onclick = () => { rate = +b.dataset.rate; $$("[data-rate]", wrap).forEach(x => x.classList.remove("btn--solid")); b.classList.add("btn--solid"); });
+    $$("[data-rate]", wrap).forEach(b => b.onclick = () => {
+      rate = +b.dataset.rate;
+      $$("[data-rate]", wrap).forEach(x => { x.classList.remove("btn--solid"); x.classList.add("btn--ghost"); });
+      b.classList.remove("btn--ghost");
+      b.classList.add("btn--solid");
+    });
     const tape = $(".tape", wrap);
+    const statusEl = $(`#status-${g.gid}`, wrap);
     const [playBtn, stopBtn] = $$(".tape__ctrl .btn", wrap);
     playBtn.onclick = () => {
-      TTS.speak(g.script, { rate, onEnd: () => tape.classList.remove("playing") });
+      TTS.speak(g.script, {
+        rate,
+        onLine: (lineIdx) => {
+          statusEl.textContent = `Đang đọc câu thoại ${lineIdx + 1} / ${g.script.length}…`;
+          $$(".script-line", wrap).forEach((el, idx) => el.classList.toggle("active-line", idx === lineIdx));
+        },
+        onEnd: () => {
+          tape.classList.remove("playing");
+          statusEl.textContent = "Đã phát xong bài nghe.";
+          $$(".script-line", wrap).forEach(el => el.classList.remove("active-line"));
+        }
+      });
       tape.classList.add("playing");
     };
-    stopBtn.onclick = () => { TTS.stop(); tape.classList.remove("playing"); };
+    stopBtn.onclick = () => {
+      TTS.stop();
+      tape.classList.remove("playing");
+      statusEl.textContent = "Đã dừng phát âm thanh.";
+      $$(".script-line", wrap).forEach(el => el.classList.remove("active-line"));
+    };
     mountQuiz($("#q-" + g.gid), {
-      items: g.qs.map(q => ({ id: q.id, q: esc(q.q), opts: q.opts.map(esc), a: q.a, ex: q.ex, tag: "PART " + g.part }))
+      items: g.qs.map(q => ({ id: q.id, q: esc(q.q), opts: q.opts.map(esc), a: q.a, ex: q.ex, tag: "Part " + g.part }))
     });
-    /* nút mở transcript chèn sau khi mountQuiz render */
     const obs = new MutationObserver(() => {
       if($("#q-" + g.gid).innerHTML && !$("#tbtn-" + g.gid)){
         const btn = document.createElement("button");
         btn.className = "btn btn--ghost"; btn.id = "tbtn-" + g.gid;
-        btn.textContent = "MỞ TRANSCRIPT";
-        btn.onclick = () => { const sb = $("#sb-" + g.gid); sb.classList.toggle("open"); btn.textContent = sb.classList.contains("open") ? "ĐÓNG TRANSCRIPT" : "MỞ TRANSCRIPT"; };
+        btn.style.marginTop = "12px";
+        btn.textContent = "Xem lời thoại (Transcript)";
+        btn.onclick = () => {
+          const sb = $("#sb-" + g.gid);
+          sb.classList.toggle("open");
+          btn.textContent = sb.classList.contains("open") ? "Ẩn lời thoại (Transcript)" : "Xem lời thoại (Transcript)";
+        };
         $("#q-" + g.gid).after(btn);
         obs.disconnect();
       }
@@ -670,97 +805,100 @@ function viewListening(){
 function viewWriting(sel){
   sel = sel || 0;
   const t = WRITING[sel];
-  app.innerHTML = moduleHead("05", "Viết",
-    "Chọn đề — gõ bài ngay trên giấy kẻ dòng. Bộ chấm cục bộ soi cấu trúc, từ nối, từ lặp; cắm API key để AI chấm chi tiết theo 4 tiêu chí VSTEP.",
-    "8 ĐỀ · 60 PHÚT") + `
+  app.innerHTML = moduleHead("Học phần 5", "Luyện Viết VSTEP (Writing)",
+    "Chọn đề Task 1 (Thư/Email) hoặc Task 2 (Luận văn). Hệ thống tự động đếm từ, phân tích mật độ từ nối học thuật cục bộ và hỗ trợ chấm điểm theo 4 tiêu chí VSTEP bằng AI.",
+    "8 đề luyện | 60 phút") + `
     <div class="wtask-picker" id="wPicker">
       ${WRITING.map((w, i) => `
         <button class="wtask ${i === sel ? "on" : ""}" data-i="${i}">
-          <span class="t">TASK ${w.task} · ${w.time}' ${w.official ? "· ĐỀ CHÍNH THỨC" : ""}</span>
+          <span class="t">Task ${w.task} (${w.time} phút)${w.official ? " • Đề chính thức" : ""}</span>
           <b>${esc(w.type)}</b>
-          <span class="mono" style="font-size:10px;color:var(--ink-3)">${w.official ? "VSTEP SAMPLE TEST" : "TỰ BIÊN"}</span>
+          <span style="font-size:12px;color:var(--ink-3)">Tối thiểu ${w.target} từ</span>
         </button>`).join("")}
     </div>
     <div class="write-layout">
       <div class="sheet write-paper">
-        <div style="padding:20px 24px 0">
-          <span class="tag">ĐỀ BÀI — TASK ${t.task} (${t.time} PHÚT · ≥${t.target} TỪ)</span>
+        <div style="padding:22px 26px 0">
+          <span class="tag">Đề bài Task ${t.task} (${t.time} phút | Yêu cầu ≥ ${t.target} từ)</span>
           <div class="prompt-box">${esc(t.prompt).replace(/\n/g, "<br>")}</div>
         </div>
-        <textarea id="wArea" placeholder="Bắt đầu viết vào đây…"></textarea>
+        <textarea id="wArea" placeholder="Nhập bài viết tiếng Anh của bạn tại đây…"></textarea>
         <div class="write-tools">
-          <span class="wordmeter" id="wMeter"><b>0</b> / ≥${t.target} từ</span>
+          <div class="wordmeter" id="wMeter">
+            <div><b id="wCountNum">0</b> / ≥${t.target} từ</div>
+            <div class="wordmeter__bar"><div class="wordmeter__fill" id="wCountBar" style="transform:scaleX(0)"></div></div>
+          </div>
           <div style="display:flex;gap:8px;flex-wrap:wrap">
-            <button class="btn btn--sm btn--ghost" id="wTimerBtn">⏱ BẮT ĐẦU ĐẾM ${t.time}'</button>
-            <button class="btn btn--sm" id="wLocal">SOI BÀI (CỤC BỘ)</button>
-            <button class="btn btn--sm btn--red" id="wAI">AI CHẤM THEO RUBRIC</button>
+            <button class="btn btn--sm btn--ghost" id="wTimerBtn">${ICO.clock}<span>Đếm ngược ${t.time} phút</span></button>
+            <button class="btn btn--sm" id="wLocal">Phân tích cục bộ</button>
+            <button class="btn btn--sm btn--solid" id="wAI">Chấm điểm AI theo Rubric</button>
           </div>
         </div>
         <div id="wReport" style="padding:0 24px 24px"></div>
       </div>
       <div class="sheet sheet--pad">
-        <h4 class="tag">CHECKLIST TỰ KIỂM</h4>
+        <h4 style="font-size:14px;font-weight:700;color:var(--ink)">Danh sách tự kiểm tra (Checklist)</h4>
         <ul class="checklist" id="wCheck">${t.checklist.map(c => `<li><span class="box">✓</span><span>${esc(c)}</span></li>`).join("")}</ul>
         <hr class="hr-dash">
-        <h4 class="tag">CỤM TỪ NÊN DÙNG</h4>
-        <ul class="phrases">${t.phrases.map(p => `<li>– <i>${esc(p)}</i></li>`).join("")}</ul>
+        <h4 style="font-size:14px;font-weight:700;color:var(--ink)">Cấu trúc câu ăn điểm B2 nên dùng</h4>
+        <ul class="phrases">${t.phrases.map(p => `<li>• <i>${esc(p)}</i></li>`).join("")}</ul>
         <hr class="hr-dash">
         <div class="sample" id="wSample">
-          <h5>BÀI MẪU ${t.official ? "(VIẾT THEO ĐỀ CHÍNH THỨC)" : ""} — CHỈ MỞ KHI LÀM XONG</h5>
+          <h5>Bài mẫu tham khảo chuẩn B2 (${countWords(t.model)} từ)</h5>
           <div class="body">${esc(t.model).replace(/\n/g, "<br>")}</div>
-          <div class="wc mono">${countWords(t.model)} TỪ</div>
         </div>
-        <button class="btn btn--ghost" id="wSampleBtn" style="margin-top:14px">MỞ BÀI MẪU</button>
+        <button class="btn btn--ghost" id="wSampleBtn" style="margin-top:12px">Xem / Ẩn bài mẫu B2</button>
       </div>
     </div>`;
   $$("#wPicker .wtask").forEach(b => b.onclick = () => { $$("#wPicker .wtask").forEach(x => x.classList.remove("on")); b.classList.add("on"); viewWriting(+b.dataset.i); });
   $$("#wCheck li").forEach(li => li.onclick = () => li.classList.toggle("done"));
   const area = $("#wArea");
   const meter = $("#wMeter");
+  const countNum = $("#wCountNum");
+  const countBar = $("#wCountBar");
   const upd = () => {
     const n = countWords(area.value);
-    meter.innerHTML = `<b>${n}</b> / ≥${t.target} từ`;
+    const ratio = Math.min(1, n / t.target).toFixed(3);
+    countNum.textContent = n;
+    countBar.style.transform = `scaleX(${ratio})`;
     meter.classList.toggle("hit", n >= t.target);
   };
   area.oninput = upd; upd();
   $("#wSampleBtn").onclick = () => { $("#wSample").classList.toggle("open"); };
-  /* timer */
   let timerInt = null, left = t.time * 60;
   $("#wTimerBtn").onclick = () => {
-    if(timerInt){ clearInterval(timerInt); timerInt = null; $("#wTimerBtn").textContent = "⏱ BẮT ĐẦU ĐẾM " + t.time + "'"; return; }
-    $("#wTimerBtn").textContent = "⏸ TẠM DỪNG — CÒN " + fmtTime(left);
+    if(timerInt){ clearInterval(timerInt); timerInt = null; $("#wTimerBtn").innerHTML = `${ICO.clock}<span>Đếm ngược ${t.time} phút</span>`; return; }
+    $("#wTimerBtn").innerHTML = `${ICO.clock}<span>Đang chạy: ${fmtTime(left)}</span>`;
     timerInt = setInterval(() => {
       left--;
-      $("#wTimerBtn").textContent = "⏸ TẠM DỪNG — CÒN " + fmtTime(left);
-      if(left <= 0){ clearInterval(timerInt); timerInt = null; $("#wTimerBtn").textContent = "HẾT GIỜ — NỘP BÀI!"; }
+      $("#wTimerBtn").innerHTML = `${ICO.clock}<span>Đang chạy: ${fmtTime(left)}</span>`;
+      if(left <= 0){ clearInterval(timerInt); timerInt = null; $("#wTimerBtn").textContent = "Hết giờ làm bài!"; }
     }, 1000);
   };
-  /* chấm cục bộ */
   $("#wLocal").onclick = () => {
     const text = area.value.trim();
-    if(countWords(text) < 20){ $("#wReport").innerHTML = '<div class="notice"><span>Viết ít nhất 20 từ để máy soi được nhé.</span></div>'; return; }
+    if(countWords(text) < 20){ $("#wReport").innerHTML = '<div class="notice" style="margin-top:14px"><span>Hãy viết tối thiểu 20 từ để công cụ phân tích cấu trúc và từ vựng hoạt động.</span></div>'; return; }
     const r = LocalAnalyzer.writing(text, t);
     $("#wReport").innerHTML = `
       <div class="ai-report">
-        <h4 class="tag">BÁO CÁO CỤC BỘ — KHÔNG CẦN INTERNET</h4>
+        <span class="tag">Báo cáo phân tích cục bộ</span>
         <table class="mini-table">${r.metrics.map(m => `<tr><td>${m[0]}</td><td>${m[1]}</td></tr>`).join("")}</table>
         <ul class="tips">${r.tips.map(x => `<li>${x}</li>`).join("")}</ul>
       </div>`;
   };
-  /* AI chấm */
   $("#wAI").onclick = async () => {
     const text = area.value.trim();
-    if(countWords(text) < 30){ $("#wReport").innerHTML = '<div class="notice"><span>AI cần bài viết tối thiểu 30 từ để chấm có ý nghĩa.</span></div>'; return; }
+    if(countWords(text) < 30){ $("#wReport").innerHTML = '<div class="notice" style="margin-top:14px"><span>Bài viết cần tối thiểu 30 từ để giám khảo AI chấm điểm chính xác theo 4 tiêu chí.</span></div>'; return; }
     if(!AI.available()){
-      $("#wReport").innerHTML = `<div class="notice"><span class="mono">CHƯA CÓ API KEY</span><span>Đang dùng báo cáo cục bộ. Để AI chấm chi tiết theo 4 tiêu chí VSTEP, cắm key miễn phí (Gemini) tại <a href="#/cai-dat"><b>trang Cài đặt</b></a> — 1 phút là xong.</span></div>`;
+      $("#wReport").innerHTML = `<div class="notice" style="margin-top:14px"><span>Chưa cấu hình API Key. Hãy kết nối khóa Gemini miễn phí tại <a href="#/cai-dat"><b>trang Cài đặt AI</b></a> để sử dụng tính năng chấm bài chi tiết.</span></div>`;
       return;
     }
-    $("#wReport").innerHTML = '<div class="ai-report"><h4 class="tag">GIÁM KHẢO AI ĐANG CHẤM…</h4><p class="mono" style="font-size:11px">đang gửi bài + rubric VSTEP tới ' + esc((AI.cfg().provider || "gemini")) + '</p></div>';
+    $("#wReport").innerHTML = '<div class="ai-report"><span class="tag">Giám khảo AI đang chấm bài…</span><p style="font-size:13.5px;color:var(--ink-2);margin-top:8px">Đang đối chiếu bài viết với 4 tiêu chí chấm VSTEP (' + esc((AI.cfg().provider || "gemini")) + ')…</p></div>';
     try{
       const out = await AI.gradeWriting(t, text);
-      $("#wReport").innerHTML = `<div class="ai-report"><h4 class="tag">PHÉP CHẤM CỦA GIÁM KHẢO AI — 4 TIÊU CHÍ VSTEP</h4><div class="ai-md">${mdLite(out)}</div></div>`;
+      $("#wReport").innerHTML = `<div class="ai-report"><span class="tag">Kết quả chấm của Giám khảo AI (4 tiêu chí VSTEP)</span><div class="ai-md">${mdLite(out)}</div></div>`;
     }catch(e){
-      $("#wReport").innerHTML = `<div class="notice"><span class="mono">LỖI AI</span><span>${esc(e.message)}</span></div>`;
+      $("#wReport").innerHTML = `<div class="notice" style="margin-top:14px"><span>Lỗi kết nối AI: ${esc(e.message)}</span></div>`;
     }
   };
 }
@@ -768,11 +906,11 @@ function viewWriting(sel){
 /* ================= NÓI ================= */
 function viewSpeaking(part){
   part = part || "p1";
-  app.innerHTML = moduleHead("06", "Nói",
-    "Bấm ghi âm — trình duyệt nhận diện giọng nói (Web Speech API), đo tốc độ &amp; từ đệm, sau đó gửi transcript cho AI chấm theo rubric VSTEP. Bí ý? Bấm “GỌI AI SINH Ý”.",
-    "10 ĐỀ + 6 CHIẾN THUẬT") + `
+  app.innerHTML = moduleHead("Học phần 6", "Phòng thu Luyện Nói (Speaking)",
+    "Ghi âm trực tiếp trên trình duyệt: nhận diện giọng nói tiếng Anh, đo tốc độ nói (WPM) và từ đệm, kết hợp AI chấm theo rubric VSTEP hoặc gợi ý ý tưởng khi bí.",
+    "10 chủ đề & 6 mẫu câu cứu nguy") + `
     <div class="topic-bar">
-      ${[["p1","P1 · HỎI ĐÁP XÃ GIAO (3')"],["p2","P2 · BÀN GIẢI PHÁP (4')"],["p3","P3 · PHÁT TRIỂN CHỦ ĐỀ (5')"],["rescue","CỨU NGUY KHI BÍ Ý"]].map(([k, l]) => `<button class="chip ${part === k ? "on" : ""}" data-p="${k}">${l}</button>`).join("")}
+      ${[["p1","Phần 1: Hỏi đáp xã giao (3p)"],["p2","Phần 2: Thảo luận giải pháp (4p)"],["p3","Phần 3: Phát triển chủ đề (5p)"],["rescue","Mẫu câu cứu nguy khi bí ý"]].map(([k, l]) => `<button class="chip ${part === k ? "on" : ""}" data-p="${k}">${l}</button>`).join("")}
     </div>
     <div id="speakBody"></div>`;
   $$(".chip[data-p]").forEach(c => c.onclick = () => { $$(".chip[data-p]").forEach(x => x.classList.remove("on")); c.classList.add("on"); viewSpeaking(c.dataset.p); });
@@ -781,17 +919,17 @@ function viewSpeaking(part){
   if(part === "rescue"){
     body.innerHTML = `
       <div class="sheet sheet--pad">
-        <div class="tag" style="color:var(--red)">SỐ CỨU THƯỜNG TRỰC — 6 TÌNH HUỐNG 0 ĐIỂM ĐÃ ĐƯỢC XỬ LÝ</div>
-        <h2 style="font-size:26px;margin:8px 0 4px">Không bao giờ ngồi im.</h2>
-        <p style="color:var(--ink-2)">Im lặng là cách duy nhất chắc chắn mất điểm fluency. Mọi tình huống dưới đây đều có thể “lấp” bằng ngôn ngữ.</p>
+        <span class="tag">Kỹ năng xử lý tình huống phòng thi</span>
+        <h2 style="font-size:24px;margin:10px 0 4px">Nguyên tắc vàng: Không để khoảng lặng chết.</h2>
+        <p style="color:var(--ink-2)">Trong phòng thi Speaking, giữ sự trôi chảy (Fluency) quan trọng hơn việc tìm một ý tưởng hoàn hảo. Sử dụng các mẫu câu tự nhiên dưới đây để có thêm thời gian suy nghĩ.</p>
       </div>
       <div class="rescue-grid" style="margin-top:18px">
       ${SPEAKING_RESCUE.map(r => `
         <div class="sheet sheet--pad rescue-card">
-          <span class="tag" style="color:var(--red)">TÌNH HUỐNG</span>
+          <span class="tag">Tình huống thường gặp</span>
           <h4>${esc(r.when)}</h4>
           <p>${esc(r.how)}</p>
-          <div class="rescue-phrase mono">“${esc(r.phrase)}”</div>
+          <div class="rescue-phrase">“${esc(r.phrase)}”</div>
         </div>`).join("")}
       </div>`;
     return;
@@ -802,90 +940,88 @@ function viewSpeaking(part){
   const renderOne = () => {
     const it = ITEMS[cur];
     const mapHtml = it.mindmap ? `
-      <div class="mindmap sheet sheet--pad">
-        <span class="tag">SƠ ĐỒ TƯ DUY TRÊN ĐỀ — NÓI BÁM 3 NHÁNH + TỰ THÊM NHÁNH THỨ 4</span>
+      <div class="mindmap">
+        <span style="font-size:12px;font-weight:700;color:var(--primary)">Sơ đồ tư duy (Triển khai 3 ý có sẵn + 1 ý cá nhân)</span>
         <div class="mindmap__wrap">
-          <div class="mindmap__center mono">${esc(it.mindmap.center).toUpperCase()}</div>
+          <div class="mindmap__center">${esc(it.mindmap.center)}</div>
           <div class="mindmap__branches">${it.mindmap.branches.map(b => `<div class="mindmap__branch">${esc(b)}</div>`).join("")}</div>
         </div>
       </div>` : "";
-    const followHtml = it.followups ? `<div class="tag" style="margin:14px 0 6px">GIÁM KHẢO SẼ HỎI THÊM</div><ul class="phrases">${it.followups.map(f => `<li>– <i>${esc(f)}</i></li>`).join("")}</ul>` : "";
-    const pointsHtml = it.points ? `<ul class="checklist">${it.points.map(p => `<li><span class="box">→</span><span>${esc(p)}</span></li>`).join("")}</ul>` : "";
-    const qsHtml = it.questions ? `<ul class="phrases">${it.questions.map(q => `<li>– <i>${esc(q)}</i></li>`).join("")}</ul>` : "";
+    const followHtml = it.followups ? `<div style="font-size:13px;font-weight:700;color:var(--ink);margin:16px 0 6px">Câu hỏi thảo luận mở rộng:</div><ul class="phrases">${it.followups.map(f => `<li>• <i>${esc(f)}</i></li>`).join("")}</ul>` : "";
+    const pointsHtml = it.points ? `<ul class="checklist">${it.points.map(p => `<li><span class="box">✓</span><span>${esc(p)}</span></li>`).join("")}</ul>` : "";
+    const qsHtml = it.questions ? `<ul class="phrases">${it.questions.map(q => `<li>• <i>${esc(q)}</i></li>`).join("")}</ul>` : "";
 
     body.innerHTML = `
       <div class="topic-bar" id="spBar">
-        ${ITEMS.map((x, i) => `<button class="chip ${i === cur ? "on" : ""}" data-i="${i}">${esc(x.topic).toUpperCase()}${x.official ? " ★" : ""}</button>`).join("")}
-        <span class="mono" style="font-size:10px;color:var(--ink-3);align-self:center">★ = ĐỀ CHÍNH THỨC</span>
+        ${ITEMS.map((x, i) => `<button class="chip ${i === cur ? "on" : ""}" data-i="${i}">${esc(x.topic)}${x.official ? " (Đề chính thức)" : ""}</button>`).join("")}
       </div>
       <div class="speak-layout">
         <div>
           <div class="sheet cue-card">
-            <span class="lbl">PART ${part === "p1" ? "1 · SOCIAL INTERACTION" : part === "p2" ? "2 · SOLUTION DISCUSSION" : "3 · TOPIC DEVELOPMENT"}</span>
+            <span class="lbl">Part ${part === "p1" ? "1: Social Interaction" : part === "p2" ? "2: Solution Discussion" : "3: Topic Development"}</span>
             <h3>${esc(it.topic)} ${it.official ? officialBadge() : ""}</h3>
-            ${it.situation ? `<p style="margin-bottom:12px"><b>Tình huống:</b> ${esc(it.situation)}</p>` : ""}
+            ${it.situation ? `<p style="margin-bottom:12px;color:var(--ink-2)"><b>Tình huống:</b> ${esc(it.situation)}</p>` : ""}
             ${qsHtml}${pointsHtml}${mapHtml}${followHtml}
           </div>
           ${part === "p2" ? `<div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap">
-            <button class="btn btn--red" id="spRescue">BÍ Ý → GỌI AI SINH Ý</button>
-            <button class="btn btn--ghost" id="spPrep">⏱ CHUẨN BỊ 60 GIÂY</button></div>` : ""}
+            <button class="btn btn--solid" id="spRescue">Gợi ý hướng trả lời bằng AI</button>
+            <button class="btn btn--ghost" id="spPrep">${ICO.clock}<span>Bấm giờ chuẩn bị 60 giây</span></button></div>` : ""}
         </div>
         <div>
           <div class="sheet rec-panel" id="recPanel">
             <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
-              <span class="tag"><span class="rec-dot"></span>GIÂM + NHẬN DIỆN GIỌNG NÓI</span>
-              <span class="rec-time mono" id="recTime">00:00</span>
+              <span style="font-size:13.5px;font-weight:700;color:var(--ink)"><span class="rec-dot"></span>Phòng thu &amp; Nhận diện giọng nói</span>
+              <span class="rec-time" id="recTime">00:00</span>
             </div>
             ${STT.supported ? `
               <div style="display:flex;gap:8px;margin-top:14px;flex-wrap:wrap">
-                <button class="btn btn--red" id="recStart">● BẮT ĐẦU NÓI</button>
-                <button class="btn btn--ghost" id="recStop">■ DỪNG &amp; PHÂN TÍCH</button>
+                <button class="btn btn--red" id="recStart">${ICO.mic}<span>Bắt đầu thu âm</span></button>
+                <button class="btn btn--ghost" id="recStop">${ICO.stop}<span>Dừng &amp; Phân tích</span></button>
               </div>
-              <div class="stt-box" id="sttBox">Transcript sẽ hiện tại đây khi bạn nói. Nói tự nhiên như trong phòng thi — ngôn ngữ: en-US.</div>
+              <div class="stt-box" id="sttBox">Lời nói tiếng Anh của bạn sẽ được chuyển thành văn bản trực tiếp tại đây (en-US).</div>
               <div id="recReport"></div>`
-            : `<div class="notice" style="margin-top:12px"><span class="mono">TRÌNH DUYỆT KHÔNG HỖ TRỢ</span><span>Nhận diện giọng nói cần Chrome hoặc Edge. Bạn vẫn có thể tập nói theo câu mẫu bên dưới và tự bấm giờ.</span></div>`}
+            : `<div class="notice" style="margin-top:12px"><span>Trình duyệt hiện tại chưa hỗ trợ Web Speech API. Bạn hãy mở bằng Google Chrome hoặc Microsoft Edge để thu âm chuyển giọng nói thành văn bản.</span></div>`}
           </div>
           <div class="sheet sheet--pad" style="margin-top:18px">
-            <div style="display:flex;justify-content:space-between;align-items:baseline">
-              <h4 class="tag" style="margin:0">CÂU TRẢ LỜI MẪU B2</h4>
-              <button class="btn btn--sm btn--ghost" id="spSampleBtn">MỞ / ĐÓNG</button>
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <h4 style="font-size:14px;font-weight:700;margin:0">Bài nói mẫu chuẩn B2</h4>
+              <button class="btn btn--sm btn--ghost" id="spSampleBtn">Xem / Ẩn bài mẫu</button>
             </div>
             <div class="sample" id="spSample" style="display:none;margin-top:12px">
-              <div class="body">${esc(it.sample).replace(/\n/g, "<br>")}</div>
+              <div class="body" style="display:block">${esc(it.sample).replace(/\n/g, "<br>")}</div>
             </div>
-            <div class="notice" style="margin-top:14px"><span class="mono">MẸO GIÁM KHẢO</span><span>${esc(it.tip)}</span></div>
+            <div class="notice" style="margin-top:14px"><span><b>Mẹo phòng thi:</b> ${esc(it.tip)}</span></div>
           </div>
         </div>
       </div>`;
-    $$("#spBar .chip").forEach(c => c.onclick = () => { if(recRunning) stopRec(true); cur = +c.dataset.i; renderOne(); });
+    $$("#spBar .chip").forEach(c => c.onclick = () => { if(window.recRunning) stopRec(true); cur = +c.dataset.i; renderOne(); });
     $("#spSampleBtn").onclick = () => { const s = $("#spSample"); s.style.display = s.style.display === "none" ? "block" : "none"; };
     if($("#spPrep")) $("#spPrep").onclick = () => {
       let s = 60; const b = $("#spPrep");
-      b.textContent = "ĐANG CHUẨN BỊ: 01:00"; b.disabled = true;
-      const iv = setInterval(() => { s--; b.textContent = "ĐANG CHUẨN BỊ: " + fmtTime(s); if(s <= 0){ clearInterval(iv); b.textContent = "HẾT 60 GIÂY — BẮT ĐẦU NÓI!"; b.disabled = false; TTS.speak([{v:0,t:"Time is up. Please begin."}]); } }, 1000);
+      b.textContent = "Thời gian chuẩn bị: 01:00"; b.disabled = true;
+      const iv = setInterval(() => { s--; b.textContent = "Thời gian chuẩn bị: " + fmtTime(s); if(s <= 0){ clearInterval(iv); b.textContent = "Hết 60 giây — Bắt đầu nói!"; b.disabled = false; TTS.speak([{v:0,t:"Time is up. Please begin speaking."}]); } }, 1000);
     };
     if($("#spRescue")) $("#spRescue").onclick = async () => {
       const mount = $("#recReport");
-      if(!AI.available()){ mount.innerHTML = '<div class="notice"><span class="mono">CẦN API KEY</span><span>Sinh ý tự động cần AI — cắm key miễn phí ở <a href="#/cai-dat"><b>Cài đặt</b></a>. Tạm thời dùng 6 chiến thuật “Cứu nguy khi bí ý” ở thẻ bên trên.</span></div>'; return; }
-      mount.innerHTML = '<div class="ai-report"><h4 class="tag">AI ĐANG SINH Ý…</h4></div>';
+      if(!AI.available()){ mount.innerHTML = '<div class="notice" style="margin-top:14px"><span>Tính năng sinh ý tưởng tự động cần kết nối API Key tại <a href="#/cai-dat"><b>Cài đặt AI</b></a>.</span></div>'; return; }
+      mount.innerHTML = '<div class="ai-report"><span class="tag">AI đang chuẩn bị gợi ý…</span></div>';
       try{
         const out = await AI.rescueIdeas(it.topic, part === "p2" ? 2 : part === "p3" ? 3 : 1);
-        mount.innerHTML = `<div class="ai-report"><h4 class="tag">Ý TƯỞNG TỪ AI — CHỦ ĐỀ: ${esc(it.topic).toUpperCase()}</h4><div class="ai-md">${mdLite(out)}</div></div>`;
-      }catch(e){ mount.innerHTML = `<div class="notice"><span class="mono">LỖI AI</span><span>${esc(e.message)}</span></div>`; }
+        mount.innerHTML = `<div class="ai-report"><span class="tag">Gợi ý triển khai chủ đề: ${esc(it.topic)}</span><div class="ai-md">${mdLite(out)}</div></div>`;
+      }catch(e){ mount.innerHTML = `<div class="notice" style="margin-top:14px"><span>Lỗi AI: ${esc(e.message)}</span></div>`; }
     };
 
-    /* ghi âm */
     let t0 = 0, timerInt = null;
     window.recRunning = false;
     const timeEl = $("#recTime"), box = $("#sttBox"), panel = $("#recPanel"), report = $("#recReport");
     function startRec(){
-      recRunning = true; t0 = Date.now();
+      window.recRunning = true; t0 = Date.now();
       panel.classList.add("recording");
       timerInt = setInterval(() => { timeEl.textContent = fmtTime((Date.now() - t0) / 1000); }, 250);
       STT.start((fin, inter) => { box.innerHTML = esc(fin) + '<i style="color:var(--ink-3)"> ' + esc(inter) + "</i>"; box.scrollTop = box.scrollHeight; });
     }
     function stopRec(silent){
-      recRunning = false;
+      window.recRunning = false;
       clearInterval(timerInt);
       panel.classList.remove("recording");
       const dur = (Date.now() - t0) / 1000;
@@ -894,26 +1030,26 @@ function viewSpeaking(part){
       const m = LocalAnalyzer.speaking(text, dur);
       report.innerHTML = `
         <div class="ai-report">
-          <h4 class="tag">CHỈ SỐ TỰ ĐO — ${fmtTime(dur)} NGHE ĐƯỢC</h4>
+          <span class="tag">Chỉ số giọng nói (${fmtTime(dur)})</span>
           <table class="mini-table">
-            <tr><td>Tốc độ</td><td>${m.wpm} từ/phút (B2 tốt: 100–150)</td></tr>
-            <tr><td>Tổng từ</td><td>${m.words}</td></tr>
-            <tr><td>Từ đệm</td><td>${m.fillers}</td></tr>
-            <tr><td>Từ nối</td><td>${m.conn} loại</td></tr>
+            <tr><td>Tốc độ nói</td><td>${m.wpm} từ/phút (Mức chuẩn B2: 100–150)</td></tr>
+            <tr><td>Tổng số từ</td><td>${m.words} từ</td></tr>
+            <tr><td>Từ đệm phát hiện</td><td>${m.fillers} lần</td></tr>
+            <tr><td>Từ nối học thuật</td><td>${m.conn} loại</td></tr>
           </table>
           <ul class="tips">${m.tips.map(x => `<li>${x}</li>`).join("")}</ul>
-          ${AI.available() ? '<button class="btn btn--red btn--sm" id="spAI" style="margin-top:8px">GỬI CHO GIÁM KHẢO AI CHẤM THEO RUBRIC VSTEP →</button>' : '<p class="mono" style="font-size:10.5px;color:var(--ink-3);margin-top:8px">Cắm API key ở Cài đặt để AI chấm chi tiết transcript này.</p>'}
+          ${AI.available() ? `<button class="btn btn--solid btn--sm" id="spAI" style="margin-top:10px"><span>Chấm bài nói bằng AI theo Rubric VSTEP</span>${ICO.next}</button>` : '<p style="font-size:12.5px;color:var(--ink-3);margin-top:10px">Kết nối API Key ở mục Cài đặt AI để chấm chi tiết bản ghi lời nói này.</p>'}
         </div>`;
       const aiBtn = $("#spAI");
       if(aiBtn) aiBtn.onclick = async () => {
-        aiBtn.disabled = true; aiBtn.textContent = "GIÁM KHẢO AI ĐANG NGHE LẠI…";
+        aiBtn.disabled = true; aiBtn.textContent = "Giám khảo AI đang phân tích…";
         try{
           const out = await AI.gradeSpeaking({ topic: it.topic, part: part === "p1" ? 1 : part === "p2" ? 2 : 3, situation: it.situation, mindmap: it.mindmap, followups: it.followups, questions: it.questions }, text, m);
-          report.insertAdjacentHTML("beforeend", `<div class="ai-report" style="margin-top:10px"><h4 class="tag">PHÉP CHẤM CỦA GIÁM KHẢO AI</h4><div class="ai-md">${mdLite(out)}</div></div>`);
-          aiBtn.textContent = "GỬI LẠI CHO AI CHẤM →"; aiBtn.disabled = false;
+          report.insertAdjacentHTML("beforeend", `<div class="ai-report" style="margin-top:12px"><span class="tag">Nhận xét từ Giám khảo AI</span><div class="ai-md">${mdLite(out)}</div></div>`);
+          aiBtn.textContent = "Chấm lại bằng AI"; aiBtn.disabled = false;
         }catch(e){
-          report.insertAdjacentHTML("beforeend", `<div class="notice" style="margin-top:8px"><span class="mono">LỖI AI</span><span>${esc(e.message)}</span></div>`);
-          aiBtn.textContent = "THỬ LẠI →"; aiBtn.disabled = false;
+          report.insertAdjacentHTML("beforeend", `<div class="notice" style="margin-top:10px"><span>Lỗi AI: ${esc(e.message)}</span></div>`);
+          aiBtn.textContent = "Thử lại"; aiBtn.disabled = false;
         }
       };
     }
@@ -927,28 +1063,30 @@ function viewSpeaking(part){
 
 /* ================= THI THỬ ================= */
 function viewMock(){
-  app.innerHTML = moduleHead("07", "Phòng thi số 02 — Thi thử",
-    "Bấm giờ đúng luật, phiếu trả lời kiểu chấm bài, nộp bài là chấm ngay theo thang 10 của VSTEP (bảng quy đổi từ đề chính thức). Mọi câu sai tự vào Sổ lỗi.",
-    "3 CỠ ĐỀ");
-  app.insertAdjacentHTML("beforeend", `
+  app.innerHTML = moduleHead("Phòng thi CBT", "Thi thử VSTEP B2 có bấm giờ",
+    "Mô phỏng giao diện thi trên máy tính: đồng hồ đếm ngược, bảng phiếu trả lời đánh dấu câu cần xem lại, chấm điểm ngay theo thang 10 chuẩn VSTEP.",
+    "3 chế độ đề thi") + `
     <div class="mock-cards">
       <button class="mock-opt" data-mode="quick">
-        <span class="t">ĐỀ NHANH</span><h3>20 câu · 20 phút</h3>
-        <p>Ngữ pháp + từ vựng + đọc phần 1. Đủ để đo nhiệt trước khi học mỗi ngày.</p>
-        <span class="meta">TRẮC NGHIỆM · CHẤM NGAY</span>
+        <span class="t">Đề khởi động nhanh</span>
+        <h3>20 câu / 20 phút</h3>
+        <p>Kết hợp Ngữ pháp, Từ vựng và Đọc hiểu phần 1–2. Phù hợp để ôn luyện nhanh mỗi ngày.</p>
+        <span class="meta">Bắt đầu làm đề 20 phút</span>
       </button>
       <button class="mock-opt" data-mode="standard">
-        <span class="t">ĐỀ CHUẨN</span><h3>50 câu · 60 phút</h3>
-        <p>10 ngữ pháp + 10 từ vựng + 10 đọc tự biên + 20 câu trong 2 bài đọc đề chính thức.</p>
-        <span class="meta">MÔ PHỎNG ĐỀ THẬT</span>
+        <span class="t">Đề tổng hợp tiêu chuẩn</span>
+        <h3>50 câu / 60 phút</h3>
+        <p>10 câu ngữ pháp, 10 câu từ vựng, 10 câu đọc tự luyện và 20 câu từ 2 bài đọc đề chính thức.</p>
+        <span class="meta">Bắt đầu làm đề 60 phút</span>
       </button>
       <button class="mock-opt" data-mode="reading">
-        <span class="t">ĐỀ ĐỌC CHÍNH THỨC</span><h3>40 câu · 60 phút</h3>
-        <p>Toàn bộ 4 passage của VSTEP Sample Test (Level 3-5) kèm đáp án gốc — đúng như phòng thi.</p>
-        <span class="meta">READING PAPER</span>
+        <span class="t">Đề Đọc hiểu chính thức</span>
+        <h3>40 câu / 60 phút</h3>
+        <p>Trọn bộ 4 bài đọc dài của VSTEP Sample Test (Bậc 3–5) kèm đáp án gốc của Bộ GD&amp;ĐT.</p>
+        <span class="meta">Làm đề Reading chính thức</span>
       </button>
     </div>
-    <p class="mono" style="font-size:10.5px;color:var(--ink-3);margin-top:14px">ĐIỂM ≥ 6.0/10 ĐƯỢC DẤN “ĐẠT B2” — theo ngưỡng tham khảo của VSTEP B2 Reading.</p>`);
+    <p style="font-size:13px;color:var(--ink-3);margin-top:16px">Tiêu chuẩn quy đổi tham khảo: Điểm đạt từ <b>6.0 / 10</b> trở lên tương đương mức đạt chuẩn B2 (Bậc 4/6).</p>`;
 
   $$(".mock-opt").forEach(b => b.onclick = () => runMock(b.dataset.mode));
 }
@@ -959,17 +1097,17 @@ function buildMockItems(mode){
   const r = (q, part) => ({ id: q.id, section: "Đọc hiểu", q: esc(q.q), opts: q.opts.map(esc), a: q.a, ex: q.ex, tag: part });
   const off = p => p.questions.map(q => {
     const n = q.n, key = READING_OFFICIAL_KEY[String(n)];
-    return { id: "ro" + n, section: "Đọc hiểu (đề chính thức)", q: esc(q.q), opts: q.opts.map(esc), a: LETTERS.indexOf(key), ex: READING_OFFICIAL_EX[String(n)], passage: p, tag: "bài đọc " + (READING_OFFICIAL.indexOf(p) + 1) };
+    return { id: "ro" + n, section: "Đọc hiểu (Đề chính thức)", q: esc(q.q), opts: q.opts.map(esc), a: LETTERS.indexOf(key), ex: READING_OFFICIAL_EX[String(n)], passage: p, tag: "Bài đọc " + (READING_OFFICIAL.indexOf(p) + 1) };
   });
   if(mode === "quick"){
     return { label: "Đề nhanh 20 câu", secs: 20 * 60,
-      items: [...pickN(GRAMMAR, 5).map(g), ...pickN(VOCAB, 5).map(v), ...pickN(READING_P1, 6).map(q => r(q, "P1")), ...pickN(READING_P2, 4).map(q => r(q, "P2"))] };
+      items: [...pickN(GRAMMAR, 5).map(g), ...pickN(VOCAB, 5).map(v), ...pickN(READING_P1, 6).map(q => r(q, "Phần 1")), ...pickN(READING_P2, 4).map(q => r(q, "Phần 2"))] };
   }
   if(mode === "standard"){
     const twoPassages = pickN(READING_OFFICIAL, 2);
     return { label: "Đề chuẩn 50 câu", secs: 60 * 60,
       items: [...pickN(GRAMMAR, 10).map(g), ...pickN(VOCAB, 10).map(v),
-        ...pickN(READING_P1, 4).map(q => r(q, "P1")), ...pickN(READING_P2, 3).map(q => r(q, "P2")), ...READING_P3.slice(0, 3).map(q => r(q, "P3")),
+        ...pickN(READING_P1, 4).map(q => r(q, "Phần 1")), ...pickN(READING_P2, 3).map(q => r(q, "Phần 2")), ...READING_P3.slice(0, 3).map(q => r(q, "Phần 3")),
         ...off(twoPassages[0]), ...off(twoPassages[1])] };
   }
   return { label: "Đề đọc chính thức 40 câu", secs: 60 * 60, items: READING_OFFICIAL.flatMap(off) };
@@ -983,22 +1121,23 @@ function runMock(mode){
 
   app.innerHTML = `
     <div class="exam-head sheet" style="padding:18px 24px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:24px">
-      <div><span class="tag">PHÒNG THI SỐ 02 · ${esc(label).toUpperCase()}</span>
-        <div class="timer" style="margin-top:6px"><span class="mono" style="font-size:11px;color:var(--ink-2)">CÒN LẠI</span> <span class="t" id="mTimer">${fmtTime(left)}</span></div>
-        <div class="timer-bar" style="width:220px"><i id="mTimerBar" style="width:100%"></i></div>
+      <div>
+        <span class="tag">${esc(label)}</span>
+        <div class="timer" style="margin-top:6px"><span style="font-size:13px;font-weight:600;color:var(--ink-2)">Thời gian còn lại:</span> <span class="t" id="mTimer">${fmtTime(left)}</span></div>
+        <div class="timer-bar" style="width:240px"><i id="mTimerBar" style="transform:scaleX(1)"></i></div>
       </div>
-      <div style="display:flex;gap:10px;flex-wrap:wrap">
-        <span class="mono" style="font-size:11px;color:var(--ink-2);align-self:center" id="mProg">0/${items.length} đã trả lời</span>
-        <button class="btn btn--red" id="mSubmit">NỘP BÀI</button>
+      <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+        <span style="font-size:13.5px;font-weight:600;color:var(--ink-2)" id="mProg">0/${items.length} câu đã chọn</span>
+        <button class="btn btn--solid" id="mSubmit">Nộp bài &amp; Chấm điểm</button>
       </div>
     </div>
     <div class="quiz-layout">
       <div class="quiz-main" id="mBody"></div>
       <aside class="quiz-side">
-        <div class="side-block"><h4>PHIẾU TRẢ LỜI</h4><div class="grid-q" id="mGrid"></div></div>
-        <div class="side-block"><h4>KÝ HIỆU</h4>
-          <p class="mono" style="font-size:10px;color:var(--ink-2);line-height:2">
-          ■ đen = đã trả lời · ⚑ viền vàng = đánh dấu xem lại<br>viền đỏ = câu hiện tại</p>
+        <div class="side-block"><h4><span>Phiếu trả lời</span><span>${items.length} câu</span></h4><div class="grid-q" id="mGrid"></div></div>
+        <div class="side-block"><h4>Chú giải trạng thái</h4>
+          <p style="font-size:12.5px;color:var(--ink-2);line-height:1.8">
+          • Nền xanh: Đã chọn đáp án<br>• Viền vàng: Đánh dấu xem lại<br>• Viền đậm: Câu đang mở</p>
         </div>
       </aside>
     </div>`;
@@ -1007,7 +1146,7 @@ function runMock(mode){
   timerInt = setInterval(() => {
     left--;
     timerEl.textContent = fmtTime(left);
-    barEl.style.width = (left / secs * 100) + "%";
+    barEl.style.transform = `scaleX(${Math.max(0, left / secs).toFixed(4)})`;
     if(left <= 300) timerEl.classList.add("warn");
     if(left <= 0){ clearInterval(timerInt); if(!submitted) submit(true); }
   }, 1000);
@@ -1025,26 +1164,26 @@ function runMock(mode){
       b.classList.toggle("flag", flags[i]);
       b.classList.toggle("cur", i === idx);
     });
-    $("#mProg").textContent = picks.filter(p => p !== undefined).length + "/" + items.length + " đã trả lời";
+    $("#mProg").textContent = picks.filter(p => p !== undefined).length + "/" + items.length + " câu đã chọn";
   };
 
   function renderQ(){
     const q = items[idx];
     $("#mBody").innerHTML = `
-      ${q.passage ? `<div class="sheet passage-panel"><h3>${esc(q.passage.title.replace(/^PASSAGE \d+ - /, ""))}</h3><span class="src">VSTEP SAMPLE TEST — bấm để thu gọn/ mở</span><div class="passage-body" style="max-height:340px;overflow:auto">${esc(q.passage.body)}</div></div>` : ""}
+      ${q.passage ? `<div class="sheet passage-panel"><h3>${esc(q.passage.title.replace(/^PASSAGE \d+ - /, ""))}</h3><span class="src">Đề minh họa VSTEP chính thức</span><div class="passage-body" style="max-height:360px;overflow:auto">${esc(q.passage.body)}</div></div>` : ""}
       <div class="sheet q-card sheet--pad">
         <div class="q-card__top">
-          <span class="q-card__no">CÂU ${idx + 1}/${items.length}<em>${esc(q.section)}${q.tag ? " · " + esc(q.tag) : ""}</em></span>
-          <button class="q-card__flag ${flags[idx] ? "on" : ""}" id="mFlag">⚑ XEM LẠI</button>
+          <span class="q-card__no">Câu ${idx + 1} / ${items.length}<em>${esc(q.section)}${q.tag ? " | " + esc(q.tag) : ""}</em></span>
+          <button class="q-card__flag ${flags[idx] ? "on" : ""}" id="mFlag">${ICO.flag}<span>Đánh dấu xem lại</span></button>
         </div>
         <div class="q-card__text">${q.q}</div>
         <div class="opts" id="mOpts">
           ${q.opts.map((o, i) => `<button class="opt ${picks[idx] === i ? "sel" : ""}" data-i="${i}"><span class="key">${LETTERS[i]}</span><span>${o}</span></button>`).join("")}
         </div>
         <div class="q-nav">
-          <button class="btn btn--ghost" id="mPrev" ${idx === 0 ? "disabled" : ""}>← TRƯỚC</button>
-          <span class="q-nav__mid">${idx === items.length - 1 ? "CÂU CUỐI — KIỂM TRA PHIẾU RỒI NỘP" : ""}</span>
-          <button class="btn" id="mNext" ${idx === items.length - 1 ? "disabled" : ""}>TIẾP →</button>
+          <button class="btn btn--ghost" id="mPrev" ${idx === 0 ? "disabled" : ""}>${ICO.prev}<span>Câu trước</span></button>
+          <span class="q-nav__mid">${idx === items.length - 1 ? "Câu cuối cùng — Kiểm tra phiếu trả lời trước khi nộp" : ""}</span>
+          <button class="btn btn--solid" id="mNext" ${idx === items.length - 1 ? "disabled" : ""}><span>Câu tiếp</span>${ICO.next}</button>
         </div>
       </div>`;
     $("#mFlag").onclick = () => { flags[idx] = !flags[idx]; renderQ(); paintGrid(); };
@@ -1063,7 +1202,7 @@ function runMock(mode){
   function submit(auto){
     if(submitted) return;
     const unanswered = picks.filter(p => p === undefined).length;
-    if(!auto && unanswered > 0 && !confirm("Còn " + unanswered + " câu chưa trả lời. Nộp bài thật không?")) return;
+    if(!auto && unanswered > 0 && !confirm("Bạn còn " + unanswered + " câu chưa chọn đáp án. Bạn có chắc chắn muốn nộp bài không?")) return;
     submitted = true;
     clearInterval(timerInt);
     const timeUsed = fmtTime(secs - left);
@@ -1082,38 +1221,38 @@ function runMock(mode){
     Store.addMock({ date: todayStr(), label, score, pct, total: items.length, ok, timeUsed, at: Date.now() });
 
     app.innerHTML = `
-      <a href="#/thi-thu" class="backlink">← PHÒNG THI</a>
+      <a href="#/thi-thu" class="backlink">${ICO.prev}<span>Quay lại danh sách đề thi</span></a>
       <div class="sheet result-head">
         <div>
-          <span class="tag">KẾT QUẢ — ${esc(label).toUpperCase()} · DÙNG ${timeUsed}</span>
-          <div style="display:flex;gap:34px;margin-top:12px;flex-wrap:wrap">
-            <div class="result-score"><div class="big">${score}<small>/10</small></div><div class="lbl">thang VSTEP</div></div>
-            <div class="result-score"><div class="big">${ok}<small>/${items.length}</small></div><div class="lbl">câu đúng</div></div>
+          <span class="tag">Kết quả bài thi: ${esc(label)} (Thời gian làm: ${timeUsed})</span>
+          <div style="display:flex;gap:36px;margin-top:16px;flex-wrap:wrap">
+            <div class="result-score"><div class="big">${score}<small>/10</small></div><div class="lbl">Điểm quy đổi VSTEP</div></div>
+            <div class="result-score"><div class="big">${ok}<small>/${items.length}</small></div><div class="lbl">Số câu trả lời đúng</div></div>
           </div>
         </div>
-        <div class="stamp ${pct >= 60 ? "stamp--pass" : "stamp--fail"}">${pct >= 60 ? "ĐẠT B2" : "CHƯA ĐẠT"}</div>
+        <div class="stamp ${pct >= 60 ? "stamp--pass" : "stamp--fail"}">${pct >= 60 ? "Đạt chuẩn B2" : "Chưa đạt B2"}</div>
       </div>
       <div class="result-grid">
         ${Object.entries(perSection).map(([name, s]) => `
-          <div class="result-cell"><div class="k">${esc(name).toUpperCase()}</div>
+          <div class="result-cell"><div class="k">${esc(name)}</div>
           <div class="v ${s.ok / s.total >= 0.6 ? "v--green" : "v--red"}">${s.ok}<small>/${s.total}</small></div></div>`).join("")}
       </div>
       <div style="display:flex;gap:12px;margin:24px 0;flex-wrap:wrap">
-        <button class="btn btn--solid" id="rReview">XEM TỪNG CÂU (ĐÚNG/SAI + GIẢI THÍCH)</button>
-        <a class="btn" href="#/so-loi">MỞ SỔ LỖI</a>
-        <a class="btn btn--ghost" href="#/">VỀ TRANG CHỦ</a>
+        <button class="btn btn--solid" id="rReview">Xem đáp án &amp; giải thích từng câu</button>
+        <a class="btn" href="#/so-loi">Mở Sổ lỗi cá nhân</a>
+        <a class="btn btn--ghost" href="#/">Về trang tổng quan</a>
       </div>
       <div id="reviewBody"></div>`;
     $("#rReview").onclick = () => {
       $("#reviewBody").innerHTML = items.map((q, i) => {
         const mine = picks[i], good = mine === q.a;
         return `<div class="sheet sheet--pad" style="margin-bottom:14px">
-          <div class="q-card__no" style="color:${good ? "var(--green)" : "var(--red)"}">CÂU ${i + 1} — ${good ? "ĐÚNG" : "SAI"} · ${esc(q.section)}</div>
-          <div class="q-card__text" style="font-size:17px">${q.q}</div>
+          <div class="q-card__no" style="color:${good ? "var(--green)" : "var(--red)"}">Câu ${i + 1} (${good ? "Đúng" : "Sai"}) — ${esc(q.section)}</div>
+          <div class="q-card__text" style="font-size:18px">${q.q}</div>
           <div class="opts">
             ${q.opts.map((o, j) => `<div class="opt ${j === q.a ? "correct" : j === mine ? "wrong" : "dim"}"><span class="key">${LETTERS[j]}</span><span>${o}</span></div>`).join("")}
           </div>
-          ${good ? "" : `<div class="explain"><span class="explain__tag">GIẢI THÍCH — ĐÁP ÁN ${LETTERS[q.a]}${mine === undefined ? " · BẠN CHƯA TRẢ LỜI" : ""}</span><p>${q.ex || ""}</p></div>`}
+          ${good ? "" : `<div class="explain explain--no"><span class="explain__tag">Giải thích (Đáp án đúng: ${LETTERS[q.a]}${mine === undefined ? " | Bạn chưa chọn" : ""})</span><p>${q.ex || ""}</p></div>`}
         </div>`;
       }).join("");
       $("#rReview").scrollIntoView({ behavior: "smooth" });
@@ -1129,33 +1268,33 @@ function viewMistakes(){
   const wrong = Object.entries(Store.d.answers).filter(([id, a]) => !a.ok && !a.resolved);
   const findQ = id => {
     const pools = [GRAMMAR, VOCAB, READING_P1, READING_P2, READING_P3];
-    for(const p of pools){ const q = p.find(x => x.id === id); if(q) return { q, src: "Luyện tập" }; }
-    for(const g of LISTENING){ const q = g.qs.find(x => x.id === id); if(q) return { q, src: "Nghe — " + g.title }; }
+    for(const p of pools){ const q = p.find(x => x.id === id); if(q) return { q, src: "Câu hỏi luyện tập" }; }
+    for(const g of LISTENING){ const q = g.qs.find(x => x.id === id); if(q) return { q, src: "Nghe hiểu: " + g.title }; }
     const n = id.startsWith("ro") ? +id.slice(2) : null;
-    if(n){ for(const p of READING_OFFICIAL){ const q = p.questions.find(x => x.n === n); if(q) return { q: { id, q: q.q, opts: q.opts, a: LETTERS.indexOf(READING_OFFICIAL_KEY[String(n)]), ex: READING_OFFICIAL_EX[String(n)] }, src: "Đề chính thức" }; } }
+    if(n){ for(const p of READING_OFFICIAL){ const q = p.questions.find(x => x.n === n); if(q) return { q: { id, q: q.q, opts: q.opts, a: LETTERS.indexOf(READING_OFFICIAL_KEY[String(n)]), ex: READING_OFFICIAL_EX[String(n)] }, src: "Đọc hiểu: Đề chính thức" }; } }
     return null;
   };
-  app.innerHTML = moduleHead("08", "Sổ lỗi",
-    "Mọi câu bạn từng làm sai ở mọi mô-đun, đã xếp sẵn kèm giải thích. Đánh dấu “đã hiểu” để câu biến khỏi sổ — học đúng chỗ yếu là cách nhanh nhất lên B2.",
-    wrong.length + " CÂU CẦN XEM LẠI");
+  app.innerHTML = moduleHead("Ôn tập cá nhân", "Sổ lỗi cần khắc phục",
+    "Tất cả những câu bạn từng chọn sai ở các học phần và bài thi thử được tổng hợp tại đây kèm giải thích. Khi đã nắm vững kiến thức, hãy bấm Đã hiểu để hoàn thành.",
+    wrong.length + " câu cần xem lại");
   if(!wrong.length){
-    app.insertAdjacentHTML("beforeend", '<div class="sheet sheet--pad" style="text-align:center;padding:60px 30px"><h2 style="font-size:30px">Sổ lỗi trống trơn.</h2><p style="color:var(--ink-2);margin-top:10px">Chưa sai câu nào — hoặc bạn đã hiểu hết. Cả hai đều đáng khen.</p><a class="btn btn--solid" href="#/thi-thu" style="margin-top:16px">THỬ THÁCH BẰNG ĐỀ THI →</a></div>');
+    app.insertAdjacentHTML("beforeend", `<div class="sheet sheet--pad" style="text-align:center;padding:56px 30px"><h2 style="font-size:26px">Sổ lỗi hiện đang trống!</h2><p style="color:var(--ink-2);margin-top:8px">Bạn chưa làm sai câu nào hoặc đã ôn tập xong toàn bộ các câu sai trước đó.</p><a class="btn btn--solid" href="#/thi-thu" style="margin-top:18px"><span>Làm bài thi thử mới</span>${ICO.next}</a></div>`);
     return;
   }
   const groups = {};
   wrong.forEach(([id]) => { const f = findQ(id); if(!f) return; const key = f.src; (groups[key] = groups[key] || []).push([id, f.q]); });
   app.insertAdjacentHTML("beforeend", Object.entries(groups).map(([src, rows]) => `
     <div style="margin-bottom:34px">
-      <div class="section-head"><span class="section-head__no">✗</span><h2 style="font-size:22px">${esc(src)}</h2><span class="section-head__meta">${rows.length} CÂU</span></div>
+      <div class="section-head"><span class="section-head__no">Cần ôn lại</span><h2 style="font-size:22px">${esc(src)}</h2><span class="section-head__meta">${rows.length} câu</span></div>
       ${rows.map(([id, q]) => {
         const a = Store.d.answers[id];
         return `<div class="sheet sheet--pad" style="margin-bottom:14px">
-          <div class="q-card__text" style="font-size:17px;margin-top:8px">${esc(q.q)}</div>
+          <div class="q-card__text" style="font-size:18px;margin-top:4px">${esc(q.q)}</div>
           <div class="opts">
             ${q.opts.map((o, j) => `<div class="opt ${j === q.a ? "correct" : j === a.pick ? "wrong" : "dim"}"><span class="key">${LETTERS[j]}</span><span>${esc(o)}</span></div>`).join("")}
           </div>
-          <div class="explain"><span class="explain__tag">VÌ SAI ĐÚNG LÀ ${LETTERS[q.a]}</span><p>${q.ex || ""}</p></div>
-          <button class="btn btn--sm" data-resolve="${id}" style="margin-top:14px;border-color:var(--green);color:var(--green)">✓ ĐÃ HIỂU — BỎ KHỎI SỔ</button>
+          <div class="explain explain--no"><span class="explain__tag">Đáp án đúng là ${LETTERS[q.a]}</span><p>${q.ex || ""}</p></div>
+          <button class="btn btn--sm btn--green" data-resolve="${id}" style="margin-top:14px">✓ Đã hiểu rõ — Xóa khỏi sổ lỗi</button>
         </div>`;
       }).join("")}
     </div>`).join(""));
@@ -1164,110 +1303,108 @@ function viewMistakes(){
 
 /* ================= CHIẾN THUẬT ================= */
 const GUESS_DEMOS = [
-  { word: "arduous", sent: "The ascent of the north face is arduous: climbers take twelve hours to cover what looks like a short distance on the map.", opts: ["rất nguy hiểm", "rất gian nan, tốn sức", "rất dốc và trơn", "rất ngắn"], a: 1, clue: "Manh mối: dấu hai chấm + ví dụ theo sau (12 giờ cho đoạn nhìn ngắn) → giải thích luôn nghĩa 'gian nan'." },
-  { word: "resilient", sent: "Unlike fragile species, mangroves are resilient — they recover quickly after storms and even grow back thicker.", opts: ["dễ tổn thương", "mọc chậm", "có khả năng phục hồi", "khó nhân giống"], a: 2, clue: "Manh mối: 'Unlike fragile' (đối lập) + 'recover quickly' (giải thích) → resilient = bền, phục hồi nhanh." },
-  { word: "ubiquitous", sent: "Smartphones are now so ubiquitous that finding a student without one is almost impossible.", opts: ["đắt tiền", "có mặt khắp nơi", "bị cấm sử dụng", "đa năng"], a: 1, clue: "Manh mối: mệnh đề theo sau 'finding a student without one is almost impossible' = kết quả của việc 'có mặt khắp nơi'." }
+  { word: "arduous", sent: "The ascent of the north face is arduous: climbers take twelve hours to cover what looks like a short distance on the map.", opts: ["rất nguy hiểm", "rất gian nan, tốn sức", "rất dốc và trơn", "rất ngắn"], a: 1, clue: "Manh mối: dấu hai chấm + ví dụ theo sau (mất 12 giờ cho quãng đường ngắn) giải thích nghĩa 'gian nan, tốn sức'." },
+  { word: "resilient", sent: "Unlike fragile species, mangroves are resilient — they recover quickly after storms and even grow back thicker.", opts: ["dễ tổn thương", "mọc chậm", "có khả năng phục hồi", "khó nhân giống"], a: 2, clue: "Manh mối: 'Unlike fragile' (đối lập) + 'recover quickly' (giải thích) suy ra resilient = bền bỉ, có khả năng phục hồi." },
+  { word: "ubiquitous", sent: "Smartphones are now so ubiquitous that finding a student without one is almost impossible.", opts: ["đắt tiền", "có mặt khắp nơi", "bị cấm sử dụng", "đa năng"], a: 1, clue: "Manh mối: mệnh đề kết quả 'finding a student without one is almost impossible' chứng tỏ nghĩa là 'phổ biến, có mặt khắp nơi'." }
 ];
 function viewStrategy(){
-  app.innerHTML = moduleHead("09", "Chiến thuật làm bài",
-    "Kỹ thuật đoán nghĩa từ ngữ cảnh, phân tích ý đề, và cách công phá từng phần thi — vũ khí để không bỏ sót câu nào dù gặp từ lạ.",
-    "6 KHÓA") + `
+  app.innerHTML = moduleHead("Phương pháp", "Chiến thuật làm bài thi VSTEP B2",
+    "Hệ thống mẹo phân bổ thời gian, kỹ thuật đoán từ mới trong ngữ cảnh và khung cấu trúc trả lời giúp bạn tối ưu điểm số ở cả 4 kỹ năng.",
+    "6 chuyên đề thực chiến") + `
 
   <div class="strat-grid">
     <div class="sheet sheet--pad strat-card">
-      <span class="tag" style="color:var(--red)">KHÓA 1 · ĐỌC</span>
-      <h3>Đoán nghĩa từ trong ngữ cảnh — 4 loại manh mối</h3>
-      <p>Khi gặp từ lạ, ĐỪNG dừng lại. Đề VSTEP (kể cả đề chính thức trong mục Đọc) hỏi “closest in meaning” rất nhiều. Ngữ cảnh luôn chứa ít nhất 1 trong 4 manh mối:</p>
+      <span class="tag">Chiến thuật 1: Kỹ năng Đọc</span>
+      <h3>Đoán nghĩa từ lạ qua 4 manh mối ngữ cảnh</h3>
+      <p>Đề Reading VSTEP rất hay hỏi dạng câu “closest in meaning”. Khi gặp từ không biết, hãy đọc câu chứa từ đó và câu kế tiếp để tìm 1 trong 4 dấu hiệu:</p>
       <ul class="tips">
-        <li><b>Manh mối định nghĩa:</b> dấu hai chấm, gạch ngang, “which is”, “meaning” — tác giả giải thích ngay.</li>
-        <li><b>Manh mối ví dụ:</b> “for instance”, liệt kê — tổng của các ví dụ chính là nghĩa.</li>
-        <li><b>Manh mối đối lập:</b> “unlike”, “but”, “although” — từ lạ mang nghĩa NGƯỢC với từ đã biết.</li>
-        <li><b>Manh mối tiền tố–hậu tố:</b> re- (lại), un-/im- (không), -less (thiếu), -ful (đầy)… mảnh ghép nghĩa.</li>
+        <li><b>Dấu hiệu định nghĩa:</b> dấu hai chấm (:), gạch ngang (—), “which is”, “meaning” giải thích trực tiếp ngay phía sau.</li>
+        <li><b>Dấu hiệu ví dụ:</b> “for instance”, “such as” — nhóm các ví dụ cụ thể sẽ chỉ ra nghĩa chung.</li>
+        <li><b>Dấu hiệu đối lập:</b> “unlike”, “however”, “whereas” — từ lạ mang nghĩa trái ngược với từ quen thuộc.</li>
+        <li><b>Gốc từ (Tiền tố / Hậu tố):</b> re- (lặp lại), un-/im- (phủ định), -less (không có), -ful (đầy).</li>
       </ul>
-      <div style="margin-top:16px">
-        <span class="tag">THỬ NGAY — 3 TỪ LẠ, KHÔNG TRA TỪ ĐIỂN</span>
-        <div id="guessDemo" style="margin-top:10px"></div>
+      <div style="margin-top:18px;padding-top:16px;border-top:1px solid var(--line-soft)">
+        <span class="tag">Thực hành nhanh: Đoán 3 từ qua ngữ cảnh</span>
+        <div id="guessDemo" style="margin-top:12px"></div>
       </div>
     </div>
 
     <div class="sheet sheet--pad strat-card">
-      <span class="tag" style="color:var(--red)">KHÓA 2 · ĐỌC</span>
-      <h3>Phân bổ 60 phút cho 4 phần đọc</h3>
+      <span class="tag">Chiến thuật 2: Quản lý thời gian Đọc</span>
+      <h3>Phân bổ 60 phút cho 4 bài đọc</h3>
       <ul class="tips">
-        <li><b>Phần 1 (thông báo ngắn):</b> 8 câu — đọc câu hỏi TRƯỚC, quét thông báo tìm từ khóa. ≤ 8 phút.</li>
-        <li><b>Phần 2 (đối chiếu):</b> gạch chân động từ chính của từng nhận định (must bring own, not open to teens…) rồi mới quét 4 đoạn. ≤ 12 phút.</li>
-        <li><b>Phần 3 (điền câu):</b> đọc câu trước-sau chỗ trống, tìm từ nối (However, Therefore) và đại từ (this, they) — câu đúng phải khớp cả hai đầu. ≤ 12 phút.</li>
-        <li><b>Phần 4 (bài dài):</b> câu hỏi theo thứ tự đoạn văn. Câu vocabulary-in-context: đọc 2 dòng quanh từ. Câu EXCEPT/NOT: loại 3 đáp án có trong bài. Còn lại ≈ 25 phút.</li>
+        <li><b>Phần 1 (Thông báo ngắn):</b> 8 câu — đọc câu hỏi trước rồi quét từ khóa trong thông báo. Dành tối đa 8 phút.</li>
+        <li><b>Phần 2 (Đối chiếu đoạn văn):</b> Gạch chân điều kiện cốt lõi ở từng câu hỏi (độ tuổi, chi phí, dụng cụ) rồi đối chiếu. Tối đa 12 phút.</li>
+        <li><b>Phần 3 (Điền câu vào chỗ trống):</b> Chú ý đại từ chỉ định (this, these, such) và từ nối chuyển ý ở câu liền trước và liền sau. Tối đa 12 phút.</li>
+        <li><b>Phần 4 (40 câu đề chuẩn):</b> Câu hỏi luôn sắp xếp theo thứ tự đoạn văn. Câu hỏi từ vựng đọc kỹ 2 dòng quanh từ in đậm.</li>
       </ul>
     </div>
 
     <div class="sheet sheet--pad strat-card">
-      <span class="tag" style="color:var(--red)">KHÓA 3 · NGHE</span>
-      <h3>Nghe một lần vẫn đủ — chuẩn bị trước khi bấm play</h3>
+      <span class="tag">Chiến thuật 3: Kỹ năng Nghe</span>
+      <h3>Tận dụng thời gian đọc trước câu hỏi</h3>
       <ul class="tips">
-        <li>Đọc trước 4 phương án: khác biệt giữa A–D chính là thứ bạn phải “canh” (ngày? con số? người nào?).</li>
-        <li>Canh từ chuyển hướng: “however, actually, in fact, one more thing” — đáp án thường nằm ngay sau.</li>
-        <li>Số liệu trong nghe hầu như luôn bị “thay đổi một nhịp” (đặt 5 giờ → đổi ra 6 giờ) — nghe đến hết, đừng vội chốt ở con số đầu tiên.</li>
-        <li>Người nói nhấn/giọng đi xuống ở đâu thì đáp án ở đó — tập với máy đọc 2 giọng trong mục Nghe, tốc độ 0.85× trước, 1× sau.</li>
+        <li>Đọc trước 4 đáp án A–D để xác định trọng tâm cần nghe (thời gian, địa điểm, nguyên nhân hay hành động tiếp theo).</li>
+        <li>Chú ý cao độ sau các từ chuyển hướng: “however, actually, in fact, but” — đáp án đúng thường xuất hiện ngay sau từ này.</li>
+        <li>Cẩn thận bẫy sửa thông tin: người nói thường nêu một con số/giờ hẹn trước rồi đổi ý ở câu sau.</li>
+        <li>Luyện tập với trình phát 2 giọng đọc ở mục Nghe với tốc độ 1.0× để quen phản xạ nghe một lần.</li>
       </ul>
     </div>
 
     <div class="sheet sheet--pad strat-card">
-      <span class="tag" style="color:var(--red)">KHÓA 4 · VIẾT</span>
-      <h3>Phân tích ý đề trong 3 phút — bản đồ 5W</h3>
-      <p>Mỗi đề Task 2 hỏi đúng 1 câu hỏi chính. Trước khi viết, trả lời nhanh:</p>
+      <span class="tag">Chiến thuật 4: Kỹ năng Viết</span>
+      <h3>Lập dàn ý nhanh trong 3 phút đầu</h3>
+      <p>Trước khi gõ bài, hãy xác định rõ khung sườn để tránh lạc đề hoặc thiếu chữ:</p>
       <ul class="tips">
-        <li><b>What</b> — kiểu đề gì? Discuss both views / Agree–disagree / Advantages–disadvantages → quyết định khung bài.</li>
-        <li><b>Who</b> — “educated reader” → giọng trang trọng, không viết tắt “don't”… “it's”.</li>
-        <li><b>How many ideas?</b> — 2 ý chính là đủ; mỗi ý = claim + reason + example. Ý hay hơn viết trước.</li>
-        <li><b>Where examples?</b> — từ đời thường của chính bạn (Last year, in my city…) — không cần số liệu thật, cần cụ thể.</li>
-        <li><b>Word budget:</b> Task 1 ≈ 130–160 từ / Task 2 ≈ 260–300 từ. Dài hơn không cộng điểm, sai mới trừ điểm.</li>
+        <li><b>Xác định dạng đề:</b> Thảo luận 2 mặt (Discuss both views), Đồng ý/Không đồng ý hay Ưu/Nhược điểm.</li>
+        <li><b>Văn phong (Register):</b> Task 2 luôn viết trang trọng (Formal), tuyệt đối tránh viết tắt như “don't, can't, it's”.</li>
+        <li><b>Cấu trúc đoạn thân bài:</b> Mỗi đoạn thân bài gồm Câu chủ đề (Topic sentence) + Giải thích (Reason) + Ví dụ thực tế (Example).</li>
+        <li><b>Phân bổ độ dài:</b> Task 1 viết khoảng 130–160 từ (trong 20 phút); Task 2 viết khoảng 260–300 từ (trong 40 phút).</li>
       </ul>
     </div>
 
     <div class="sheet sheet--pad strat-card">
-      <span class="tag" style="color:var(--red)">KHÓA 5 · NÓI</span>
-      <h3>Công thức BER khi gặp câu khó</h3>
+      <span class="tag">Chiến thuật 5: Kỹ năng Nói</span>
+      <h3>Công thức B-E-R khi gặp câu hỏi khó</h3>
       <ul class="tips">
-        <li><b>B — Balanced:</b> mở đầu “It depends, really…” — ghế an toàn cho mọi câu hỏi khó.</li>
-        <li><b>E — Experience:</b> kéo về chuyện mình: “In my experience…” — nói thứ mình sống qua thì trôi chảy nhất.</li>
-        <li><b>R — Rule:</b> chốt quan điểm chung: “But generally speaking…” — có mở có kết, điểm coherence trọn vẹn.</li>
-        <li>Xem thêm 6 tình huống <a href="#/noi"><b>Cứu nguy khi bí ý</b></a> ở mục Nói.</li>
+        <li><b>B (Balanced - Mở đầu cân bằng):</b> “Well, it depends on the situation, really…” giúp bạn có nhịp mở đầu tự nhiên.</li>
+        <li><b>E (Experience - Liên hệ thực tế):</b> “In my own experience…” — kể về trải nghiệm cá nhân luôn dễ nói trôi chảy nhất.</li>
+        <li><b>R (Rule - Chốt lại khái quát):</b> “Overall, I believe that…” để kết thúc câu trả lời tròn ý và mạch lạc.</li>
+        <li>Kết hợp thêm 6 mẫu câu xử lý tình huống ở mục <a href="#/noi"><b>Luyện Nói</b></a>.</li>
       </ul>
     </div>
 
     <div class="sheet sheet--pad strat-card">
-      <span class="tag" style="color:var(--red)">KHÓA 6 · ĐỐI PHÓ ĐỀ CHÍNH THỨC</span>
-      <h3>Bạn đã có trong tay đề thật</h3>
-      <p>Mục <a href="#/doc"><b>Đọc — P4</b></a> chứa toàn bộ 4 passage của VSTEP Sample Test với đáp án gốc; mục <a href="#/nghe"><b>Nghe</b></a> có 8 câu Part 1 lấy từ cùng bộ đề; <a href="#/viet"><b>Viết</b></a> và <a href="#/noi"><b>Nói</b></a> cũng chứa đề chính thức (đánh dấu ★). Chiến lược:</p>
+      <span class="tag">Chiến thuật 6: Luyện đề chính thức</span>
+      <h3>Lộ trình 3 bước với bộ đề mẫu Bộ GD&amp;ĐT</h3>
+      <p>Ứng dụng đã tích hợp trọn bộ bài Đọc, Nghe Part 1, Viết và Nói từ đề minh họa chính thức:</p>
       <ul class="tips">
-        <li>Lần 1: làm như thi thật (bấm giờ, không mở đáp án).</li>
-        <li>Lần 2: chỉ làm lại các câu sai + đọc giải thích từng câu.</li>
-        <li>Lần 3: “Đề đọc chính thức” trong Phòng thi số 02 để đo điểm /10 theo bảng quy đổi gốc.</li>
+        <li><b>Bước 1:</b> Vào mục Thi thử CBT làm đề trong 60 phút nghiêm túc để đo điểm chuẩn hiện tại.</li>
+        <li><b>Bước 2:</b> Mở Sổ lỗi để đọc kỹ giải thích từng câu sai và tra các từ vựng học thuật chưa biết.</li>
+        <li><b>Bước 3:</b> Luyện viết và thu âm bài nói theo đề chính thức, dùng AI chấm theo 4 tiêu chí để hoàn thiện kỹ năng.</li>
       </ul>
     </div>
   </div>`;
 
-  /* demo đoán từ */
   let di = 0, answered = false;
   const demoEl = $("#guessDemo");
   const renderDemo = () => {
     const d = GUESS_DEMOS[di];
     answered = false;
     demoEl.innerHTML = `
-      <p style="font-size:16px;line-height:1.7">“${esc(d.sent)}”</p>
-      <p class="mono" style="font-size:11px;margin:10px 0">TỪ CẦN ĐOÁN: <b style="color:var(--red)">${d.word.toUpperCase()}</b></p>
+      <p style="font-family:var(--serif);font-size:16.5px;line-height:1.7">“${esc(d.sent)}”</p>
+      <p style="font-size:13px;font-weight:600;margin:10px 0">Từ cần đoán nghĩa: <b style="color:var(--primary)">${d.word}</b></p>
       <div class="opts" style="max-width:520px">
         ${d.opts.map((o, i) => `<button class="opt" data-i="${i}"><span class="key">${LETTERS[i]}</span><span>${esc(o)}</span></button>`).join("")}
       </div>
       <div id="demoEx"></div>
-      <button class="btn btn--ghost btn--sm" id="demoNext" style="margin-top:12px">TỪ TIẾP THEO →</button>`;
+      <button class="btn btn--ghost btn--sm" id="demoNext" style="margin-top:12px"><span>Thử từ tiếp theo</span>${ICO.next}</button>`;
     $$(".opt", demoEl).forEach(el => el.onclick = () => {
       if(answered) return; answered = true;
       const i = +el.dataset.i, ok = i === d.a;
       Store.addAnswer("guess-" + d.word, i, ok);
       $$(".opt", demoEl).forEach((x, j) => { x.disabled = true; if(j === d.a) x.classList.add("correct"); else if(j === i) x.classList.add("wrong"); else x.classList.add("dim"); });
-      $("#demoEx").innerHTML = `<div class="explain"><span class="explain__tag">${ok ? "ĐÚNG!" : "CHƯA ĐÚNG — ĐÁP ÁN " + LETTERS[d.a]}</span><p>${esc(d.clue)}</p></div>`;
+      $("#demoEx").innerHTML = `<div class="explain ${ok ? "explain--ok" : "explain--no"}"><span class="explain__tag">${ok ? "Chính xác!" : "Đáp án đúng: " + LETTERS[d.a]}</span><p>${esc(d.clue)}</p></div>`;
     });
     $("#demoNext").onclick = () => { di = (di + 1) % GUESS_DEMOS.length; renderDemo(); };
   };
@@ -1277,49 +1414,49 @@ function viewStrategy(){
 /* ================= CÀI ĐẶT ================= */
 function viewSettings(){
   const c = AI.cfg();
-  app.innerHTML = moduleHead("10", "Cài đặt trợ lý AI",
-    "Web này chạy hoàn toàn offline và miễn phí. Để AI chấm Viết + Nói và sinh ý khi bí, cắm một API key — dữ liệu key lưu ngay trên máy bạn, không gửi đi đâu khác ngoài nhà cung cấp bạn chọn.",
-    AI.available() ? "AI ĐANG BẬT" : "AI ĐANG TẮT") + `
-    <div class="sheet sheet--pad" style="max-width:720px">
-      <div class="side-stat"><span class="k">Nhà cung cấp</span>
-        <select id="aiProvider" class="ai-input" style="width:280px">
-          <option value="gemini" ${c.provider !== "openai" ? "selected" : ""}>Google Gemini (có gói miễn phí)</option>
-          <option value="openai" ${c.provider === "openai" ? "selected" : ""}>OpenAI / tương thích (OpenRouter, Together…)</option>
+  app.innerHTML = moduleHead("Cấu hình hệ thống", "Cài đặt Trợ lý Giám khảo AI",
+    "Toàn bộ ngân hàng đề, từ điển và bộ phân tích cục bộ đều hoạt động miễn phí. Để kích hoạt Giám khảo AI chấm chi tiết bài Viết và bài Nói theo thang VSTEP, bạn có thể nhập API Key cá nhân (chỉ lưu trữ cục bộ trên trình duyệt của bạn).",
+    AI.available() ? "Trạng thái: Đã kết nối AI" : "Trạng thái: Chưa kết nối AI") + `
+    <div class="sheet sheet--pad" style="max-width:740px">
+      <div class="side-stat"><span class="k">Nhà cung cấp mô hình</span>
+        <select id="aiProvider" class="ai-input" style="width:310px">
+          <option value="gemini" ${c.provider !== "openai" ? "selected" : ""}>Google Gemini (Khuyên dùng - Miễn phí)</option>
+          <option value="openai" ${c.provider === "openai" ? "selected" : ""}>OpenAI / Tương thích (OpenRouter, Groq…)</option>
         </select></div>
-      <div class="side-stat"><span class="k">API key</span>
-        <input id="aiKey" type="password" class="ai-input" style="width:280px" placeholder="dán key vào đây" value="${esc(c.key || "")}"></div>
-      <div class="side-stat"><span class="k">Model</span>
-        <input id="aiModel" class="ai-input" style="width:280px" placeholder="gemini-2.0-flash / gpt-4o-mini" value="${esc(c.model || "")}"></div>
-      <div class="side-stat" id="baseUrlRow" style="display:${c.provider === "openai" ? "flex" : "none"}"><span class="k">Base URL (tuỳ chọn)</span>
-        <input id="aiBase" class="ai-input" style="width:280px" placeholder="https://openrouter.ai/api/v1" value="${esc(c.baseUrl || "")}"></div>
+      <div class="side-stat"><span class="k">API Key của bạn</span>
+        <input id="aiKey" type="password" class="ai-input" style="width:310px" placeholder="Dán API Key vào đây…" value="${esc(c.key || "")}"></div>
+      <div class="side-stat"><span class="k">Tên Model (tùy chọn)</span>
+        <input id="aiModel" class="ai-input" style="width:310px" placeholder="gemini-2.0-flash hoặc gpt-4o-mini" value="${esc(c.model || "")}"></div>
+      <div class="side-stat" id="baseUrlRow" style="display:${c.provider === "openai" ? "flex" : "none"}"><span class="k">Base URL (tùy chọn)</span>
+        <input id="aiBase" class="ai-input" style="width:310px" placeholder="https://openrouter.ai/api/v1" value="${esc(c.baseUrl || "")}"></div>
       <div style="display:flex;gap:10px;margin-top:20px;flex-wrap:wrap">
-        <button class="btn btn--solid" id="aiSave">LƯU CÀI ĐẶT</button>
-        <button class="btn" id="aiTest">KIỂM TRA KẾT NỐI</button>
-        <button class="btn btn--ghost" id="aiClear">XOÁ KEY KHỎI MÁY</button>
+        <button class="btn btn--solid" id="aiSave">Lưu cài đặt</button>
+        <button class="btn" id="aiTest">Kiểm tra kết nối</button>
+        <button class="btn btn--ghost" id="aiClear">Xóa Key khỏi trình duyệt</button>
       </div>
       <div id="aiTestOut" style="margin-top:16px"></div>
       <hr class="hr-dash">
-      <p class="mono" style="font-size:11px;color:var(--ink-3);line-height:1.8">
-      LẤY KEY GEMINI MIỄN PHÍ: aistudio.google.com → Get API key (cần tài khoản Google).<br>
-      KEY CHỈ LƯU TRONG localStorage TRÊN MÁY NÀY. MỌI LỜI CHẤM ĐỀU GỬI TRỰC TIẾP TỪ TRÌNH DUYỆT CỦA BẠN TỚI NHÀ CUNG CẤP — KHÔNG QUA SERVER NÀO KHÁC.<br>
-      TỪ ĐIỂN &amp; DỊCH: dictionaryapi.dev + MyMemory (miễn phí, không cần key, tự hoạt động).</p>
+      <div style="font-size:13.5px;color:var(--ink-2);line-height:1.75">
+        <b>Hướng dẫn lấy khóa Gemini miễn phí:</b> Truy cập <code>aistudio.google.com</code> → chọn <b>Get API key</b> bằng tài khoản Google.<br>
+        <b>Bảo mật tuyệt đối:</b> Khóa API chỉ được lưu trong <code>localStorage</code> trên máy tính của bạn và gửi yêu cầu trực tiếp tới máy chủ Google/OpenAI.
+      </div>
     </div>`;
   const provSel = $("#aiProvider");
   provSel.onchange = () => { $("#baseUrlRow").style.display = provSel.value === "openai" ? "flex" : "none"; };
   $("#aiSave").onclick = () => {
     AI.saveCfg({ provider: provSel.value, key: $("#aiKey").value.trim(), model: $("#aiModel").value.trim(), baseUrl: $("#aiBase").value.trim() });
-    $("#aiTestOut").innerHTML = '<div class="notice"><span class="mono">ĐÃ LƯU</span><span>Cài đặt đã được ghi vào máy. Trợ lý AI sẵn sàng ở mục Viết &amp; Nói.</span></div>';
+    $("#aiTestOut").innerHTML = '<div class="notice"><span><b>Đã lưu cấu hình!</b> Giám khảo AI đã sẵn sàng hoạt động ở học phần Viết và Nói.</span></div>';
   };
   $("#aiTest").onclick = async () => {
-    $("#aiTestOut").innerHTML = '<p class="mono" style="font-size:11px">ĐANG GỬI TÍN HIỆU…</p>';
+    $("#aiTestOut").innerHTML = '<p style="font-size:13.5px;color:var(--ink-2)">Đang kiểm tra kết nối tới máy chủ AI…</p>';
     try{
       const r = await AI.chat("Trả lời đúng một từ: PONG", "Bạn là máy chủ kiểm tra kết nối.");
-      $("#aiTestOut").innerHTML = `<div class="notice" style="border-color:var(--green)"><span class="mono" style="color:var(--green)">KẾT NỐI THÀNH CÔNG</span><span>Máy trả lời: “${esc(r.trim().slice(0, 60))}”. AI chấm bài đã sẵn sàng.</span></div>`;
+      $("#aiTestOut").innerHTML = `<div class="notice" style="border-color:var(--green-border);background:var(--green-soft);color:var(--green)"><span><b>Kết nối thành công!</b> Phản hồi từ máy chủ: “${esc(r.trim().slice(0, 60))}”.</span></div>`;
     }catch(e){
-      $("#aiTestOut").innerHTML = `<div class="notice"><span class="mono">KHÔNG KẾT NỐI ĐƯỢC</span><span>${esc(e.message)}</span></div>`;
+      $("#aiTestOut").innerHTML = `<div class="notice"><span><b>Không thể kết nối:</b> ${esc(e.message)}</span></div>`;
     }
   };
-  $("#aiClear").onclick = () => { localStorage.removeItem(AI.KEY_STORE); $("#aiKey").value = ""; $("#aiTestOut").innerHTML = '<div class="notice"><span class="mono">ĐÃ XOÁ</span><span>Key đã bị gỡ khỏi máy. Các chức năng cục bộ vẫn chạy bình thường.</span></div>'; };
+  $("#aiClear").onclick = () => { localStorage.removeItem(AI.KEY_STORE); $("#aiKey").value = ""; $("#aiTestOut").innerHTML = '<div class="notice"><span>Đã xóa API Key khỏi trình duyệt.</span></div>'; };
 }
 
 /* ================= KHỞI ĐỘNG ================= */

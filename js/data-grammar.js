@@ -59,7 +59,7 @@ const GRAMMAR = [
 /* --- 9. So sánh --- */
 {id:"g41",topic:"So sánh",q:"The speaking test was far ______ than I had expected.",opts:["more easier","easier","more easy","the easiest"],a:1,ex:"Easy là tính từ ngắn → so sánh hơn: <b>easier</b>; “far” đứng trước để nhấn mạnh."},
 {id:"g42",topic:"So sánh",q:"The longer the essay, ______ it becomes to keep the reader engaged.",opts:["the harder","harder","the hardest","as hard"],a:0,ex:"Cấu trúc so sánh kép “The + comparative, <b>the + comparative</b>”: The longer..., the harder...."},
-{id:"g43",topic:"So sánh",q:"This laptop is nowhere near ______ the one advertised in the brochure.",opts:["as powerful as","more powerful than","so powerful than","powerful as"],a:0,ex:"“Nowhere near + as + adj + as” — không gần bằng... Chọn <b>as powerful as</b>."},
+{id:"g43",topic:"So sánh",q:"This laptop is nowhere near ______ the one advertised in the brochure.",opts:["as fast as","faster than","so fast than","fast as"],a:0,ex:"“Nowhere near + as + adj + as” — không gần bằng... Chọn <b>as fast as</b>."},
 {id:"g44",topic:"So sánh",q:"Of the two routes, the mountain road is certainly the ______ scenic.",opts:["least","less","lesser","little"],a:1,ex:"Chỉ so sánh giữa HAI đối tượng nên dùng so sánh hơn: the <b>less</b> scenic — “the least” chỉ dùng từ ba đối tính trở lên."},
 {id:"g45",topic:"So sánh",q:"Tickets sold far more quickly ______ the organisers had predicted.",opts:["that","as","than","then"],a:2,ex:"So sánh hơn với “more quickly” phải đi với <b>than</b>."},
 
