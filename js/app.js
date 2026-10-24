@@ -404,12 +404,12 @@ function viewHome(){
   const modDefs = [
     ["Nền tảng", "Ngữ pháp & Cấu trúc", "12 chuyên đề trọng tâm thường gặp nhất trong đề VSTEP: thì, câu bị động, câu điều kiện, mệnh đề quan hệ.", "60 câu hỏi", "#/ngu-phap"],
     ["Nền tảng", "Từ vựng B2 & Flashcard", "Collocation, phrasal verbs, từ vựng theo 6 chủ đề học thuật kèm hệ thống thẻ ghi nhớ lặp lại ngắt quãng.", "60 câu + 48 thẻ", "#/tu-vung"],
-    ["Kỹ năng 1", "Đọc hiểu VSTEP", "Luyện đủ 4 phần Reading chuẩn cấu trúc, bao gồm trọn bộ 4 bài đọc từ đề minh họa chính thức của Bộ GD&ĐT.", "62 câu hỏi", "#/doc"],
-    ["Kỹ năng 2", "Nghe hiểu 2 giọng đọc", "Hệ thống hội thoại 2 giọng nam và nữ phát trực tiếp trên trình duyệt kèm lời thoại đối chiếu chi tiết.", "25 câu hỏi", "#/nghe"],
-    ["Kỹ năng 3", "Viết thư & Luận văn", "Dàn ý, từ nối học thuật, bài mẫu chuẩn B2 cùng công cụ đếm từ và chấm bài chi tiết theo 4 tiêu chí VSTEP.", "8 đề luyện", "#/viet"],
-    ["Kỹ năng 4", "Phòng thu luyện Nói", "Nhận diện giọng nói trực tiếp, đo tốc độ WPM, phát hiện từ đệm, sơ đồ tư duy Part 3 và trợ lý gợi ý khi bí.", "10 chủ đề", "#/noi"],
+    ["Kỹ năng 1", "Đọc hiểu VSTEP", "6 bộ đề Reading Full Test (24 bài đọc dài) bóc tách từ PDF ĐH Ngoại Thương, ĐH Đồng Tháp, EVSTEP, Vivian, ZIM & PREP.", "262 câu hỏi", "#/doc"],
+    ["Kỹ năng 2", "Nghe hiểu 2 giọng đọc", "3 bộ đề Listening đủ Part 1, Part 2, Part 3 phát trực tiếp bằng 2 giọng đọc kèm lời thoại (Transcript) đối chiếu.", "70 câu hỏi", "#/nghe"],
+    ["Kỹ năng 3", "Viết thư & Luận văn", "14 đề Task 1 & Task 2 từ các bộ đề thi thật, tích hợp AI chấm theo 4 tiêu chí VSTEP và AI nâng cấp bài lên B2/C1.", "14 đề luyện", "#/viet"],
+    ["Kỹ năng 4", "Phòng thu luyện Nói", "17 chủ đề Part 1, 2, 3 kèm sơ đồ tư duy, thu âm giọng nói, AI chấm theo rubric và nâng cấp bài nói lên B2/C1.", "17 chủ đề", "#/noi"],
     ["Phương pháp", "Chiến thuật phòng thi", "Kỹ năng đoán nghĩa từ lạ qua ngữ cảnh, phân bổ thời gian 60 phút và công thức trả lời nhanh từng phần.", "6 chuyên đề", "#/chien-thuat"],
-    ["Ôn tập", "Sổ lỗi tự động", "Tự động lưu lại mọi câu bạn từng làm sai kèm lời giải thích để ôn đúng điểm yếu trước ngày thi.", "Cá nhân hóa", "#/so-loi"]
+    ["Ôn tập", "Sổ lỗi tự động", "Tự động lưu lại mọi câu bạn từng làm sai ở mọi bộ đề kèm lời giải thích để ôn đúng điểm yếu trước ngày thi.", "Cá nhân hóa", "#/so-loi"]
   ];
   app.innerHTML = `
   <section class="hero">
@@ -417,20 +417,20 @@ function viewHome(){
       <div>
         <div class="hero__kicker">
           <span class="tag">Chuẩn cấu trúc VSTEP B2 (Bậc 4/6)</span>
-          <span style="font-size:13px;font-weight:600;color:var(--ink-3)">Cập nhật ${todayStr()}</span>
+          <span style="font-size:13px;font-weight:600;color:var(--ink-3)">Thư viện 6 Bộ đề PDF &amp; Web</span>
         </div>
         <h1>Không gian luyện thi B2 trực quan, tập trung và thực chiến.</h1>
-        <p class="hero__sub">Luyện trọn vẹn 4 kỹ năng Nghe, Đọc, Viết, Nói trên giao diện mô phỏng phòng thi máy tính (CBT), tích hợp bộ đề mẫu chính thức của Bộ GD&amp;ĐT cùng giám khảo AI chấm chữa chi tiết.</p>
+        <p class="hero__sub">Luyện trọn vẹn 4 kỹ năng Nghe, Đọc, Viết, Nói trên giao diện mô phỏng phòng thi máy tính (CBT), tích hợp 6 bộ đề thực chiến từ các trường đại học (FTU, DTHU, CTU, ZIM, PREP, Vivian, EVSTEP) cùng giám khảo AI chấm chữa chi tiết.</p>
         <div class="hero__cta">
           <a class="btn btn--solid" href="#/thi-thu"><span>Vào phòng thi thử CBT</span>${ICO.next}</a>
-          <a class="btn" href="#/ngu-phap"><span>Luyện từ nền tảng</span></a>
+          <a class="btn" href="#/doc"><span>Kho 6 bộ đề Đọc hiểu</span></a>
           <a class="btn btn--ghost" href="#/tu-vung"><span>Học Flashcard B2</span></a>
         </div>
       </div>
       <div class="hero__highlights">
-        <div class="hero__stat"><b>207</b><span>Câu trắc nghiệm</span></div>
-        <div class="hero__stat"><b>48</b><span>Thẻ từ vựng B2</span></div>
-        <div class="hero__stat"><b>18</b><span>Đề Viết &amp; Nói</span></div>
+        <div class="hero__stat"><b>452</b><span>Câu trắc nghiệm</span></div>
+        <div class="hero__stat"><b>6</b><span>Bộ đề Full CBT</span></div>
+        <div class="hero__stat"><b>31</b><span>Đề Viết &amp; Nói</span></div>
         <div class="hero__stat"><b>6.0</b><span>Mục tiêu chuẩn B2</span></div>
       </div>
     </div>
@@ -630,28 +630,29 @@ function vocabCards(){
 }
 
 /* ================= ĐỌC HIỂU ================= */
-function viewReading(part){
-  part = part || "p1";
-  app.innerHTML = moduleHead("Học phần 3", "Đọc hiểu VSTEP (Reading)",
-    "Luyện tập 4 dạng bài đọc hiểu chuẩn VSTEP. Phần 4 bao gồm toàn bộ 4 bài đọc dài trong đề minh họa chính thức kèm đáp án gốc và giải thích chi tiết.",
-    "62 câu hỏi | 60 phút khi thi") + `
+function viewReading(part, setIdx){
+  part = part || "p4";
+  setIdx = setIdx || 0;
+  app.innerHTML = moduleHead("Học phần 3", "Thư viện Đọc hiểu VSTEP (Reading)",
+    "Bao gồm 6 Bộ đề Reading Full Test (24 bài đọc dài = 240 câu) bóc tách từ PDF ĐH Đồng Tháp, ĐH Ngoại Thương (FTU), EVSTEP, Ngoại Ngữ Vivian, ZIM & PREP cùng 3 phần luyện kỹ năng đọc ngắn.",
+    "262 câu hỏi | 6 bộ đề chuẩn") + `
     <div class="topic-bar">
-      <button class="chip ${part === "p1" ? "on" : ""}" data-p="p1">Phần 1: Thông báo ngắn</button>
-      <button class="chip ${part === "p2" ? "on" : ""}" data-p="p2">Phần 2: Đối chiếu đoạn văn</button>
-      <button class="chip ${part === "p3" ? "on" : ""}" data-p="p3">Phần 3: Điền câu vào đoạn</button>
-      <button class="chip ${part === "p4" ? "on" : ""}" data-p="p4">Phần 4: Đề chính thức (40 câu)</button>
+      <button class="chip ${part === "p4" ? "on" : ""}" data-p="p4">Kho 6 Bộ đề Full Test (240 câu)</button>
+      <button class="chip ${part === "p1" ? "on" : ""}" data-p="p1">Khởi động 1: Thông báo ngắn</button>
+      <button class="chip ${part === "p2" ? "on" : ""}" data-p="p2">Khởi động 2: Đối chiếu đoạn văn</button>
+      <button class="chip ${part === "p3" ? "on" : ""}" data-p="p3">Khởi động 3: Điền câu vào đoạn</button>
     </div>
     <div id="readBody"></div>`;
   $$(".chip[data-p]").forEach(c => c.onclick = () => {
     $$(".chip[data-p]").forEach(x => x.classList.remove("on")); c.classList.add("on");
-    viewReading(c.dataset.p);
+    viewReading(c.dataset.p, setIdx);
   });
   const body = $("#readBody");
 
   if(part === "p1"){
     body.innerHTML = `<div id="quizMount"></div>`;
     mountQuiz($("#quizMount"), {
-      items: READING_P1.map(q => ({ id: q.id, q: esc(q.q), opts: q.opts.map(esc), a: q.a, ex: q.ex, tag: "Phần 1", src: q.src })),
+      items: READING_P1.map(q => ({ id: q.id, q: esc(q.q), opts: q.opts.map(esc), a: q.a, ex: q.ex, tag: "Thông báo ngắn", src: q.src })),
       getPassage: q => `<h3>Văn bản thông báo</h3><span class="src">${esc(READING_P1.find(x => x.id === q.id).src)}</span><div class="passage-body">${esc(READING_P1.find(x => x.id === q.id).passage).replace(/\n/g, "<br>")}</div>`
     });
   }
@@ -665,7 +666,7 @@ function viewReading(part){
       </div>
       <div id="quizMount"></div>`;
     mountQuiz($("#quizMount"), {
-      items: READING_P2.map(q => ({ id: q.id, q: esc(q.q), opts: q.opts.map(esc), a: q.a, ex: q.ex, tag: "Phần 2" }))
+      items: READING_P2.map(q => ({ id: q.id, q: esc(q.q), opts: q.opts.map(esc), a: q.a, ex: q.ex, tag: "Đối chiếu" }))
     });
   }
   else if(part === "p3"){
@@ -676,43 +677,65 @@ function viewReading(part){
       </div>
       <div id="quizMount"></div>`;
     mountQuiz($("#quizMount"), {
-      items: READING_P3.map(q => ({ id: q.id, q: esc(q.q), opts: q.opts.map(esc), a: q.a, ex: q.ex, tag: "Phần 3" }))
+      items: READING_P3.map(q => ({ id: q.id, q: esc(q.q), opts: q.opts.map(esc), a: q.a, ex: q.ex, tag: "Điền câu" }))
     });
   }
   else {
+    const curSet = ALL_READING_SETS[setIdx] || ALL_READING_SETS[0];
+    let cur = 0;
     body.innerHTML = `
+      <div class="sheet sheet--pad" style="margin-bottom:16px;padding:16px 20px">
+        <div style="font-size:12.5px;font-weight:700;color:var(--ink-3);margin-bottom:10px">CHỌN BỘ ĐỀ READING (6 BỘ ĐỀ × 40 CÂU = 240 CÂU):</div>
+        <div class="topic-bar" id="rSetBar" style="margin:0">
+          ${ALL_READING_SETS.map((s, idx) => `<button class="chip ${idx === setIdx ? "on" : ""}" data-si="${idx}">${esc(s.title.split(":")[0])} <span class="n">40</span></button>`).join("")}
+        </div>
+        <div style="font-size:13px;color:var(--ink-2);margin-top:10px"><b>Đang mở:</b> ${esc(curSet.title)} — <span style="color:var(--primary);font-weight:600">Nguồn: ${esc(curSet.source)}</span></div>
+      </div>
       <div class="topic-bar" id="psBar">
-        ${READING_OFFICIAL.map((p, i) => `<button class="chip ${i === 0 ? "on" : ""}" data-i="${i}">Bài đọc ${i + 1}: ${esc(p.title.replace("PASSAGE ", "").split(" - ")[1] || "")}</button>`).join("")}
-        <span class="badge-off">Đề mẫu chính thức (10 câu / bài)</span>
+        ${curSet.passages.map((p, i) => `<button class="chip ${i === 0 ? "on" : ""}" data-i="${i}">Passage ${i + 1}: ${esc(p.title.replace(/^PASSAGE \d+\s*[-–]\s*/i, ""))}</button>`).join("")}
       </div>
       <div id="quizMount"></div>`;
-    let cur = 0;
+
     const render = () => {
-      const p = READING_OFFICIAL[cur];
+      const p = curSet.passages[cur];
       mountQuiz($("#quizMount"), {
         items: p.questions.map(q => {
-          const n = q.n, key = READING_OFFICIAL_KEY[String(n)];
-          return { id: "ro" + n, q: esc(q.q), opts: q.opts.map(esc), a: LETTERS.indexOf(key), ex: READING_OFFICIAL_EX[String(n)], tag: "Câu " + n + "/40", src: "Đề chính thức" };
+          const qid = setIdx === 0 ? ("ro" + q.n) : (curSet.id + "_" + q.n);
+          return { id: qid, q: esc(q.q), opts: q.opts.map(esc), a: q.a, ex: q.ex, tag: `Đề 0${setIdx + 1} | Câu ${q.n}/40`, src: curSet.title.split(":")[0] };
         }),
-        getPassage: () => `<h3>${esc(p.title.replace(/^PASSAGE \d+ - /, ""))}</h3><span class="src">Đề minh họa VSTEP Bậc 3–5 (Quyết định 730/QĐ-BGDĐT)</span><div class="passage-body">${esc(p.body)}</div>`
+        getPassage: () => `<h3>${esc(p.title.replace(/^PASSAGE \d+\s*[-–]\s*/i, "Passage " + (cur + 1) + ": "))}</h3><span class="src">Nguồn: ${esc(curSet.source)}</span><div class="passage-body">${esc(p.body)}</div>`
       });
     };
+    $$("#rSetBar .chip").forEach(b => b.onclick = () => viewReading("p4", +b.dataset.si));
     $$("#psBar .chip").forEach(c => c.onclick = () => { $$("#psBar .chip").forEach(x => x.classList.remove("on")); c.classList.add("on"); cur = +c.dataset.i; render(); });
     render();
   }
 }
 
 /* ================= NGHE ================= */
-function viewListening(){
-  app.innerHTML = moduleHead("Học phần 4", "Nghe hiểu VSTEP (Listening)",
-    "Trình phát hội thoại bằng hai giọng đọc Nam – Nữ trực tiếp trên trình duyệt. Hãy đọc trước câu hỏi, bấm Phát âm thanh để nghe và trả lời, sau đó mở Lời thoại (Transcript) để kiểm tra.",
-    "25 câu hỏi") + `
+function viewListening(selSet){
+  selSet = selSet || 1;
+  const totalListenQs = LISTENING.reduce((s, g) => s + g.qs.length, 0);
+  const filteredGroups = selSet === "all" ? LISTENING : LISTENING.filter(g => (g.set || 1) === selSet);
+  app.innerHTML = moduleHead("Học phần 4", "Thư viện Nghe hiểu VSTEP (Listening)",
+    "Trình phát hội thoại & bài giảng bằng hai giọng đọc Nam – Nữ trực tiếp trên trình duyệt. Kho đề gồm 3 bộ đề nghe thực chiến (tổng cộng " + totalListenQs + " câu hỏi trắc nghiệm kèm lời thoại).",
+    totalListenQs + " câu hỏi | 3 bộ đề") + `
+    <div class="topic-bar" id="listenSetBar">
+      <button class="chip ${selSet === 1 ? "on" : ""}" data-lset="1">Bộ đề Nghe 01: Đề mẫu Bộ GD&amp;ĐT <span class="n">${LISTENING.filter(g => (g.set || 1) === 1).reduce((s, g) => s + g.qs.length, 0)}</span></button>
+      <button class="chip ${selSet === 2 ? "on" : ""}" data-lset="2">Bộ đề Nghe 02: ZIM Full Test (Đủ 35 câu) <span class="n">${LISTENING.filter(g => g.set === 2).reduce((s, g) => s + g.qs.length, 0)}</span></button>
+      <button class="chip ${selSet === 3 ? "on" : ""}" data-lset="3">Bộ đề Nghe 03: PREP Bài giảng học thuật <span class="n">${LISTENING.filter(g => g.set === 3).reduce((s, g) => s + g.qs.length, 0)}</span></button>
+      <button class="chip ${selSet === "all" ? "on" : ""}" data-lset="all">Tất cả bài nghe <span class="n">${totalListenQs}</span></button>
+    </div>
     <div class="notice" style="margin-bottom:24px">
       <div><b>Hướng dẫn luyện nghe hiệu quả:</b> Trong phòng thi VSTEP thật, thí sinh chỉ được nghe <b>một lần duy nhất</b>. Bạn có thể chọn tốc độ 0.85× khi mới luyện và tăng lên 1.0× khi đã quen nhịp.</div>
     </div>
     <div id="listenBody"></div>`;
+  $$("#listenSetBar .chip").forEach(b => b.onclick = () => {
+    TTS.stop();
+    viewListening(b.dataset.lset === "all" ? "all" : +b.dataset.lset);
+  });
   const body = $("#listenBody");
-  LISTENING.forEach(g => {
+  filteredGroups.forEach(g => {
     const wrap = document.createElement("div");
     wrap.className = "listen-group";
     wrap.innerHTML = `
@@ -806,8 +829,8 @@ function viewWriting(sel){
   sel = sel || 0;
   const t = WRITING[sel];
   app.innerHTML = moduleHead("Học phần 5", "Luyện Viết VSTEP (Writing)",
-    "Chọn đề Task 1 (Thư/Email) hoặc Task 2 (Luận văn). Hệ thống tự động đếm từ, phân tích mật độ từ nối học thuật cục bộ và hỗ trợ chấm điểm theo 4 tiêu chí VSTEP bằng AI.",
-    "8 đề luyện | 60 phút") + `
+    "Chọn đề Task 1 (Thư/Email) hoặc Task 2 (Luận văn) từ 14 đề thi thực tế. Hệ thống tự động đếm từ, phân tích cục bộ, chấm điểm 4 tiêu chí VSTEP bằng AI và nâng cấp bài viết lên B2/C1.",
+    WRITING.length + " đề luyện | 60 phút") + `
     <div class="wtask-picker" id="wPicker">
       ${WRITING.map((w, i) => `
         <button class="wtask ${i === sel ? "on" : ""}" data-i="${i}">
@@ -922,9 +945,10 @@ function viewWriting(sel){
 /* ================= NÓI ================= */
 function viewSpeaking(part){
   part = part || "p1";
+  const totalSpeak = SPEAKING_P1.length + SPEAKING_P2.length + SPEAKING_P3.length;
   app.innerHTML = moduleHead("Học phần 6", "Phòng thu Luyện Nói (Speaking)",
-    "Ghi âm trực tiếp trên trình duyệt: nhận diện giọng nói tiếng Anh, đo tốc độ nói (WPM) và từ đệm, kết hợp AI chấm theo rubric VSTEP hoặc gợi ý ý tưởng khi bí.",
-    "10 chủ đề & 6 mẫu câu cứu nguy") + `
+    "Ghi âm trực tiếp trên trình duyệt: nhận diện giọng nói tiếng Anh, đo tốc độ nói (WPM) và từ đệm, kết hợp AI chấm theo rubric VSTEP, nâng cấp bài nói lên B2/C1 hoặc gợi ý ý tưởng khi bí.",
+    totalSpeak + " chủ đề & 6 mẫu câu cứu nguy") + `
     <div class="topic-bar">
       ${[["p1","Phần 1: Hỏi đáp xã giao (3p)"],["p2","Phần 2: Thảo luận giải pháp (4p)"],["p3","Phần 3: Phát triển chủ đề (5p)"],["rescue","Mẫu câu cứu nguy khi bí ý"]].map(([k, l]) => `<button class="chip ${part === k ? "on" : ""}" data-p="${k}">${l}</button>`).join("")}
     </div>
@@ -1094,32 +1118,52 @@ function viewSpeaking(part){
 }
 
 /* ================= THI THỬ ================= */
-function viewMock(){
-  app.innerHTML = moduleHead("Phòng thi CBT", "Thi thử VSTEP B2 trên máy tính",
-    "Trải nghiệm kỳ thi chuẩn VSTEP đầy đủ 4 kỹ năng (Nghe, Đọc, Viết, Nói) như phần mềm thi thật tại các điểm trường đại học, hoặc chọn các bài thi trắc nghiệm nhanh theo nhu cầu.",
-    "4 chế độ thi") + `
+function viewMock(selExamIdx){
+  selExamIdx = selExamIdx !== undefined ? selExamIdx : 0;
+  const ex = VSTEP_EXAM_SETS[selExamIdx] || VSTEP_EXAM_SETS[0];
+  const rSet = ALL_READING_SETS[ex.readingSetIndex] || ALL_READING_SETS[0];
+  const lGroups = LISTENING.filter(g => (g.set || 1) === ex.listeningSet);
+  const lCount = lGroups.reduce((s, g) => s + g.qs.length, 0);
+
+  app.innerHTML = moduleHead("Phòng thi CBT", "Thi thử VSTEP B2 trên máy tính (Kho 6 Bộ đề)",
+    "Chọn 1 trong 6 Bộ đề thi thực chiến được bóc tách từ PDF các trường đại học (ĐH Đồng Tháp, ĐH Ngoại Thương FTU, ĐH Cần Thơ) và các hệ thống luyện thi lớn (EVSTEP, Vivian, ZIM, PREP).",
+    "6 bộ đề Full 4 kỹ năng") + `
+    <div class="sheet sheet--pad" style="margin-bottom:20px;padding:18px 22px">
+      <div style="font-size:12.5px;font-weight:700;color:var(--ink-3);margin-bottom:10px">CHỌN MÃ BỘ ĐỀ THI TRƯỚC KHI VÀO PHÒNG THI:</div>
+      <div class="topic-bar" id="mockExamPicker" style="margin:0">
+        ${VSTEP_EXAM_SETS.map((item, i) => `
+          <button class="chip ${i === selExamIdx ? "on" : ""}" data-exi="${i}">
+            <span>${esc(item.code)}: ${esc(item.name.split("(")[0].trim())}</span>
+          </button>`).join("")}
+      </div>
+      <div style="margin-top:12px;font-size:13.5px;color:var(--ink-2);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px">
+        <span><b>Bộ đề đang chọn:</b> ${esc(ex.code)} — ${esc(ex.name)}</span>
+        <span style="color:var(--primary);font-weight:600">Nguồn: ${esc(ex.source)}</span>
+      </div>
+    </div>
+
     <div class="cbt-featured">
       <div style="flex:1;min-width:280px">
-        <span class="tag" style="background:rgba(56,189,248,0.16);border-color:rgba(56,189,248,0.35);color:#BAE6FD">Kỳ thi tiêu chuẩn 4 kỹ năng trên máy (Full VSTEP CBT)</span>
-        <h2>Thi chuẩn VSTEP đầy đủ 4 kỹ năng: Nghe – Đọc – Viết – Nói</h2>
-        <p>Mô phỏng đúng quy trình phòng thi thật trên máy tính: làm lần lượt 4 kỹ năng có đồng hồ đếm ngược riêng từng phần, tự động chấm trắc nghiệm Nghe &amp; Đọc, kết hợp Giám khảo AI chấm tự động 2 bài Viết và 3 phần Nói để xuất bảng điểm VSTEP B1 / B2 / C1.</p>
+        <span class="tag" style="background:rgba(56,189,248,0.16);border-color:rgba(56,189,248,0.35);color:#BAE6FD">${esc(ex.code)} • ${esc(ex.badge)} (Full 4 Kỹ năng CBT)</span>
+        <h2>Thi chuẩn VSTEP 4 kỹ năng: ${esc(ex.name)}</h2>
+        <p>Làm lần lượt 4 kỹ năng như phần mềm thi thật: tự động chấm Nghe (${lCount} câu) &amp; Đọc (40 câu), kết hợp Giám khảo AI chấm tự động 2 bài Viết và 3 phần Nói để xuất bảng điểm VSTEP B1 / B2 / C1.</p>
         <div class="cbt-pillars">
-          <div class="cbt-pillar"><b>1. Nghe (Listening)</b><span>3 Part • 25 câu • 40 phút</span></div>
-          <div class="cbt-pillar"><b>2. Đọc (Reading)</b><span>4 Passage • 40 câu • 60 phút</span></div>
-          <div class="cbt-pillar"><b>3. Viết (Writing)</b><span>Task 1 &amp; 2 • 60 phút</span></div>
-          <div class="cbt-pillar"><b>4. Nói (Speaking)</b><span>Part 1, 2, 3 • 12 phút</span></div>
+          <div class="cbt-pillar"><b>1. Nghe (Listening)</b><span>Đề nghe 0${ex.listeningSet} • ${lCount} câu • 40p</span></div>
+          <div class="cbt-pillar"><b>2. Đọc (Reading)</b><span>4 Passage • 40 câu • 60p</span></div>
+          <div class="cbt-pillar"><b>3. Viết (Writing)</b><span>Task 1 &amp; 2 (${ex.w1Id.toUpperCase()}/${ex.w2Id.toUpperCase()}) • 60p</span></div>
+          <div class="cbt-pillar"><b>4. Nói (Speaking)</b><span>Part 1, 2, 3 (${ex.s1Id.toUpperCase()}-${ex.s3Id.toUpperCase()}) • 12p</span></div>
         </div>
       </div>
       <div>
         <button class="btn btn--paper" id="startFullCBT" style="padding:14px 24px;font-size:14.5px">
-          <span>Vào thi Full 4 kỹ năng</span>${ICO.next}
+          <span>Vào thi ${esc(ex.code)} (4 kỹ năng)</span>${ICO.next}
         </button>
       </div>
     </div>
 
     <div class="section-head" style="margin-top:28px">
-      <span class="section-head__no">Thi trắc nghiệm nhanh</span>
-      <h2 style="font-size:21px">Chế độ luyện đề rút gọn</h2>
+      <span class="section-head__no">Thi trắc nghiệm riêng</span>
+      <h2 style="font-size:21px">Chế độ luyện đề rút gọn (Áp dụng cho ${esc(ex.code)})</h2>
     </div>
     <div class="mock-cards">
       <button class="mock-opt" data-mode="quick">
@@ -1129,46 +1173,51 @@ function viewMock(){
         <span class="meta">Bắt đầu làm đề 20 phút</span>
       </button>
       <button class="mock-opt" data-mode="standard">
-        <span class="t">Đề tổng hợp tiêu chuẩn</span>
+        <span class="t">Đề tổng hợp (${esc(ex.code)})</span>
         <h3>50 câu / 60 phút</h3>
-        <p>10 câu ngữ pháp, 10 câu từ vựng, 10 câu đọc tự luyện và 20 câu từ 2 bài đọc đề chính thức.</p>
+        <p>10 câu ngữ pháp + 10 câu từ vựng + 10 câu đọc ngắn + 20 câu từ 2 Passage của ${esc(ex.code)}.</p>
         <span class="meta">Bắt đầu làm đề 60 phút</span>
       </button>
       <button class="mock-opt" data-mode="reading">
-        <span class="t">Đề Đọc hiểu chính thức</span>
+        <span class="t">Đề Reading 40 câu (${esc(ex.code)})</span>
         <h3>40 câu / 60 phút</h3>
-        <p>Trọn bộ 4 bài đọc dài của VSTEP Sample Test (Bậc 3–5) kèm đáp án gốc của Bộ GD&amp;ĐT.</p>
-        <span class="meta">Làm đề Reading chính thức</span>
+        <p>Trọn bộ 4 Passage (40 câu) của <b>${esc(rSet.title)}</b> kèm đáp án và giải thích chi tiết.</p>
+        <span class="meta">Làm đề Reading ${esc(ex.code)}</span>
       </button>
     </div>
     <p style="font-size:13px;color:var(--ink-3);margin-top:16px">Quy chế tính điểm chuẩn VSTEP: Điểm trung bình 4 kỹ năng làm tròn đến 0.5 — Từ <b>4.0–5.5</b> đạt B1, từ <b>6.0–8.0</b> đạt B2, từ <b>8.5–10.0</b> đạt C1.</p>`;
 
-  $("#startFullCBT").onclick = () => runFullCBTExam();
-  $$(".mock-opt").forEach(b => b.onclick = () => runMock(b.dataset.mode));
+  $$("#mockExamPicker .chip").forEach(b => b.onclick = () => viewMock(+b.dataset.exi));
+  $("#startFullCBT").onclick = () => runFullCBTExam(selExamIdx);
+  $$(".mock-opt").forEach(b => b.onclick = () => runMock(b.dataset.mode, selExamIdx));
 }
 
 /* ================= PHÒNG THI FULL 4 KỸ NĂNG CHUẨN CBT ================= */
-function runFullCBTExam(){
-  /* Chuẩn bị dữ liệu 4 kỹ năng */
-  const listenGroups = LISTENING.slice();
+function runFullCBTExam(examIdx){
+  const ex = VSTEP_EXAM_SETS[examIdx || 0] || VSTEP_EXAM_SETS[0];
+  const rSet = ALL_READING_SETS[ex.readingSetIndex] || ALL_READING_SETS[0];
+
+  /* Chuẩn bị dữ liệu 4 kỹ năng theo đúng Mã Bộ Đề đã chọn */
+  const listenGroups = LISTENING.filter(g => (g.set || 1) === ex.listeningSet);
   const listenQs = listenGroups.flatMap(g => g.qs.map(q => ({ ...q, gid: g.gid, part: g.part, groupTitle: g.title })));
   const listenPicks = new Array(listenQs.length).fill(undefined);
 
-  const readPassages = READING_OFFICIAL.slice();
+  const readPassages = rSet.passages;
   const readQs = readPassages.flatMap((p, pi) => p.questions.map(q => ({
-    id: "ro" + q.n, n: q.n, pi, passageTitle: p.title, q: q.q, opts: q.opts,
-    a: LETTERS.indexOf(READING_OFFICIAL_KEY[String(q.n)]), ex: READING_OFFICIAL_EX[String(q.n)]
+    id: (ex.readingSetIndex === 0 ? "ro" + q.n : rSet.id + "_" + q.n),
+    n: q.n, pi, passageTitle: p.title, q: q.q, opts: q.opts,
+    a: q.a, ex: q.ex
   })));
   const readPicks = new Array(readQs.length).fill(undefined);
   const readFlags = new Array(readQs.length).fill(false);
 
-  const w1Task = WRITING.find(w => w.task === 1 && w.official) || WRITING.find(w => w.task === 1);
-  const w2Task = WRITING.find(w => w.task === 2 && w.official) || WRITING.find(w => w.task === 2);
+  const w1Task = WRITING.find(w => w.id === ex.w1Id) || WRITING[0];
+  const w2Task = WRITING.find(w => w.id === ex.w2Id) || WRITING.find(w => w.task === 2);
   const writeData = { w1: "", w2: "", activeTask: 1 };
 
-  const s1Item = SPEAKING_P1[0];
-  const s2Item = SPEAKING_P2[0];
-  const s3Item = SPEAKING_P3[0];
+  const s1Item = SPEAKING_P1.find(s => s.id === ex.s1Id) || SPEAKING_P1[0];
+  const s2Item = SPEAKING_P2.find(s => s.id === ex.s2Id) || SPEAKING_P2[0];
+  const s3Item = SPEAKING_P3.find(s => s.id === ex.s3Id) || SPEAKING_P3[0];
   const speakData = { s1: "", s2: "", s3: "", activePart: 1 };
 
   const STAGES = [
@@ -1769,30 +1818,41 @@ function runFullCBTExam(){
   renderStage();
 }
 
-function buildMockItems(mode){
+function buildMockItems(mode, examIdx){
+  const ex = VSTEP_EXAM_SETS[examIdx || 0] || VSTEP_EXAM_SETS[0];
+  const rSet = ALL_READING_SETS[ex.readingSetIndex] || ALL_READING_SETS[0];
   const g = q => ({ id: q.id, section: "Ngữ pháp", q: esc(q.q), opts: q.opts.map(esc), a: q.a, ex: q.ex });
   const v = q => ({ id: q.id, section: "Từ vựng", q: esc(q.q), opts: q.opts.map(esc), a: q.a, ex: q.ex });
   const r = (q, part) => ({ id: q.id, section: "Đọc hiểu", q: esc(q.q), opts: q.opts.map(esc), a: q.a, ex: q.ex, tag: part });
-  const off = p => p.questions.map(q => {
-    const n = q.n, key = READING_OFFICIAL_KEY[String(n)];
-    return { id: "ro" + n, section: "Đọc hiểu (Đề chính thức)", q: esc(q.q), opts: q.opts.map(esc), a: LETTERS.indexOf(key), ex: READING_OFFICIAL_EX[String(n)], passage: p, tag: "Bài đọc " + (READING_OFFICIAL.indexOf(p) + 1) };
-  });
+  const fromSetPassage = (p, pi) => p.questions.map(q => ({
+    id: (ex.readingSetIndex === 0 ? "ro" + q.n : rSet.id + "_" + q.n),
+    section: "Đọc hiểu (" + ex.code + ")",
+    q: esc(q.q),
+    opts: q.opts.map(esc),
+    a: q.a,
+    ex: q.ex,
+    passage: p,
+    tag: "Passage " + (pi + 1)
+  }));
   if(mode === "quick"){
     return { label: "Đề nhanh 20 câu", secs: 20 * 60,
       items: [...pickN(GRAMMAR, 5).map(g), ...pickN(VOCAB, 5).map(v), ...pickN(READING_P1, 6).map(q => r(q, "Phần 1")), ...pickN(READING_P2, 4).map(q => r(q, "Phần 2"))] };
   }
   if(mode === "standard"){
-    const twoPassages = pickN(READING_OFFICIAL, 2);
-    return { label: "Đề chuẩn 50 câu", secs: 60 * 60,
+    return { label: "Đề tổng hợp 50 câu (" + ex.code + ")", secs: 60 * 60,
       items: [...pickN(GRAMMAR, 10).map(g), ...pickN(VOCAB, 10).map(v),
         ...pickN(READING_P1, 4).map(q => r(q, "Phần 1")), ...pickN(READING_P2, 3).map(q => r(q, "Phần 2")), ...READING_P3.slice(0, 3).map(q => r(q, "Phần 3")),
-        ...off(twoPassages[0]), ...off(twoPassages[1])] };
+        ...fromSetPassage(rSet.passages[0], 0), ...fromSetPassage(rSet.passages[1], 1)] };
   }
-  return { label: "Đề đọc chính thức 40 câu", secs: 60 * 60, items: READING_OFFICIAL.flatMap(off) };
+  return {
+    label: "Đề Reading 40 câu (" + ex.code + ")",
+    secs: 60 * 60,
+    items: rSet.passages.flatMap((p, pi) => fromSetPassage(p, pi))
+  };
 }
 
-function runMock(mode){
-  const { label, secs, items } = buildMockItems(mode);
+function runMock(mode, examIdx){
+  const { label, secs, items } = buildMockItems(mode, examIdx);
   const picks = new Array(items.length).fill(undefined);
   const flags = new Array(items.length).fill(false);
   let idx = 0, left = secs, timerInt = null, submitted = false;
@@ -1949,7 +2009,17 @@ function viewMistakes(){
     for(const p of pools){ const q = p.find(x => x.id === id); if(q) return { q, src: "Câu hỏi luyện tập" }; }
     for(const g of LISTENING){ const q = g.qs.find(x => x.id === id); if(q) return { q, src: "Nghe hiểu: " + g.title }; }
     const n = id.startsWith("ro") ? +id.slice(2) : null;
-    if(n){ for(const p of READING_OFFICIAL){ const q = p.questions.find(x => x.n === n); if(q) return { q: { id, q: q.q, opts: q.opts, a: LETTERS.indexOf(READING_OFFICIAL_KEY[String(n)]), ex: READING_OFFICIAL_EX[String(n)] }, src: "Đọc hiểu: Đề chính thức" }; } }
+    if(n){ for(const p of READING_OFFICIAL){ const q = p.questions.find(x => x.n === n); if(q) return { q: { id, q: q.q, opts: q.opts, a: LETTERS.indexOf(READING_OFFICIAL_KEY[String(n)]), ex: READING_OFFICIAL_EX[String(n)] }, src: "Đọc hiểu: Đề số 01 (Bộ GD&ĐT)" }; } }
+    const m = id.match(/^(rset\d+)_(\d+)$/);
+    if(m){
+      const rSet = ALL_READING_SETS.find(s => s.id === m[1]);
+      if(rSet){
+        for(const p of rSet.passages){
+          const q = p.questions.find(x => x.n === +m[2]);
+          if(q) return { q: { id, q: q.q, opts: q.opts, a: q.a, ex: q.ex }, src: "Đọc hiểu: " + rSet.title.split(":")[0] };
+        }
+      }
+    }
     return null;
   };
   app.innerHTML = moduleHead("Ôn tập cá nhân", "Sổ lỗi cần khắc phục",
