@@ -40,6 +40,11 @@ SOURCES = {
             "title": "Đề thi mẫu VSTEP May 2015 (ĐH Cần Thơ CTU)",
             "url": "https://cfla.ctu.edu.vn/documents/20181/23252/%C4%90%E1%BB%81+thi+m%E1%BA%ABu/7690ef96-42ec-42cb-9688-f4d8f7b785ed",
         },
+        {
+            "id": "citi_sample_pdf",
+            "title": "Đề thi minh họa VSTEP bậc 3-5 (CITI — cần OCR từng trang)",
+            "url": "https://citi.edu.vn/wp-content/uploads/2024/03/De-thi-minh-hoa-bac-3-den-5.pdf",
+        },
     ],
     "html": [
         {
@@ -61,6 +66,46 @@ SOURCES = {
             "id": "prep_full_sample",
             "title": "Đề thi mẫu VSTEP 4 kỹ năng (PREP Edu)",
             "url": "https://prepedu.com/vi/blog/de-thi-mau-vstep",
+        },
+        {
+            "id": "thienan_test1",
+            "title": "Thiên Ân VSTEP Test 1 — Full 4 kỹ năng (VSTEP Collection 20 Mock Tests)",
+            "url": "https://anhnguthienan.edu.vn/de-thi-that-vstep-b1-b2-c1-test1/",
+        },
+        {
+            "id": "thienan_test2",
+            "title": "Thiên Ân VSTEP Test 2 — Full 4 kỹ năng",
+            "url": "https://anhnguthienan.edu.vn/de-thi-mau-vstep-b1-b2-c1-test-2-full-04-ky-nang-co-dap-an/",
+        },
+        {
+            "id": "thienan_test3",
+            "title": "Thiên Ân VSTEP Test 3 — Full 4 kỹ năng",
+            "url": "https://anhnguthienan.edu.vn/de-thi-thu-vstep-b1-b2-c1-test-3-full-04-ky-nang-co-dap-an/",
+        },
+        {
+            "id": "thienan_test4",
+            "title": "Thiên Ân VSTEP Test 4 — Full 4 kỹ năng",
+            "url": "https://anhnguthienan.edu.vn/de-thi-vstep-b1-b2-c1-test-4-full-04-ky-nang-co-dap-an/",
+        },
+        {
+            "id": "thienan_test5",
+            "title": "Thiên Ân VSTEP Test 5 — Full 4 kỹ năng",
+            "url": "https://anhnguthienan.edu.vn/de-thi-vstep-b1-b2-c1-test-5-full-04-ky-nang-co-dap-an/",
+        },
+        {
+            "id": "thienan_archive",
+            "title": "Thiên Ân — Kho đề thi thật VSTEP 2019–2023 (trang tổng hợp)",
+            "url": "https://anhnguthienan.edu.vn/giai-de-thi-vstep/",
+        },
+        {
+            "id": "edulife_collection",
+            "title": "Edulife — Tổng hợp 100+ đề thi VSTEP B1-B2-C1 PDF",
+            "url": "https://edulife.com.vn/tong-hop-de-thi-vstep-b1-b2-c1-pdf/",
+        },
+        {
+            "id": "citi_reading",
+            "title": "CITI — Luyện đề Reading VSTEP B2",
+            "url": "https://citi.edu.vn/reading-vstep-b2/",
         },
     ],
 }

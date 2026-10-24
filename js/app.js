@@ -401,13 +401,17 @@ function viewHome(){
   const all = Store.accBy("*");
   const streak = Store.streak();
   const ai = AI.available();
+  const totalReadingQs = READING_P1.length + READING_P2.length + READING_P3.length + ALL_READING_SETS.length * 40;
+  const totalListeningQs = LISTENING.reduce((s, g) => s + g.qs.length, 0);
+  const totalMCQs = GRAMMAR.length + VOCAB.length + totalReadingQs + totalListeningQs;
+  const totalSpeak = SPEAKING_P1.length + SPEAKING_P2.length + SPEAKING_P3.length;
   const modDefs = [
-    ["Nền tảng", "Ngữ pháp & Cấu trúc", "12 chuyên đề trọng tâm thường gặp nhất trong đề VSTEP: thì, câu bị động, câu điều kiện, mệnh đề quan hệ.", "60 câu hỏi", "#/ngu-phap"],
-    ["Nền tảng", "Từ vựng B2 & Flashcard", "Collocation, phrasal verbs, từ vựng theo 6 chủ đề học thuật kèm hệ thống thẻ ghi nhớ lặp lại ngắt quãng.", "60 câu + 48 thẻ", "#/tu-vung"],
-    ["Kỹ năng 1", "Đọc hiểu VSTEP", "6 bộ đề Reading Full Test (24 bài đọc dài) bóc tách từ PDF ĐH Ngoại Thương, ĐH Đồng Tháp, EVSTEP, Vivian, ZIM & PREP.", "262 câu hỏi", "#/doc"],
-    ["Kỹ năng 2", "Nghe hiểu 2 giọng đọc", "3 bộ đề Listening đủ Part 1, Part 2, Part 3 phát trực tiếp bằng 2 giọng đọc kèm lời thoại (Transcript) đối chiếu.", "70 câu hỏi", "#/nghe"],
-    ["Kỹ năng 3", "Viết thư & Luận văn", "14 đề Task 1 & Task 2 từ các bộ đề thi thật, tích hợp AI chấm theo 4 tiêu chí VSTEP và AI nâng cấp bài lên B2/C1.", "14 đề luyện", "#/viet"],
-    ["Kỹ năng 4", "Phòng thu luyện Nói", "17 chủ đề Part 1, 2, 3 kèm sơ đồ tư duy, thu âm giọng nói, AI chấm theo rubric và nâng cấp bài nói lên B2/C1.", "17 chủ đề", "#/noi"],
+    ["Nền tảng", "Ngữ pháp & Cấu trúc", "12 chuyên đề trọng tâm thường gặp nhất trong đề VSTEP: thì, câu bị động, câu điều kiện, mệnh đề quan hệ.", GRAMMAR.length + " câu hỏi", "#/ngu-phap"],
+    ["Nền tảng", "Từ vựng B2 & Flashcard", "Collocation, phrasal verbs, từ vựng theo 6 chủ đề học thuật kèm hệ thống thẻ ghi nhớ lặp lại ngắt quãng.", VOCAB.length + " câu + 48 thẻ", "#/tu-vung"],
+    ["Kỹ năng 1", "Đọc hiểu VSTEP", ALL_READING_SETS.length + " bộ đề Reading Full Test (" + (ALL_READING_SETS.length * 4) + " bài đọc dài) từ Sách NXB ĐHQGHN, Anh ngữ Thiên Ân, ĐH Ngoại Thương, ĐH Đồng Tháp, EVSTEP, Vivian, ZIM & PREP.", totalReadingQs + " câu hỏi", "#/doc"],
+    ["Kỹ năng 2", "Nghe hiểu 2 giọng đọc", [...new Set(LISTENING.map(g => g.set || 1))].length + " bộ đề Listening đủ Part 1, Part 2, Part 3 phát trực tiếp bằng 2 giọng đọc kèm lời thoại (Transcript) đối chiếu.", totalListeningQs + " câu hỏi", "#/nghe"],
+    ["Kỹ năng 3", "Viết thư & Luận văn", WRITING.length + " đề Task 1 & Task 2 từ các bộ đề thi thật, tích hợp AI chấm theo 4 tiêu chí VSTEP và AI nâng cấp bài lên B2/C1.", WRITING.length + " đề luyện", "#/viet"],
+    ["Kỹ năng 4", "Phòng thu luyện Nói", totalSpeak + " chủ đề Part 1, 2, 3 kèm sơ đồ tư duy, thu âm giọng nói, AI chấm theo rubric và nâng cấp bài nói lên B2/C1.", totalSpeak + " chủ đề", "#/noi"],
     ["Phương pháp", "Chiến thuật phòng thi", "Kỹ năng đoán nghĩa từ lạ qua ngữ cảnh, phân bổ thời gian 60 phút và công thức trả lời nhanh từng phần.", "6 chuyên đề", "#/chien-thuat"],
     ["Ôn tập", "Sổ lỗi tự động", "Tự động lưu lại mọi câu bạn từng làm sai ở mọi bộ đề kèm lời giải thích để ôn đúng điểm yếu trước ngày thi.", "Cá nhân hóa", "#/so-loi"]
   ];
@@ -417,20 +421,20 @@ function viewHome(){
       <div>
         <div class="hero__kicker">
           <span class="tag">Chuẩn cấu trúc VSTEP B2 (Bậc 4/6)</span>
-          <span style="font-size:13px;font-weight:600;color:var(--ink-3)">Thư viện 6 Bộ đề PDF &amp; Web</span>
+          <span style="font-size:13px;font-weight:600;color:var(--ink-3)">Thư viện ${ALL_READING_SETS.length} Bộ đề Sách PDF &amp; Web</span>
         </div>
         <h1>Không gian luyện thi B2 trực quan, tập trung và thực chiến.</h1>
-        <p class="hero__sub">Luyện trọn vẹn 4 kỹ năng Nghe, Đọc, Viết, Nói trên giao diện mô phỏng phòng thi máy tính (CBT), tích hợp 6 bộ đề thực chiến từ các trường đại học (FTU, DTHU, CTU, ZIM, PREP, Vivian, EVSTEP) cùng giám khảo AI chấm chữa chi tiết.</p>
+        <p class="hero__sub">Luyện trọn vẹn 4 kỹ năng Nghe, Đọc, Viết, Nói trên giao diện mô phỏng phòng thi máy tính (CBT), tích hợp trọn bộ <b>10 đề sách NXB ĐHQGHN</b>, <b>5 đề Full 4 kỹ năng Anh ngữ Thiên Ân</b> cùng 6 bộ đề trường ĐH (FTU, DTHU, ZIM, PREP, Vivian, EVSTEP) và giám khảo AI chấm chữa chi tiết.</p>
         <div class="hero__cta">
           <a class="btn btn--solid" href="#/thi-thu"><span>Vào phòng thi thử CBT</span>${ICO.next}</a>
-          <a class="btn" href="#/doc"><span>Kho 6 bộ đề Đọc hiểu</span></a>
+          <a class="btn" href="#/doc"><span>Kho ${ALL_READING_SETS.length} bộ đề Đọc hiểu</span></a>
           <a class="btn btn--ghost" href="#/tu-vung"><span>Học Flashcard B2</span></a>
         </div>
       </div>
       <div class="hero__highlights">
-        <div class="hero__stat"><b>452</b><span>Câu trắc nghiệm</span></div>
-        <div class="hero__stat"><b>6</b><span>Bộ đề Full CBT</span></div>
-        <div class="hero__stat"><b>31</b><span>Đề Viết &amp; Nói</span></div>
+        <div class="hero__stat"><b>${totalMCQs}</b><span>Câu trắc nghiệm</span></div>
+        <div class="hero__stat"><b>${VSTEP_EXAM_SETS.length}</b><span>Bộ đề Full CBT</span></div>
+        <div class="hero__stat"><b>${WRITING.length + totalSpeak}</b><span>Đề Viết &amp; Nói</span></div>
         <div class="hero__stat"><b>6.0</b><span>Mục tiêu chuẩn B2</span></div>
       </div>
     </div>
@@ -633,11 +637,13 @@ function vocabCards(){
 function viewReading(part, setIdx){
   part = part || "p4";
   setIdx = setIdx || 0;
+  const totalP4Qs = ALL_READING_SETS.length * 40;
+  const totalReadQs = totalP4Qs + READING_P1.length + READING_P2.length + READING_P3.length;
   app.innerHTML = moduleHead("Học phần 3", "Thư viện Đọc hiểu VSTEP (Reading)",
-    "Bao gồm 6 Bộ đề Reading Full Test (24 bài đọc dài = 240 câu) bóc tách từ PDF ĐH Đồng Tháp, ĐH Ngoại Thương (FTU), EVSTEP, Ngoại Ngữ Vivian, ZIM & PREP cùng 3 phần luyện kỹ năng đọc ngắn.",
-    "262 câu hỏi | 6 bộ đề chuẩn") + `
+    "Bao gồm " + ALL_READING_SETS.length + " Bộ đề Reading Full Test (" + (ALL_READING_SETS.length * 4) + " bài đọc dài = " + totalP4Qs + " câu) bóc tách từ Sách 10 bộ đề NXB ĐHQGHN, 5 đề Full Anh ngữ Thiên Ân (VSTEP Collection 20 Mock Tests), PDF ĐH Đồng Tháp, ĐH Ngoại Thương (FTU), EVSTEP, Vivian, ZIM & PREP.",
+    totalReadQs + " câu hỏi | " + ALL_READING_SETS.length + " bộ đề chuẩn") + `
     <div class="topic-bar">
-      <button class="chip ${part === "p4" ? "on" : ""}" data-p="p4">Kho 6 Bộ đề Full Test (240 câu)</button>
+      <button class="chip ${part === "p4" ? "on" : ""}" data-p="p4">Kho ${ALL_READING_SETS.length} Bộ đề Full Test (${totalP4Qs} câu)</button>
       <button class="chip ${part === "p1" ? "on" : ""}" data-p="p1">Khởi động 1: Thông báo ngắn</button>
       <button class="chip ${part === "p2" ? "on" : ""}" data-p="p2">Khởi động 2: Đối chiếu đoạn văn</button>
       <button class="chip ${part === "p3" ? "on" : ""}" data-p="p3">Khởi động 3: Điền câu vào đoạn</button>
@@ -685,9 +691,9 @@ function viewReading(part, setIdx){
     let cur = 0;
     body.innerHTML = `
       <div class="sheet sheet--pad" style="margin-bottom:16px;padding:16px 20px">
-        <div style="font-size:12.5px;font-weight:700;color:var(--ink-3);margin-bottom:10px">CHỌN BỘ ĐỀ READING (6 BỘ ĐỀ × 40 CÂU = 240 CÂU):</div>
+        <div style="font-size:12.5px;font-weight:700;color:var(--ink-3);margin-bottom:10px">CHỌN BỘ ĐỀ READING (${ALL_READING_SETS.length} BỘ ĐỀ × 40 CÂU = ${totalP4Qs} CÂU):</div>
         <div class="topic-bar" id="rSetBar" style="margin:0">
-          ${ALL_READING_SETS.map((s, idx) => `<button class="chip ${idx === setIdx ? "on" : ""}" data-si="${idx}">${esc(s.title.split(":")[0])} <span class="n">40</span></button>`).join("")}
+          ${ALL_READING_SETS.map((s, idx) => `<button class="chip ${idx === setIdx ? "on" : ""}" data-si="${idx}">${esc(s.title.split(":")[0].replace("Đề số ", "Đề "))} <span class="n">40</span></button>`).join("")}
         </div>
         <div style="font-size:13px;color:var(--ink-2);margin-top:10px"><b>Đang mở:</b> ${esc(curSet.title)} — <span style="color:var(--primary);font-weight:600">Nguồn: ${esc(curSet.source)}</span></div>
       </div>
@@ -701,7 +707,7 @@ function viewReading(part, setIdx){
       mountQuiz($("#quizMount"), {
         items: p.questions.map(q => {
           const qid = setIdx === 0 ? ("ro" + q.n) : (curSet.id + "_" + q.n);
-          return { id: qid, q: esc(q.q), opts: q.opts.map(esc), a: q.a, ex: q.ex, tag: `Đề 0${setIdx + 1} | Câu ${q.n}/40`, src: curSet.title.split(":")[0] };
+          return { id: qid, q: esc(q.q), opts: q.opts.map(esc), a: q.a, ex: q.ex, tag: `Đề ${String(setIdx + 1).padStart(2, "0")} | Câu ${q.n}/40`, src: curSet.title.split(":")[0] };
         }),
         getPassage: () => `<h3>${esc(p.title.replace(/^PASSAGE \d+\s*[-–]\s*/i, "Passage " + (cur + 1) + ": "))}</h3><span class="src">Nguồn: ${esc(curSet.source)}</span><div class="passage-body">${esc(p.body)}</div>`
       });
@@ -713,17 +719,26 @@ function viewReading(part, setIdx){
 }
 
 /* ================= NGHE ================= */
+const LISTEN_SET_LABELS = {
+  1: "Đề mẫu Bộ GD&ĐT",
+  2: "ZIM Full Test (35 câu)",
+  3: "PREP Bài giảng học thuật",
+  4: "Thiên Ân Test 1 (35 câu)",
+  5: "Thiên Ân Test 2 (35 câu)",
+  6: "Thiên Ân Test 3 (35 câu)",
+  7: "Thiên Ân Test 4 (35 câu)",
+  8: "Thiên Ân Test 5 (35 câu)"
+};
 function viewListening(selSet){
   selSet = selSet || 1;
   const totalListenQs = LISTENING.reduce((s, g) => s + g.qs.length, 0);
+  const listenSets = [...new Set(LISTENING.map(g => g.set || 1))].sort((a, b) => a - b);
   const filteredGroups = selSet === "all" ? LISTENING : LISTENING.filter(g => (g.set || 1) === selSet);
   app.innerHTML = moduleHead("Học phần 4", "Thư viện Nghe hiểu VSTEP (Listening)",
-    "Trình phát hội thoại & bài giảng bằng hai giọng đọc Nam – Nữ trực tiếp trên trình duyệt. Kho đề gồm 3 bộ đề nghe thực chiến (tổng cộng " + totalListenQs + " câu hỏi trắc nghiệm kèm lời thoại).",
-    totalListenQs + " câu hỏi | 3 bộ đề") + `
+    "Trình phát hội thoại & bài giảng bằng hai giọng đọc Nam – Nữ trực tiếp trên trình duyệt. Kho đề gồm " + listenSets.length + " bộ đề nghe thực chiến (tổng cộng " + totalListenQs + " câu hỏi trắc nghiệm kèm lời thoại) — gồm 5 đề Full 35 câu từ Anh ngữ Thiên Ân.",
+    totalListenQs + " câu hỏi | " + listenSets.length + " bộ đề") + `
     <div class="topic-bar" id="listenSetBar">
-      <button class="chip ${selSet === 1 ? "on" : ""}" data-lset="1">Bộ đề Nghe 01: Đề mẫu Bộ GD&amp;ĐT <span class="n">${LISTENING.filter(g => (g.set || 1) === 1).reduce((s, g) => s + g.qs.length, 0)}</span></button>
-      <button class="chip ${selSet === 2 ? "on" : ""}" data-lset="2">Bộ đề Nghe 02: ZIM Full Test (Đủ 35 câu) <span class="n">${LISTENING.filter(g => g.set === 2).reduce((s, g) => s + g.qs.length, 0)}</span></button>
-      <button class="chip ${selSet === 3 ? "on" : ""}" data-lset="3">Bộ đề Nghe 03: PREP Bài giảng học thuật <span class="n">${LISTENING.filter(g => g.set === 3).reduce((s, g) => s + g.qs.length, 0)}</span></button>
+      ${listenSets.map(sn => `<button class="chip ${selSet === sn ? "on" : ""}" data-lset="${sn}">Bộ đề Nghe ${String(sn).padStart(2, "0")}: ${esc(LISTEN_SET_LABELS[sn] || "Bộ đề " + sn)} <span class="n">${LISTENING.filter(g => (g.set || 1) === sn).reduce((s, g) => s + g.qs.length, 0)}</span></button>`).join("")}
       <button class="chip ${selSet === "all" ? "on" : ""}" data-lset="all">Tất cả bài nghe <span class="n">${totalListenQs}</span></button>
     </div>
     <div class="notice" style="margin-bottom:24px">
@@ -1125,15 +1140,15 @@ function viewMock(selExamIdx){
   const lGroups = LISTENING.filter(g => (g.set || 1) === ex.listeningSet);
   const lCount = lGroups.reduce((s, g) => s + g.qs.length, 0);
 
-  app.innerHTML = moduleHead("Phòng thi CBT", "Thi thử VSTEP B2 trên máy tính (Kho 6 Bộ đề)",
-    "Chọn 1 trong 6 Bộ đề thi thực chiến được bóc tách từ PDF các trường đại học (ĐH Đồng Tháp, ĐH Ngoại Thương FTU, ĐH Cần Thơ) và các hệ thống luyện thi lớn (EVSTEP, Vivian, ZIM, PREP).",
-    "6 bộ đề Full 4 kỹ năng") + `
+  app.innerHTML = moduleHead("Phòng thi CBT", "Thi thử VSTEP B2 trên máy tính (Kho " + VSTEP_EXAM_SETS.length + " Bộ đề)",
+    "Chọn 1 trong " + VSTEP_EXAM_SETS.length + " Bộ đề thi thực chiến được bóc tách từ Sách 10 bộ đề NXB ĐHQGHN, 5 đề Full 4 kỹ năng Anh ngữ Thiên Ân (VSTEP Collection 20 Mock Tests), PDF các trường đại học (ĐH Đồng Tháp, ĐH Ngoại Thương FTU) và các hệ thống luyện thi lớn (EVSTEP, Vivian, ZIM, PREP).",
+    VSTEP_EXAM_SETS.length + " bộ đề Full 4 kỹ năng") + `
     <div class="sheet sheet--pad" style="margin-bottom:20px;padding:18px 22px">
-      <div style="font-size:12.5px;font-weight:700;color:var(--ink-3);margin-bottom:10px">CHỌN MÃ BỘ ĐỀ THI TRƯỚC KHI VÀO PHÒNG THI:</div>
+      <div style="font-size:12.5px;font-weight:700;color:var(--ink-3);margin-bottom:10px">CHỌN MÃ BỘ ĐỀ THI TRƯỚC KHI VÀO PHÒNG THI (${VSTEP_EXAM_SETS.length} BỘ ĐỀ):</div>
       <div class="topic-bar" id="mockExamPicker" style="margin:0">
         ${VSTEP_EXAM_SETS.map((item, i) => `
           <button class="chip ${i === selExamIdx ? "on" : ""}" data-exi="${i}">
-            <span>${esc(item.code)}: ${esc(item.name.split("(")[0].trim())}</span>
+            <span>${esc(item.code)} (${esc(item.badge)})</span>
           </button>`).join("")}
       </div>
       <div style="margin-top:12px;font-size:13.5px;color:var(--ink-2);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px">
@@ -1148,7 +1163,7 @@ function viewMock(selExamIdx){
         <h2>Thi chuẩn VSTEP 4 kỹ năng: ${esc(ex.name)}</h2>
         <p>Làm lần lượt 4 kỹ năng như phần mềm thi thật: tự động chấm Nghe (${lCount} câu) &amp; Đọc (40 câu), kết hợp Giám khảo AI chấm tự động 2 bài Viết và 3 phần Nói để xuất bảng điểm VSTEP B1 / B2 / C1.</p>
         <div class="cbt-pillars">
-          <div class="cbt-pillar"><b>1. Nghe (Listening)</b><span>Đề nghe 0${ex.listeningSet} • ${lCount} câu • 40p</span></div>
+          <div class="cbt-pillar"><b>1. Nghe (Listening)</b><span>Đề nghe ${String(ex.listeningSet).padStart(2, "0")} • ${lCount} câu • 40p</span></div>
           <div class="cbt-pillar"><b>2. Đọc (Reading)</b><span>4 Passage • 40 câu • 60p</span></div>
           <div class="cbt-pillar"><b>3. Viết (Writing)</b><span>Task 1 &amp; 2 (${ex.w1Id.toUpperCase()}/${ex.w2Id.toUpperCase()}) • 60p</span></div>
           <div class="cbt-pillar"><b>4. Nói (Speaking)</b><span>Part 1, 2, 3 (${ex.s1Id.toUpperCase()}-${ex.s3Id.toUpperCase()}) • 12p</span></div>
@@ -1312,7 +1327,7 @@ function runFullCBTExam(examIdx){
 
     mount.innerHTML = `
       <div class="topic-bar">
-        ${listenGroups.map((lg, i) => `<button class="chip ${i === listenCurGroup ? "on" : ""}" data-lg="${i}">Part ${lg.part}: ${esc(lg.title.split("—")[0].trim())}</button>`).join("")}
+        ${listenGroups.map((lg, i) => { const lab = (lg.title.includes("—") ? lg.title.split("—").pop() : lg.title.split(":").pop() || lg.title).trim(); return `<button class="chip ${i === listenCurGroup ? "on" : ""}" data-lg="${i}" title="${esc(lg.title)}">Part ${lg.part} · ${esc(lab.length > 42 ? lab.slice(0, 40) + "…" : lab)}</button>`; }).join("")}
       </div>
       <div class="quiz-layout">
         <div class="quiz-main">

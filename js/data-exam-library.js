@@ -1211,3 +1211,6602 @@ WRITING.push(...EXTRA_WRITING);
 SPEAKING_P1.push(...EXTRA_SPEAKING_P1);
 SPEAKING_P2.push(...EXTRA_SPEAKING_P2);
 SPEAKING_P3.push(...EXTRA_SPEAKING_P3);
+
+
+/* ==========================================================
+   10 BỘ ĐỀ ĐỌC HIỂU TỪ SÁCH NXB ĐẠI HỌC QUỐC GIA HÀ NỘI
+   (Bóc tách bằng Vision OCR từ file PDF 334 trang:
+    'Sách 10 bộ đề đọc hiểu VSTEP B1 B2 C2.pdf' — 40 Passages / 400 câu)
+   ========================================================== */
+const VNU_10_READING_SETS = [
+  {
+    "id": "rset7",
+    "title": "Đề số 07: Sách NXB ĐHQGHN — Reading Test 01",
+    "source": "Sách 10 Bộ đề Đọc hiểu VSTEP B1-B2-C1 (NXB ĐHQG Hà Nội — Test 01: Glencorn Lodge in County Antrim, Ireland · Factors That Make an Olympic Champion · From Incandescent Bulbs to White LEDs (WLEDs) · Pricing Approaches in Marketing)",
+    "passages": [
+      {
+        "title": "PASSAGE 1 - Glencorn Lodge in County Antrim, Ireland",
+        "body": "We always went to Ireland in June. Ever since the four of us began to go on holidays together we had spent the first fortnight of the month at Glencorn Lodge in County Antrim. It's a large house by the sea, not far from the village of Ardbeag. The English couple who bought the house, the Malseeds, have had to add to the building, but everything has been done most discreefly.\n\nIt was Strafe who found Glencorn for us. He'd come across an advertisement in the days when the Malseeds still felt the need to advertise. 'How about this?' he said one evening and read out the details. We had gone away together the summer before, to a hotel that had been recommended by friends, but it hadn't been a success because the food was so appalling.\n\nThe four of us have been playing cards together for ages, Dekko, Strafe, Cynthia and myself. They call me Milly, though stricfly speaking my name is Dorothy Milson. Dekko picked up his nickname at school, Dekko Deacon sounding rather good, I suppose. He and Strafe were at school together, which must be why we call Strafe by his surname as\n\nthe teachers used to. We're all about the same age and live quite close to the town where\n\nthe Malseeds were before they decided to make the change from England to Ireland.\n\nQuite a coincidence, we always think. 'How very nice,' Mrs Malseed said, smiling her welcome again this year. Some\n\ninstinct seems to tell her when guests are about to arrive, for she's rarely not waiting in\n\nthe large, low-ceilinged hall that always smells of flowers. 'Arthur, take the luggage up,'\n\nshe commanded the old porter. 'Rose, Tulip, Lily and Geranium.' She referred to the\n\nnames of the rooms reserved for us. Mrs Malseed herself painted flowers on the doors\n\nof the hotel instead of putting numbers. In winter, when no one much comes to Glencorn\n\nLodge, she sees to little details like that; her husband sees to redecoration and repairs.\n\n'Well, well, well,' Mr Malseed said, now entering the hall through the door that leads\n\nto the kitchen. 'A hundred thousand welcomes,' he greeted us in the Irish manner. He\n\nwas smiling broadly with his dark brown eyes twinkling, making us think we were rather\n\nmore than just another group of hotel guests. Everyone smiled, and I could feel the others\n\nthinking that our holiday had truly begun. Nothing had changed at Glencorn, all was\n\nwell. Kitty from the dining room came out to greet us. 'You look younger every year, all\n\nfour of you,' she said, causing everyone in the hall to laugh again. Arthur led the way to\n\nthe rooms, carrying as much of our luggage as he could manage and returning for the\n\nremainder.",
+        "questions": [
+          {
+            "n": 1,
+            "q": "Why did the Malseeds no longer advertise Glencorn Lodge?",
+            "opts": [
+              "It was too expensive.",
+              "It was not necessary.",
+              "It was too complicated.",
+              "It was not effective."
+            ],
+            "a": 1,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Glencorn Lodge in County Antrim, Ireland), phương án chính xác là <b>B. It was not necessary.</b>."
+          },
+          {
+            "n": 2,
+            "q": "The word 'come across' in paragraph 2 is closest in meaning to",
+            "opts": [
+              "found",
+              "covered",
+              "placed",
+              "published"
+            ],
+            "a": 0,
+            "ex": "Từ vựng trong ngữ cảnh (Glencorn Lodge in County Antrim, Ireland): Đáp án đúng là <b>A. found</b> (tương đương nghĩa với từ/cụm từ được hỏi trong đoạn văn)."
+          },
+          {
+            "n": 3,
+            "q": "What did Dekko and the writer have in common?",
+            "opts": [
+              "They did not like their names.",
+              "People used their surnames when speaking to them.",
+              "They chose their own nicknames.",
+              "People did not call them by their real names."
+            ],
+            "a": 3,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Glencorn Lodge in County Antrim, Ireland), phương án chính xác là <b>D. People did not call them by their real names.</b>."
+          },
+          {
+            "n": 4,
+            "q": "The 'coincidence' referred to in paragraph 3 is that the four friends and the Malseeds",
+            "opts": [
+              "came from the same area.",
+              "preferred Ireland to England.",
+              "lived close to one another.",
+              "were all about the same age."
+            ],
+            "a": 0,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Glencorn Lodge in County Antrim, Ireland), phương án chính xác là <b>A. came from the same area.</b>."
+          },
+          {
+            "n": 5,
+            "q": "What was special about the rooms at Glencorn Lodge?",
+            "opts": [
+              "They had been painted by Mrs Malseed herself.",
+              "There was no paint on the doors.",
+              "They did not have numbers.",
+              "There were different flowers in all of them."
+            ],
+            "a": 2,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Glencorn Lodge in County Antrim, Ireland), phương án chính xác là <b>C. They did not have numbers.</b>."
+          },
+          {
+            "n": 6,
+            "q": "What did the writer particularly like about Mr Malseed?",
+            "opts": [
+              "He had nice brown eyes.",
+              "He always came to welcome them.",
+              "He made guests feel like friends.",
+              "He spoke in the Irish way."
+            ],
+            "a": 2,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Glencorn Lodge in County Antrim, Ireland), phương án chính xác là <b>C. He made guests feel like friends.</b>."
+          },
+          {
+            "n": 7,
+            "q": "The word 'see to' in paragraph 4 is closest in meaning to",
+            "opts": [
+              "overcomes",
+              "turns to",
+              "takes care of",
+              "observes"
+            ],
+            "a": 2,
+            "ex": "Từ vựng trong ngữ cảnh (Glencorn Lodge in County Antrim, Ireland): Đáp án đúng là <b>C. takes care of</b> (tương đương nghĩa với từ/cụm từ được hỏi trong đoạn văn)."
+          },
+          {
+            "n": 8,
+            "q": "Why did the writer feel contented after Mr Malseed had spoken?",
+            "opts": [
+              "Everything was as it had always been.",
+              "The holiday would start at any moment.",
+              "A few things had improved at Glencorn.",
+              "Her friends had enjoyed the holiday."
+            ],
+            "a": 0,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Glencorn Lodge in County Antrim, Ireland), phương án chính xác là <b>A. Everything was as it had always been.</b>."
+          },
+          {
+            "n": 9,
+            "q": "What did Kitty do which made the friends laugh?",
+            "opts": [
+              "She told them a joke.",
+              "She pretended to insult them.",
+              "She laughed when she saw them.",
+              "She paid them a compliment."
+            ],
+            "a": 3,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Glencorn Lodge in County Antrim, Ireland), phương án chính xác là <b>D. She paid them a compliment.</b>."
+          },
+          {
+            "n": 10,
+            "q": "What is the main idea of the passage?",
+            "opts": [
+              "a two-week holiday in Glencorn Lodge",
+              "successful business of Glencorn Lodge",
+              "a perfect accommodation for people travelling in groups",
+              "tips to find a good accommodation in Ireland"
+            ],
+            "a": 0,
+            "ex": "Câu hỏi ý chính / mục đích đoạn văn: Phương án <b>A. a two-week holiday in Glencorn Lodge</b> bao quát chính xác nhất nội dung trọng tâm của bài đọc."
+          }
+        ]
+      },
+      {
+        "title": "PASSAGE 2 - Factors That Make an Olympic Champion",
+        "body": "How does a person become an Olympic champion - someone capable of winning the\n\ngold? In reality, a combination of biological, environmental, and psychological factors,\n\nas well as training and practice, all go into making a super athlete.\n\n[A] Perhaps the most important factor involved in becoming an elite athlete is\n\ngenetics. Most Olympic competitors are equipped with certain physical characteristics\n\nthat differentiate them from the average person. Take an elite athlete's muscles, for\n\nexample. In most human skeletal muscles (the ones that make your body move), there are\n\nfast-twitch fibers and slow-twitch fibers. Fast-twitch fibers help us move quickly. Olympic\n\nweightlifters, for example, have a large number of fast-twitch fibers in their muscles -\n\nmany more than the average person. These allow them to lift hundreds of kilos from the\n\nground and over their heads in seconds. Surprisingly, a large, muscular body is not the\n\nmain requirement to do well in this sport. It is more important to have a large number of\n\nfast-twitch fibers in the muscles. The legs of an elite marathon runner, on the other hand, might contain up to 90\n\npercent slow-twitch muscle fibers. These generate energy efficienfly and enable an athlete\n\nto control fatigue and keep moving for a longer period of time. When we exercise long\n\nor hard, it's common to experience tiredness, muscle pain, and difficulty breathing.\n\nThese feelings are caused when the muscles produce high amounts of lactate and can't\n\nremove it quickly enough. Athletes with many slow-twitch muscle fibers seem to be able\n\nto clear the lactate from their muscles faster as they move. Thus, the average runner might\n\nstart to feel discomfort halfway into a race. A trained Olympic athlete, however, might\n\nnot feel pain until much later in the competition. [B] [C] For some Olympic competitors, size is important. Most male champion swimmers are 180 cm (six feet) or taller, allowing them to reach longer and swim faster. For both male and female gymnasts, though, a smaller size and body weight mean they can move with greater ease, and are less likely to suffer damage when landing on the floor from a height of up to 4.5 meters (15 feet).\n\n[D] Those raised at high altitudes in countries such as Kenya, Ethiopia, and Morocco have blood that is rich in hemoglobin. Large amounts of hemoglobin carry oxygen around the body faster, enabling these athletes to run better. Cultural factors also help some athletes do well at certain sports. Tegla Loroupe, a young woman from northern Kenya, has won several marathons. She attributes some of her success to her country's altitude (she trains at about 2,400 meters, or 8,000 feet) and some to her cultural background. As a child, she had to run ten kilometers to school every day. \"I'd be punished if I was late,\" she says.\n\nAlthough genetics, environment, and even culture play a part in becoming an elite athlete, training and practice are needed to succeed. Marathon runners may be able to control fatigue and keep moving for long periods of time, but they must train to reach and maintain their goals. Weightlifters and gymnasts perfect their skills by repeating the same motions again and again until they are automatic. Greg Louganis, winner of four Olympic diving gold medals, says divers must train the same way to be successful: You have less than three seconds from takeoff until you hit the water, so it has to be reflex. You have to repeat the dives hundreds, maybe thousands, of times. \" Training this way requires an athlete to be not only physically fit but psychologically healthy as well. They have to be.\" says Sean McCann, a sports psychologist at the Olympic Training Center in the U.S. Otherwise, they couldn't handle the training loads we put on them. [Athletes] have to be good at setting goals, generating energy when they need it and managing anxietyi",
+        "questions": [
+          {
+            "n": 11,
+            "q": "What is the passage mainly about?",
+            "opts": [
+              "factors that make someone a super athlete",
+              "the different muscle types of a super athlete",
+              "the size of a super athlete",
+              "how to qualify for the Olympics"
+            ],
+            "a": 0,
+            "ex": "Câu hỏi ý chính / mục đích đoạn văn: Phương án <b>A. factors that make someone a super athlete</b> bao quát chính xác nhất nội dung trọng tâm của bài đọc."
+          },
+          {
+            "n": 12,
+            "q": "The word 'more' in paragraph 2 refers to",
+            "opts": [
+              "Olympic weightlifters",
+              "fast-twitch fibers",
+              "muscles",
+              "average people"
+            ],
+            "a": 1,
+            "ex": "Câu hỏi quy chiếu đại từ: Dựa vào mệnh đề liền trước trong bài đọc, đại từ được hỏi quy chiếu trực tiếp tới <b>B. fast-twitch fibers</b>."
+          },
+          {
+            "n": 13,
+            "q": "The word 'generate' in paragraph 3 is closest in meaning to",
+            "opts": [
+              "waste",
+              "devote",
+              "save",
+              "release"
+            ],
+            "a": 3,
+            "ex": "Từ vựng trong ngữ cảnh (Factors That Make an Olympic Champion): Đáp án đúng là <b>D. release</b> (tương đương nghĩa với từ/cụm từ được hỏi trong đoạn văn)."
+          },
+          {
+            "n": 14,
+            "q": "Having a lot of slow-twitch muscle fibers is particularly important for",
+            "opts": [
+              "cyclists",
+              "divers",
+              "weightlifters",
+              "runners"
+            ],
+            "a": 3,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Factors That Make an Olympic Champion), phương án chính xác là <b>D. runners</b>."
+          },
+          {
+            "n": 15,
+            "q": "When lactate builds up in their muscles, people feel",
+            "opts": [
+              "strength",
+              "energy",
+              "dizziness",
+              "pain"
+            ],
+            "a": 3,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Factors That Make an Olympic Champion), phương án chính xác là <b>D. pain</b>."
+          },
+          {
+            "n": 16,
+            "q": "What advantage do athletes from high-altitude countries have?",
+            "opts": [
+              "a strong sense of culture",
+              "hemoglobin-rich blood",
+              "lower amounts of lactate in their muscles",
+              "more muscles in their legs"
+            ],
+            "a": 1,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Factors That Make an Olympic Champion), phương án chính xác là <b>B. hemoglobin-rich blood</b>."
+          },
+          {
+            "n": 17,
+            "q": "What is the main idea of paragraph 6?",
+            "opts": [
+              "Genetics is an important part of athletic success.",
+              "Divers must train to be successful.",
+              "Marathon runners must train hard to succeed.",
+              "Success in sports comes from a lot of practice."
+            ],
+            "a": 3,
+            "ex": "Câu hỏi ý chính / mục đích đoạn văn: Phương án <b>D. Success in sports comes from a lot of practice.</b> bao quát chính xác nhất nội dung trọng tâm của bài đọc."
+          },
+          {
+            "n": 18,
+            "q": "In which space (marked A, B, C and D in the passage) will the following sentence fit?",
+            "opts": [
+              "[A]",
+              "[B]",
+              "[C]",
+              "[D]"
+            ],
+            "a": 3,
+            "ex": "Câu hỏi chèn câu vào đoạn: Vị trí <b>D</b> tạo sự liên kết mạch lạc nhất về mặt ý nghĩa và đại từ chuyển tiếp với câu trước và câu sau."
+          },
+          {
+            "n": 19,
+            "q": "What does Greg Louganis do?",
+            "opts": [
+              "a marathon runner",
+              "weightlifter",
+              "diver",
+              "swimmer"
+            ],
+            "a": 2,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Factors That Make an Olympic Champion), phương án chính xác là <b>C. diver</b>."
+          },
+          {
+            "n": 20,
+            "q": "What is NOT mentioned as a factor that make an athlete successful?",
+            "opts": [
+              "cultural background",
+              "genetics",
+              "nationality",
+              "practice"
+            ],
+            "a": 2,
+            "ex": "Câu hỏi loại trừ (NOT/EXCEPT): Ba phương án còn lại đều được nêu rõ trong bài; phương án <b>C. nationality</b> không đúng hoặc không được đề cập."
+          }
+        ]
+      },
+      {
+        "title": "PASSAGE 3 - From Incandescent Bulbs to White LEDs (WLEDs)",
+        "body": "At the end of the 1800's, Thomas Edison introduced the incandescent light bulb and changed the world. Remarkably, the incandescent bulb used today has changed little in over a hundred years. An incandescent light consists of a glass bulb filled with an inert gas such as argon. Inside the bulb, electricity passes through a metal filament. Because of resistance, the filament becomes so hot that it glows. But 95% of the energy goes to produce heat and is basically wasted. Given that 20% of the world's electricity is used to power lights, this represents an enormous amount of wasted energy.\n\nIn the 1940's a new, more efficient form of lighting, the fluorescent bulb, was introduced. Fluorescents work by passing electrical current through gas in a tube, producing invisible ultraviolet light. A phosphor coating on the inside of the tube then converts the ultraviolet to visible light. Little heat is wasted. Fluorescents have proved popular in offices, factories, and stores, but they never took over the residential lighting market. The harsh color isn't as pleasing as the warmer glow of incandescent lamps. Besides, they have a tendency to flicker on and off and to produce an annoying buzz.\n\nNow, lighting engineers are developing a new form of lighting that is both pleasing to the eyes and energy efficient. This is the light-emitting diode, or LED. LEDs are made up of layers of electron-charged substances. When an electrical current passes through the layers, electrons jump from one layer to another and give off light without producing heat. Different types of materials result in light of different colors. Red, green, and orange LEDs\n\nhave been used for decades in devices such as digital clocks, calculators, and electronic\n\ntoys. In the future, however, white-light-emitting diodes (WLEDs) may be used to light\n\nhomes. Engineers say that they are significanfly more efficient than either incandescent\n\nor fluorescent lights. The next challenge for researchers is to develop an efficient, bright, inexpensive\n\nWLED. A few years ago, a Japanese scientist named Shuji Nakamura discovered that,\n\nby using layers of gallium nitride, he could create a powerful blue LED. Later, engineers\n\ndevised two ways to use this blue LED to create a WLED. Red, green, and blue LEDs\n\ncan be combined, creating a pleasant white light. Another way is to use a chemical\n\ncoating similar to that inside a fluorescent bulb that converts the blue light to white.\n\nNevertheless, it will still be some time before WLEDs are commonly used in homes. WLEDs\n\nare currenfly only twice as energy efficient as incandescent. They are also very expensive.\n\nBut researchers believe that they can create WLEDs that are ten times as efficient and one\n\nthousand times as long-lasting as incandescent lights, making them cost effective.\n\nLEDs may someday have an even greater impact on developing countries than in the\n\ndeveloped world. Worldwide, an estimated 2 billion people lack access to electricity.\n\nLighting is usually provided by kerosene lamps. Kerosene is expensive, creates indoor\n\npollution, does not provide very bright light, and worst of all, causes many fires. A low-\n\nenergy (1-watt) WLED can provide enough light for a person to read by - more light, in\n\nfact, than most kerosene lamps. An entire rural village could be lighted with less energy\n\nthan that used by a single conventional 100-watt light bulb. Energy to light these efficient\n\nLEDs can be provided by batteries that are charged by pedal-driven generators, by\n\nhydroelectricity from rivers or streams, by wind-powered generators, or by solar energy.",
+        "questions": [
+          {
+            "n": 21,
+            "q": "In paragraph 2, which of the following is NOT mentioned as one of the problems",
+            "opts": [
+              "with fluorescent lights?",
+              "The need to replace them often",
+              "An annoying sound",
+              "The harsh quality of the light they produce"
+            ],
+            "a": 0,
+            "ex": "Câu hỏi loại trừ (NOT/EXCEPT): Ba phương án còn lại đều được nêu rõ trong bài; phương án <b>A. with fluorescent lights?</b> không đúng hoặc không được đề cập."
+          },
+          {
+            "n": 22,
+            "q": "D. Their tendency to flicker",
+            "opts": [
+              "According to the passage, a red LED is different from a green LED because it",
+              "is made from different materials",
+              "uses a different amount of energy",
+              "uses a red plastic filter, not a green one"
+            ],
+            "a": 0,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (From Incandescent Bulbs to White LEDs (WLEDs)), phương án chính xác là <b>A. According to the passage, a red LED is different from a green LED because it</b>."
+          },
+          {
+            "n": 23,
+            "q": "D. produces less heat The word 'they' in paragraph 3 refers to",
+            "opts": [
+              "white-light-emitting diodes",
+              "digital clocks, calculators, toys, and similar devices",
+              "engineers",
+              "red, orange, and green LEDs"
+            ],
+            "a": 0,
+            "ex": "Câu hỏi quy chiếu đại từ: Dựa vào mệnh đề liền trước trong bài đọc, đại từ được hỏi quy chiếu trực tiếp tới <b>A. white-light-emitting diodes</b>."
+          },
+          {
+            "n": 24,
+            "q": "In paragraph 5, what achievement of Shuji Nakamura does the author mention?",
+            "opts": [
+              "He discovered the chemical compound gallium nitride.",
+              "He invented the first WLED.",
+              "He found a way to combine blue, green, and yellow LED light.",
+              "He developed a bright blue LED."
+            ],
+            "a": 3,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (From Incandescent Bulbs to White LEDs (WLEDs)), phương án chính xác là <b>D. He developed a bright blue LED.</b>."
+          },
+          {
+            "n": 25,
+            "q": "It can be inferred from the passage that the most recenfly developed type of LED",
+            "opts": [
+              "is a powerful",
+              "red LED",
+              "white LED",
+              "blue LED"
+            ],
+            "a": 1,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (From Incandescent Bulbs to White LEDs (WLEDs)), phương án chính xác là <b>B. red LED</b>."
+          },
+          {
+            "n": 26,
+            "q": "D. green LED In paragraph 5, the author compares one type of WLED with fluorescent light",
+            "opts": [
+              "because they both",
+              "use ultraviolet light",
+              "are filled with gas",
+              "employ a chemical coating"
+            ],
+            "a": 2,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (From Incandescent Bulbs to White LEDs (WLEDs)), phương án chính xác là <b>C. are filled with gas</b>."
+          },
+          {
+            "n": 27,
+            "q": "D. are energy efficient From the information in paragraph 5, it is clear that WLEDs could be used in",
+            "opts": [
+              "homes today if they were",
+              "not so expensive",
+              "easier to install",
+              "twice as efficient as incandescent lights"
+            ],
+            "a": 0,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (From Incandescent Bulbs to White LEDs (WLEDs)), phương án chính xác là <b>A. homes today if they were</b>."
+          },
+          {
+            "n": 28,
+            "q": "D. available in various colors",
+            "opts": [
+              "The author gives details about the use of kerosene lights in paragraph 6 in order to",
+              "explain why people in developing countries prefer kerosene to electrical light",
+              "show the problems and dangers associated with this form of lighting",
+              "give an example of a type of lighting that is not as important as it once was"
+            ],
+            "a": 1,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (From Incandescent Bulbs to White LEDs (WLEDs)), phương án chính xác là <b>B. explain why people in developing countries prefer kerosene to electrical light</b>."
+          },
+          {
+            "n": 29,
+            "q": "D. demonstrate that kerosene is brighter and easier to use than WLEDs The electricity to power WLEDs in rural villages would come direcfly from",
+            "opts": [
+              "the energy of the sun",
+              "batteries",
+              "water power",
+              "a human-powered generator"
+            ],
+            "a": 0,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (From Incandescent Bulbs to White LEDs (WLEDs)), phương án chính xác là <b>A. the energy of the sun</b>."
+          },
+          {
+            "n": 30,
+            "q": "The word 'conventional' in paragraph 6 is closest in meaning to",
+            "opts": [
+              "inexpensive",
+              "powerful",
+              "standard",
+              "experimental"
+            ],
+            "a": 2,
+            "ex": "Từ vựng trong ngữ cảnh (From Incandescent Bulbs to White LEDs (WLEDs)): Đáp án đúng là <b>C. standard</b> (tương đương nghĩa với từ/cụm từ được hỏi trong đoạn văn)."
+          }
+        ]
+      },
+      {
+        "title": "PASSAGE 4 - Pricing Approaches in Marketing",
+        "body": "An important part of marketing is determining what price to charge consumers for\n\ngoods and services. Companies aspire to set prices that are high enough to allow them\n\nto make a profit but low enough to encourage people to purchase their products. To\n\ndetermine these prices, marketing specialists must consider a variety of factors and use a\n\nnumber of different pricing approaches. Cost-based approaches determine the price of a product based on how much it costs\n\nto make. This is the simplest method because manufacturers can easily determine how\n\nmuch it will cost them to produce their goods. After they calculate the price of materials\n\nand labor, they add a set percentage to that cost, called a standard markup, which\n\ncovers advertising, marketing, and other administrative costs, as well as profit. The main advantage to this approach is its simplicity. Businesses do not need to adjust their prices constanfly based on changes in the market for their goods. However, the inability to account for important factors relating to the market is also the weakness of the cost-based approach. This is why many businesses also use more complex approaches to determine their prices.\n\nIn many industries, producers often pay less attention to their own costs and set prices based on those of their leading competitors instead. This is called competition- based pricing. It sometimes puts small businesses at a disadvantage. Because very large companies can buy their materials or production machinery in bulk, they often have lower production costs than smaller companies do. In order to compete, smaller companies cannot depend on cost-based pricing. They often set their prices lower than those of their larger competitors, even though their production costs may be higher, in order to make their products attractive to consumers and build or maintain their customer base.\n\nWhile cost-based and competition-based pricing are largely based on objective mathematical factors, like production costs and average prices, buyer-based approaches are based on individual perspective. [A] Perceived value is how much consumers feel an item is worth, as opposed to its actual monetary value. [B] For example, a product like a pet rock, which is simply an ordinary rock marketed as a pet, has very little actual monetary value. [C] Marketers will not use production costs to set their price, because this would make the price too low. [D] Instead, they must determine how much consumers feel their product is worth.\n\nBecause perceived value is subjective, it is difficult to calculate. One common strategy for determining the perceived value of a product is to interview people in focus groups, small groups of people who share their feelings about a product with market experts. The responses of focus groups often change according to the group being interviewed, so experts try to interview a large enough sample to get useful information. Along with focus groups and market experts, some businesses may even employ psychologists to help them understand the minds and emotions of consumers so that they can create products that people will see as valuable. The more perceived value an item has, the more a company can charge for that item, regardless of its production costs or the prices set by competitors.",
+        "questions": [
+          {
+            "n": 31,
+            "q": "The word 'aspire' in paragraph 1 is closest in meaning to",
+            "opts": [
+              "decide",
+              "hurry",
+              "aim",
+              "attempt"
+            ],
+            "a": 2,
+            "ex": "Từ vựng trong ngữ cảnh (Pricing Approaches in Marketing): Đáp án đúng là <b>C. aim</b> (tương đương nghĩa với từ/cụm từ được hỏi trong đoạn văn)."
+          },
+          {
+            "n": 32,
+            "q": "What is NOT a disadvantage of competition-based pricing for small businesses?",
+            "opts": [
+              "it provides benefits for companies that buy materials in bulk.",
+              "it favors companies with low production costs.",
+              "it promotes the use of a single pricing strategy.",
+              "it encourages sellers to set prices lower than their costs will allow."
+            ],
+            "a": 2,
+            "ex": "Câu hỏi loại trừ (NOT/EXCEPT): Ba phương án còn lại đều được nêu rõ trong bài; phương án <b>C. it promotes the use of a single pricing strategy.</b> không đúng hoặc không được đề cập."
+          },
+          {
+            "n": 33,
+            "q": "What can be inferred about large businesses?",
+            "opts": [
+              "They are more likely to use only one pricing approach.",
+              "Their prices are influenced by the pricing strategies of small businesses.",
+              "They spend less money on marketing than small businesses do.",
+              "They tend to have higher production costs when using competition-based pricing."
+            ],
+            "a": 0,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Pricing Approaches in Marketing), phương án chính xác là <b>A. They are more likely to use only one pricing approach.</b>."
+          },
+          {
+            "n": 34,
+            "q": "The word 'objective' in paragraph 4 is closest in meaning to",
+            "opts": [
+              "accessible",
+              "improper",
+              "impartial",
+              "precise"
+            ],
+            "a": 2,
+            "ex": "Từ vựng trong ngữ cảnh (Pricing Approaches in Marketing): Đáp án đúng là <b>C. impartial</b> (tương đương nghĩa với từ/cụm từ được hỏi trong đoạn văn)."
+          },
+          {
+            "n": 35,
+            "q": "What do cost-based and competition-based approaches have in common?",
+            "opts": [
+              "They are based on the value of a product or service.",
+              "They depend on measurable information.",
+              "They rely equally on personalized information and averages.",
+              "They focus on the costs to the customer."
+            ],
+            "a": 1,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Pricing Approaches in Marketing), phương án chính xác là <b>B. They depend on measurable information.</b>."
+          },
+          {
+            "n": 36,
+            "q": "Why does the author mention a pet rock in paragraph 4?",
+            "opts": [
+              "To give an example of a product with a low perceived value",
+              "To illustrate why using perceived value is appropriate for certain products",
+              "To contrast the actual and perceived value of a specific item",
+              "To explain how buyer-based and competition-based pricing can be used together"
+            ],
+            "a": 1,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Pricing Approaches in Marketing), phương án chính xác là <b>B. To illustrate why using perceived value is appropriate for certain products</b>."
+          },
+          {
+            "n": 37,
+            "q": "In which space (marked A, B, C and D in the passage) will the following sentence fit? In buyer-based pricing, companies set prices based on the perceived value of a",
+            "opts": [
+              "[A]",
+              "[B]",
+              "[C]",
+              "[D]"
+            ],
+            "a": 0,
+            "ex": "Câu hỏi chèn câu vào đoạn: Vị trí <b>A</b> tạo sự liên kết mạch lạc nhất về mặt ý nghĩa và đại từ chuyển tiếp với câu trước và câu sau."
+          },
+          {
+            "n": 38,
+            "q": "What best paraphrases the following sentence in paragraph 5? One common strategy for determining the perceived value of a product is to interview people in focus groups, small groups of people who share their feelings about a product with market experts.",
+            "opts": [
+              "In order to determine the perceived value of a product, some focus groups interview experts about their feelings on a product.",
+              "Interviewing people in focus groups is one way that market experts determine the perceived value of a product.",
+              "Focus groups allow market experts to interview people about how they form their ideas about the value of an item.",
+              "One strategy for interviewing small groups of people about perceived value"
+            ],
+            "a": 1,
+            "ex": "Câu hỏi diễn đạt lại câu (Paraphrase): Phương án <b>B. Interviewing people in focus groups is one way that market experts determine the perceived value of a product.</b> giữ nguyên đầy đủ ý nghĩa cốt lõi và quan hệ nhân quả của câu gốc."
+          },
+          {
+            "n": 39,
+            "q": "involves asking them how they feel about a product.",
+            "opts": [
+              "The word 'they' in paragraph 5 refers to",
+              "market experts",
+              "businesses",
+              "psychologists"
+            ],
+            "a": 1,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Pricing Approaches in Marketing), phương án chính xác là <b>B. market experts</b>."
+          },
+          {
+            "n": 40,
+            "q": "D. consumers",
+            "opts": [
+              "What is NOT true about an item's perceived value?",
+              "It allows companies to set prices without concern for other marketing factors.",
+              "It may vary from group to group.",
+              "It reflects the psychology of the consumer."
+            ],
+            "a": 3,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Pricing Approaches in Marketing), phương án chính xác là <b>D. It reflects the psychology of the consumer.</b>."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rset8",
+    "title": "Đề số 08: Sách NXB ĐHQGHN — Reading Test 02",
+    "source": "Sách 10 Bộ đề Đọc hiểu VSTEP B1-B2-C1 (NXB ĐHQG Hà Nội — Test 02: Journey to the Danakil Desert (Dallol) · Sacred Volcanoes · Caffeine · Slow-Twitch and Fast-Twitch Skeletal Muscles)",
+    "passages": [
+      {
+        "title": "PASSAGE 1 - Journey to the Danakil Desert (Dallol)",
+        "body": "No one travels alone to the hottest place on Earth. You need, for starters, a driver and\n\na Jeep stocked with water and four days of non-perishable food. There are no places to\n\nlodge or dine in this desert, so you'll need space for beds and someone who knows how\n\nto cook. And finally, because a journey like this costs many thousands of dollars, you'll\n\nneed some fellow travelers to split the bill - the sort of people who like to fry themselves\n\non vacation. My father is the easiest recruit. Dad, who naps best roasting in the afternoon sun, is\n\na lover of extreme heat. He's also an extreme traveler, drawn to the fringes of places,\n\nall the countries where no one vacations. From my father, I've inherited both tendencies:\n\nI'm known for getting bright pink sunburns, and also for stalking the edges of maps.\n\nThe Danakil desert lies on the fringes of several countries, which claim a sliver of this\n\nsweltering, low-lying desert, named the cruelest place on earth. I don't have to mention\n\nthis to my father - not the endless salt flats, lakes the bright color of mouthwash, or camels\n\nby the thousands. When dad starts calling this desert 'the frying pan', I know he's in.\n\nWe enlist three more people and in Mekele, the starting place for our voyage, we merge with four others. We fill five Jeeps and have nothing in common but a love of travel, and a willingness to sweat for it. The Jeeps plunge down mountains for hours. The heat, of course, is brutal. I remind myself this is just a warm-up. The real heat won't strike until we reach the sizzling edge of the frying pan, an uninhabited region, roughly 130 meters below sea level, called Dallol, which holds the record for the highest average annual temperature: 94 degrees.\n\nAs we continue, sand gives way to salt, and soon we're in a landscape of white crystals glinting in the fresh morning light. The ground is miraculously flat. Our driver, who has been battling fine sand, cannot resist the urge to go for it. We surge ahead of the other cars in what looks like a Jeep race across some frozen lake. Suddenly, in the pure white expanse, a huge brown mound appears. We're ordered by our guides to find a full liter of bottled water, and to bring it with us up the lumpy brown mountain.\n\nAt the summit, I find my travel mates standing in a kind of silent daydream. Astonished, they crouch down beside pale green toadstools - mineral formations whose glossy tabletops are smooth as marble. The hottest place on earth is an assault of color: yellow and deep rust, pea green and purple. Some of the formations look like coral reefs, others like egg shells, air-blown from the hot breath of the earth below. Everyone wanders off alone, crunching over the earth, heads down, staring at the ground and shaking their heads.\n\nI know the ground is hot - you can even hear water boiling underground. Everywhere we step, things break and splinter. Just when I work up the nerve to step with force, the purple ground collapses beneath my foot. The sneaker I pull back out is covered in bright yellow stuff. You start to think: we really shouldn't be here. This desert wasn't built to handle a human intrusion, and the human body certainly wasn't built to handle this desert.",
+        "questions": [
+          {
+            "n": 1,
+            "q": "What is NOT a thing to prepare for the desert trip?",
+            "opts": [
+              "food and water",
+              "a dining table",
+              "a place for sleep",
+              "a Jeep"
+            ],
+            "a": 1,
+            "ex": "Câu hỏi loại trừ (NOT/EXCEPT): Ba phương án còn lại đều được nêu rõ trong bài; phương án <b>B. a dining table</b> không đúng hoặc không được đề cập."
+          },
+          {
+            "n": 2,
+            "q": "Which of the following does the author agree with?",
+            "opts": [
+              "Planning for a trip in the desert is straightforward.",
+              "High temperatures can cause problems for travellers.",
+              "Travelling individually in the desert is unwise.",
+              "The expense of desert travel puts many people off."
+            ],
+            "a": 2,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Journey to the Danakil Desert (Dallol)), phương án chính xác là <b>C. Travelling individually in the desert is unwise.</b>."
+          },
+          {
+            "n": 3,
+            "q": "What does the writer say about her father?",
+            "opts": [
+              "He's passed on his love of travelling in remote places to his daughter.",
+              "He misses having company when he goes to unusual places.",
+              "He prefers to research places for himself than listen to others.",
+              "He likes to plan every detail of a journey by studying maps."
+            ],
+            "a": 0,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Journey to the Danakil Desert (Dallol)), phương án chính xác là <b>A. He's passed on his love of travelling in remote places to his daughter.</b>."
+          },
+          {
+            "n": 4,
+            "q": "How many people were there on the trip?",
+            "opts": [
+              "2",
+              "3",
+              "4",
+              "9"
+            ],
+            "a": 3,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Journey to the Danakil Desert (Dallol)), phương án chính xác là <b>D. 9</b>."
+          },
+          {
+            "n": 5,
+            "q": "The word 'it in paragraph 3 refers to",
+            "opts": [
+              "heat",
+              "willingness",
+              "travel",
+              "voyage"
+            ],
+            "a": 2,
+            "ex": "Câu hỏi quy chiếu đại từ: Dựa vào mệnh đề liền trước trong bài đọc, đại từ được hỏi quy chiếu trực tiếp tới <b>C. travel</b>."
+          },
+          {
+            "n": 6,
+            "q": "Why does the author mention 'remind myself this is just a warm-up' in paragraph 3?",
+            "opts": [
+              "to say that the writer is still getting to know her fellow travelers.",
+              "to show that the real challenge of the journey is still ahead of them",
+              "to say that they have a long way to go before they reach their destination",
+              "to say that the drivers are still learning how to find their way in the mountains"
+            ],
+            "a": 1,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Journey to the Danakil Desert (Dallol)), phương án chính xác là <b>B. to show that the real challenge of the journey is still ahead of them</b>."
+          },
+          {
+            "n": 7,
+            "q": "What does the writer compare the landscape to in paragraph 4?",
+            "opts": [
+              "a beach",
+              "mud",
+              "ice",
+              "dust"
+            ],
+            "a": 2,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Journey to the Danakil Desert (Dallol)), phương án chính xác là <b>C. ice</b>."
+          },
+          {
+            "n": 8,
+            "q": "What is mentioned about the fellow travelers in paragraph 5?",
+            "opts": [
+              "They find it difficult to look at the brightness of the colours.",
+              "They are disappointed by some of the things they see.",
+              "Their surroundings are impossible to make sense of.",
+              "They are unable to take their eyes off the scene in front of them."
+            ],
+            "a": 3,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Journey to the Danakil Desert (Dallol)), phương án chính xác là <b>D. They are unable to take their eyes off the scene in front of them.</b>."
+          },
+          {
+            "n": 9,
+            "q": "How does the writer feel as she is walking around on her own?",
+            "opts": [
+              "shocked by the fact that the ground is so soft",
+              "afraid that she might never find her way out of the place",
+              "worried that she is going to hurt herself",
+              "uncertain about whether she is doing the right thing"
+            ],
+            "a": 3,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Journey to the Danakil Desert (Dallol)), phương án chính xác là <b>D. uncertain about whether she is doing the right thing</b>."
+          },
+          {
+            "n": 10,
+            "q": "What is the purpose of the passage?",
+            "opts": [
+              "to describe difficulties people might have on a desert trip",
+              "to report a journey to the hottest place on earth",
+              "to give advantages of travelling with others to a desert",
+              "to describe beautiful desert landscapes"
+            ],
+            "a": 1,
+            "ex": "Câu hỏi ý chính / mục đích đoạn văn: Phương án <b>B. to report a journey to the hottest place on earth</b> bao quát chính xác nhất nội dung trọng tâm của bài đọc."
+          }
+        ]
+      },
+      {
+        "title": "PASSAGE 2 - Sacred Volcanoes: Mount Fuji & El Popo",
+        "body": "Các câu hói dễ hơn cần ưu tiên trả lời đúng Volcanoes are both creators and destroyers. They can shape lands and cultures, but can also cause great destruction and loss of life. Two of the best-known examples are found at opposite ends of the world, separated by the Pacific Ring of Fire.\n\nJapan's Sacred Summit Located in the center of Japan, Mount Fuji is a sacred site. Japan's native religion, Shintoism, considers Fuji a holy place. Other people believe the mountain and its waters have the power to make a sick person well. For many, climbing Fuji is also a rite of passage. Some do it as part of a religious journey; for others, it is a test of strength. Whatever their reason, reaching the top in order to stand on Fuji's summit at sunrise is a\n\nmust for many Japanese - and every July and August, almost 400,000 people attempt to\n\ndo so. Fuji is more than a sacred site and tourist destination, however. It is also an active\n\nvolcano around which four million people have settled, and sits just 112 kilometers (70\n\nmiles) from the crowded streets of Tokyo. The last time Fuji exploded, in 1707, it sent out\n\na cloud of ash that covered the capital city and darkened the skies for weeks. [A]\n\nToday, new data have some volcanologists concerned that Fuji may soon erupt\n\nagain. According to Motoo Ukawa and his associates at the National Research Institute\n\nfor Earth Science and Disaster Prevention, there has been an increase in activity under\n\nFuji recenfly, which may be caused by low-frequency earthquakes. Understanding what\n\ncauses these quakes may help scientists predict when Fuji, the largest of Japan's 86\n\nactive volcanoes, will come back to life. In the meantime, locals living near Fuji hold\n\nspecial festivals each year to offer gifts to the goddess of the volcano - as they have for\n\ngenerations - so that she will not erupt and destroy the land and its people below.\n\nMexico's Smoking Mountain Halfway across the globe from Fuji, El Popo - one of the world's tallest and most\n\ndangerous active volcanoes - stands just 60 kilometers (37 miles) southeast of Mexico\n\nCity. Although the volcano has erupted many times over the centuries, scientists believe\n\nits last great eruption occurred around 820 A.D. In recent years, however, El Popo has\n\nbeen threatening to explode once more; in December 2000; almost 26000 people were\n\nevacuated when it started to send out ash and smoke. As with all active volcanoes, the\n\nquestion is not if it will erupt again (an eruption is inevitable); the question is when it will\n\nhappen. B \"Every volcano works in a different way,\" explains Carlos Valdés González, a scientist\n\nwho monitors El Popo. \"What we're trying to learn here are the symptoms signaling that\n\nEl Popo will erupt. These include earthquakes, or any sign that the mountain's surface\n\nis changing or expanding. The hope is that scientists will be able to warn people in\n\nthe surrounding areas so they have enough time to escape. A powerful eruption could\n\ndisplace over 20 million people - people whose lives can be saved if the warning is\n\ndelivered early enough. [C] For many people living near El Popo - especially the farmers - abandoning their land\n\nis unthinkable. As anyone who farms near a volcano knows, the world's richest soils are\n\nvolcanic. They produce bananas and coffee in Central America, fine wines in California,\n\nand enormous amounts of rice in Indonesia. [D] People who live near El Popo consider it as a god, a mountain, and a human all at the same time and present their offerings, asking the volcano to protect and provide for one more season.",
+        "questions": [
+          {
+            "n": 11,
+            "q": "What is paragraph 2 mainly about?",
+            "opts": [
+              "how Mount Fuji became an important religious site",
+              "the healing properties of Mount Fuji",
+              "reasons people climb Mount Fuji",
+              "the visitors to Mount Fuji"
+            ],
+            "a": 2,
+            "ex": "Câu hỏi ý chính / mục đích đoạn văn: Phương án <b>C. reasons people climb Mount Fuji</b> bao quát chính xác nhất nội dung trọng tâm của bài đọc."
+          },
+          {
+            "n": 12,
+            "q": "What is NOT a reason for people who climb Mount Fuji?",
+            "opts": [
+              "religion",
+              "testing their health",
+              "finding a cure for a disease",
+              "seeing the sunset"
+            ],
+            "a": 3,
+            "ex": "Câu hỏi loại trừ (NOT/EXCEPT): Ba phương án còn lại đều được nêu rõ trong bài; phương án <b>D. seeing the sunset</b> không đúng hoặc không được đề cập."
+          },
+          {
+            "n": 13,
+            "q": "Which of these statements about Mount Fuji is NOT true?",
+            "opts": [
+              "It is the largest volcano in Japan.",
+              "Scientists believe it may erupt soon.",
+              "It has erupted recenfly.",
+              "Locals have traditions concerning the mountain."
+            ],
+            "a": 2,
+            "ex": "Câu hỏi loại trừ (NOT/EXCEPT): Ba phương án còn lại đều được nêu rõ trong bài; phương án <b>C. It has erupted recenfly.</b> không đúng hoặc không được đề cập."
+          },
+          {
+            "n": 14,
+            "q": "How can scientists date the last great eruption of El Popo?",
+            "opts": [
+              "by talking to people who experienced the event",
+              "from videos of the eruption",
+              "from investigating geological evidence",
+              "from descriptions in religious books"
+            ],
+            "a": 2,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Sacred Volcanoes: Mount Fuji & El Popo), phương án chính xác là <b>C. from investigating geological evidence</b>."
+          },
+          {
+            "n": 15,
+            "q": "In paragraph 6, the word 'symptoms' could be replaced with",
+            "opts": [
+              "earthquakes",
+              "signs",
+              "sounds",
+              "lessons"
+            ],
+            "a": 1,
+            "ex": "Từ vựng trong ngữ cảnh (Sacred Volcanoes: Mount Fuji & El Popo): Đáp án đúng là <b>B. signs</b> (tương đương nghĩa với từ/cụm từ được hỏi trong đoạn văn)."
+          },
+          {
+            "n": 16,
+            "q": "What was the reason for the evacuation from El Popo in 2000?",
+            "opts": [
+              "Ash and smoke were seen coming from the mountain.",
+              "A large earthquake was felt.",
+              "A change in the mountain's surface was noticed.",
+              "A powerful eruption took place."
+            ],
+            "a": 0,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Sacred Volcanoes: Mount Fuji & El Popo), phương án chính xác là <b>A. Ash and smoke were seen coming from the mountain.</b>."
+          },
+          {
+            "n": 17,
+            "q": "Which statement is true about both Mount Fuji and El Popo?",
+            "opts": [
+              "They have both erupted recenfly.",
+              "They are both less than 100 kilometers from a very large city.",
+              "Locals present gifts to both volcanoes for protection.",
+              "They both provide rich soil used for producing coffee."
+            ],
+            "a": 2,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Sacred Volcanoes: Mount Fuji & El Popo), phương án chính xác là <b>C. Locals present gifts to both volcanoes for protection.</b>."
+          },
+          {
+            "n": 18,
+            "q": "The word 'abandoning' in paragraph 6 is closest in meaning to",
+            "opts": [
+              "leaving",
+              "reaching",
+              "cultivating",
+              "farming"
+            ],
+            "a": 0,
+            "ex": "Từ vựng trong ngữ cảnh (Sacred Volcanoes: Mount Fuji & El Popo): Đáp án đúng là <b>A. leaving</b> (tương đương nghĩa với từ/cụm từ được hỏi trong đoạn văn)."
+          },
+          {
+            "n": 19,
+            "q": "In which space (marked A, B, C and D in the passage) will the following sentence fit?",
+            "opts": [
+              "[A]",
+              "[B]",
+              "[C]",
+              "[D]"
+            ],
+            "a": 3,
+            "ex": "Câu hỏi chèn câu vào đoạn: Vị trí <b>D</b> tạo sự liên kết mạch lạc nhất về mặt ý nghĩa và đại từ chuyển tiếp với câu trước và câu sau."
+          },
+          {
+            "n": 20,
+            "q": "Which of the following would be the best title for this passage?",
+            "opts": [
+              "Volcanoes as religious sites",
+              "Destructive volcanoes",
+              "Two most famous volcanoes worldwide",
+              "Mount Fuji and El Popo - examples of active volcanoes"
+            ],
+            "a": 2,
+            "ex": "Câu hỏi ý chính / mục đích đoạn văn: Phương án <b>C. Two most famous volcanoes worldwide</b> bao quát chính xác nhất nội dung trọng tâm của bài đọc."
+          }
+        ]
+      },
+      {
+        "title": "PASSAGE 3 - Caffeine: The World's Most Popular Stimulant",
+        "body": "GHI CHỦ Các câu hói dễ hơn cần ưu tiên trả lời đúng It's 1:45 a.m, and 21-year-old Thomas Murphy is burning the midnight oil, studying for an important engineering exam he has at 2:00 in the afternoon later today. To stay awake and focused, he's had two cups of coffee in the last three hours and is now downing a popular energy drink - one that has two to three times the amount of caffeine as a similar sized can of soda. Many students like Murphy, as well as marathon runners, airline pilots, and long-distance travelers, owe their energy - and sometimes their efficiency - to one of humankind's oldest stimulants: caffeine. [A]\n\nThe power to counter physical fatigue and increase alertness is part of the reason caffeine ranks as the world's most popular mood-altering drug. It is found not only in sodas, energy drinks, coffee, and tea, but also in diet pills, pain relievers (like aspirin), and chocolate bars. Many societies around the world have also created entire rituals around the use of caffeine: afternoon tea in the UK., the cafe culture of France, the tea ceremony in Japan, and the morning cup of coffee or tea that in many cultures marks the start of the day.\n\nCaffeine is present in many of the foods or drinks we consume, but is it really good for us? Charles Czeisler, a scientist and sleep expert at Harvard Medical School, believes that caffeine causes us to lose sleep, which he says is unhealthy. Without adequate sleep - the typical eight hours - the human body will not function at its best, physically, mentally, or emotionally. Too often, Czeisler says, we consume caffeine to stay awake, which later makes it impossible for us to get the rest we need.\n\nHealth risks have also been tied to caffeine consumption. Over the years, studies have attributed higher rates of certain types of cancer and bone disease to caffeine consumption. To date, however, there is no proof that caffeine actually causes these diseases. [B]\n\nA number of scientists, including Roland Griffiths, a professor at the Johns Hopkins School of Medicine in the U.S believe that regular caffeine use causes physical\n\ndependence. Heavy caffeine users, Griffiths says, exhibit similar behaviors: Their moods\n\nfluctuate from high to low; they get mild to severe headaches; or they feel tired or\n\nsad when they can't have a coffee, a soft drink, an energy drink, or a cup of tea. To\n\nminimize or stop these feelings, users must consume caffeine - a behavior Griffiths says\n\nis characteristic of drug addiction. Despite these concerns, the general opinion in the scientific community is that caffeine\n\nis not dangerous when consumed moderately - for example, having one or two small\n\ncups of coffee (about 300 milligrams of caffeine) per day. Furthermore, a lot of current\n\nresearch contradicts long-held negative beliefs about caffeine, and suggests that it may,\n\nin fact, have health benefits. For instance, studies have shown that caffeine can help\n\nease muscle pain. Because it is a stimulant, caffeine can also help improve one's mood.\n\nResearch has also shown that some caffeinated drinks - specifically certain teas - have\n\ndisease-fighting chemicals that can help the body fight a number of illnesses, including\n\ncertain types of cancer. [C] Moreover, despite its nearly universal use, caffeine has rarely been abused. \"With\n\ncaffeine, overuse tends to stop itself,\" says Jack Bergman, a specialist at Harvard\n\nMedical School. If you consume too much, \"you get uncomfortable, and you don't want\n\nto continue.\" [D]",
+        "questions": [
+          {
+            "n": 21,
+            "q": "What is the passage mainly about?",
+            "opts": [
+              "the popularity of coffee",
+              "the effects of caffeine on the body",
+              "healthy vs. unhealthy caffeine products",
+              "the dangers of caffeine intake"
+            ],
+            "a": 1,
+            "ex": "Câu hỏi ý chính / mục đích đoạn văn: Phương án <b>B. the effects of caffeine on the body</b> bao quát chính xác nhất nội dung trọng tâm của bài đọc."
+          },
+          {
+            "n": 22,
+            "q": "The word 'downing' in paragraph 1 could be replaced with",
+            "opts": [
+              "holding",
+              "waking",
+              "decreasing",
+              "drinking"
+            ],
+            "a": 3,
+            "ex": "Từ vựng trong ngữ cảnh (Caffeine: The World's Most Popular Stimulant): Đáp án đúng là <b>D. drinking</b> (tương đương nghĩa với từ/cụm từ được hỏi trong đoạn văn)."
+          },
+          {
+            "n": 23,
+            "q": "Which group do NOT use caffeine regularly?",
+            "opts": [
+              "marathon runners",
+              "airline pilots",
+              "students",
+              "city bus travellers"
+            ],
+            "a": 3,
+            "ex": "Câu hỏi loại trừ (NOT/EXCEPT): Ba phương án còn lại đều được nêu rõ trong bài; phương án <b>D. city bus travellers</b> không đúng hoặc không được đề cập."
+          },
+          {
+            "n": 24,
+            "q": "The word 'which' in paragraph 3 refers to .",
+            "opts": [
+              "adequate sleep",
+              "lack of sleep",
+              "food containing caffeine",
+              "consuming caffeine"
+            ],
+            "a": 1,
+            "ex": "Câu hỏi quy chiếu đại từ: Dựa vào mệnh đề liền trước trong bài đọc, đại từ được hỏi quy chiếu trực tiếp tới <b>B. lack of sleep</b>."
+          },
+          {
+            "n": 25,
+            "q": "Which statement would sleep expert Charles Czeisler probably agree with?",
+            "opts": [
+              "It's a good idea to consume caffeine if you want to maintain your energy.",
+              "Regular consumption of caffeine will make it difficult for you to get enough rest.",
+              "How caffeine affects your sleep depends on the type of caffeine you consume.",
+              "Caffeine can help you get an adequate amount of sleep if consumed in moderation."
+            ],
+            "a": 1,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Caffeine: The World's Most Popular Stimulant), phương án chính xác là <b>B. Regular consumption of caffeine will make it difficult for you to get enough rest.</b>."
+          },
+          {
+            "n": 26,
+            "q": "Which of the following is NOT listed as a possible side effect of drinking caffeine?",
+            "opts": [
+              "addiction",
+              "mood changes",
+              "painful headaches",
+              "muscle inflammation"
+            ],
+            "a": 3,
+            "ex": "Câu hỏi loại trừ (NOT/EXCEPT): Ba phương án còn lại đều được nêu rõ trong bài; phương án <b>D. muscle inflammation</b> không đúng hoặc không được đề cập."
+          },
+          {
+            "n": 27,
+            "q": "What best paraphrases the following sentence in paragraph 7? Moreover, despite its nearly universal use, caffeine has rarely been abused.",
+            "opts": [
+              "Even though caffeine is consumed almost the world over, there aren't many",
+              "instances of misuse.",
+              "Even though caffeine is often misused, it is consumed almost the world over.",
+              "Despite caffeine's popularity, addiction isn't a problem."
+            ],
+            "a": 0,
+            "ex": "Câu hỏi diễn đạt lại câu (Paraphrase): Phương án <b>A. Even though caffeine is consumed almost the world over, there aren't many</b> giữ nguyên đầy đủ ý nghĩa cốt lõi và quan hệ nhân quả của câu gốc."
+          },
+          {
+            "n": 28,
+            "q": "D. Caffeine is used all over the world, so it is commonly misused. In which space (marked A, B, C and D in the passage) will the following sentence fit?",
+            "opts": [
+              "[A]",
+              "[B]",
+              "[C]",
+              "[D]"
+            ],
+            "a": 0,
+            "ex": "Câu hỏi chèn câu vào đoạn: Vị trí <b>A</b> tạo sự liên kết mạch lạc nhất về mặt ý nghĩa và đại từ chuyển tiếp với câu trước và câu sau."
+          },
+          {
+            "n": 29,
+            "q": "Which statement do most scientists agree with?",
+            "opts": [
+              "caffeine causes loss of sleep.",
+              "caffeine is beneficial in moderate use.",
+              "caffeine leads to certain types of cancer and bone disease",
+              "caffeine leads to severe headaches."
+            ],
+            "a": 1,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Caffeine: The World's Most Popular Stimulant), phương án chính xác là <b>B. caffeine is beneficial in moderate use.</b>."
+          },
+          {
+            "n": 30,
+            "q": "The author's attitude toward caffeine can be best described as",
+            "opts": [
+              "skeptical",
+              "positive",
+              "negative",
+              "critical"
+            ],
+            "a": 1,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Caffeine: The World's Most Popular Stimulant), phương án chính xác là <b>B. positive</b>."
+          }
+        ]
+      },
+      {
+        "title": "PASSAGE 4 - Slow-Twitch and Fast-Twitch Skeletal Muscles",
+        "body": "The human body contains muscle, a soft tissue made of protein filaments. The filaments\n\nmove and flex in different ways to make the muscles contract and expand, supporting the\n\nbody and producing motion. There are two primary types of muscle - skeletal (\"voluntary\")\n\nmuscle and smooth (\"involuntary\") muscle. While the differences between skeletal muscle\n\nand smooth muscle are taught in elementary schools around the world, few of us were\n\ntaught the differences between the two types of skeletal muscles: slow-twitch muscles and\n\nfast-twitch muscles. Slow-twitch and fast-twitch muscles are named for the relative speeds\n\nat which they twitch, or contract. The two types of muscle have different structures,\n\ncompositions, actions, and functions and work together to keep our bodies in motion.\n\nSlow-twitch muscles, officially called Type I muscles, are the muscles that provide\n\nendurance. They conduct oxygen and contain blood capillaries that give them a red\n\ncolor, so they are sometimes referred to as \"red muscles.\" Slow-twitch muscles do not\n\ncontract with significant force, but this is offset by the fact that they can contract for longer\n\nperiods of time. Slow-twitch muscles process fats and carbohydrates to use as fuel for\n\naerobic activity, carrying oxygen for endurance activities, such as long-distance running\n\nand cycling. Fast-twitch muscles, officially called Type Il muscles, are the muscles that provide strength and speed. There are two subtypes of fast-twitch muscles. Type lla muscles are called intermediate fast-twitch muscles, and perform both aerobic and anaerobic functions equally. Type Ilb muscles are what are traditionally thought of as fast-twitch muscles. Fast- twitch muscles do not conduct oxygen, and are not red in color but white. They perform anaerobic activity, not aerobic, but contract quickly and forcefully. Fast-twitch muscles are the muscles that build bulk through weightlifting and other use because of the strength of contraction, and are useful in activities requiring speed and force, such as sprinting.\n\nIn general, the muscle fibers in our skeletal muscles are divided evenly between slow- twitch and fast-twitch muscles, but each individual's specific mix of types of muscles is determined genetically. It may be true that we are \"born runners,\" or weightlifters, or swimmers because of our skeletal and muscle structures. However, humans have the ability to change our bodies and prevail over genetics by altering which form of muscle is prominent in our bodies. The more we work one of the two types, the more predominant that type will become. This can be seen in professional and elite athletes, who have muscle structures that reflect the different demands of their particular sports. For example, sprinters' bodies and long-distance runners' bodies reflect the fact that sprinters use fast- twitch muscles more predominately and long-distance runners use slow-twitch muscles more predominately. This change does not happen overnight, however, and is the result of years of specific and intentional training.\n\nThis is not to say that elite athletes only focus on one type of muscle and ignore the other type. Even endurance athletes need well-developed fast-witch muscles, and sprint and weight athletes need well-developed slow-twitch muscles. Many athletes focus on working both types of muscles specifically, through different forms of athletic training, to maintain balance and support for their sports. They also support the development of balanced muscle types through diet, as the two types of muscle are fueled by different nutrients.",
+        "questions": [
+          {
+            "n": 31,
+            "q": "What is the passage mainly about?",
+            "opts": [
+              "The two main types of muscle are skeletal and smooth.",
+              "Skeletal and smooth muscles are known as Type I and Type Il muscles, respectively.",
+              "The two types of skeletal muscles, slow-twitch and fast-twitch, have different",
+              "functions and uses."
+            ],
+            "a": 2,
+            "ex": "Câu hỏi ý chính / mục đích đoạn văn: Phương án <b>C. The two types of skeletal muscles, slow-twitch and fast-twitch, have different</b> bao quát chính xác nhất nội dung trọng tâm của bài đọc."
+          },
+          {
+            "n": 32,
+            "q": "D. Slow-twitch and fast-twitch muscles can be trained with different exercises. The word 'twitch' in paragraph 1 is closest in meaning to",
+            "opts": [
+              "shake",
+              "freeze",
+              "run",
+              "fiber"
+            ],
+            "a": 0,
+            "ex": "Từ vựng trong ngữ cảnh (Slow-Twitch and Fast-Twitch Skeletal Muscles): Đáp án đúng là <b>A. shake</b> (tương đương nghĩa với từ/cụm từ được hỏi trong đoạn văn)."
+          },
+          {
+            "n": 33,
+            "q": "The phrase 'two types' in paragraph 1 refers to",
+            "opts": [
+              "smooth and skeletal",
+              "voluntary and involuntary",
+              "Type Ila and Type lIb",
+              "slow-twitch and fast-twitch"
+            ],
+            "a": 3,
+            "ex": "Câu hỏi quy chiếu đại từ: Dựa vào mệnh đề liền trước trong bài đọc, đại từ được hỏi quy chiếu trực tiếp tới <b>D. slow-twitch and fast-twitch</b>."
+          },
+          {
+            "n": 34,
+            "q": "Why does the author mention the length of contractions in paragraph 2?",
+            "opts": [
+              "to explain how slow-twitch muscles provide endurance",
+              "to give evidence that slow-twitch muscles are red",
+              "to show why capillaries carry oxygen",
+              "to describe why strength training is necessary"
+            ],
+            "a": 0,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Slow-Twitch and Fast-Twitch Skeletal Muscles), phương án chính xác là <b>A. to explain how slow-twitch muscles provide endurance</b>."
+          },
+          {
+            "n": 35,
+            "q": "The word 'anaerobic' in paragraph 3 is closest in meaning to",
+            "opts": [
+              "cardio",
+              "using oxygen",
+              "not using oxygen",
+              "fast"
+            ],
+            "a": 2,
+            "ex": "Từ vựng trong ngữ cảnh (Slow-Twitch and Fast-Twitch Skeletal Muscles): Đáp án đúng là <b>C. not using oxygen</b> (tương đương nghĩa với từ/cụm từ được hỏi trong đoạn văn)."
+          },
+          {
+            "n": 36,
+            "q": "Which can be inferred about the color of fast-twitch muscles?",
+            "opts": [
+              "The color of fast-twitch muscles is determined by the strength of their contractions.",
+              "The color of fast-twitch muscles varies from person to person.",
+              "The color of fast-twitch muscles is red.",
+              "The color of fast-twitch muscles is determined by them not carrying oxygen."
+            ],
+            "a": 3,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Slow-Twitch and Fast-Twitch Skeletal Muscles), phương án chính xác là <b>D. The color of fast-twitch muscles is determined by them not carrying oxygen.</b>."
+          },
+          {
+            "n": 37,
+            "q": "Sprinters use more fast-twitch muscles than slow-twitch muscles because",
+            "opts": [
+              "sprinting involves endurance more than speed and strength",
+              "sprinting involves speed and strength more than endurance",
+              "sprinters are born with more fast-twitch muscles",
+              "sprinters use more oxygen than long-distance runners"
+            ],
+            "a": 1,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Slow-Twitch and Fast-Twitch Skeletal Muscles), phương án chính xác là <b>B. sprinting involves speed and strength more than endurance</b>."
+          },
+          {
+            "n": 38,
+            "q": "According to the passage, who probably use fast-twitch muscles most?",
+            "opts": [
+              "long distance runners",
+              "swimmers",
+              "weightlifters",
+              "cyclists"
+            ],
+            "a": 2,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Slow-Twitch and Fast-Twitch Skeletal Muscles), phương án chính xác là <b>C. weightlifters</b>."
+          },
+          {
+            "n": 39,
+            "q": "Which is NOT true about fast-twitch and slow-twitch muscles?",
+            "opts": [
+              "Each person has a mix of slow-twitch and fast-twitch muscles.",
+              "A person can change the mix of fast-twitch and slow-twitch muscles in the body.",
+              "Athletes can train both fast-twitch and slow-twitch muscles.",
+              "Working one type of muscle strengthens that type of muscle."
+            ],
+            "a": 1,
+            "ex": "Câu hỏi loại trừ (NOT/EXCEPT): Ba phương án còn lại đều được nêu rõ trong bài; phương án <b>B. A person can change the mix of fast-twitch and slow-twitch muscles in the body.</b> không đúng hoặc không được đề cập."
+          },
+          {
+            "n": 40,
+            "q": "The passage implies that",
+            "opts": [
+              "athletes have more muscles than non-athletes",
+              "there is a connection between athletic performance and medicine",
+              "athletes cannot train for their sports if they do not understand the differences between fast-twitch and slow-twitch muscles",
+              "People can change which form of muscle is prevalent in their bodies with enough"
+            ],
+            "a": 3,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Slow-Twitch and Fast-Twitch Skeletal Muscles), phương án chính xác là <b>D. People can change which form of muscle is prevalent in their bodies with enough</b>."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rset9",
+    "title": "Đề số 09: Sách NXB ĐHQGHN — Reading Test 03",
+    "source": "Sách 10 Bộ đề Đọc hiểu VSTEP B1-B2-C1 (NXB ĐHQG Hà Nội — Test 03: The Life and Art of Vincent van Gogh · Mesa Verde and the Prehistoric Anasazi Culture · Salon des Refusés & The Impressionist Movement · Factoring and Reverse Factoring in Finance)",
+    "passages": [
+      {
+        "title": "PASSAGE 1 - The Life and Art of Vincent van Gogh",
+        "body": "Starry nights and sunflowers, self-portraits and café settings - all painted in bold, intense colors. Today, people around the world immediately recognize these as the work of Vincent Van Gogh, the Dutch painter. [A]\n\nVincent van Gogh was born on March 30, 1853, in a small village in southern Holland. As a child, he was serious and sensitive. He loved to draw, and his work showed talent, but no one encouraged him to become an artist. Instead, his father thought he should take a \"sensible\" job - something like a salesclerk or carpenter. As a young adult, he wandered from job to job with little success and very little money, becoming more depressed with each failure. In March 1880, however, just before his 27™ birthday, something changed inside Van Gogh. He realized that he was meant to be a painter, and he began to study art in Brussels, receiving a subsidy from his brother Theo, which helped him to live. [B]\n\nIn 1886, Van Gogh moved to Paris, hoping to learn more about color techniques being used by Impressionist artists there. Instead of grays and browns, his work began to emphasize blue and red and then yellow and orange. Soon he began to see life\n\ndifferenfly: Go slow. Stop thinking. Look around. You'll see something beautiful if you\n\nopen yourself. These were the principles that guided his art. With his innovative color\n\ncombinations, Van Gogh wanted to show his viewers how to better appreciate a flower,\n\nthe night sky, or a person's face. Few who lived in Van Gogh's time appreciated his work, however. Many laughed\n\nwhen they saw his paintings, which hurt the sensitive artist terribly. In February 1888, he\n\nmoved away from Paris to Arles, a town in southern France. Often he could not eat or\n\nsleep, and stayed up into the early morning hours painting. Days passed, and he spoke\n\nto no one. Following an argument with fellow artist Paul Gauguin, Van Gogh took a\n\nrazor and cut off his own earlobe. He never explained why, but by now, many were convinced that Van Gogh was\n\ncrazy, and indeed, his mental health started to decline. He began to have attacks during\n\nwhich he would hear strange sounds and think people were trying to hurt him. In the\n\nspring of 1889, he was sent to a mental hospital in St. Rémy, a town near Ades.\n\nWhat exacfly was van Gogh suffering from? No one knows for sure, but some now\n\nthink it may have been a form of manic depression. Whatever his condition, Van Gogh's\n\nillness both inhibited and inspired his creativity. When his attacks came, he could not\n\npaint. But during his periods of calm, he was able to complete more than a hundred\n\nmasterpieces, including the classic Starry Night. \"Working on my pictures is almost a\n\nnecessity for my recovery. he wrote. Following his release from the hospital in May 1890, Van Gogh took a room in a\n\ntown just north of Paris. For the 70 days that he lived there, he produced, on average, a\n\npainting a day. Until his death, however, he was unable to sell a single one; today, those\n\npaintings would be worth more than a billion U.S. dollars. [C]\n\nIt was at this time that Van Gogh either borrowed or stole a gun. On the afternoon\n\nof July 27, 1890, he went out to the country and shot himself in the stomach. Two days\n\nlater, Vincent Van Gogh died at age 37. What caused him to take his own life - his lack\n\nof financial success, mental illness, his loneliness? [D]",
+        "questions": [
+          {
+            "n": 1,
+            "q": "Which statement is NOT true about Van Gogh's youth?",
+            "opts": [
+              "He grew up in Holland.",
+              "He was born in a small village.",
+              "His parents encouraged his artistic talent.",
+              "He tried several jobs but was unsuccessful."
+            ],
+            "a": 2,
+            "ex": "Câu hỏi loại trừ (NOT/EXCEPT): Ba phương án còn lại đều được nêu rõ trong bài; phương án <b>C. His parents encouraged his artistic talent.</b> không đúng hoặc không được đề cập."
+          },
+          {
+            "n": 2,
+            "q": "What is the purpose of paragraph 2?",
+            "opts": [
+              "to advise when Van Gogh was born",
+              "to describe how Van Gogh became a painter",
+              "to show that Van Gogh was a troubled man",
+              "to show how Van Gogh survived on his own"
+            ],
+            "a": 1,
+            "ex": "Câu hỏi ý chính / mục đích đoạn văn: Phương án <b>B. to describe how Van Gogh became a painter</b> bao quát chính xác nhất nội dung trọng tâm của bài đọc."
+          },
+          {
+            "n": 3,
+            "q": "What is the main idea in paragraph 3?",
+            "opts": [
+              "Van Gogh was unhappy working with painters in Holland.",
+              "Van Gogh's move to Paris changed his attitude toward art.",
+              "Van Gogh was less successful than other Impressionist painters.",
+              "Van Gogh's paintings of flowers were very popular in Paris."
+            ],
+            "a": 1,
+            "ex": "Câu hỏi ý chính / mục đích đoạn văn: Phương án <b>B. Van Gogh's move to Paris changed his attitude toward art.</b> bao quát chính xác nhất nội dung trọng tâm của bài đọc."
+          },
+          {
+            "n": 4,
+            "q": "What best paraphrases the following sentence in paragraph 6?",
+            "opts": [
+              "Working on my pictures is almost a necessity for my recovery.",
+              "I need to paint in order to heal myself.",
+              "I need to get better so that I can paint again.",
+              "I will improve only if I stop painting."
+            ],
+            "a": 0,
+            "ex": "Câu hỏi diễn đạt lại câu (Paraphrase): Phương án <b>A. Working on my pictures is almost a necessity for my recovery.</b> giữ nguyên đầy đủ ý nghĩa cốt lõi và quan hệ nhân quả của câu gốc."
+          },
+          {
+            "n": 5,
+            "q": "D. I will paint only after I feel better.",
+            "opts": [
+              "In paragraph 7, the word 'took' is closest in meaning to .",
+              "left",
+              "moved into",
+              "stole from"
+            ],
+            "a": 1,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (The Life and Art of Vincent van Gogh), phương án chính xác là <b>B. left</b>."
+          },
+          {
+            "n": 6,
+            "q": "D. sold",
+            "opts": [
+              "What health problem did Van Gogh have before his death?",
+              "manic depression",
+              "sleeplessness",
+              "heart attack"
+            ],
+            "a": 3,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (The Life and Art of Vincent van Gogh), phương án chính xác là <b>D. heart attack</b>."
+          },
+          {
+            "n": 7,
+            "q": "D. people are unsure about his illness. How many paintings did Van Gogh produce during his stay in the town north of",
+            "opts": [
+              "Paris?",
+              "27",
+              "about 70",
+              "100"
+            ],
+            "a": 1,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (The Life and Art of Vincent van Gogh), phương án chính xác là <b>B. 27</b>."
+          },
+          {
+            "n": 8,
+            "q": "D. more than 100",
+            "opts": [
+              "What is NOT suggested as a possible motive for Van Gogh's suicide?",
+              "lack of financial success",
+              "mental illness",
+              "his parents' lack of support"
+            ],
+            "a": 2,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (The Life and Art of Vincent van Gogh), phương án chính xác là <b>C. mental illness</b>."
+          },
+          {
+            "n": 9,
+            "q": "D. loneliness",
+            "opts": [
+              "What is true about Van Gogh's paintings?",
+              "They were sold after his death.",
+              "They were loved by people at his time.",
+              "Van Gogh used different colors especially gray and brown in his paintings."
+            ],
+            "a": 0,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (The Life and Art of Vincent van Gogh), phương án chính xác là <b>A. What is true about Van Gogh's paintings?</b>."
+          },
+          {
+            "n": 10,
+            "q": "D. Most of them were painted during his attacks. In which space (marked A, B, C and D in the passage) will the following sentence fit?",
+            "opts": [
+              "[A]",
+              "[B]",
+              "[C]",
+              "[D]"
+            ],
+            "a": 3,
+            "ex": "Câu hỏi chèn câu vào đoạn: Vị trí <b>D</b> tạo sự liên kết mạch lạc nhất về mặt ý nghĩa và đại từ chuyển tiếp với câu trước và câu sau."
+          }
+        ]
+      },
+      {
+        "title": "PASSAGE 2 - Mesa Verde and the Prehistoric Anasazi Culture",
+        "body": "Mesa Verde is the center of the prehistoric Anasazi culture. It is located in the high\n\nplateau lands near Four Corners in the U.S. Southwest, where Colorado, Utah, New\n\nMexico, and Arizona come together. The climate in this region is dry, but at the bottom\n\nof deeply cut canyons, seeps, springs, and tiny streams can be found. These provided the\n\nwater for the Anasazi crops of corn, beans, squash, tobacco, and cotton. Farming was the main business of these people, but the Anasazi domesticated the wild turkey, hunted deer, rabbits, and mountain sheep, and gathered wild plants.\n\nFor a thousand years the Anasazi lived at Mesa Verde. These Native Americans were not related to the Navajos, who came to the area long after the Anasazi. However, because no one knows what the Anasazi actually called themselves, they are commonly called by their Navajo name, which means \"the ancient ones\" in the Navajo language.\n\nThe first Anasazi people, who are called the Basket Makers by archaeologists, came to the area around 550. This formerly nomadic group began to live a more settled life. They built underground dwellings called pit houses. These were clustered into small villages, mosfly on top of mesas but occasionally on ledges on the walls of the cliffs that formed the Mesa.\n\nIn the next 300 years, the Anasazi made rapid technological progress, including the refinement of basket making, pottery making, jewelry making, leather working, and weaving. Stone Age people, the Anasazi did not use metal, but they skillfully shaped stone, bone, and wood into a variety of tools for grinding, cutting, scraping, and polishing. About 750, they began building houses above ground. At first these houses were made of poles and mud, but later they were made of sandstone. This period of development is known as the Early Pueblo Period.\n\nThe Great Pueblo Period (1100-1300) was Mesa Verde's classic age. The population grew to about 5,000. The Anasazis' level of technology continued to rise. Around 1200, there was another major population shift. The Anasazi moved from the mesa tops to the ledges on the steep sides of cliffs where some of their ancestors had lived centuries earlier. On these ledges, the Anasazi built two- and three-story dwellings made of sandstone blocks held together with mortar made of mud. There were no doors on the first floors, and people had to use ladders to get into the buildings. Rooms averaged about six feet by nine feet (two meters by three meters). They were plastered on the inside and decorated with painted symbols. Smaller, isolated rooms were used for crop storage. The largest village (Cliff Palace) had 217 rooms. All the villages had underground chambers called kivas. Men held tribal councils there and also used them for secret religious ceremonies and clan meetings. Winding paths, ladders, and steps cut in the stone led from the villages to the valley below. One might surmise that these settlements were built on the cliffs for protection, but the Anasazi had no known enemies, and there is no sign of warfare.\n\nA bigger mystery is why the Anasazi occupied their villages for such a short time. By 1300 Mesa Verde was deserted. It is generally thought that the Anasazi abandoned\n\ntheir settlements because of a prolonged drought, overpopulation, crop failure, or some\n\ncombination of these. They probably moved southward and were incorporated into the\n\npueblo villages that the Spanish explorers encountered two hundred years later. Their\n\ndescendants may still live in the Southwest.",
+        "questions": [
+          {
+            "n": 11,
+            "q": "Which animal was NOT hunted by the Anasazi?",
+            "opts": [
+              "sheep",
+              "turkeys",
+              "deer",
+              "rabbit"
+            ],
+            "a": 1,
+            "ex": "Câu hỏi loại trừ (NOT/EXCEPT): Ba phương án còn lại đều được nêu rõ trong bài; phương án <b>B. turkeys</b> không đúng hoặc không được đề cập."
+          },
+          {
+            "n": 12,
+            "q": "What is the most important activity for the Anasazi?",
+            "opts": [
+              "growing crops",
+              "hunting wild animals",
+              "raising domestic animals",
+              "gathering wild plants"
+            ],
+            "a": 0,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Mesa Verde and the Prehistoric Anasazi Culture), phương án chính xác là <b>A. growing crops</b>."
+          },
+          {
+            "n": 13,
+            "q": "The word 'nomadic' in paragraph 3 is closest in meaning to",
+            "opts": [
+              "mobile",
+              "cultural",
+              "ethnic",
+              "small"
+            ],
+            "a": 0,
+            "ex": "Từ vựng trong ngữ cảnh (Mesa Verde and the Prehistoric Anasazi Culture): Đáp án đúng là <b>A. mobile</b> (tương đương nghĩa với từ/cụm từ được hỏi trong đoạn văn)."
+          },
+          {
+            "n": 14,
+            "q": "During the Early Pueblo period, the Anasazi did NOT make",
+            "opts": [
+              "pots",
+              "leather goods",
+              "metal tools",
+              "jewelry"
+            ],
+            "a": 2,
+            "ex": "Câu hỏi loại trừ (NOT/EXCEPT): Ba phương án còn lại đều được nêu rõ trong bài; phương án <b>C. metal tools</b> không đúng hoặc không được đề cập."
+          },
+          {
+            "n": 15,
+            "q": "When did the Anasazi first begin to build houses from stone?",
+            "opts": [
+              "Before they came to Mesa Verde",
+              "During the Early Pueblo Period",
+              "Between 850 and 1100",
+              "During the Great Pueblo Period"
+            ],
+            "a": 3,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Mesa Verde and the Prehistoric Anasazi Culture), phương án chính xác là <b>D. During the Great Pueblo Period</b>."
+          },
+          {
+            "n": 16,
+            "q": "Where did the Anasazi move during the Great Pueblo Period?",
+            "opts": [
+              "To pueblo villages in the south",
+              "Onto the tops of the mesa",
+              "Onto the floors of the canyon",
+              "To settlements on the ledges of cliff walls"
+            ],
+            "a": 3,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Mesa Verde and the Prehistoric Anasazi Culture), phương án chính xác là <b>D. To settlements on the ledges of cliff walls</b>."
+          },
+          {
+            "n": 17,
+            "q": "During the Great Pueblo Period, Anasazi houses were mainly made of",
+            "opts": [
+              "wood",
+              "mud",
+              "stone",
+              "plaster"
+            ],
+            "a": 2,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Mesa Verde and the Prehistoric Anasazi Culture), phương án chính xác là <b>C. stone</b>."
+          },
+          {
+            "n": 18,
+            "q": "The word 'they' in paragraph 5 refers to",
+            "opts": [
+              "buildings",
+              "dwellings",
+              "doors",
+              "rooms"
+            ],
+            "a": 3,
+            "ex": "Câu hỏi quy chiếu đại từ: Dựa vào mệnh đề liền trước trong bài đọc, đại từ được hỏi quy chiếu trực tiếp tới <b>D. rooms</b>."
+          },
+          {
+            "n": 19,
+            "q": "According to the passage, kivas were used for all of the following purposes",
+            "opts": [
+              "EXCEPT",
+              "clan meetings",
+              "food storage",
+              "religious ceremonies"
+            ],
+            "a": 1,
+            "ex": "Câu hỏi ý chính / mục đích đoạn văn: Phương án <b>B. clan meetings</b> bao quát chính xác nhất nội dung trọng tâm của bài đọc."
+          },
+          {
+            "n": 20,
+            "q": "D. tribal councils According to the passage, the least likely reason that the Anasazi abandoned",
+            "opts": [
+              "Mesa Verde was",
+              "drought",
+              "overpopulation",
+              "war"
+            ],
+            "a": 2,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Mesa Verde and the Prehistoric Anasazi Culture), phương án chính xác là <b>C. overpopulation</b>."
+          }
+        ]
+      },
+      {
+        "title": "PASSAGE 3 - Salon des Refusés & The Impressionist Movement",
+        "body": "In April 1870, an art exhibit opened in Paris featuring famous and priceless works of art. However, at the time, no one knew that these paintings would one day be considered masterpieces. The paintings and the painters were virtually unknown at the time and would remain that way for several years.\n\nIn the nineteenth century, French art was dominated by the Academy of Fine Arts.\n\nEvery year the academy held an art show called Le Salon. In 1863, the Academy rejected\n\none of the paintings of Edouard Manet. Manet and a group of other independent artists\n\norganized their own show, which they called Salon des Refuses (Salon of the Rejected)\n\nopened on April 15,1874. A newspaper critic named Louis Leroy visited the gallery\n\nand was not pleased with what he saw. Impression: Sunset - one painting of boats\n\nin a harbor at dawn by Claude Monet particularly enraged him. Leroy wrote that this\n\npiece, and in fact most of the pieces in the show, looked like \"impressions\" - a term for\n\na preliminary, unfinished sketch made before a painting is done. Leroy's newspaper\n\nreview was jokingly called \"The Exhibition of the Impressionists.\" Within a few years of\n\nLeroy's review, the term Impressionists had clearly stuck, not as a term of derision but as\n\na badge of honor, and a new movement was born. The Impressionist movement included the French painters Edouard Manet, Claude\n\nMonet, Pierre-Auguste Rencir, Edgar Degas, Paul Cezanne, and the American painter\n\nMary Cassatt. The techniques and standards employed within the Impressionist movement\n\nvaried widely, and though the artists shared a core of values, the real glue which bound\n\nthe movement together was its spirit of rebellion and independence. This spirit is clear\n\nwhen you compare Impressionist paintings with traditional French paintings of the time.\n\nTraditional painters tended to paint rather serious scenes from history and mythology.\n\nMany Impressionist paintings feature pleasant scenes of urban life, celebrating the leisure\n\ntime that the Industrial Revolution had won for the middle class, as shown in Renoir's\n\nluminous painting Luncheon of the Boating Party. Renoir once said that paintings should\n\nbe \"... likable, joyous, and pretty.\" He said, \"There are enough unpleasant things in this\n\nworld. We don't have to paint them as well.\" The Impressionists delighted in painting landscapes (except for Edgar Degas, who\n\npreferred painting indoor scenes, and Mary Cassatt, who mainly painted portraits\n\nof mothers and children). [A] Traditional painters, too, painted landscapes, but their\n\nlandscapes tended to be somber and dark. [B] The Impressionists' landscapes sparkle\n\nwith light. [C] Impressionists insisted that their works be \"true to nature.\" [D] When they\n\npainted landscapes, they carried their paints and canvases outdoors in order to capture\n\nthe ever-changing light. Traditional painters generally made preliminary sketches outside\n\nbut worked on the paintings themselves in their studios. \"Classic\" Impressionist paintings are often easy to spot because of the techniques\n\nused by the painters. For example, colors should be dropped pure on the canvas instead\n\nof getting mixed on the palette and most Impressionists mixed their paints as little as possible. The traditional technique at the time was to make sketches or outlines of the subject before painting them. Unlike traditional painters, Impressionists applied one layer of paint on top of the last one without waiting for the paint to dry. These techniques created paintings that seemed strange and unfinished to the general public when they were first painted, but are much loved in our time.",
+        "questions": [
+          {
+            "n": 21,
+            "q": "The word 'virtually' in the passage is closest in meaning to the word",
+            "opts": [
+              "almost",
+              "infinitely",
+              "seemingly",
+              "forever"
+            ],
+            "a": 0,
+            "ex": "Từ vựng trong ngữ cảnh (Salon des Refusés & The Impressionist Movement): Đáp án đúng là <b>A. almost</b> (tương đương nghĩa với từ/cụm từ được hỏi trong đoạn văn)."
+          },
+          {
+            "n": 22,
+            "q": "What is true about the art show Salon des Refuses?",
+            "opts": [
+              "It was more popular with visitors and critics than the \"Le Salon\" show",
+              "It made the painters and paintings shown there instanfly successful.",
+              "Its organizers refused to display paintings by Edouard Manet.",
+              "It featured famous paintings by painters of a new movement."
+            ],
+            "a": 3,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Salon des Refusés & The Impressionist Movement), phương án chính xác là <b>D. It featured famous paintings by painters of a new movement.</b>."
+          },
+          {
+            "n": 23,
+            "q": "Why did Louis Leroy use the term \"Impressionists\"?",
+            "opts": [
+              "because he thought that these artists only got a quick impression of what they painted.",
+              "because he thought that all the paintings at the show looked like unfinished drawings.",
+              "because he thought that the name would help those artists become famous.",
+              "because he thought that the painting Impression: Sunset was the best painting at"
+            ],
+            "a": 1,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Salon des Refusés & The Impressionist Movement), phương án chính xác là <b>B. because he thought that all the paintings at the show looked like unfinished drawings.</b>."
+          },
+          {
+            "n": 24,
+            "q": "the show. What best paraphrases the following sentence in paragraph 3? The techniques and standards employed within the Impressionist movement varied widely, and though the artists shared a core of values, the real glue which bound the movement together was its spirit of rebellion and independence.",
+            "opts": [
+              "The core of values shared by the Impressionists was the most important connection between them.",
+              "Although there were artistic differences among the Impressionists, they were united by an independent spirit and shared values. At first the Impressionist movement was held together by a shared set of techniques",
+              "and standards, but in time they rebelled against these core values.",
+              "Although the Impressionists' values differed, their techniques and standards helped"
+            ],
+            "a": 1,
+            "ex": "Câu hỏi diễn đạt lại câu (Paraphrase): Phương án <b>B. Although there were artistic differences among the Impressionists, they were united by an independent spirit and shared values. At first the Impressionist movement was held together by a shared set of techniques</b> giữ nguyên đầy đủ ý nghĩa cốt lõi và quan hệ nhân quả của câu gốc."
+          },
+          {
+            "n": 25,
+            "q": "create a strong, independent spirit.",
+            "opts": [
+              "Renoir's painting Luncheon of the Boating Party is an example of",
+              "an industrial scene",
+              "a study of some urban buildings",
+              "a picture of people enjoying their leisure time"
+            ],
+            "a": 2,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Salon des Refusés & The Impressionist Movement), phương án chính xác là <b>C. a study of some urban buildings</b>."
+          },
+          {
+            "n": 26,
+            "q": "D. a traditional French painting What did the painters Edgar Degas and Mary Cassatt have in common?",
+            "opts": [
+              "They both painted portraits of children and mothers.",
+              "Neither of them was originally from France.",
+              "Neither of them was primarily interested in landscapes.",
+              "They both preferred painting unpleasant scenes."
+            ],
+            "a": 2,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Salon des Refusés & The Impressionist Movement), phương án chính xác là <b>C. Neither of them was primarily interested in landscapes.</b>."
+          },
+          {
+            "n": 27,
+            "q": "When traditional painters worked on landscape paintings, they",
+            "opts": [
+              "studied the ever-changing light",
+              "did not make any preliminary sketches",
+              "never left their studios",
+              "sketched outdoors but painted indoors"
+            ],
+            "a": 3,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Salon des Refusés & The Impressionist Movement), phương án chính xác là <b>D. sketched outdoors but painted indoors</b>."
+          },
+          {
+            "n": 28,
+            "q": "In which space (marked A, B, C and D in the passage) will the following sentence fit? This play of light can be seen in Claude Monet's paintings Water Lilies, Green",
+            "opts": [
+              "[A]",
+              "[B]",
+              "[C]",
+              "[D]"
+            ],
+            "a": 2,
+            "ex": "Câu hỏi chèn câu vào đoạn: Vị trí <b>C</b> tạo sự liên kết mạch lạc nhất về mặt ý nghĩa và đại từ chuyển tiếp với câu trước và câu sau."
+          },
+          {
+            "n": 29,
+            "q": "The word 'spot in paragraph 6 is closest in meaning to",
+            "opts": [
+              "paint",
+              "identify",
+              "admire",
+              "ignore"
+            ],
+            "a": 1,
+            "ex": "Từ vựng trong ngữ cảnh (Salon des Refusés & The Impressionist Movement): Đáp án đúng là <b>B. identify</b> (tương đương nghĩa với từ/cụm từ được hỏi trong đoạn văn)."
+          },
+          {
+            "n": 30,
+            "q": "The phrase 'the last one' in the passage refers to",
+            "opts": [
+              "an artist",
+              "a painting",
+              "a brush stroke",
+              "a layer of paint"
+            ],
+            "a": 3,
+            "ex": "Câu hỏi quy chiếu đại từ: Dựa vào mệnh đề liền trước trong bài đọc, đại từ được hỏi quy chiếu trực tiếp tới <b>D. a layer of paint</b>."
+          }
+        ]
+      },
+      {
+        "title": "PASSAGE 4 - Factoring and Reverse Factoring in Finance",
+        "body": "In many countries, access to capital markets and low-interest loans is limited to large corporations and government monopolies. Small businesses and suppliers do not have access to liquid cash, and run the risk of failing to fulfil orders because they do not have the capital to purchase supplies for the products they make. As a result of this credit crisis, a practice called factoring has become popular in many areas of the world.\n\nIn factoring, a bank or financial organization - called a factor - gives a supplier cash in exchange for the right to collect payment when the supplier delivers an order to a buyer. In effect, the factor is buying the supplier's Accounts Receivables at a discount off the face value of the accounts. The supplier benefits by receiving cash more quickly than it could from the buyer, but does not receive full payment for the accounts. The factor takes on a huge amount of risk by buying a supplier's Accounts Receivables, as each individual buyer must be researched to determine what the risk is of that buyer defaulting on payment. In some cases, these buyers are so small or obscure that risk cannot be determined, and a factor is buying a complete unknown. In this case, if a buyer defaults, the factor may go back to the supplier and ask for compensation for the default. Thus, factoring is risky for both the supplier and the factor.\n\nIn recent years, a new practice called reverse factoring has become increasingly\n\npopular because it shifts the anchor from supplier to buyer to virtually eliminate risk from\n\nthe transaction. In reverse factoring, instead of buying a supplier's Accounts Receivables,\n\na factor provides loans to a single large buyer's suppliers. For example, a large corporation with an excellent credit rating and an extremely\n\nlow chance of defaulting will have a list of suppliers. Many of these suppliers are small\n\nbusinesses without adequate access to liquid cash. When a factor contracts with the\n\nlarge buyer to supply payments to suppliers, the transaction works as follows: 1) the\n\nsupplier signs an agreement to be entered into the factor's system, 2) the supplier delivers\n\nan order to the buyer, 3) the buyer approves the delivery and signs off with the factor,\n\n4) the factor pays the supplier a percentage (usually 80 to 90 percent) of the price of\n\nthe order immediately, 5) the buyer pays the factor for the order at whatever terms the\n\nagreement states, 6) the factor pays the supplier the remaining balance for the order. The\n\nfactor takes a percentage of the transaction and charges interest to the buyer.\n\nBy originating the transaction with a large, risk-free buyer instead of a supplier,\n\nreverse factoring improves all three parties' positions and liquidity. The factor earns a\n\nsteady interest rate with very little risk, and by working with large buyers, has access to\n\nlarge volumes of business at one time. The buyers gain the ability to pay on better terms\n\nfor lower interest than they would with traditional capital market structures. Suppliers get\n\npaid far more rapidly and at a far lower interest rate than they would be able to with a\n\ntraditional factoring or capital market arrangement.",
+        "questions": [
+          {
+            "n": 31,
+            "q": "Why has factoring increased as a practice in countries around the world?",
+            "opts": [
+              "it has a common language",
+              "it attracts investors to foreign countries",
+              "it solves a problem with credit",
+              "it requires large amounts of land"
+            ],
+            "a": 2,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Factoring and Reverse Factoring in Finance), phương án chính xác là <b>C. it solves a problem with credit</b>."
+          },
+          {
+            "n": 32,
+            "q": "The word 'capital' in paragraph 1 is closest in meaning to",
+            "opts": [
+              "financial",
+              "principal",
+              "important",
+              "knowledgeable"
+            ],
+            "a": 0,
+            "ex": "Từ vựng trong ngữ cảnh (Factoring and Reverse Factoring in Finance): Đáp án đúng là <b>A. financial</b> (tương đương nghĩa với từ/cụm từ được hỏi trong đoạn văn)."
+          },
+          {
+            "n": 33,
+            "q": "The word 'defaults' in paragraph 2 is closest in meaning to",
+            "opts": [
+              "does not ask",
+              "does not know",
+              "does not pay",
+              "does not loan"
+            ],
+            "a": 2,
+            "ex": "Từ vựng trong ngữ cảnh (Factoring and Reverse Factoring in Finance): Đáp án đúng là <b>C. does not pay</b> (tương đương nghĩa với từ/cụm từ được hỏi trong đoạn văn)."
+          },
+          {
+            "n": 34,
+            "q": "What is the benefit of reverse factoring?",
+            "opts": [
+              "it removes risk almost entirely from the transaction",
+              "it does not involve an exchange of money",
+              "it can be done on a boat or other sailing vessel",
+              "it can be done by anyone, regardless of income"
+            ],
+            "a": 0,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Factoring and Reverse Factoring in Finance), phương án chính xác là <b>A. it removes risk almost entirely from the transaction</b>."
+          },
+          {
+            "n": 35,
+            "q": "How is reverse factoring different from traditional factoring?",
+            "opts": [
+              "Both suppliers and factors might be at risk.",
+              "Factors buy suppliers' Accounts Receivables",
+              "Suppliers receive cash direcfly from buyers.",
+              "Suppliers can receive money from the factors contracted with buyers."
+            ],
+            "a": 1,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Factoring and Reverse Factoring in Finance), phương án chính xác là <b>B. Factors buy suppliers' Accounts Receivables</b>."
+          },
+          {
+            "n": 36,
+            "q": "The word 'liquid' in paragraph 4 is closest in meaning to",
+            "opts": [
+              "accessible",
+              "wet",
+              "complex",
+              "thin"
+            ],
+            "a": 0,
+            "ex": "Từ vựng trong ngữ cảnh (Factoring and Reverse Factoring in Finance): Đáp án đúng là <b>A. accessible</b> (tương đương nghĩa với từ/cụm từ được hỏi trong đoạn văn)."
+          },
+          {
+            "n": 37,
+            "q": "In reverse factoring, after the factor pays the supplier a percentage of the order",
+            "opts": [
+              "amount",
+              "the supplier officially enters the factor's system",
+              "the buyer pays the factor for the order",
+              "the supplier delivers the order to the buyer"
+            ],
+            "a": 1,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Factoring and Reverse Factoring in Finance), phương án chính xác là <b>B. the supplier officially enters the factor's system</b>."
+          },
+          {
+            "n": 38,
+            "q": "D. the factor contracts with the buyer The phrase 'all three parties' in paragraph 5 refers to",
+            "opts": [
+              "bank, factor, buyer",
+              "factor, bank, supplier",
+              "supplier, bank, product",
+              "factor, buyer, supplier"
+            ],
+            "a": 3,
+            "ex": "Câu hỏi quy chiếu đại từ: Dựa vào mệnh đề liền trước trong bài đọc, đại từ được hỏi quy chiếu trực tiếp tới <b>D. factor, buyer, supplier</b>."
+          },
+          {
+            "n": 39,
+            "q": "Why does the author mention the benefits of reverse factoring to the factor in paragraph 6?",
+            "opts": [
+              "prove that there is not a strong connection between a role in the reverse factoring transaction and the benefits received",
+              "show that the factor benefits more from reverse factoring than the supplier or the buyer",
+              "support the topic sentence of the paragraph that states that all three parties benefit",
+              "from reverse factoring"
+            ],
+            "a": 2,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Factoring and Reverse Factoring in Finance), phương án chính xác là <b>C. support the topic sentence of the paragraph that states that all three parties benefit</b>."
+          },
+          {
+            "n": 40,
+            "q": "D. connect the concept of factoring more closely with reverse factoring Which of the following can be inferred from the passage?",
+            "opts": [
+              "There are multiple ways to finance purchases from suppliers.",
+              "A factor must be prequalified to borrow money from a supplier.",
+              "Reverse factoring only works in European countries.",
+              "Small suppliers are more likely to have access to credit than small buyers."
+            ],
+            "a": 0,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Factoring and Reverse Factoring in Finance), phương án chính xác là <b>A. There are multiple ways to finance purchases from suppliers.</b>."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rset10",
+    "title": "Đề số 10: Sách NXB ĐHQGHN — Reading Test 04",
+    "source": "Sách 10 Bộ đề Đọc hiểu VSTEP B1-B2-C1 (NXB ĐHQG Hà Nội — Test 04: Can Scientists Predict Earthquakes? · Currency Exchange Rates & International Business Exposure · Alternative Energy · Nanotechnology & Quantum Dots in Cancer Treatment)",
+    "passages": [
+      {
+        "title": "PASSAGE 1 - Can Scientists Predict Earthquakes?",
+        "body": "Never before have so many people packed into cities - places such as Los Angeles,\n\nIstanbul, Tokyo, and Lima - that are regularly affected by earthquakes. Located near the\n\nedge of Earth's huge, shifting plates, these cities face the risk of death and economic\n\ndisaster from large quakes - and from the tsunamis, fires, and other destruction they often\n\ncause. We understand earthquakes better than we did a century ago. Now, scientists\n\nwould like to predict them, but is this possible? In Japan, government scientists say they have an answer to the question. [A] &We\n\nbelieve that earthquake prediction is possible.\" says Koshun Yamaoka, a scientist at the\n\nEarthquake Research Institute at the University of Tokyo. Earthquakes follow a pattern;\n\nthey have observable signs, Yamaoka believes. In fact, Japan has already predicted\n\nwhere its next great earthquake will be: Tokai, a region along the Pacific coast about 160\n\nkilometers (100 miles) southwest of Tokyo. Here, two plate boundaries have generated\n\nhuge earthquakes every 100 to 150 years. And it could be a massive quake. The section\n\nalong Tokai hasn't had a major quake since 1854. The theory is that strain is building up in this region, and that it's time for this zone to reduce its stress. Unfortunately, this is more a forecast than a prediction. It's one thing to say that an earthquake is likely to happen in a high-risk area. It's another to predict exacfly where and when the quake will occur.\n\nThe desire for a precise prediction of time and place has led to another theory: the idea of \"pre-slip.\" Naoyuki Kato, a scientist at the Earthquake Research Institute, says his laboratory experiments show that before a fault in the Earth's crust finally breaks and causes an earthquake, it slips just a little. If we can detect these early slips taking place deep in the Earth's crust, we may be able to predict the next big quake.\n\nClues in the Desert Scientists working in Parkfield, California, in the U.S. are also trying to see if predicting earthquakes is possible. They've chosen the town of Parkfield not only because the San Andreas Fault runs through it but because it's known for having earthquakes quite regularly - approximately every 22 years. In the late 1980s, scientists in Parkfield decided to study the fault to see if there were any warning signs prior to a quake. [B] To do this, they drilled deep into the fault and set up equipment to register activity. Then they waited for the quake. [C]\n\nYear after year, nothing happened. When a quake did finally hit on September 28, 2004, it was years off schedule, but most disappointing was the lack of warning signs. Scientists reviewed the data but could find no evidence of anything unusual preceding the September 28th quake. It led many to believe that perhaps earthquakes really are random events. Instead of giving up, though, scientists in Parkfield dug deeper into the ground. By late summer 2005, they had reached the fault's final depth of three kilometers (two miles), where they continued collecting data, hoping to find a clue.\n\n[D]. In an article published in the July 2008 journal Nature, the researchers in Parkfield claimed to have detected small changes in the fault shorfly before an earthquake hit. What had they noticed? Just before a quake, the cracks in the fault had widened slighfly. Scientists registered the first changes ten hours before an earthquake of 3.0 on the Richter scale hit: they identified identical signs two hours before a 1.0 quake - demonstrating that perhaps the 'preslip\" theory is correct. In other words, it may in fact be possible to predict an earthquake.",
+        "questions": [
+          {
+            "n": 1,
+            "q": "What is the passage mainly about?",
+            "opts": [
+              "earthquake prediction failures",
+              "the Japanese government's work on earthquakes",
+              "efforts to predict when an earthquake will happen",
+              "the Parkfield investigations"
+            ],
+            "a": 2,
+            "ex": "Câu hỏi ý chính / mục đích đoạn văn: Phương án <b>C. efforts to predict when an earthquake will happen</b> bao quát chính xác nhất nội dung trọng tâm của bài đọc."
+          },
+          {
+            "n": 2,
+            "q": "In the first paragraph, what best paraphrases the sentence \"Never before have so many people packed into cities - places such as Los Angeles, Istanbul, Tokyo, and Lima",
+            "opts": [
+              "- that are regularly affected by earthquakes.\"?",
+              "Many people who live in big cities have experienced earthquakes.",
+              "Cities crowded with people are more likely to have serious earthquakes.",
+              "Some of the biggest cities in the world suffer damage from earthquakes."
+            ],
+            "a": 3,
+            "ex": "Câu hỏi diễn đạt lại câu (Paraphrase): Phương án <b>D. Some of the biggest cities in the world suffer damage from earthquakes.</b> giữ nguyên đầy đủ ý nghĩa cốt lõi và quan hệ nhân quả của câu gốc."
+          },
+          {
+            "n": 3,
+            "q": "D. More people than ever live in cities that are affected by earthquakes. The word 'detect in paragraph 3 is closest in meaning to",
+            "opts": [
+              "distinguish",
+              "cover",
+              "discover",
+              "predict"
+            ],
+            "a": 2,
+            "ex": "Từ vựng trong ngữ cảnh (Can Scientists Predict Earthquakes?): Đáp án đúng là <b>C. discover</b> (tương đương nghĩa với từ/cụm từ được hỏi trong đoạn văn)."
+          },
+          {
+            "n": 4,
+            "q": "In paragraph 4, what does 'do this' refer to?",
+            "opts": [
+              "wait for an earthquake",
+              "study the fault",
+              "predict an earthquake",
+              "set up equipment"
+            ],
+            "a": 1,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Can Scientists Predict Earthquakes?), phương án chính xác là <b>B. study the fault</b>."
+          },
+          {
+            "n": 5,
+            "q": "In paragraph 5, the word 'reviewed could be replaced with",
+            "opts": [
+              "recorded",
+              "deleted",
+              "saw",
+              "studied"
+            ],
+            "a": 3,
+            "ex": "Từ vựng trong ngữ cảnh (Can Scientists Predict Earthquakes?): Đáp án đúng là <b>D. studied</b> (tương đương nghĩa với từ/cụm từ được hỏi trong đoạn văn)."
+          },
+          {
+            "n": 6,
+            "q": "What is true about the pre-slip theory?",
+            "opts": [
+              "It says an earthquake always occur in a high-risk area.",
+              "It was first mentioned by the US scientists.",
+              "the study of slips before an earthquake help predict the following earthquake.",
+              "the theory is that the Earth's crust has many faults after an earthquake occur."
+            ],
+            "a": 2,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Can Scientists Predict Earthquakes?), phương án chính xác là <b>C. the study of slips before an earthquake help predict the following earthquake.</b>."
+          },
+          {
+            "n": 7,
+            "q": "Which of the following statements is NOT true?",
+            "opts": [
+              "A major earthquake occurs in Tokai every 100-150 years.",
+              "Scientists believe that the \"pre-slip\" theory could help predict earthquakes.",
+              "Data supporting the \"pre-slip\" theory was found in Parkfield.",
+              "There was a major earthquake in Parkfield in late summer 2005."
+            ],
+            "a": 3,
+            "ex": "Câu hỏi loại trừ (NOT/EXCEPT): Ba phương án còn lại đều được nêu rõ trong bài; phương án <b>D. There was a major earthquake in Parkfield in late summer 2005.</b> không đúng hoặc không được đề cập."
+          },
+          {
+            "n": 8,
+            "q": "TIO According to Parkfield scientists, how did cracks in the fault change before an",
+            "opts": [
+              "earthquake hit?",
+              "They became much wider.",
+              "They became slighfly narrower.",
+              "They became slighfly wider."
+            ],
+            "a": 2,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Can Scientists Predict Earthquakes?), phương án chính xác là <b>C. They became slighfly narrower.</b>."
+          },
+          {
+            "n": 9,
+            "q": "D. They became much narrower. In which space (marked A, B, C and D in the passage) will the following sentence fit?",
+            "opts": [
+              "[A]",
+              "[B]",
+              "[C]",
+              "[D]"
+            ],
+            "a": 3,
+            "ex": "Câu hỏi chèn câu vào đoạn: Vị trí <b>D</b> tạo sự liên kết mạch lạc nhất về mặt ý nghĩa và đại từ chuyển tiếp với câu trước và câu sau."
+          },
+          {
+            "n": 10,
+            "q": "Which of the following could best describe the message that the author wants to",
+            "opts": [
+              "pass to readers?",
+              "Earthquakes occur in crowded cities in the world.",
+              "Earthquakes are not entirely random but possible to predict.",
+              "Earthquake research has had a long and successful history."
+            ],
+            "a": 1,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Can Scientists Predict Earthquakes?), phương án chính xác là <b>B. Earthquakes occur in crowded cities in the world.</b>."
+          }
+        ]
+      },
+      {
+        "title": "PASSAGE 2 - Currency Exchange Rates & International Business Exposure",
+        "body": "As different countries have different currencies of money, an international market\n\nexists for these currencies. \"Exchange rates\" refers to the formulas used to determine\n\nhow much any one country's currency can be bought or sold for relative to another\n\ncountry's currency. Some currencies, including the U.S. dollar, the European euro, and\n\nthe Japanese yen, are considered standard currencies, so the prices of other less-popular\n\ncurrencies are often expressed by exchange rates compared to them. Exchange rates\n\nare determined primarily by the movement of the markets, which means that when there\n\nis more demand for one particular currency, the price of that currency will go up, and\n\nwhen there is less demand for a currency, the price of that currency will go down.\n\nBecause exchange rates fluctuate, companies that do business internationally need\n\nto be mindful of the way they structure purchases and sales and what currency they use.\n\nFor example, if an American company is selling something to a Japanese company,\n\nboth companies need to think carefully about whether the sale should be transacted\n\nin U.S. dollars or Japanese yen (or some other currency entirely). It can be very cosfly\n\nfor a company to make the wrong decision. In general, the company whose currency\n\nis being used for the transaction bears less risk than the company which is converting\n\ntheir currency for the sale. So if the two companies agree that the Japanese company\n\nwill pay the U.S. company 500,000 U.S. dollars, the U.S. company will still receive that\n\nsum whether the exchange rate for yen to U.S. dollars goes up or down. In contrast, the\n\nJapanese company has to buy U.S. dollars to pay the bill. The risks of doing transactions across currencies is called exposure. There are three\n\ntypes of exposure companies doing business internationally must contend with. The first,\n\ntranslation exposure, is simply a matter of the risk involved in converting one currency\n\nto another and how that is reflected in a company's statement of profits and losses. For\n\nexample, a company that sells many of its products in U.S. dollars but has to report its\n\nearnings to shareholders in Euros will look like it has made less money simply because\n\nthe dollar is weaker than the euro. The second type of exposure, transaction exposure, is described in the example\n\nabove of the Japanese company and the American company making a sale. Transaction\n\nexposure is really a time problem. Between the time you agree to the deal and the time you\n\nhave to pay for or receive money for the deal, what will happen to the exchange rate?\n\nThe third type of exposure is called economic exposure. [A] This refers to the decisions\n\na company makes about how to structure their business to take advantage of exchange\n\nrates. [B] For instance, a company that sells its products in a country with a stronger\n\ncurrency but manufactures them in a country with a weaker currency benefits from the exchange rates on both sides of the transaction. [C] However, there is always the risk that the stronger currency will get weaker, which means the sales revenue will go down or the weaker currency will get stronger, which in turn means that the manufacturing costs will go up. [D]",
+        "questions": [
+          {
+            "n": 11,
+            "q": "What is the passage mainly about?",
+            "opts": [
+              "how exchange rates are determined",
+              "transaction exposure for companies",
+              "purchasing power parity and interest rate parity",
+              "to describe the concepts of exchange rates for currency and how that affects"
+            ],
+            "a": 3,
+            "ex": "Câu hỏi ý chính / mục đích đoạn văn: Phương án <b>D. to describe the concepts of exchange rates for currency and how that affects</b> bao quát chính xác nhất nội dung trọng tâm của bài đọc."
+          },
+          {
+            "n": 12,
+            "q": "international business",
+            "opts": [
+              "The word 'standard' in paragraph 1 is closest in meaning to",
+              "European",
+              "foreign",
+              "common"
+            ],
+            "a": 2,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Currency Exchange Rates & International Business Exposure), phương án chính xác là <b>C. foreign</b>."
+          },
+          {
+            "n": 13,
+            "q": "D. inflated The phrase 'that currency' in paragraph 1 refers to",
+            "opts": [
+              "the U.S. dollar",
+              "an undetermined amount",
+              "the currency in greater demand",
+              "the currency in less demand"
+            ],
+            "a": 2,
+            "ex": "Câu hỏi quy chiếu đại từ: Dựa vào mệnh đề liền trước trong bài đọc, đại từ được hỏi quy chiếu trực tiếp tới <b>C. the currency in greater demand</b>."
+          },
+          {
+            "n": 14,
+            "q": "The word 'fluctuate' in paragraph 2 is closest in meaning to",
+            "opts": [
+              "go up and down",
+              "cross international borders",
+              "be indecisive",
+              "stay at one level"
+            ],
+            "a": 0,
+            "ex": "Từ vựng trong ngữ cảnh (Currency Exchange Rates & International Business Exposure): Đáp án đúng là <b>A. go up and down</b> (tương đương nghĩa với từ/cụm từ được hỏi trong đoạn văn)."
+          },
+          {
+            "n": 15,
+            "q": "What can be mentioned about the Japanese company doing business with the",
+            "opts": [
+              "U.S. company in dollars in paragraph 2?",
+              "The U.S. company is buying something from the Japanese company in dollars.",
+              "The U.S. company is buying something from the Japanese company in yen.",
+              "The Japanese company is buying something from the U.S. company in yen."
+            ],
+            "a": 3,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Currency Exchange Rates & International Business Exposure), phương án chính xác là <b>D. The Japanese company is buying something from the U.S. company in yen.</b>."
+          },
+          {
+            "n": 16,
+            "q": "D. The Japanese company is buying something from the U.S. company in dollars. Why does the author mention the words translation exposure, transaction exposure,",
+            "opts": [
+              "and economic exposure in the passage?",
+              "to give an example of what can happen when the exchange rate goes unexpectedly",
+              "to list the three types of exposure a company doing business internationally faces",
+              "to explain the process of causing exchange rates to fluctuate"
+            ],
+            "a": 1,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Currency Exchange Rates & International Business Exposure), phương án chính xác là <b>B. to give an example of what can happen when the exchange rate goes unexpectedly</b>."
+          },
+          {
+            "n": 17,
+            "q": "D. to question the assumption that there is no risk in doing business internationally",
+            "opts": [
+              "It can be inferred from the passage that",
+              "things made in the United States are paid for in U.S. dollars",
+              "companies that are not located in the United States may need to purchase things in dollars",
+              "companies can minimize translation exposure by purchasing in U.S. dollars"
+            ],
+            "a": 1,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Currency Exchange Rates & International Business Exposure), phương án chính xác là <b>B. things made in the United States are paid for in U.S. dollars</b>."
+          },
+          {
+            "n": 18,
+            "q": "D. using hedges to protect from exchange rate risk is illegal All of the following can be inferred from the passage EXCEPT",
+            "opts": [
+              "Currencies that are purchased more often will be stronger than currencies that are",
+              "not in demand.",
+              "Some currencies tend to be stronger than others.",
+              "The U.S. dollar is stronger than the Canadian dollar."
+            ],
+            "a": 2,
+            "ex": "Câu hỏi loại trừ (NOT/EXCEPT): Ba phương án còn lại đều được nêu rõ trong bài; phương án <b>C. Some currencies tend to be stronger than others.</b> không đúng hoặc không được đề cập."
+          },
+          {
+            "n": 19,
+            "q": "D. There is no one universal currency used by all countries worldwide.",
+            "opts": [
+              "The company whose home currency is the currency chosen for payment bears",
+              "more risk, because there is no way to determine what the final payment will be",
+              "more risk, because the other company will get a better exchange rate",
+              "less risk, because the other company controls how much it will pay"
+            ],
+            "a": 3,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Currency Exchange Rates & International Business Exposure), phương án chính xác là <b>D. less risk, because the other company controls how much it will pay</b>."
+          },
+          {
+            "n": 20,
+            "q": "D. less risk, because that company will receive the exact amount of money specified in the deal In which space (marked A, B, C and D in the passage) will the following sentence fit? If either the amount of money received from sales or the amount of money required to",
+            "opts": [
+              "[A]",
+              "[B]",
+              "[C]",
+              "[D]"
+            ],
+            "a": 3,
+            "ex": "Câu hỏi chèn câu vào đoạn: Vị trí <b>D</b> tạo sự liên kết mạch lạc nhất về mặt ý nghĩa và đại từ chuyển tiếp với câu trước và câu sau."
+          }
+        ]
+      },
+      {
+        "title": "PASSAGE 3 - Alternative Energy: Solar, Wind, and Nuclear Power",
+        "body": "Despite modern society's heavy dependence on fossil fuels for energy, most people are aware that the supply of these fuels is finite. As oil, in particular, becomes more cosfly and difficult to find, researchers are looking at alternative energy sources, including solar, wind, and even nuclear power. But which substitute - if any - is the right one?\n\nSolar Solar panels catch energy direcfly from the sun and convert it into electricity. One of the world's largest solar power stations is located near Leipzig, Germany, where more than 33,000 solar panels have the capacity to generate enough energy to power about 1,800 homes. But unlike the burning of fossil fuels, the process used to create all that solar energy produces no emissions.\n\nToday, however, solar power provides less than one percent of the world's energy, primarily because the cost of the panels is still very high. And price is only one issue. Clouds and darkness also cause solar panels to produce less energy, which requires one to have additional power sources (such as batteries) available.\n\nSome scientists think the solution to this problem can be found in space - which they say is the ideal place to gather energy from the sun. With no clouds and no nighttime, a space-based solar power station could operate constanfly producing continuous, clean energy which is cheaper than other fuels and sufficient for everyone on Earth.\n\nWind Wind - the fastest-growing alternative energy source - is another way of collecting energy from the sun. Wind is caused by the sun's heat rather than its light, and therefore, unlike solar power, it works well even on cloudy days.\n\nAll over Europe, incentives designed to decrease the dependence on oil and coal\n\nhave led to a steep increase in wind-powered energy. Today, Europe leads the world\n\nin wind power, producing almost 35,000 megawatts, the equivalent of 35 large coal-\n\npowered plants. North America remains a distant second, producing just over 7,000\n\nmegawatts. Despite its success, some oppose wind power development, saying the turbines are\n\nboth noisy and ugly. There are other challenges, too. If the wind doesn't blow, the\n\nturbines are not able to produce adequate energy. In contrast, a strong wind can create\n\ntoo much power leading the energy company to sell the extra power at a much-reduced\n\nrate. What's needed for both wind and solar is a way to store a large energy surplus.\n\nHowever, most systems are still decades away from making this a reality. On the plus\n\nside, both wind and solar enable people to generate their own energy where they live:\n\nPeople can have their own windmills or solar panels, with batteries for calm days.\n\nNuclear In the 1970s, nuclear was seen as the main energy alternative because of its cheap\n\nproduction and no carbon emissions. For a number of years in the 1980s and '90s,\n\nhowever, use of nuclear power declined due to accidents, concerns about nuclear waste\n\nstorage and disposal, and high construction costs. However, nowadays worldwide, about\n\n432 plants now generate 13 percent of the planet's electric power, and some countries\n\nhave invested heavily in nuclear energy. France, for instance, gets three quarters of its\n\nelectricity from nuclear power, the highest of any country. China has started to build one\n\nor two new plants a year, and India has also begun to utilize nuclear energy on a large\n\nscale. In the end, is any of these sources alone the answer to our current energy problems?\n\nThe short answer is no, but used in some combination - along with other power sources\n\n- we may find ways to reduce and eventually eliminate our dependence on fossil fuels.",
+        "questions": [
+          {
+            "n": 21,
+            "q": "What is the passage mainly about?",
+            "opts": [
+              "possible replacements for fossil fuels for energy",
+              "the various causes of the energy crisis the world over",
+              "the benefits of solar power over other alternate energy sources",
+              "problems caused by our overdependence on fossil fuels"
+            ],
+            "a": 0,
+            "ex": "Câu hỏi ý chính / mục đích đoạn văn: Phương án <b>A. possible replacements for fossil fuels for energy</b> bao quát chính xác nhất nội dung trọng tâm của bài đọc."
+          },
+          {
+            "n": 22,
+            "q": "- 16",
+            "opts": [
+              "The word 'it' in paragraph 2 refers to",
+              "electricity",
+              "the sun",
+              "energy"
+            ],
+            "a": 2,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Alternative Energy: Solar, Wind, and Nuclear Power), phương án chính xác là <b>C. the sun</b>."
+          },
+          {
+            "n": 23,
+            "q": "D. panel",
+            "opts": [
+              "In paragraph 2, the word 'emissions' is closest in meaning to",
+              "panels",
+              "electricity",
+              "pollution"
+            ],
+            "a": 2,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Alternative Energy: Solar, Wind, and Nuclear Power), phương án chính xác là <b>C. electricity</b>."
+          },
+          {
+            "n": 24,
+            "q": "D. accidents",
+            "opts": [
+              "Which of these statements about solar energy is stated in the text?",
+              "Solar is currenfly the biggest contributor to the world's energy.",
+              "Solar energy is cheap to produce due to the low price of solar panels.",
+              "Solar energy is not enough for use on cloudy days."
+            ],
+            "a": 2,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Alternative Energy: Solar, Wind, and Nuclear Power), phương án chính xác là <b>C. Solar energy is cheap to produce due to the low price of solar panels.</b>."
+          },
+          {
+            "n": 25,
+            "q": "D. Solar energy can have a harmful effect on the environment.",
+            "opts": [
+              "What is said about electricity from space-based solar power station?",
+              "It is as clean as other sources of energy.",
+              "It provides less than 1% of the world's energy.",
+              "It can provide enough energy that everyone in the world needs."
+            ],
+            "a": 2,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Alternative Energy: Solar, Wind, and Nuclear Power), phương án chính xác là <b>C. It provides less than 1% of the world's energy.</b>."
+          },
+          {
+            "n": 26,
+            "q": "D. It is more expensive to produce than other sources. Which region produces the largest amount of wind power?",
+            "opts": [
+              "China",
+              "Japan",
+              "North America",
+              "Europe"
+            ],
+            "a": 3,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Alternative Energy: Solar, Wind, and Nuclear Power), phương án chính xác là <b>D. Europe</b>."
+          },
+          {
+            "n": 27,
+            "q": "What is NOT mentioned as a disadvantage of wind power?",
+            "opts": [
+              "Strong winds produce too much power.",
+              "Strong winds can damage the turbines.",
+              "The turbines create a lot of noise.",
+              "The turbines are seen as ugly."
+            ],
+            "a": 1,
+            "ex": "Câu hỏi loại trừ (NOT/EXCEPT): Ba phương án còn lại đều được nêu rõ trong bài; phương án <b>B. Strong winds can damage the turbines.</b> không đúng hoặc không được đề cập."
+          },
+          {
+            "n": 28,
+            "q": "Which of these statements is true about nuclear energy?",
+            "opts": [
+              "It is a more expensive form of energy than coal or gas.",
+              "It produces a lot of carbon waste.",
+              "Safety concerns made nuclear energy unpopular for several decades.",
+              "Nuclear energy is becoming less popular than other energy sources."
+            ],
+            "a": 2,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Alternative Energy: Solar, Wind, and Nuclear Power), phương án chính xác là <b>C. Safety concerns made nuclear energy unpopular for several decades.</b>."
+          },
+          {
+            "n": 29,
+            "q": "Which country gets most of its power from nuclear power?",
+            "opts": [
+              "France",
+              "Germany",
+              "India",
+              "China"
+            ],
+            "a": 0,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Alternative Energy: Solar, Wind, and Nuclear Power), phương án chính xác là <b>A. France</b>."
+          },
+          {
+            "n": 30,
+            "q": "What best paraphrases the following sentence in the last paragraph?",
+            "opts": [
+              "In the end, is any of these sources alone the answer to our current energy problems?",
+              "Is there an energy source that can solve all of our energy problems on its own?",
+              "Can our current energy problems be solved by making sure we stop burning fossil fuel?",
+              "Can we solve our energy problems by using all the alternative energy sources together?"
+            ],
+            "a": 0,
+            "ex": "Câu hỏi diễn đạt lại câu (Paraphrase): Phương án <b>A. In the end, is any of these sources alone the answer to our current energy problems?</b> giữ nguyên đầy đủ ý nghĩa cốt lõi và quan hệ nhân quả của câu gốc."
+          }
+        ]
+      },
+      {
+        "title": "PASSAGE 4 - Nanotechnology & Quantum Dots in Cancer Treatment",
+        "body": "In the 1966 science-fiction film Fantastic Voyage, a team of scientists and doctors are\n\nshrunk and injected into the body of an injured man to save his life. The tiny crew travels\n\nthrough the body's dangerous environment to locate and repair the damaged part of the\n\nman's body. Eventually, the group manages to complete their task and the man awakens,\n\nfully cured. [A] But what if it were possible to cure a disease like cancer using tiny particles injected into a person - particles that would not only find the cancer, but also destroy it without harming anything else in the body? Although it may seem like science fiction, tools like this are now being developed and may, in fact, become common in the near future - thanks to research currenfly being done in the field of nanotechnology. The main thing to know about nanotechnology is that it's small - really small. The prefix nano refers to a nanometer, which is one-billionth of a meter. A comma on a page of a book or magazine, for instance, may be more than half a million nanometers wide. [B]\n\nResearcher Ted Sargent, a leader in the field of nanotechnology, describes how using quantum dots - particles that are a few nanometers in size - will help diagnose a disease. The particles, Sargent explains, shine brighfly when exposed to UV light and can be inserted into the body. They can also be programmed to bond only to a certain type of cell - a particular cancer cell, for example. Doctors can then use a camera and look for the colored particles, which will help them determine where cancer cells are growing in a person's body.\n\n[C] Using this technology, it will be possible to detect cancer at a stage when there are perhaps only a thousand bad cells. Compare this to what happens today: Doctors can diagnose cancer only after the dangerous cells have multiplied into the millions and developed into a tumor. One of the advantages of detecting and treating cancer at an early stage is that the cells are less likely to become resistant to drug treatment. In later stages, cancer cells often change and adapt to certain drugs so rapidly that many medicines become ineffective.\n\nOnce a certain type of cancer is detected, nanotechnology will also radically improve the way it is treated. Right now, most cancer treatments kill not only the cancerous cells but the healthy ones as well, causing a number of side effects in people. Nanoparticles, on the other hand, will allow doctors to attack cancerous tumors without disturbing healthy cells by delivering cancer-killing drugs to the bad cells only. A second method will be to destroy cancer cells (identified by nanoparticles) using laser rays. Ultimately, technologies like this will allow doctors to deliver cancer treatment earlier, faster, and more thoroughly, with fewer side effects. [D]\n\nUnfortunately, even though nanoparticles have great medical potential, there are serious concerns that these same materials could have negative environmental and health effects. In recent studies, researchers found that half the human cells died after exposing lab-grown human cells to water containing large amounts of nanoparticles.\n\nBecause nanotechnology is so potentially useful, many scientists don't think research\n\ninto its many uses should be stopped; learning more about nanotechnology should\n\nremain a priority. But scientists do believe that governments should allocate more money\n\nfor safety-related studies - to make sure that large concentrations of nanoparticles do not\n\nget into our food and water supplies and cause serious problems.",
+        "questions": [
+          {
+            "n": 31,
+            "q": "What is the passage mainly about?",
+            "opts": [
+              "a fantastic voyage within the human body",
+              "how nanotechnology can be used in medical science",
+              "the dangers and side effects of nanotechnology",
+              "the various ways of detecting cancer"
+            ],
+            "a": 1,
+            "ex": "Câu hỏi ý chính / mục đích đoạn văn: Phương án <b>B. how nanotechnology can be used in medical science</b> bao quát chính xác nhất nội dung trọng tâm của bài đọc."
+          },
+          {
+            "n": 32,
+            "q": "How big is a nanometer?",
+            "opts": [
+              "the size of a comma",
+              "the same size as a quantum dot",
+              "a billion nanoparticles wide",
+              "one-billionth of a meter"
+            ],
+            "a": 3,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Nanotechnology & Quantum Dots in Cancer Treatment), phương án chính xác là <b>D. one-billionth of a meter</b>."
+          },
+          {
+            "n": 33,
+            "q": "The word 'they' in paragraph 3 refers to",
+            "opts": [
+              "quantum dots",
+              "cells",
+              "doctors",
+              "UV rays"
+            ],
+            "a": 0,
+            "ex": "Câu hỏi quy chiếu đại từ: Dựa vào mệnh đề liền trước trong bài đọc, đại từ được hỏi quy chiếu trực tiếp tới <b>A. quantum dots</b>."
+          },
+          {
+            "n": 34,
+            "q": "In paragraph 3, the word 'determine' could be replaced by",
+            "opts": [
+              "discover",
+              "report",
+              "miss",
+              "hide"
+            ],
+            "a": 0,
+            "ex": "Từ vựng trong ngữ cảnh (Nanotechnology & Quantum Dots in Cancer Treatment): Đáp án đúng là <b>A. discover</b> (tương đương nghĩa với từ/cụm từ được hỏi trong đoạn văn)."
+          },
+          {
+            "n": 35,
+            "q": "What is NOT a problem with most cancer treatments instead of nanotechnology?",
+            "opts": [
+              "They cause many side effects",
+              "They kill both cancerous and healthy cells.",
+              "They use laser rays which are harmful to people's health.",
+              "They might be ineffective in later stages because of drug resistance."
+            ],
+            "a": 2,
+            "ex": "Câu hỏi loại trừ (NOT/EXCEPT): Ba phương án còn lại đều được nêu rõ trong bài; phương án <b>C. They use laser rays which are harmful to people's health.</b> không đúng hoặc không được đề cập."
+          },
+          {
+            "n": 36,
+            "q": "Exposing human cells to large amounts of nanoparticles",
+            "opts": [
+              "has no effect",
+              "should remain a priority",
+              "is how cancer can be treated",
+              "can result in 50% cell death"
+            ],
+            "a": 3,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Nanotechnology & Quantum Dots in Cancer Treatment), phương án chính xác là <b>D. can result in 50% cell death</b>."
+          },
+          {
+            "n": 37,
+            "q": "Which of these statements about nanotechnology is NOT true?",
+            "opts": [
+              "It could lead to early diagnosis of cancer.",
+              "Doctors could potentially use it to destroy cancer cells.",
+              "It will allow doctors to avoid destroying healthy cells.",
+              "It is completely safe for humans and animals."
+            ],
+            "a": 3,
+            "ex": "Câu hỏi loại trừ (NOT/EXCEPT): Ba phương án còn lại đều được nêu rõ trong bài; phương án <b>D. It is completely safe for humans and animals.</b> không đúng hoặc không được đề cập."
+          },
+          {
+            "n": 38,
+            "q": "Why do scientists concern about using nanotechnology to cure cancer?",
+            "opts": [
+              "It causes many side effects.",
+              "It costs a lot of money to use it.",
+              "It has bad effects on the environment and people's health.",
+              "It has too little research about using it."
+            ],
+            "a": 2,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Nanotechnology & Quantum Dots in Cancer Treatment), phương án chính xác là <b>C. It has bad effects on the environment and people's health.</b>."
+          },
+          {
+            "n": 39,
+            "q": "What is the main idea of paragraph 7?",
+            "opts": [
+              "Nanotechnology has not proved useful, and most scientists want the research",
+              "halted.",
+              "Scientists want to see research into nanotechnology continue, but carefully.",
+              "Nanotechnology is so useful that many governments are investing in research."
+            ],
+            "a": 1,
+            "ex": "Câu hỏi ý chính / mục đích đoạn văn: Phương án <b>B. halted.</b> bao quát chính xác nhất nội dung trọng tâm của bài đọc."
+          },
+          {
+            "n": 40,
+            "q": "D. Many scientists think that nanotechnology is too dangerous to be permitted. In which space (marked A, B, C and D in the passage) will the following sentence fit?",
+            "opts": [
+              "[A]",
+              "[B]",
+              "[C]",
+              "[D]"
+            ],
+            "a": 0,
+            "ex": "Câu hỏi chèn câu vào đoạn: Vị trí <b>A</b> tạo sự liên kết mạch lạc nhất về mặt ý nghĩa và đại từ chuyển tiếp với câu trước và câu sau."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rset11",
+    "title": "Đề số 11: Sách NXB ĐHQGHN — Reading Test 05",
+    "source": "Sách 10 Bộ đề Đọc hiểu VSTEP B1-B2-C1 (NXB ĐHQG Hà Nội — Test 05: In Search of Brazil's Dream Beach · Zoonotic Diseases · How the Brain Creates the Mind, Memory & Emotions · Ocean Thermal Energy Conversion (OTEC))",
+    "passages": [
+      {
+        "title": "PASSAGE 1 - In Search of Brazil's Dream Beach",
+        "body": "GHI CHỦ In pursuit of the perfect beach, travel writer Stanley Stewart heads to Brazil, where he discovers some of the world's most beautiful sandy escapes.\n\nI'm standing on Rio de Janeiro's Copacabana beach, one of Brazil's - and the world's -most famous stretches of sand. As I watch life go by here in all its varied forms, I've come to realize that any understanding of Brazil really begins on its beaches. In this vibrant, multicultural country, the beach is not just a place; it's a state of mind - a way of thinking and living.\n\nRio alone, I'm told, has over 70 beaches, each with its own community: Some are for bodybuilders, others are for senior citizens, still others are popular with parents and children. But Rio's beaches are just the starting point for my exploration of Brazil's Atlantic coastline, which at more than 8,000 kilometers (5,000 miles), and with more than 2,000 beaches, is the longest in the world. Every Brazilian has his or her own ideas of the perfect beach and is eager to tell you where to find it. I'm happy to take people's advice, but my ultimate goal is to find my own dream beach.\n\nI head to a place said to have some of Brazil's best coastline: the state of Bahia in\n\nthe northeast. Portuguese settlers established themselves at Bahia's present-day capital,\n\nSalvador da Bahia, in 1549. Over the centuries, people of many races have arrived and\n\nintermarried here, creating a distinctive cultural mix, which influences Bahia's language,\n\nreligion, cuisine, music, and dance. I'd been told that one of Bahia's best beaches - Prainha - lies just south of Salvador,\n\nnear the town of tacare. On arriving at Prainha's beach, I discover its golden sand lined\n\nby a row of perfect palm trees, moving soffly in the ocean breeze. Under the moon, silver\n\nwaves roll onto the sand. As I enter the water, I have the feeling of swimming through\n\nmoonlight. Prainha's beauty is magnificent - its perfect curves and graceful lines are like\n\nsomething you might see in a postcard. But for me, it's a little too perfect. The beach I'm\n\nsearching for needs to be a little wilder... I continue my search, heading north to one of Brazil's legendary beaches: Jericoacoara.\n\nTwenty years ago, only a handful of people were living in Jeri. Today it's an international\n\ndestination, considered one of the best beach hangouts in the world (especially if you like\n\nwindsurfing). It attracts visitors from Tokyo to Toronto and has grown from a small village\n\ninto a lively little town. Despite the changes, Jeri hasn't been spoiled by tourists, mosfly\n\nbecause of its isolated location - it's at least five hours from any airport.\n\nEveryone in Jeri rents a beach buggy, which comes with a driver. I tell my driver\n\nto take me as far along the coast as he can. We drive for three hours, finally arriving\n\nat Maceió, a fisherman's beach. Boats lie on their sides while nets hang out to dry on\n\nlines between fishermen's houses. We eat on the beach and later rest in hammocks near\n\nthe table. It's a great day on an amazing beach. How can it possibly get any better? I\n\nwonder. But I have one final place to visit. Of the many beach destinations in this country, there is one that all Brazilians hold in\n\nhigh regard - the islands of Fernando de Noronha. More than a dozen beautiful beaches\n\nring the island of Fernando alone, three of which rank among the top ten in Brazil. The\n\nislands of Fernando de Noronha lie a few hundred kilometers out in the Atlantic. For\n\nyears, people were prohibited from visiting these islands because they were used as a\n\nprison and later by the army. Today the islands are a national park and UNESCO World\n\nHeritage Site, rich with diverse bird and sea life.",
+        "questions": [
+          {
+            "n": 1,
+            "q": "What is the passage mainly about?",
+            "opts": [
+              "Brazilian beach tourism",
+              "an educational tour of South America's beaches",
+              "the author's search for the dream beach",
+              "little-known beaches of South America"
+            ],
+            "a": 2,
+            "ex": "Câu hỏi ý chính / mục đích đoạn văn: Phương án <b>C. the author's search for the dream beach</b> bao quát chính xác nhất nội dung trọng tâm của bài đọc."
+          },
+          {
+            "n": 2,
+            "q": "Which is NOT a group of popular visitors to Rio?",
+            "opts": [
+              "newly married couples",
+              "bodybuilders",
+              "parents with children",
+              "old people"
+            ],
+            "a": 0,
+            "ex": "Câu hỏi loại trừ (NOT/EXCEPT): Ba phương án còn lại đều được nêu rõ trong bài; phương án <b>A. newly married couples</b> không đúng hoặc không được đề cập."
+          },
+          {
+            "n": 3,
+            "q": "What best paraphrases the following sentences in paragraph 3? Every Brazilian has his or her own ideas of the perfect beach and is eager to tell you where to find it. I'm happy to take people's advice, but my ultimate goal is to find my own dream beach.",
+            "opts": [
+              "I don't like the beaches Brazilian people tell me so I try to find my own dream beach.",
+              "Brazil have so many beautiful beaches that I cannot visit all of them.",
+              "Brazilian people are proud of their beaches and tell me to visit their perfect beaches.",
+              "I feel pleased to know beautiful beaches recommended by Brazilian but what I like"
+            ],
+            "a": 3,
+            "ex": "Câu hỏi diễn đạt lại câu (Paraphrase): Phương án <b>D. I feel pleased to know beautiful beaches recommended by Brazilian but what I like</b> giữ nguyên đầy đủ ý nghĩa cốt lõi và quan hệ nhân quả của câu gốc."
+          },
+          {
+            "n": 4,
+            "q": "most is to seek for the best beach for myself.",
+            "opts": [
+              "What is the purpose of paragraph 4?",
+              "to describe Bahia's many beaches",
+              "to explain why Bahia has the perfect beach",
+              "to describe Bahia's music and dance scene"
+            ],
+            "a": 3,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (In Search of Brazil's Dream Beach), phương án chính xác là <b>D. to describe Bahia's music and dance scene</b>."
+          },
+          {
+            "n": 5,
+            "q": "D. to give information on Bahia's cultural background",
+            "opts": [
+              "In paragraph 6, the word 'legendary' can be replaced with",
+              "oldest",
+              "isolated",
+              "picturesque"
+            ],
+            "a": 2,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (In Search of Brazil's Dream Beach), phương án chính xác là <b>C. isolated</b>."
+          },
+          {
+            "n": 6,
+            "q": "D. famous",
+            "opts": [
+              "Which of these beaches is the most isolated?",
+              "Copacabana",
+              "Prainha",
+              "Jericoacoara"
+            ],
+            "a": 2,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (In Search of Brazil's Dream Beach), phương án chính xác là <b>C. Prainha</b>."
+          },
+          {
+            "n": 7,
+            "q": "D. Maceió",
+            "opts": [
+              "Which of these beaches is famous for golden sand and palm trees?",
+              "Copacabana",
+              "Prainha",
+              "Jericoacoara"
+            ],
+            "a": 1,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (In Search of Brazil's Dream Beach), phương án chính xác là <b>B. Copacabana</b>."
+          },
+          {
+            "n": 8,
+            "q": "D. Maceió The islands of Fernando de Noronha now",
+            "opts": [
+              "contain a prison",
+              "are a national park",
+              "are used by the army",
+              "have many beach buggies"
+            ],
+            "a": 1,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (In Search of Brazil's Dream Beach), phương án chính xác là <b>B. are a national park</b>."
+          },
+          {
+            "n": 9,
+            "q": "In paragraph 6, the phrase 'a dozen' is closest in meaning to",
+            "opts": [
+              "a small number of",
+              "many",
+              "a few",
+              "about ten"
+            ],
+            "a": 3,
+            "ex": "Từ vựng trong ngữ cảnh (In Search of Brazil's Dream Beach): Đáp án đúng là <b>D. about ten</b> (tương đương nghĩa với từ/cụm từ được hỏi trong đoạn văn)."
+          },
+          {
+            "n": 10,
+            "q": "Which type of beach would probably appeal to the author the most?",
+            "opts": [
+              "busy, near a city, with lots of beach activities",
+              "warm, isolated, a litle wild, with rich animal life",
+              "trendy, with a distinctive cultural mix",
+              "crowded, with music and dance, blue water and palm trees"
+            ],
+            "a": 1,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (In Search of Brazil's Dream Beach), phương án chính xác là <b>B. warm, isolated, a litle wild, with rich animal life</b>."
+          }
+        ]
+      },
+      {
+        "title": "PASSAGE 2 - Zoonotic Diseases: From Animals to Humans",
+        "body": "In September 1994, a violent disease erupted among a group of racehorses in a\n\nsmall town in Australia. The first victim was a female horse that was last seen eating grass beneath a fruit tree. One of her caretakers noticed that the horse didn't appear to be well, and brought the animal back to her stable for observation. Within hours, the horse's health declined rapidly and died two days later, leaving the cause of her death uncertain. Had she been bitten by a snake, or eaten something poisonous? Within two weeks, most of the other horses in the stable became ill and died as well. Meanwhile, the trainer and his assistant also became ill and within days, the trainer was dead, too. Laboratory analysis finally discovered the root of the problem: The horses and men had been infected by a previously unknown virus, which doctors eventually labeled Hendra. This virus had originated in bats that lived in the tree where the first horse had been eating grass. The virus passed from the bats to the horse, which then transmitted the virus to other horses and to people - with disastrous results. Infectious disease is all around us. Disease-causing agents, such as viruses, usually have specific targets. Some viruses affect only humans. Other viruses live in or affect only animals. Problems start when animal viruses are able to infect people as well, a process known as zoonosis. When an animal virus passes to a human, the results can be fatal. Often, our immune systems are not accustomed to these viruses, and are unable to stop them before they harm us and even kill us. In the last three decades, more than 30 zoonotic diseases - the kind that live only in animals but somehow pass to people - have emerged around the globe. HIV is an example; it evolved from a virus originally carried by African monkeys and later, chimps. Today, conservative estimates suggest that HIV has infected more than 70 million people in the past three decades, though this number may be higher. SARS, a type of flu that jumped from chickens to humans, is another type of zoonotic disease. But how do these viruses - like Hendra, SARS, and HIV - pass from animals to humans? Contact is crucial. Human destruction of animal habitats, for example, is forcing wild animals to move closer to the places people live - putting humans at risk for exposure to animal viruses. The closer humans are to animals, the greater the risk of being bitten, scratched, or exposed to animal waste, which can enable a virus to pass from an animal to a human. Raising animals (for example, on a farm) or keeping certain kinds of wild animals (like monkeys) as pets increases the risk of exposure. Eating animals that are diseased can also result in a virus being transmitted. The factor that is probably most responsible for the spread of zoonotic diseases worldwide is international travel. In 1999, for example, a deadly disease appeared in the United States. There were several incidences that year of both birds and people becoming\n\nsick and dying in New York City, and doctors couldn't explain why. Subsequenfly, they\n\ndiscovered that the deaths had been caused by the same thing: the West Nile virus,\n\nfound typically in birds and transmitted by mosquitoes that live in parts of northern\n\nAfrica. Somehow this virus - probably carried by an infected mosquito or bird on a\n\nplane or ship - arrived in the U.S.",
+        "questions": [
+          {
+            "n": 11,
+            "q": "What is the passage mainly about?",
+            "opts": [
+              "the unexplained deaths of horses and humans",
+              "the symptoms of zoonotic diseases seen in humans",
+              "the effect of international travel on the spread of disease",
+              "the rise in the spread of viruses from animals to humans"
+            ],
+            "a": 3,
+            "ex": "Câu hỏi ý chính / mục đích đoạn văn: Phương án <b>D. the rise in the spread of viruses from animals to humans</b> bao quát chính xác nhất nội dung trọng tâm của bài đọc."
+          },
+          {
+            "n": 12,
+            "q": "The word 'transmitted' in paragraph 1 can be best replaced by",
+            "opts": [
+              "transferred",
+              "spread",
+              "taken",
+              "converted"
+            ],
+            "a": 1,
+            "ex": "Từ vựng trong ngữ cảnh (Zoonotic Diseases: From Animals to Humans): Đáp án đúng là <b>B. spread</b> (tương đương nghĩa với từ/cụm từ được hỏi trong đoạn văn)."
+          },
+          {
+            "n": 13,
+            "q": "What caused the Australian racehorses to get sick?",
+            "opts": [
+              "a virus spread by snakes",
+              "a virus spread by bats",
+              "a virus spread by humans",
+              "a virus spread by a fruit tree"
+            ],
+            "a": 1,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Zoonotic Diseases: From Animals to Humans), phương án chính xác là <b>B. a virus spread by bats</b>."
+          },
+          {
+            "n": 14,
+            "q": "The word 'fatal paragraph 2 could be replaced by",
+            "opts": [
+              "scary",
+              "painful",
+              "harmful",
+              "deadly"
+            ],
+            "a": 3,
+            "ex": "Từ vựng trong ngữ cảnh (Zoonotic Diseases: From Animals to Humans): Đáp án đúng là <b>D. deadly</b> (tương đương nghĩa với từ/cụm từ được hỏi trong đoạn văn)."
+          },
+          {
+            "n": 15,
+            "q": "What animals have HIV virus?",
+            "opts": [
+              "mosquitoes",
+              "bats",
+              "chickens",
+              "monkeys"
+            ],
+            "a": 3,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Zoonotic Diseases: From Animals to Humans), phương án chính xác là <b>D. monkeys</b>."
+          },
+          {
+            "n": 16,
+            "q": "What is the purpose of paragraph 3?",
+            "opts": [
+              "to discuss the rise in zoonotic diseases in the past three decades",
+              "to inform the reader where the HIV virus came from and how it evolved",
+              "to give examples and explain the meaning of zoonotic diseases",
+              "to compare the spread of HIV and SARS with other zoonotic diseases"
+            ],
+            "a": 2,
+            "ex": "Câu hỏi ý chính / mục đích đoạn văn: Phương án <b>C. to give examples and explain the meaning of zoonotic diseases</b> bao quát chính xác nhất nội dung trọng tâm của bài đọc."
+          },
+          {
+            "n": 17,
+            "q": "In paragraph 5, the phrase 'a deadly disease' refers to",
+            "opts": [
+              "Hendra",
+              "Ebola",
+              "West Nile virus",
+              "HIV"
+            ],
+            "a": 2,
+            "ex": "Câu hỏi quy chiếu đại từ: Dựa vào mệnh đề liền trước trong bài đọc, đại từ được hỏi quy chiếu trực tiếp tới <b>C. West Nile virus</b>."
+          },
+          {
+            "n": 18,
+            "q": "Which virus is NOT mentioned in the passage as being zoonotic?",
+            "opts": [
+              "SARS",
+              "HIV",
+              "Flu",
+              "Hendra"
+            ],
+            "a": 2,
+            "ex": "Câu hỏi loại trừ (NOT/EXCEPT): Ba phương án còn lại đều được nêu rõ trong bài; phương án <b>C. Flu</b> không đúng hoặc không được đề cập."
+          },
+          {
+            "n": 19,
+            "q": "Which is the main reason for the increase in zoonotic diseases?",
+            "opts": [
+              "raising animals",
+              "destruction of habitat",
+              "eating animals",
+              "international travel"
+            ],
+            "a": 3,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Zoonotic Diseases: From Animals to Humans), phương án chính xác là <b>D. international travel</b>."
+          },
+          {
+            "n": 20,
+            "q": "What topic can be discussed after this passage?",
+            "opts": [
+              "causes of zoonotic diseases",
+              "effects of zoonotic diseases",
+              "solutions to zoonotic diseases",
+              "animals causing zoonotic diseases"
+            ],
+            "a": 2,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Zoonotic Diseases: From Animals to Humans), phương án chính xác là <b>C. solutions to zoonotic diseases</b>."
+          }
+        ]
+      },
+      {
+        "title": "PASSAGE 3 - How the Brain Creates the Mind, Memory & Emotions",
+        "body": "Today we know that the mind is a product of the brain, but how exacfly does this 1.5-kilo (three-pound) piece of flesh create a mind that allows you to think about yourself, experience happiness and anger, or remember events that happened 20 minutes or\n\n20 years ago? This isn't a new question. Today, however, powerful new techniques for\n\nvisualizing the sources of thought, emotion, behavior, and memory are transforming the\n\nway we understand the brain and the mind it creates. Have you ever stopped and thought, What's wrong with me today? I just don't feel\n\nlike myself\"? This self-awareness - the ability to think about yourself and how you're\n\nfeeling - is an important part of being human. This part of your mind has its origins in the\n\nprefrontal cortex - a region of your brain just behind your forehead that extends to about\n\nyour ears. Before this area began to function (around age two), you didn't understand\n\nthat you were a separate entity with your own identity. In time, as this part of your brain\n\ndeveloped, you became more aware of yourself and your thoughts and feelings.\n\nPerhaps one of the most important factors involved in shaping our identity is memory.\n\nMost scientists define it as a stored pattern of connections between neurons in the brain.\n\nEvery feeling you remember, every thought you think, alters the connections within the\n\nvast network of brain cells, and memories are reinforced, weakened, or newly formed.\n\nMost people's earliest memories reach back to about age three or so. Very few people\n\nrecall anything before this time because the part of the brain that helps form long-term\n\nmemories (the hippocampus) was not yet mature, or fully developed. This doesn't mean\n\nearlier memories don't exist in your mind, though. Some scientists believe highly emotional\n\nmemories might be stored in another structure in the brain (the amygdala) that may be\n\nfunctional at birth. Though these memories are not accessible to the conscious mind, they\n\nmight still influence the way we feel and behave, even into adulthood.\n\nBut where do our emotions come from, and how do they shape the people we\n\nare and the way we perceive the world? Forty years ago, psychologist Paul Ekman\n\ndemonstrated that facial expressions used to exhibit certain emotions are recognized by\n\npeople everywhere. Ekman suggested that these emotions and their corresponding facial\n\nexpressions evolved to help us deal quickly with situations that can affect our welfare.\n\nThough humans may share certain emotions and recognize them in others, we don't all\n\nhave the same emotional response to every situation. In fact, most emotional responses\n\nare learned and stored in our memories. The smell of freshly cut grass, for example, will\n\ngenerate happy feelings in someone who spent enjoyable childhood summers in the\n\ncountryside, but not in someone who was forced to work long hours on a farm. Once an\n\nemotional association like this is made, it is very difficult to reverse it. But we can learn to\n\ncontrol our emotions by becoming consciously aware of their underlying causes and by\n\nnot reacting automatically to things in our environment. But is it really possible to control our emotions? Researcher Richard Davidson has demonstrated that people who experience negative emotions display activity in their right prefrontal cortex. In those with a more positive perspective, the activity occurs in the left prefrontal cortex. He conducted a study on whether or not people can shift their negative feelings toward a calmer state of mind. In his research, one group of volunteers received eight weeks of training using meditation and relaxation techniques and at the end of the study, they showed a clear shift in brain activity toward the left happier frontal cortex. For centuries, people have studied the brain, but it is only in recent years that we have really started to learn how it works. Nevertheless, there is still a long way to go before we understand our mind's many complexities.",
+        "questions": [
+          {
+            "n": 21,
+            "q": "What is the passage mainly about?",
+            "opts": [
+              "how memory works",
+              "how the mind works",
+              "mind reading",
+              "how our emotions are processed"
+            ],
+            "a": 1,
+            "ex": "Câu hỏi ý chính / mục đích đoạn văn: Phương án <b>B. how the mind works</b> bao quát chính xác nhất nội dung trọng tâm của bài đọc."
+          },
+          {
+            "n": 22,
+            "q": "The phrase piece of flesh in paragraph 1 refers to",
+            "opts": [
+              "heart",
+              "mind",
+              "brain",
+              "body"
+            ],
+            "a": 2,
+            "ex": "Câu hỏi quy chiếu đại từ: Dựa vào mệnh đề liền trước trong bài đọc, đại từ được hỏi quy chiếu trực tiếp tới <b>C. brain</b>."
+          },
+          {
+            "n": 23,
+            "q": "Which of these statements is NOT true?",
+            "opts": [
+              "Self-awareness develops around the age of two.",
+              "The prefrontal cortex affects a person's emotions.",
+              "The prefrontal cortex is located at the back of the brain.",
+              "Memories depend on the connections between brain cells."
+            ],
+            "a": 2,
+            "ex": "Câu hỏi loại trừ (NOT/EXCEPT): Ba phương án còn lại đều được nêu rõ trong bài; phương án <b>C. The prefrontal cortex is located at the back of the brain.</b> không đúng hoặc không được đề cập."
+          },
+          {
+            "n": 24,
+            "q": "What can be the heading for paragraph 3?",
+            "opts": [
+              "Who am I?",
+              "Why do I have emotions?",
+              "How do I remember?",
+              "Can I control how I feel?"
+            ],
+            "a": 2,
+            "ex": "Câu hỏi ý chính / mục đích đoạn văn: Phương án <b>C. How do I remember?</b> bao quát chính xác nhất nội dung trọng tâm của bài đọc."
+          },
+          {
+            "n": 25,
+            "q": "Why don't most people remember what happened before three years of age?",
+            "opts": [
+              "The prefrontal cortex is not developed at this stage.",
+              "Early memories disappear soon after they are formed.",
+              "The part of the brain that forms memory is not fully developed at this stage.",
+              "After the age of three, children tend to forget emotional memories."
+            ],
+            "a": 2,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (How the Brain Creates the Mind, Memory & Emotions), phương án chính xác là <b>C. The part of the brain that forms memory is not fully developed at this stage.</b>."
+          },
+          {
+            "n": 26,
+            "q": "What is true about unconscious memories?",
+            "opts": [
+              "They don't exist in people's mind.",
+              "They cannot affect people's emotions.",
+              "They are inaccessible to the conscious mind.",
+              "They are stored in the hippocampus."
+            ],
+            "a": 2,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (How the Brain Creates the Mind, Memory & Emotions), phương án chính xác là <b>C. They are inaccessible to the conscious mind.</b>."
+          },
+          {
+            "n": 27,
+            "q": "The word 'corresponding' in paragraph 4 is closest in meaning to",
+            "opts": [
+              "sending",
+              "changing",
+              "powerful",
+              "related"
+            ],
+            "a": 3,
+            "ex": "Từ vựng trong ngữ cảnh (How the Brain Creates the Mind, Memory & Emotions): Đáp án đúng là <b>D. related</b> (tương đương nghĩa với từ/cụm từ được hỏi trong đoạn văn)."
+          },
+          {
+            "n": 28,
+            "q": "Why did the author mention 'the smell of freshly cut grass' in paragraph 4?",
+            "opts": [
+              "to say that people share the same emotions in every situation.",
+              "to give an example of different emotions people have in the same situation.",
+              "to demonstrate that most people love spending their summers in the countryside",
+              "to show that it relates to the negative feelings of people working on a farm."
+            ],
+            "a": 1,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (How the Brain Creates the Mind, Memory & Emotions), phương án chính xác là <b>B. to give an example of different emotions people have in the same situation.</b>."
+          },
+          {
+            "n": 29,
+            "q": "Where is the activity center for negative emotions?",
+            "opts": [
+              "in the amygdala",
+              "in the hippocampus",
+              "in the left prefrontal cortex",
+              "in the right prefrontal cortex"
+            ],
+            "a": 3,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (How the Brain Creates the Mind, Memory & Emotions), phương án chính xác là <b>D. in the right prefrontal cortex</b>."
+          },
+          {
+            "n": 30,
+            "q": "According to researcher Richard Davidson, what helps people shift away from a",
+            "opts": [
+              "negative state of mind?",
+              "meditation and relaxation",
+              "memory-retention techniques",
+              "changing facial expressions"
+            ],
+            "a": 0,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (How the Brain Creates the Mind, Memory & Emotions), phương án chính xác là <b>A. negative state of mind?</b>."
+          }
+        ]
+      },
+      {
+        "title": "PASSAGE 4 - Ocean Thermal Energy Conversion (OTEC)",
+        "body": "In recent years, the oceans have been seen as a potential source of renewable energy. Some estimates say that during the second decade of this century, ocean energy sources will generate more than 1,000 megawatts of electricity, which is enough to power a million homes in the industrialized world. Several technologies have been developed for exploiting these resources in a practical way, among which ocean thermal energy conversion (OTEC) is one of the most promising. Experimental OTEC plants have been constructed using different operating principles, although as yet no large-scale commercially viable plant has been launched. The basic operation behind this system uses the heat energy stored in the oceans as a source of power. The plant exploits the difference in water temperature between the warm surface waters heated by the sun and the colder waters found at ocean depths. A minimum temperature difference of 20 degrees Celsius between surface and depth is required for efficient operation, and this situation is typically found only in tropical and subtropical regions of the world. There are two basic kinds of OTEC system: the open cycle system and the closed cycle system. In the open cycle system, the warm surface water is converted into steam in a partial vacuum and this steam drives a turbine connected to an electrical generator. In a closed cycle system, the warm surface water is used to boil a fluid, such as ammonia, which has a low boiling point. In both systems cold water pumped up from the ocean depths condenses the vapor. In the open system, the steam is condensed back into a liquid by cold water pumped from deep-ocean water and then discharged. In the closed system, the condensed ammonia is used to repeat the cycle continuously. The OTEC system is potentially an important source of clean, renewable energy, which could significanfly reduce our reliance on fossil fuels and nuclear fission. [A]\n\nUnlike other forms of renewable energy, such as those provided direcfly by the sun\n\nand wind, OTEC plants can generate power all the time. Furthermore, the design of this\n\ntechnology avoids any significant release of carbon dioxide into the atmosphere. OTEC\n\ncan offer other important benefits apart from power production. [B] Aquaculture is one\n\nimportant spinoff. [C] It may also be economically feasible to extract minerals from the\n\npumped seawater. [D] Freshwater for drinking and irrigation is another by-product, and\n\nthis will be an important advantage in regions where freshwater is limited.\n\nSome drawbacks to this form of power generation have been noted. Perhaps the\n\nbiggest drawback at present is the high capital cost of initial construction due mainly\n\nto the expense of the large pipeline used to pump water from 1,000 meters below the\n\nsurface. Furthermore, the conversion of thermal to electrical energy in the OTEC system\n\nworks at very low efficiency as the output power needed to pump a lot of water for\n\nproduction. There are also potential ecological drawbacks, since the water discharges\n\nwill change the water temperature and disturb some marine habitats.\n\nThe main obstacle created by high initial expenses will have to be met before OTEC\n\ncompetes with conventional alternatives, and until such time, OTEC will remain restricted\n\nto experimental plants. When technology permits lower start-up costs, this technology will\n\nmake an important contribution to world energy requirements.",
+        "questions": [
+          {
+            "n": 31,
+            "q": "The word 'viable' in paragraph 1 is closest in meaning to",
+            "opts": [
+              "clever",
+              "feasible",
+              "optimistic",
+              "convenient"
+            ],
+            "a": 1,
+            "ex": "Từ vựng trong ngữ cảnh (Ocean Thermal Energy Conversion (OTEC)): Đáp án đúng là <b>B. feasible</b> (tương đương nghĩa với từ/cụm từ được hỏi trong đoạn văn)."
+          },
+          {
+            "n": 32,
+            "q": "It can be inferred from the passage that",
+            "opts": [
+              "renewable energy can be put into reservoirs",
+              "the experimental plants are ready to be launched",
+              "the oceans could be used in the future to generate electricity",
+              "1,000 megawatts of electricity is the amount needed in the average home"
+            ],
+            "a": 2,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Ocean Thermal Energy Conversion (OTEC)), phương án chính xác là <b>C. the oceans could be used in the future to generate electricity</b>."
+          },
+          {
+            "n": 33,
+            "q": "How are the two basic kinds of OTEC systems similar?",
+            "opts": [
+              "They turn surface water into steam.",
+              "They use cold water to cause condensation.",
+              "They discharge unused water into the ocean.",
+              "They convert water in a vacuum."
+            ],
+            "a": 1,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Ocean Thermal Energy Conversion (OTEC)), phương án chính xác là <b>B. They use cold water to cause condensation.</b>."
+          },
+          {
+            "n": 34,
+            "q": "The phrase 'other forms' in paragraph 3 refers to energy produced through",
+            "opts": [
+              "fossil fuels and nuclear fission",
+              "chemical reactions",
+              "OTEC systems",
+              "the sun and wind"
+            ],
+            "a": 3,
+            "ex": "Câu hỏi quy chiếu đại từ: Dựa vào mệnh đề liền trước trong bài đọc, đại từ được hỏi quy chiếu trực tiếp tới <b>D. the sun and wind</b>."
+          },
+          {
+            "n": 35,
+            "q": "What can be inferred about the different sources of energy?",
+            "opts": [
+              "We rely too much on fossil fuels and nuclear fission.",
+              "Renewable energy releases a lot of carbon dioxide into the atmosphere.",
+              "Energy from OTEC is provided direcfly by the sun and wind.",
+              "Energy forms other than OTEC do not have important benefits."
+            ],
+            "a": 0,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Ocean Thermal Energy Conversion (OTEC)), phương án chính xác là <b>A. We rely too much on fossil fuels and nuclear fission.</b>."
+          },
+          {
+            "n": 36,
+            "q": "Why does the author mention aquaculture and mineral extractions in paragraph 3?",
+            "opts": [
+              "To give examples of possible developments related to OTEC",
+              "To demonstrate what other activities can be done in the ocean",
+              "To point out OTEC's advantages in regions of limited resources",
+              "To show how the environment can be improved by using clean, renewable energy"
+            ],
+            "a": 0,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Ocean Thermal Energy Conversion (OTEC)), phương án chính xác là <b>A. To give examples of possible developments related to OTEC</b>."
+          },
+          {
+            "n": 37,
+            "q": "In which space (marked A, B, C and D in the passage) will the following sentence fit? The nutrient-rich cold water is an excellent medium for growing phytoplankton, which provide support for various commercially exploitable fish and shellfish.",
+            "opts": [
+              "[A]",
+              "[B]",
+              "[C]",
+              "[D]"
+            ],
+            "a": 2,
+            "ex": "Câu hỏi chèn câu vào đoạn: Vị trí <b>C</b> tạo sự liên kết mạch lạc nhất về mặt ý nghĩa và đại từ chuyển tiếp với câu trước và câu sau."
+          },
+          {
+            "n": 38,
+            "q": "What is NOT a problem with the OTEC system as a power-generating system?",
+            "opts": [
+              "the costs of constructing the power system",
+              "the damage caused to fishing grounds",
+              "the effect of discharged water on the environment",
+              "the amount of water needed to produce a useful amount of electricity"
+            ],
+            "a": 1,
+            "ex": "Câu hỏi loại trừ (NOT/EXCEPT): Ba phương án còn lại đều được nêu rõ trong bài; phương án <b>B. the damage caused to fishing grounds</b> không đúng hoặc không được đề cập."
+          },
+          {
+            "n": 39,
+            "q": "The word 'conventional' in paragraph 5 is closest in meaning to",
+            "opts": [
+              "conservative",
+              "traditional",
+              "tentative",
+              "natural"
+            ],
+            "a": 1,
+            "ex": "Từ vựng trong ngữ cảnh (Ocean Thermal Energy Conversion (OTEC)): Đáp án đúng là <b>B. traditional</b> (tương đương nghĩa với từ/cụm từ được hỏi trong đoạn văn)."
+          },
+          {
+            "n": 40,
+            "q": "Which of the following best describes the author's opinion about OTEC technology?",
+            "opts": [
+              "OTEC will eventually supply most of the world's energy needs.",
+              "The disadvantages of OTEC energy outweigh its advantages.",
+              "OTEC technology has a useful role to play in total energy production.",
+              "Only very large OTEC plants can be made efficient."
+            ],
+            "a": 2,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Ocean Thermal Energy Conversion (OTEC)), phương án chính xác là <b>C. OTEC technology has a useful role to play in total energy production.</b>."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rset12",
+    "title": "Đề số 12: Sách NXB ĐHQGHN — Reading Test 06",
+    "source": "Sách 10 Bộ đề Đọc hiểu VSTEP B1-B2-C1 (NXB ĐHQG Hà Nội — Test 06: The Biology of Risk · Light Pollution and the Value of Darkness · Animal Cognition · Alexander Fleming & The Discovery of Penicillin)",
+    "passages": [
+      {
+        "title": "PASSAGE 1 - The Biology of Risk: Dopamine & Fear",
+        "body": "A diver descends into an underwater cave, a scientist researches a dangerous disease, and an entrepreneur invests in a new business.\n\nEach time we try something new, we take a risk. Sometimes, like the diver or the businessman, we take big risks, usually for obvious reasons - for fame, for money, or to save lives. Most people will take some risk to achieve one of these goals. But as the danger increases, the number of people willing to go forward decreases. Only extreme risk-takers continue on. The question is: What exacfly drives these people to go on when others would stop? [A]\n\nThe Biology of Risk To answer this question, scientists are studying the biological factors involved in risk- taking. Their research focuses on certain chemicals in the brain. An important chemical in risk-taking is dopamine. It motivates us to seek out and learn new things, and it helps us process emotions like anxiety and fear. People whose brains don't produce enough dopamine often lack motivation and interest in life. On the other hand, isomeone who\n\ntakes risks to accomplish something - to climb a mountain or start a company - that's\n\ndriven by motivation, and motivation is driven by dopamine,\" says Larry Zweifel, a\n\nneurobiologist at the University of Washington. \"It's what compels humans to move\n\nforward.\" When we accomplish a task, dopamine produces a feeling of satisfaction; it makes us\n\nfeel good. The riskier the task, the more dopamine we produce, and the better we feel.\n\nGiven this, why isn't everyone trying to climb mountains or start businesses? In part, it's\n\nbecause of small molecules called autoreceptors. These receptors control dopamine use\n\nin the brain. A person with more autoreceptors tends to be more careful, as there is less\n\ndopamine moving freely around his or her brain. \"Think of dopamine like gasoline,\" says\n\nneuropsychologist David Zald. The autoreceptors, on the other hand, are like the brakes\n\non a car. A person who is less able to use brakes is more likely to take risks. [B]\n\nDealing with Fear Dopamine production may make us feel good, but being in a high-risk situation for\n\nan extended period of time is also stressful and can be dangerous. Successful risk-takers\n\nmust learn to deal with the fear associated with high-risk situations to reduce stress and\n\nstay safe. In reality, adapting to risk is something we all learn to do. Take, for example, learning\n\nto drive a car. At first, a new driver may be afraid to travel on freeways. In time, though,\n\nas the driver gains experience, he or she will move comfortably into speeding traffic and\n\nwill worry less about the danger. Similarly, a tightrope walker first learns to walk on a\n\nbeam on the ground. Later, he or she moves to a rope just off the ground, and then finally\n\nto the high wire. By this point, the tightrope walker is in control and the activity doesn't\n\nfeel dangerous. By practicing a challenging activity, humans can become used to the\n\nrisk, manage the danger, and control the fear that they feel in those situations. [C]\n\nThe work that marine biologist and deep-sea diver Rhian Waller does illustrates this\n\nwell. She studies life in some of the deepest and coldest waters on Earth. How does Waller\n\ncontrol her fear and stay safe in these high-risk situations? \"It comes with practice.\" she\n\nsays. It's knowing exacfly what to do when something goes wrong. We prepare well\n\nfor each of our expeditions, and we try to minimize the number of risks we take.\"\n\nOf course, a person doesn't have to be a tightrope walker or a deep-sea diver to be\n\na risk-taker. Taking risks is part of being human. We are all motivated to experience new\n\nthings. In order to do so, we have to take chances and of course, we may fail. [D]",
+        "questions": [
+          {
+            "n": 1,
+            "q": "According to the article, what is a common reason for people to take large risks?",
+            "opts": [
+              "a desire for fame",
+              "a lack of dopamine",
+              "to control motivation",
+              "to learn new things"
+            ],
+            "a": 0,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (The Biology of Risk: Dopamine & Fear), phương án chính xác là <b>A. a desire for fame</b>."
+          },
+          {
+            "n": 2,
+            "q": "What is one of the main functions of dopamine?",
+            "opts": [
+              "It allows us to talk.",
+              "It allows us to be alert.",
+              "It helps us process emotions.",
+              "It makes us fear dangerous situations."
+            ],
+            "a": 2,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (The Biology of Risk: Dopamine & Fear), phương án chính xác là <b>C. It helps us process emotions.</b>."
+          },
+          {
+            "n": 3,
+            "q": "The word 'compels' in paragraph 3 is closest in meaning to",
+            "opts": [
+              "takes",
+              "forces",
+              "makes",
+              "discourages"
+            ],
+            "a": 1,
+            "ex": "Từ vựng trong ngữ cảnh (The Biology of Risk: Dopamine & Fear): Đáp án đúng là <b>B. forces</b> (tương đương nghĩa với từ/cụm từ được hỏi trong đoạn văn)."
+          },
+          {
+            "n": 4,
+            "q": "What do autoreceptors do?",
+            "opts": [
+              "They make us less careful.",
+              "They make us feel better.",
+              "They control dopamine in our brain.",
+              "They connect molecules in our brain."
+            ],
+            "a": 2,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (The Biology of Risk: Dopamine & Fear), phương án chính xác là <b>C. They control dopamine in our brain.</b>."
+          },
+          {
+            "n": 5,
+            "q": "How do people with high dopamine for a long time feel?",
+            "opts": [
+              "motivated",
+              "satisfied",
+              "stressed",
+              "safe"
+            ],
+            "a": 2,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (The Biology of Risk: Dopamine & Fear), phương án chính xác là <b>C. stressed</b>."
+          },
+          {
+            "n": 6,
+            "q": "The word 'just in paragraph 6 could be replaced with",
+            "opts": [
+              "slighfly",
+              "only",
+              "recenfly",
+              "finally"
+            ],
+            "a": 0,
+            "ex": "Từ vựng trong ngữ cảnh (The Biology of Risk: Dopamine & Fear): Đáp án đúng là <b>A. slighfly</b> (tương đương nghĩa với từ/cụm từ được hỏi trong đoạn văn)."
+          },
+          {
+            "n": 7,
+            "q": "What is the purpose of paragraph 6?",
+            "opts": [
+              "to show why driving and tightrope walking are such risky activities",
+              "to give examples of how practicing a risky activity can reduce fear of it",
+              "to illustrate how some people are attracted to risky activities while others aren't",
+              "to explain why some activities are riskier and more dangerous than others"
+            ],
+            "a": 1,
+            "ex": "Câu hỏi ý chính / mục đích đoạn văn: Phương án <b>B. to give examples of how practicing a risky activity can reduce fear of it</b> bao quát chính xác nhất nội dung trọng tâm của bài đọc."
+          },
+          {
+            "n": 8,
+            "q": "What can we infer about marine biologist Rhian Waller?",
+            "opts": [
+              "She has learned to adapt to risk.",
+              "She has been afraid of the ocean for most of her life.",
+              "She prefers to do her job when there is danger involved.",
+              "She thinks it is impossible to prepare for most risks."
+            ],
+            "a": 0,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (The Biology of Risk: Dopamine & Fear), phương án chính xác là <b>A. She has learned to adapt to risk.</b>."
+          },
+          {
+            "n": 9,
+            "q": "In which space (marked A, B, C and D in the passage) will the following sentence fit?",
+            "opts": [
+              "[A]",
+              "[B]",
+              "[C]",
+              "[D]"
+            ],
+            "a": 3,
+            "ex": "Câu hỏi chèn câu vào đoạn: Vị trí <b>D</b> tạo sự liên kết mạch lạc nhất về mặt ý nghĩa và đại từ chuyển tiếp với câu trước và câu sau."
+          },
+          {
+            "n": 10,
+            "q": "Which of the following would be the best title for this article?",
+            "opts": [
+              "The nature of risk",
+              "The biology of risk",
+              "Problems of risks taking and solutions",
+              "Connection between risks and dopamine"
+            ],
+            "a": 0,
+            "ex": "Câu hỏi ý chính / mục đích đoạn văn: Phương án <b>A. The nature of risk</b> bao quát chính xác nhất nội dung trọng tâm của bài đọc."
+          }
+        ]
+      },
+      {
+        "title": "PASSAGE 2 - Light Pollution and the Value of Darkness",
+        "body": "Astronomers rate the darkness of our skies on a scale of 9 (brightest) to 1 (darkest).\n\nMost of us spend our lives in the radiance of levels 5 to 8, only rarely venturing into\n\nareas ranked 3 or darker. Because of the rapid growth of light pollution over recent\n\ndecades, most Americans under 40 have never known real darkness. All over the globe,\n\nour nights are growing brighter, and almost nowhere are they growing darker. We are\n\njust beginning to learn the true cost of all this light. Studies increasingly link our overuse of light at night with health concerns such as sleep disorders and disease. Other studies report the damaging ecological consequences, the tremendous waste of energy, and even the decrease in safety and security. But the steady loss of darkness from our lives is not easily measured, for like the similarly endangered qualities of solitude and quiet, the true value of darkness is something we are barely aware of.\n\nTake a brillianfly starry sky. Since the beginning of time, a sky plush with stars was part of the common human experience. [A] Everywhere on Earth, on most nights, our predecessors came face to face with the universe. [B] Today, because of light pollution, many of us live under skies which are polluted by light. For the tens of millions who live under a night sky showing 25 stars or fewer, it is nearly impossible to imagine a natural sky of some 2,500 individual stars backed by great swathes of uncountable billions. [C] Our night sky continues to shape us, but now it is the absence of the universe around us that influences our beliefs, our myths, our impulse to create. We are being shaped by a diminished experience of darkness, and most of us don't even know what we are missing. [D]\n\nOur Milky Way galaxy is home to several hundred billion stars, and the universe home to several hundred billion other galaxies. A sky wiped clear of stars encourages us to exaggerate our importance, to imagine humanity as the centre of all things. Face to face with the endless immensity of the universe, we have the chance to know how insignificant we really are. But we might also realise the true largeness of our living on this planet, and realise that we have an enormous responsibility to care, that there is no other place to go, that home is here. And what of beauty? 'Everyone needs beauty as well as bread,' wrote John Muir, American naturalist and author, and varied degrees of darkness are rich with this. Lighting designers in Paris understand that without darkness, there is no 'city of light, and work constanfly to create their city's atmospheric beauty by subfly mixing artificial light with darkness. And with night's moonlit geographies, its scents of desert rain and autumn fires, its pulsing insect symphonies punctuated by a bird's solo call on a northern lake, natural darkness has many offerings of its own. Yet we live immersed in artificial light. Much of this lighting is wholly unnecessary, born of habit and lack of awareness. So let us become aware: simply by shielding our existing lights we could significanfly reduce their negative effects on our body, our mind, our soul. Artificial light at night is a miracle, a wonder, a quality that enriches our lives. But the same has always been true of darkness, and can be again.",
+        "questions": [
+          {
+            "n": 11,
+            "q": "What levels of darkness are people often exposed to?",
+            "opts": [
+              "levels 1 to 3",
+              "levels 3 to 5",
+              "levels 5 to 8",
+              "levels 1 to 9"
+            ],
+            "a": 2,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Light Pollution and the Value of Darkness), phương án chính xác là <b>C. levels 5 to 8</b>."
+          },
+          {
+            "n": 12,
+            "q": "What does the writer say about lack of darkness in paragraph 1?",
+            "opts": [
+              "It is impossible to reverse its effects.",
+              "It is something that many people are unhappy about.",
+              "Its effects are something that need to be studied further.",
+              "It can be compared with other things that people often fail to appreciate."
+            ],
+            "a": 3,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Light Pollution and the Value of Darkness), phương án chính xác là <b>D. It can be compared with other things that people often fail to appreciate.</b>."
+          },
+          {
+            "n": 13,
+            "q": "What is NOT a negative effect of overusing light at night?",
+            "opts": [
+              "eye problems",
+              "energy waste",
+              "safety problems",
+              "sleeping problems"
+            ],
+            "a": 0,
+            "ex": "Câu hỏi loại trừ (NOT/EXCEPT): Ba phương án còn lại đều được nêu rõ trong bài; phương án <b>A. eye problems</b> không đúng hoặc không được đề cập."
+          },
+          {
+            "n": 14,
+            "q": "What is the effect of light pollution on us?",
+            "opts": [
+              "we are considerably less creative than our ancient ancestors.",
+              "we experience the world in a different way to previous generations.",
+              "we are aware that we are missing out on a great natural phenomenon.",
+              "we need a great deal of imagination in order to understand the universe."
+            ],
+            "a": 1,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Light Pollution and the Value of Darkness), phương án chính xác là <b>B. we experience the world in a different way to previous generations.</b>."
+          },
+          {
+            "n": 15,
+            "q": "In which space (marked A, B, C and D in the passage) will the following sentence fit? This experience influenced their beliefs, mythologies, art - their very understanding of",
+            "opts": [
+              "[A]",
+              "[B]",
+              "[C]",
+              "[D]"
+            ],
+            "a": 1,
+            "ex": "Câu hỏi chèn câu vào đoạn: Vị trí <b>B</b> tạo sự liên kết mạch lạc nhất về mặt ý nghĩa và đại từ chuyển tiếp với câu trước và câu sau."
+          },
+          {
+            "n": 16,
+            "q": "What does the writer think about humans in paragraph 3?",
+            "opts": [
+              "We ignore the need to look after our planet.",
+              "We have an over-confident belief in our own value.",
+              "We behave as though nothing exists apart from ourselves.",
+              "We prefer to avoid thinking too deeply about our role on Earth."
+            ],
+            "a": 1,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Light Pollution and the Value of Darkness), phương án chính xác là <b>B. We have an over-confident belief in our own value.</b>."
+          },
+          {
+            "n": 17,
+            "q": "What does the word 'this' in paragraph 4 refer to?",
+            "opts": [
+              "beauty",
+              "darkness",
+              "variety",
+              "lighting"
+            ],
+            "a": 0,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Light Pollution and the Value of Darkness), phương án chính xác là <b>A. beauty</b>."
+          },
+          {
+            "n": 18,
+            "q": "Why does the writer mention rain, fires and wildlife in paragraph 4?",
+            "opts": [
+              "to describe what he enjoys least about night-time",
+              "to explain why some people think that lighting is necessary at night",
+              "to provide an example of the attractive qualities of night-time",
+              "to highlight the differences between urban and natural environments"
+            ],
+            "a": 2,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Light Pollution and the Value of Darkness), phương án chính xác là <b>C. to provide an example of the attractive qualities of night-time</b>."
+          },
+          {
+            "n": 19,
+            "q": "In the final paragraph, we understand that the author is",
+            "opts": [
+              "irritated by people's lack of interest in darkness.",
+              "understanding of the reasons why artificial light is essential.",
+              "keen to draw comparisons between artificial light and darkness.",
+              "hopeful that people are becoming aware of the negative impact of light."
+            ],
+            "a": 2,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Light Pollution and the Value of Darkness), phương án chính xác là <b>C. keen to draw comparisons between artificial light and darkness.</b>."
+          },
+          {
+            "n": 20,
+            "q": "What is the purpose of the passage?",
+            "opts": [
+              "to describe the importance of darkness",
+              "to describe levels of darkness",
+              "to describe light pollution",
+              "to describe the importance of human in the universe"
+            ],
+            "a": 0,
+            "ex": "Câu hỏi ý chính / mục đích đoạn văn: Phương án <b>A. to describe the importance of darkness</b> bao quát chính xác nhất nội dung trọng tâm của bài đọc."
+          }
+        ]
+      },
+      {
+        "title": "PASSAGE 3 - Animal Cognition: Alex the Parrot & Betsy the Dog",
+        "body": "Very few scientists acknowledged that animals were capable of thought. Most believed\n\nthat animals reacted to things in their environment but lacked the ability to think or feel.\n\nHow, then, could a scientist demonstrate that animals might, in fact, possess intelligence?\n\nIrene Pepperberg, a recent graduate of Harvard University began her research in 1977.\n\nShe bought an African grey parrot she named Alex and taught him to reproduce the\n\nsounds of the English language.\"I thought if he learned to communicate, I could ask him\n\nquestions about how he sees the world.\" she explains. Certain skills are considered key signs of higher mental abilities: a good memory,\n\nan understanding of symbols, self-awareness, understanding of others' motives, and\n\ncreativity. Little by little, researchers have documented these abilities in other species.\n\nSheep and elephants can recognize faces. Chimpanzees - who are genetically similar\n\nto humans - use a variety of primitive tools for eating, drinking, and hunting; they also\n\nlaugh when pleased and spit to show disgust with something. Octopuses in captivity are\n\nknown to amuse themselves by shooting water at laboratory staff. They may even exhibit\n\nbasic emotions by changing color. Alex the parrot was a surprisingly good talker. He learned how to use his voice\n\nto imitate almost 100 English words, including those for foods, colors, shapes, and\n\nnumbers. Although imitation was once considered a simple skill, in recent years, cognitive\n\nscientists have revealed that it's an extremely difficult ability. It requires the imitator to\n\nform a mental image of the other person's body and actions and then adjust his own\n\nbody parts into the same position. It is a behavior that shows an awareness of one's self.\n\nBecause Alex had mastered many English words, Pepperberg could ask him questions\n\nabout a bird's basic understanding of the world. Alex could count, as well as describe\n\nshapes, colors, and sizes for Pepperberg; he even had an elementary understanding of\n\nthe abstract concept of zero. Many of Alex's cognitive skills, such as his ability to understand the concepts of same\n\nand different, are generally attributed only to higher mammals, particularly primates\n\nsuch as humans and apes. But parrots, like great apes (and humans), live a long time in\n\ncomplex societies. And like primates, these birds must monitor the changing relationships\n\nwithin the group. This may explain Alex's ability to learn a human language. \"When\n\nwe take [parrots) into captivity, what they start to do is treat us as their flock, explains\n\nPepperberg. Parrots learn to pronounce and use our words so they can become a part\n\nof our group. Researchers in Germany and Austria have also been studying language ability in dogs. One named Betsy has shown that she is able to learn and remember words as quickly as a two-year-old child. She has an extraordinary vocabulary of over 340 words (and counting), knows at least 15 people by name, and can link photographs with the real objects they represent. Like Alex, she's pretty smart. This is the larger lesson of animal cognition research: It humbles us. We are not alone in our ability to invent, communicate, demonstrate emotions, or think about ourselves. Still, humans remain the creative species. No other animal has built cities, created music, or made a computer.",
+        "questions": [
+          {
+            "n": 21,
+            "q": "What is the passage mainly about?",
+            "opts": [
+              "ways of teaching animals to become more intelligent",
+              "research that shows intelligence is not limited to humans",
+              "how animals can communicate with humans",
+              "how human and animal intelligence are different"
+            ],
+            "a": 1,
+            "ex": "Câu hỏi ý chính / mục đích đoạn văn: Phương án <b>B. research that shows intelligence is not limited to humans</b> bao quát chính xác nhất nội dung trọng tâm của bài đọc."
+          },
+          {
+            "n": 22,
+            "q": "Which can NOT show higher mental abilities?",
+            "opts": [
+              "understanding signs",
+              "remembering words",
+              "being aware of one's self",
+              "being able to drink water"
+            ],
+            "a": 3,
+            "ex": "Câu hỏi loại trừ (NOT/EXCEPT): Ba phương án còn lại đều được nêu rõ trong bài; phương án <b>D. being able to drink water</b> không đúng hoặc không được đề cập."
+          },
+          {
+            "n": 23,
+            "q": "Which of the following is NOT mentioned in the passage?",
+            "opts": [
+              "how an octopus displays basic emotions",
+              "ways in which elephants communicate with each other",
+              "how chimps evolved tool-making abilities",
+              "the language ability of dogs"
+            ],
+            "a": 1,
+            "ex": "Câu hỏi loại trừ (NOT/EXCEPT): Ba phương án còn lại đều được nêu rõ trong bài; phương án <b>B. ways in which elephants communicate with each other</b> không đúng hoặc không được đề cập."
+          },
+          {
+            "n": 24,
+            "q": "The word 'exhibit' in paragraph 2 is closest in meaning to",
+            "opts": [
+              "cover",
+              "control",
+              "experience",
+              "display"
+            ],
+            "a": 3,
+            "ex": "Từ vựng trong ngữ cảnh (Animal Cognition: Alex the Parrot & Betsy the Dog): Đáp án đúng là <b>D. display</b> (tương đương nghĩa với từ/cụm từ được hỏi trong đoạn văn)."
+          },
+          {
+            "n": 25,
+            "q": "What could Alex do that showed self-awareness?",
+            "opts": [
+              "count",
+              "learn vocabulary",
+              "copy human sounds",
+              "understand the concept of zero"
+            ],
+            "a": 2,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Animal Cognition: Alex the Parrot & Betsy the Dog), phương án chính xác là <b>C. copy human sounds</b>."
+          },
+          {
+            "n": 26,
+            "q": "In paragraph 3, 'It' refers to",
+            "opts": [
+              "counting",
+              "talking",
+              "imitating",
+              "asking questions"
+            ],
+            "a": 2,
+            "ex": "Câu hỏi quy chiếu đại từ: Dựa vào mệnh đề liền trước trong bài đọc, đại từ được hỏi quy chiếu trực tiếp tới <b>C. imitating</b>."
+          },
+          {
+            "n": 27,
+            "q": "What do parrots and primates have in common?",
+            "opts": [
+              "They both live a long time in complex societies.",
+              "They both learn to use tools while in captivity.",
+              "They both teach new human words to their young.",
+              "Neither likes to participate in or be part of a group."
+            ],
+            "a": 0,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Animal Cognition: Alex the Parrot & Betsy the Dog), phương án chính xác là <b>A. They both live a long time in complex societies.</b>."
+          },
+          {
+            "n": 28,
+            "q": "In paragraph 5, the word 'link' could be replaced with",
+            "opts": [
+              "match",
+              "take",
+              "count",
+              "view"
+            ],
+            "a": 0,
+            "ex": "Từ vựng trong ngữ cảnh (Animal Cognition: Alex the Parrot & Betsy the Dog): Đáp án đúng là <b>A. match</b> (tương đương nghĩa với từ/cụm từ được hỏi trong đoạn văn)."
+          },
+          {
+            "n": 29,
+            "q": "How are animals different from humans?",
+            "opts": [
+              "They can invent things.",
+              "They can express emotions.",
+              "They can show awareness.",
+              "They can show creativity."
+            ],
+            "a": 3,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Animal Cognition: Alex the Parrot & Betsy the Dog), phương án chính xác là <b>D. They can show creativity.</b>."
+          },
+          {
+            "n": 30,
+            "q": "Which statement would the author probably agree with?",
+            "opts": [
+              "Only humans and primates are capable of thought.",
+              "Birds share a common ancestry with humans.",
+              "Some birds are more intelligent than humans.",
+              "We can find intelligence in species we don't normally consider intelligent."
+            ],
+            "a": 3,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Animal Cognition: Alex the Parrot & Betsy the Dog), phương án chính xác là <b>D. We can find intelligence in species we don't normally consider intelligent.</b>."
+          }
+        ]
+      },
+      {
+        "title": "PASSAGE 4 - Alexander Fleming & The Discovery of Penicillin",
+        "body": "Pénicillium chrysogenum, or Pénicillium notatum is a common mold - a fungus that has multicellular arms or filaments called hyphae. It can be found living indoors on food. Its spores, units of asexual reproduction that can evolve into a new organism, and are a major cause of allergens in humans. In 1928, Scottish scientist Alexander Fleming discovered that Pénicillium notatum contained a bacteria-killing antibiotic that he named penicillin.\n\nAlexander Fleming was born in 1881 in Scotland. At the age of twenty, he entered St. Mary's Hospital in London and studied medicine, then went on to become the assistant bacteriologist to Sir Almroth Wright, a pioneer in immunology and vaccine therapy. During World War I, Fleming served as a captain in the Royal Army Medical Corps and worked on the frontlines where he witnessed firsthand soldiers dying of sepsis. Sepsis, or systematic inflammatory response (SIRS), is blood poisoning due to the presence of bacteria in the blood. Fleming witnessed widespread sepsis, most of which was caused by infected wounds. Antiseptics were widely available yet Fleming believed they killed only surface bacteria while failing to eradicate deeper bacteria. After the war, Fleming was determined to find a cure for sepsis. In 1928, while researching the properties of staphylococci, a genus of gram-positive bacteria, he stumbled upon Pénicillium notatum.\n\nBy 1928, Fleming was regarded as a brilliant researcher whose laboratory was, more often than not, a mess. That same year, returning to his lab after an August holiday, he discovered that his staphylococci cultures had been contaminated by a fungus. Fleming was intent on throwing the cultures out when he noticed that the staphylococci colonies had been surrounded by an invading blue-green mold. Much to Fleming's surprise, the invading mold had eradicated the staphylococci it had surrounded; whereas, those\n\ncolonies of staphylococci that had not been touched by the mold were still thriving. He\n\nset about isolating and growing the mold which produced a substance that killed not only\n\nstaphylococci, but also a number of other disease-causing bacteria, such as pneumonia,\n\nscarlet fever, meningitis and diphtheria. He called the bacteria-killing substance ¿'mold\n\njuice. Once he'd established that the mold was in fact part of the genus pénicillium, he\n\ncalled it penicillin. In 1929, Fleming published the results of his experiments in the British Journal of\n\nExperimental Pathology. Yet despite such initial promise, his work garnered little attention,\n\nfor growing pénicillium was difficult while extracting the antibiotic agent, the bacteria-\n\nkilling penicillin itself, was even harder. These results, combined with tests proving that\n\npenicillin worked slowly, convinced Fleming that penicillin had no commercial appeal. By\n\n1939, Fleming, having labored long and hard over penicillin, finally turned his attention\n\nto other matters. Then, in that same year, the Australian scientist Howard Walter Florey,\n\ndirector of the Sir William Dunn School of Pathology at Oxford University, read Fleming's\n\npaper in which he described the anti-bacterial effects of pénicillium. Florey immediately\n\nsaw the potential of pénicillium and, with the help of Ernst Chain, did more research on\n\nthe effects of penicillin and produced it on a large scale successfully in the US. By 1943,\n\nfrontline soldiers with infections were being treated with a new wonder drug called\n\npenicillin.",
+        "questions": [
+          {
+            "n": 31,
+            "q": "What is the passage mainly about?",
+            "opts": [
+              "the history of penicillin",
+              "the use of penicillin",
+              "the production of penicillin",
+              "side effects of penicillin"
+            ],
+            "a": 0,
+            "ex": "Câu hỏi ý chính / mục đích đoạn văn: Phương án <b>A. the history of penicillin</b> bao quát chính xác nhất nội dung trọng tâm của bài đọc."
+          },
+          {
+            "n": 32,
+            "q": "According to paragraph 1, what are able to reproduce asexually?",
+            "opts": [
+              "filaments",
+              "hypha",
+              "spores",
+              "penicillin"
+            ],
+            "a": 2,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Alexander Fleming & The Discovery of Penicillin), phương án chính xác là <b>C. spores</b>."
+          },
+          {
+            "n": 33,
+            "q": "Where did Fleming see evidence of widespread SIRS?",
+            "opts": [
+              "in the Royal Medical Corps",
+              "in St. Mary's Hospital",
+              "in Ayrshire, Scotland",
+              "in frontline soldiers"
+            ],
+            "a": 3,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Alexander Fleming & The Discovery of Penicillin), phương án chính xác là <b>D. in frontline soldiers</b>."
+          },
+          {
+            "n": 34,
+            "q": "What did Fleming think about antiseptics?",
+            "opts": [
+              "They were ineffective.",
+              "They killed deeper bacteria.",
+              "They were difficult to be found.",
+              "They were too expensive."
+            ],
+            "a": 0,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Alexander Fleming & The Discovery of Penicillin), phương án chính xác là <b>A. They were ineffective.</b>."
+          },
+          {
+            "n": 35,
+            "q": "The word 'eradicate' in paragraph 2 is closest in meaning to",
+            "opts": [
+              "reduce",
+              "surround",
+              "protect",
+              "destroy"
+            ],
+            "a": 3,
+            "ex": "Từ vựng trong ngữ cảnh (Alexander Fleming & The Discovery of Penicillin): Đáp án đúng là <b>D. destroy</b> (tương đương nghĩa với từ/cụm từ được hỏi trong đoạn văn)."
+          },
+          {
+            "n": 36,
+            "q": "What did Alexander Fleming find by chance in 1928?",
+            "opts": [
+              "Pénicillium notatum",
+              "gram-positive bacteria",
+              "lysozyme",
+              "sepsis"
+            ],
+            "a": 0,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Alexander Fleming & The Discovery of Penicillin), phương án chính xác là <b>A. Pénicillium notatum</b>."
+          },
+          {
+            "n": 37,
+            "q": "According to paragraph 3, what did the blue-green mold do?",
+            "opts": [
+              "It contaminated a fungus.",
+              "It destroyed the staphylococci.",
+              "It built colonies of staphylococci.",
+              "It turned into staphylococci cultures."
+            ],
+            "a": 1,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Alexander Fleming & The Discovery of Penicillin), phương án chính xác là <b>B. It destroyed the staphylococci.</b>."
+          },
+          {
+            "n": 38,
+            "q": "The word 'it' in paragraph 3 refers to",
+            "opts": [
+              "the invading mold",
+              "staphylococci",
+              "bacteria",
+              "a substance"
+            ],
+            "a": 0,
+            "ex": "Câu hỏi quy chiếu đại từ: Dựa vào mệnh đề liền trước trong bài đọc, đại từ được hỏi quy chiếu trực tiếp tới <b>A. the invading mold</b>."
+          },
+          {
+            "n": 39,
+            "q": "What is NOT a disease that a penicillin can cure?",
+            "opts": [
+              "flu",
+              "pneumonia",
+              "scarlet fever",
+              "meningitis"
+            ],
+            "a": 0,
+            "ex": "Câu hỏi loại trừ (NOT/EXCEPT): Ba phương án còn lại đều được nêu rõ trong bài; phương án <b>A. flu</b> không đúng hoặc không được đề cập."
+          },
+          {
+            "n": 40,
+            "q": "According to paragraph 4, by 1939 what had Fleming concluded?",
+            "opts": [
+              "that penicillin was a wonder drug all would benefit from",
+              "that he had wasted his life researching penicillin",
+              "that Sir William Dunn should read his 1929 research paper",
+              "that penicillin was not economically successful."
+            ],
+            "a": 3,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Alexander Fleming & The Discovery of Penicillin), phương án chính xác là <b>D. that penicillin was not economically successful.</b>."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rset13",
+    "title": "Đề số 13: Sách NXB ĐHQGHN — Reading Test 07",
+    "source": "Sách 10 Bộ đề Đọc hiểu VSTEP B1-B2-C1 (NXB ĐHQG Hà Nội — Test 07: Humanitarian Dorothea Dix & Mental Health Reform · China's Grand Canal · Noise Pollution & The Acoustic Commons · Did Birds Evolve from Dinosaurs?)",
+    "passages": [
+      {
+        "title": "PASSAGE 1 - Humanitarian Dorothea Dix & Mental Health Reform",
+        "body": "Humanitarian Dorothea Dix was born in the tiny village of Hampden, Maine, in\n\n1802. An avid reader and fast learner, she was taken in by her grandmother, who lived\n\nin Boston, and was educated there. When only nineteen years old, she established the\n\nDix Mansion School for girls in Boston. There was no lack of students, and the school\n\nprovided a good source of income for her and her two brothers, whom she had brought\n\nto Boston to live with her. She also wrote and published the first of many books for\n\nchildren in 1824. In 1836, however, her health failed. She suffered most of her life from\n\n\"lung trouble\" (probably tuberculosis) and depression. She was forced to stop teaching\n\nand had to close her school. Later that same year, having partially recovered, Dix set off for Italy to rest and\n\nrecover her health in the warm Italian sunshine. She never made it to Italy, however. By\n\nthe time her ship arrived in England, she was too ill to continue. She was taken care of by\n\na kind British friend, William Rathbone. During her time in England, she became friends\n\nwith Samuel Tuke, who directed the York Retreat for the Mentally Disordered. From Tuke,\n\nshe learned new, more humane methods for taking care of the mentally ill.\n\nReturning to the United States, Dix volunteered to teach classes at a prison for women in Cambridge, Massachusetts. Over the objections of the jailer, she went to the lower level of the jail where the mentally ill were housed. She was shocked to see that they were treated far worse even than ordinary criminals and were forced to live in filthy, miserable, brutal conditions. She vowed to spend the rest of her life improving conditions for the mentally ill.\n\nFor the next eighteen months, Dix toured Massachusetts prisons, poor-houses, and local jails where other mental patients were confined. She reported on the terrible conditions that she found to the Massachusetts legislature, which soon passed laws to improve conditions. After that, she turned her attention to neighboring New England states and then to the West and South. She traveled thousands of miles by train, coach, carriage, and riverboat, systematically gathering facts in order to convince those in power.\n\nWhen the Civil War broke out in 1861, Dix was nearly sixty years old. However, she volunteered to form the Army Nursing Corps. At first, military authorities, who were not accustomed to female nurses, were skeptical, but she convinced them that women could perform this work acceptably. She recruited over 3,000 women and raised money for medical supplies for the troops. Under her leadership, army nursing care greafly improved.\n\nAfter the war, Dix returned to her life's work and resumed her travels. She saw special hospitals for the mental ill built in fifteen states. She asked the federal government to use the income from public lands to help poor mental patients, and although both houses of Congress approved this bill, President Pierce vetoed it. Even though this plan failed, Dix was able to arouse concern for the problem of mental illness all over the United States as well as in Canada and Europe. Dix's success was due to her independent and thorough research, her gentle but persistent manner, and her ability to convince powerful and wealthy patrons to help her.",
+        "questions": [
+          {
+            "n": 1,
+            "q": "Why was the Dix Mansion school closed?",
+            "opts": [
+              "because Dix was in poor health",
+              "because Dix could not attract enough students",
+              "because Dix decided to travel to Europe",
+              "because Dix had to take care of her brothers"
+            ],
+            "a": 0,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Humanitarian Dorothea Dix & Mental Health Reform), phương án chính xác là <b>A. because Dix was in poor health</b>."
+          },
+          {
+            "n": 2,
+            "q": "Who taught Dix new ideas about caring for the mentally ill?",
+            "opts": [
+              "Her grandmother",
+              "William Rathbone",
+              "Samuel Tuke",
+              "A jailer at a prison in Cambridge"
+            ],
+            "a": 2,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Humanitarian Dorothea Dix & Mental Health Reform), phương án chính xác là <b>C. Samuel Tuke</b>."
+          },
+          {
+            "n": 3,
+            "q": "Why did Dorothea Dix first go to the women's prison in Cambridge, Massachusetts?",
+            "opts": [
+              "She was sent there by the Massachusetts legislature.",
+              "She wanted to do research on prison conditions.",
+              "She was hired to be the jailer.",
+              "She was teaching a class there."
+            ],
+            "a": 3,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Humanitarian Dorothea Dix & Mental Health Reform), phương án chính xác là <b>D. She was teaching a class there.</b>."
+          },
+          {
+            "n": 4,
+            "q": "Where was Dorothea Dix first able to bring about reforms in the treatment of the",
+            "opts": [
+              "mentally ill?",
+              "England",
+              "Massachusetts",
+              "The southern part of the U.S."
+            ],
+            "a": 1,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Humanitarian Dorothea Dix & Mental Health Reform), phương án chính xác là <b>B. England</b>."
+          },
+          {
+            "n": 5,
+            "q": "D. Maine",
+            "opts": [
+              "The word 'they' in paragraph 3 refers to",
+              "jailers",
+              "ordinary criminals",
+              "mentally ill prisoners"
+            ],
+            "a": 2,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Humanitarian Dorothea Dix & Mental Health Reform), phương án chính xác là <b>C. ordinary criminals</b>."
+          },
+          {
+            "n": 6,
+            "q": "D. classes",
+            "opts": [
+              "What does the author say about the military authorities in paragraph 5?",
+              "They were not used to women nurses.",
+              "They asked Dix to become superintendent.",
+              "They improved army nursing care during the war."
+            ],
+            "a": 0,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Humanitarian Dorothea Dix & Mental Health Reform), phương án chính xác là <b>A. What does the author say about the military authorities in paragraph 5?</b>."
+          },
+          {
+            "n": 7,
+            "q": "D. They did not allow Dix to recruit nurses herself.",
+            "opts": [
+              "The word 'them' in paragraph 5 refers to",
+              "military authorities",
+              "nurses",
+              "women"
+            ],
+            "a": 0,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Humanitarian Dorothea Dix & Mental Health Reform), phương án chính xác là <b>A. The word 'them' in paragraph 5 refers to</b>."
+          },
+          {
+            "n": 8,
+            "q": "D. the troops",
+            "opts": [
+              "Dix was NOT successful in her attempt to",
+              "publish books for children",
+              "arouse concern for the mentally ill",
+              "obtain income from public lands"
+            ],
+            "a": 2,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Humanitarian Dorothea Dix & Mental Health Reform), phương án chính xác là <b>C. arouse concern for the mentally ill</b>."
+          },
+          {
+            "n": 9,
+            "q": "D. become superintendent of nurses",
+            "opts": [
+              "Which of the following is NOT given as one of the reasons for Dix's success?",
+              "her research was independent and methodical.",
+              "She attracted rich, influential sponsors to her cause.",
+              "Although she had a gentle manner, she didn't give up."
+            ],
+            "a": 3,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Humanitarian Dorothea Dix & Mental Health Reform), phương án chính xác là <b>D. Although she had a gentle manner, she didn't give up.</b>."
+          },
+          {
+            "n": 10,
+            "q": "D. Her personal wealth allowed her to finance projects herself.",
+            "opts": [
+              "The word 'vetoed' in paragraph 6 is best replaced with",
+              "accepted",
+              "refused",
+              "voted for"
+            ],
+            "a": 1,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Humanitarian Dorothea Dix & Mental Health Reform), phương án chính xác là <b>B. accepted</b>."
+          }
+        ]
+      },
+      {
+        "title": "PASSAGE 2 - China's Grand Canal: History & Modernization",
+        "body": "For centuries, the power of Chinese emperors rose and fell with their control of the Grand Canal. Today, this important waterway is shorter than it once was, but it is still the longest man-made river in the world, and continues to play an important cultural and economic role in modern China. [A]\n\nConstruction Begins The original canal system began around the year 605, when Emperor Yang realized\n\nthat - in order to feed his army - he needed a way to move food quickly from China's\n\nsouthern rice-growing region to the country's north. An estimated one million people,\n\nmosfly farmers, worked to build the first section of the Grand Canal, which connected\n\nexisting canals, lakes, and rivers. Construction took six years and was completed in 611.\n\nOver the next 500 years, the canal's importance grew throughout China, but by\n\n1127, parts were deteriorating. In 1279, Kublai Khan began to repair and build new\n\nparts of the canal. This renovation created a more direct north-south route to and from\n\nBeijing. Future rulers then continued to expand and improve the canal.\n\nNation's Lifeline In addition to moving rice around China, the Grand Canal was also an important\n\ncultural conduit. Soldiers, merchants, and artists transported ideas, regional foods, and\n\ncultural practices from one part of China to another along the country's watery highway.\n\nAccording to legend, this is how Beijing acquired two of its best-known trademarks:\n\nPeking duck, a dish from Shandong Province in the south, and Peking opera, from Anhui\n\nand Hubei, also in the south. [B] The Modern Canal For more than a thousand years, goods have been transported along the Grand\n\nCanal. Even today, the country's watery highway plays an important economic role in\n\nChina. Boats continue to carry tons of coal, food, and other goods to points between\n\nHangzhou and Jining. In addition, local governments - eager to increase tourism and\n\nreal estate development - are working to beautify areas along the canal. [C]\n\nThis development comes at a price, though. In Yangzhou, the city has torn down\n\nalmost all of the older canal-side buildings. Farther south in the cities of Zhenjiang,\n\nWuxi, and Hangzhou, the situation is similar. In Hangzhou, for example, almost all of\n\nthe ancient buildings have been demolished. Traditionally we talk about 18 main cities\n\non the Grand Canal, and each had something unique and special about it. Explains\n\nZhou Xinhua, the former vice director of the Grand Canal museum in Hangzhou. 'But\n\nnow many of these cities are all the same: a thousand people with one face.\n\nIn 2005, a group of citizens proposed that the historic Grand Canal be made a\n\nUNESCO World Heritage site, to protect both the waterway and the architecture around\n\nit. \"Every generation wants the next generation to understand it, to look at its monuments.\"\n\nsaid Zhu Bingren, an artist who cowrote this proposal. The hope is that the Grand Canal,\n\na site of cultural and economic importance - and one of the world's great engineering\n\naccomplishments - will continue to link north and south China for centuries to come. [D]",
+        "questions": [
+          {
+            "n": 11,
+            "q": "Why was the Grand Canal originally built?",
+            "opts": [
+              "to allow the army to move quickly from the north to the south",
+              "to transport food from the southern regions of China to the northern regions",
+              "to enable more people to visit remote parts of China",
+              "to promote the cultural and traditional diversity of the south of China"
+            ],
+            "a": 1,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (China's Grand Canal: History & Modernization), phương án chính xác là <b>B. to transport food from the southern regions of China to the northern regions</b>."
+          },
+          {
+            "n": 12,
+            "q": "What is NOT true about the Grand Canal?",
+            "opts": [
+              "It originally took six years to complete its construction.",
+              "Even today, it is the longest man-made river in the world.",
+              "Around a million people worked on the first section of the canal.",
+              "It allowed Peking duck and Peking opera to spread to southern China."
+            ],
+            "a": 3,
+            "ex": "Câu hỏi loại trừ (NOT/EXCEPT): Ba phương án còn lại đều được nêu rõ trong bài; phương án <b>D. It allowed Peking duck and Peking opera to spread to southern China.</b> không đúng hoặc không được đề cập."
+          },
+          {
+            "n": 13,
+            "q": "What is the main idea of paragraphs 2 and 3?",
+            "opts": [
+              "the origin of the Grand Canal",
+              "the history of the Grand Canal",
+              "the modernization of the Grand Canal",
+              "the cultural importance of the Grand Canal"
+            ],
+            "a": 1,
+            "ex": "Câu hỏi ý chính / mục đích đoạn văn: Phương án <b>B. the history of the Grand Canal</b> bao quát chính xác nhất nội dung trọng tâm của bài đọc."
+          },
+          {
+            "n": 14,
+            "q": "What would be the best alternative heading for paragraph 4?",
+            "opts": [
+              "Renewed Importance",
+              "Cultural Connections",
+              "The Army's Highway",
+              "The Origins of Peking Opera"
+            ],
+            "a": 1,
+            "ex": "Câu hỏi ý chính / mục đích đoạn văn: Phương án <b>B. Cultural Connections</b> bao quát chính xác nhất nội dung trọng tâm của bài đọc."
+          },
+          {
+            "n": 15,
+            "q": "The word 'practices' in paragraph 4 could be replaced with",
+            "opts": [
+              "traditions",
+              "repetitions",
+              "instructions",
+              "improvements"
+            ],
+            "a": 0,
+            "ex": "Từ vựng trong ngữ cảnh (China's Grand Canal: History & Modernization): Đáp án đúng là <b>A. traditions</b> (tương đương nghĩa với từ/cụm từ được hỏi trong đoạn văn)."
+          },
+          {
+            "n": 16,
+            "q": "Why did the writer mention Peking duck in paragraph 4?",
+            "opts": [
+              "to give an example of a famous food in Beijing.",
+              "to show that it is a favourite dish of people from Shandon Province.",
+              "to demonstrate a trademark in Beijing.",
+              "to give an example of the cultural importance of the Grand Canal."
+            ],
+            "a": 3,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (China's Grand Canal: History & Modernization), phương án chính xác là <b>D. to give an example of the cultural importance of the Grand Canal.</b>."
+          },
+          {
+            "n": 17,
+            "q": "What best paraphrases the following sentence in paragraph 6?",
+            "opts": [
+              "This development comes at a price, though.",
+              "But developing the canal involves spending a lot of money.",
+              "But even after spending money, people might not like the development.",
+              "But developing it is a lot more expensive than one can imagine."
+            ],
+            "a": 3,
+            "ex": "Câu hỏi diễn đạt lại câu (Paraphrase): Phương án <b>D. But developing it is a lot more expensive than one can imagine.</b> giữ nguyên đầy đủ ý nghĩa cốt lõi và quan hệ nhân quả của câu gốc."
+          },
+          {
+            "n": 18,
+            "q": "D. But there are some negative consequences to having this development. The word 'demolished' in paragraph 6 is closest in meaning to",
+            "opts": [
+              "destroyed",
+              "built",
+              "renovated",
+              "restored"
+            ],
+            "a": 0,
+            "ex": "Từ vựng trong ngữ cảnh (China's Grand Canal: History & Modernization): Đáp án đúng là <b>A. destroyed</b> (tương đương nghĩa với từ/cụm từ được hỏi trong đoạn văn)."
+          },
+          {
+            "n": 19,
+            "q": "The artist Zhu Bingren would probably most like to see that",
+            "opts": [
+              "the canal and the area around it are declared a heritage site",
+              "the canal is further expanded in an east-west direction",
+              "more changes are made to modernize the canal",
+              "a monument is created to honor China's economic and cultural importance"
+            ],
+            "a": 0,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (China's Grand Canal: History & Modernization), phương án chính xác là <b>A. the canal and the area around it are declared a heritage site</b>."
+          },
+          {
+            "n": 20,
+            "q": "In which space (marked A, B, C and D in the passage) will the following sentence fit?",
+            "opts": [
+              "[A]",
+              "[B]",
+              "[C]",
+              "[D]"
+            ],
+            "a": 2,
+            "ex": "Câu hỏi chèn câu vào đoạn: Vị trí <b>C</b> tạo sự liên kết mạch lạc nhất về mặt ý nghĩa và đại từ chuyển tiếp với câu trước và câu sau."
+          }
+        ]
+      },
+      {
+        "title": "PASSAGE 3 - Noise Pollution & The Acoustic Commons",
+        "body": "The word noise is derived from the Latin word nausea, meaning \"seasickness.\" Noise is among the most pervasive pollutants today. Noise pollution can broadly be defined as unwanted or offensive sounds that unreasonably intrude into our daily activities. Noises from traffic, jet engines, barking dogs, garbage trucks, construction equipment, factories, lawn mowers, leaf blowers, televisions, boom boxes, and car radios, to name a few, are among the audible litter that is routinely broadcast into the air.\n\nOne measure of pollution is the danger it poses to health. Noise negatively affects human health and well-being. Problems related to noise include hearing loss, stress, high blood pressure, sleeplessness, fright, distraction, and lost productivity. Noise pollution also contributes to a general reduction in the quality of life and eliminates opportunities tor tranquility.\n\nA number of factors contribute to problems of growing noise levels. One is increasing population, particularly when it leads to increasing urbanization and urban consolidation, because activities associated with urban living generally lead to increased noise levels. Another is the increasing volume of road, rail, and air traffic. Some people would add to this list a diminishing sense of civility and a growing disrespect for the rights of others.\n\nWe experience noise in a number of ways. On some occasions, we can be both the cause and the victim of noise, such as when we are operating noisy appliances or equipment. There are also instances when we experience noise generated by others, just as people experience secondhand smoke. In both instances, noise is equally damaging physically. Secondhand noise is generally more troubling, however, because it is put into the environment by others, without our consent.\n\nThe air into which secondhand noise is emitted and on which it travels is \"a commons.\" [A] It belongs not to an individual person or a group, but to everyone. [B] People, businesses, and organizations, therefore, do not have unlimited rights to broadcast noise as they please, as if the effects of noise were limited only to their private property. [C] Those that disregard the obligation to not interfere with others' use and enjoyment of the commons by producing noise pollution are, in many ways, acting like a bully in a school yard. [D] Although they may do so unknowingly, they disregard the rights of others and claim for themselves rights that are not theirs.\n\nNoise pollution differs from other forms of pollution in a number of ways. Noise is transient; once the pollution stops, the environment is free of it. This is not the case with air pollution, for example. We can measure the amount of chemicals and other pollutants introduced into the air. Scientists can estimate how much material can be introduced into the air before harm is done. The same is true of water pollution and soil pollution.\n\nThough we can measure individual sounds that may actually damage human hearing, it\n\nis difficult to monitor cumulative exposure to noise or to determine just how much noise is\n\ntoo much. The definition of noise pollution itself is highly subjective. To some people, the\n\nroar of an engine is satisfying or thrilling; to others it is an annoyance. Loud music may\n\nbe a pleasure or a torment, depending on the listener and the circumstances.\n\nThe actual loudness of a sound is only one component of the negative effect noise\n\npollution has on human beings. Other factors that have to be considered are the time\n\nand place, the duration, the source of the sound, and even the mood of the affected\n\nperson. Most people would not be bothered by the sound of a 21-gun salute on a special\n\noccasion. On the other hand, the thump-thump of music coming from the apartment\n\ndownstairs at 2 A.M., even if barely audible, might be a major source of stress. The\n\nsound of a neighbor's lawn mower may be unobjectionable on a summer afternoon, but\n\nif someone is hoping to sleep late on a Saturday morning, the sound of a lawn mower\n\nstarting up just after sunrise is an irritant.",
+        "questions": [
+          {
+            "n": 21,
+            "q": "The word 'routinely' in paragraph 1 is closest in meaning to",
+            "opts": [
+              "regularly",
+              "accidentally",
+              "recenfly",
+              "unfortunately"
+            ],
+            "a": 0,
+            "ex": "Từ vựng trong ngữ cảnh (Noise Pollution & The Acoustic Commons): Đáp án đúng là <b>A. regularly</b> (tương đương nghĩa với từ/cụm từ được hỏi trong đoạn văn)."
+          },
+          {
+            "n": 22,
+            "q": "The phrase 'this list' in paragraph 3 refers to a list of",
+            "opts": [
+              "types of noise pollution",
+              "factors that explain why noise pollution is getting worse",
+              "activities that are associated with life in the city",
+              "methods of transportation"
+            ],
+            "a": 1,
+            "ex": "Câu hỏi quy chiếu đại từ: Dựa vào mệnh đề liền trước trong bài đọc, đại từ được hỏi quy chiếu trực tiếp tới <b>B. factors that explain why noise pollution is getting worse</b>."
+          },
+          {
+            "n": 23,
+            "q": "In paragraph 4, the author implies that secondhand noise pollution",
+            "opts": [
+              "is not as damaging physically as noise that one generates oneself",
+              "damages a person's health as much as secondhand smoke",
+              "makes people both the cause and the victim of noise pollution",
+              "is usually more annoying because it is out of one's control"
+            ],
+            "a": 3,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Noise Pollution & The Acoustic Commons), phương án chính xác là <b>D. is usually more annoying because it is out of one's control</b>."
+          },
+          {
+            "n": 24,
+            "q": "In paragraph 5, the author explains the concept of interfering with others' use and",
+            "opts": [
+              "enjoyment of a commons by",
+              "comparing it to another common negative experience",
+              "pointing out ways in which people, businesses, and organizations sometimes interfere with the rights of others",
+              "explaining that sometimes this interference is intentional and sometimes unintentional"
+            ],
+            "a": 0,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Noise Pollution & The Acoustic Commons), phương án chính xác là <b>A. enjoyment of a commons by</b>."
+          },
+          {
+            "n": 25,
+            "q": "D. giving examples of various forms of commons and of ways people interfere with them In which space (marked A, B, C and D in the passage) will the following sentence fit? On the contrary, they have an obligation to use the commons in ways that are compatible",
+            "opts": [
+              "[A]",
+              "[B]",
+              "[C]",
+              "[D]"
+            ],
+            "a": 2,
+            "ex": "Câu hỏi chèn câu vào đoạn: Vị trí <b>C</b> tạo sự liên kết mạch lạc nhất về mặt ý nghĩa và đại từ chuyển tiếp với câu trước và câu sau."
+          },
+          {
+            "n": 26,
+            "q": "The word 'transient in paragraph 6 is closest in meaning to",
+            "opts": [
+              "irritating",
+              "persistent",
+              "temporary",
+              "immeasurable"
+            ],
+            "a": 2,
+            "ex": "Từ vựng trong ngữ cảnh (Noise Pollution & The Acoustic Commons): Đáp án đúng là <b>C. temporary</b> (tương đương nghĩa với từ/cụm từ được hỏi trong đoạn văn)."
+          },
+          {
+            "n": 27,
+            "q": "What best paraphrases the following sentence? Though we can measure individual sounds that may actually damage human hearing, it is difficult to monitor cumulative exposure to noise or to determine just how much noise is too much.",
+            "opts": [
+              "It's hard to monitor cumulative exposure to sound because it is difficult to measure individual sounds.",
+              "The louder the sound, the more difficult it is to measure.",
+              "Individual sounds can be measured, but not the effects of long-term exposure to noise, and it's hard to say what level of sound is safe.",
+              "Individual sounds are not usually very damaging to human hearing, but multiple"
+            ],
+            "a": 2,
+            "ex": "Câu hỏi diễn đạt lại câu (Paraphrase): Phương án <b>C. Individual sounds can be measured, but not the effects of long-term exposure to noise, and it's hard to say what level of sound is safe.</b> giữ nguyên đầy đủ ý nghĩa cốt lõi và quan hệ nhân quả của câu gốc."
+          },
+          {
+            "n": 28,
+            "q": "sounds that occur at the same time can be very harmful. The word 'thrilling' in paragraph 6 is closest in meaning to",
+            "opts": [
+              "unusual",
+              "exciting",
+              "irritating",
+              "unexpected"
+            ],
+            "a": 1,
+            "ex": "Từ vựng trong ngữ cảnh (Noise Pollution & The Acoustic Commons): Đáp án đúng là <b>B. exciting</b> (tương đương nghĩa với từ/cụm từ được hỏi trong đoạn văn)."
+          },
+          {
+            "n": 29,
+            "q": "Which of the following is NOT one of the components of the negative effects that",
+            "opts": [
+              "noise pollution has on people?",
+              "The volume of the sound",
+              "The time when the sound is heard",
+              "The source of the sound"
+            ],
+            "a": 3,
+            "ex": "Câu hỏi loại trừ (NOT/EXCEPT): Ba phương án còn lại đều được nêu rõ trong bài; phương án <b>D. The source of the sound</b> không đúng hoặc không được đề cập."
+          },
+          {
+            "n": 30,
+            "q": "D. The combination of one sound and another",
+            "opts": [
+              "In paragraph 7, the author mentions a 21-gun salute as an example of",
+              "a particularly irritating form of noise pollution",
+              "a type of noise pollution that can cause physical damage and fright",
+              "a loud noise that most people tolerate on special occasions"
+            ],
+            "a": 2,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Noise Pollution & The Acoustic Commons), phương án chính xác là <b>C. a type of noise pollution that can cause physical damage and fright</b>."
+          }
+        ]
+      },
+      {
+        "title": "PASSAGE 4 - Did Birds Evolve from Dinosaurs?",
+        "body": "In the mid-1800s, scientists discovered the complete skeleton of a dinosaur called\n\nArchaeoptery lithographica. The creature was thought to have lived approximately 150\n\nmillion years ago and, curiously, had features that resembled not only dinosaurs, but\n\nmodern birds as well. For instance, while it had sharp teeth and a bony tail like the\n\ndinosaurs of its time, it also had wings and feathers like modern birds. Despite these\n\nsimilarities to birds, the general consensus within the scientific community was that the\n\nclosest living relatives of dinosaurs were reptiles, like lizards and alligators. It wasn't\n\nuntil 1969, when paleontologists discovered the fossils of a dinosaur called Deinonychus\n\nantirrhopus, that the debate about whether or not birds evolved from dinosaurs was\n\nreopened. The main problem with the theory linking dinosaurs to modern birds - which was also\n\nthe main support for arguments that reptiles were, in fact, the closest living ancestors of dinosaurs - was the belief that dinosaurs did not have furculae, or wishbones. The main function of this fork-shaped bone, which is located at the base of the neck on birds, is to reinforce the skeleton against the many stresses of flight. However, fossil evidence found in recent years has revealed that many dinosaurs did indeed have furculae. For example, the dinosaurs in the Dromeosauridae family, a group of bird-like dinosaurs, are all believed to have had furculae. This discovery contradicts the theory that the bones are unique to birds.\n\n[A] In addition to the observation of furculae in dinosaur fossils, paleontologists have identified a number of other structural similarities between birds and dinosaurs. [B] For example, comparisons between the skeletons of birds and those of dinosaurs like Velociraptor mongoliensis and Deinonychus reveal that birds and dinosaurs share many unique skeletal features. [C] For instance, Velociraptor fossils show that the creature's front limbs, the construction of which would have presumably allowed for great flexibility are similar to those of modern birds. [D] On the other hand, no such likenesses exist between dinosaurs and early reptiles.\n\nAnother compelling piece of evidence that paleontologists now generally agree that birds evolved from dinosaurs is the presence of feathers in both organisms. Fossils of Archaeopteryx feature imprints of feathers that closely resemble those found on modern birds. Since the discovery of Archaeopteryx, paleontologists have discovered fossils demonstrating that a number of other dinosaurs that were likely related to Archaeopteryx also had feathers. Furthermore, even the fossils of dinosaurs that were not related to Archaeopteryx, such as Tyrannosaurus rex, have been found to have long, feather-like structures that are commonly referred to as protofeathers which help to insulate dinosaurs from cold temperatures, not to assist with flight, which accounts for why many flightless dinosaurs may have had them.\n\nPaleontologists have also found evidence that the lungs of dinosaurs were shaped similarly to birds' lungs. Birds have extra air sacs in front of and behind their lungs that allow them to keep their lungs inflated constanfly and some dinosaurs also had lungs with extra chambers. However, most animals, including primates, lizards, and frogs, have lungs with two compartments. The similarities in skeletal structures, the existence of feathers and extra lung chambers in both groups reveal that birds probably evolved from dinosaurs and are thus their closest living relatives.",
+        "questions": [
+          {
+            "n": 31,
+            "q": "Why does the author mention wings and feathers?",
+            "opts": [
+              "to point out features shared by Archaeopteryx and modern birds.",
+              "to explain the small size of Archaeoptery fossils.",
+              "to argue that Archaeopteryx was most likely a bird and not a dinosaur.",
+              "to describe what Archaeoptery probably looked like."
+            ],
+            "a": 0,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Did Birds Evolve from Dinosaurs?), phương án chính xác là <b>A. to point out features shared by Archaeopteryx and modern birds.</b>."
+          },
+          {
+            "n": 32,
+            "q": "The word 'consensus' in paragraph 1 is closest in meaning to",
+            "opts": [
+              "question",
+              "debate",
+              "evidence",
+              "agreement"
+            ],
+            "a": 3,
+            "ex": "Từ vựng trong ngữ cảnh (Did Birds Evolve from Dinosaurs?): Đáp án đúng là <b>D. agreement</b> (tương đương nghĩa với từ/cụm từ được hỏi trong đoạn văn)."
+          },
+          {
+            "n": 33,
+            "q": "What best paraphrases the following sentence in paragraph 2? The main problem with the theory linking dinosaurs to modern birds - which was also the main support for arguments that reptiles were, in fact, the closest living ancestors of dinosaurs - was the belief that dinosaurs did not have furculae, or wishbones.",
+            "opts": [
+              "The idea that dinosaurs did not have wishbones was the chief difficulty in proving that modern birds were related to dinosaurs.",
+              "Many people believed that reptiles were the closest living ancestors of dinosaurs because, like dinosaurs, they do not have furculae.",
+              "The main reason that scientists couldn't link modern birds and dinosaurs was because they could not find furculae in most modern bird species.",
+              "Dinosaurs' presumed lack of wishbones made people think that birds, not reptiles,"
+            ],
+            "a": 0,
+            "ex": "Câu hỏi diễn đạt lại câu (Paraphrase): Phương án <b>A. The idea that dinosaurs did not have wishbones was the chief difficulty in proving that modern birds were related to dinosaurs.</b> giữ nguyên đầy đủ ý nghĩa cốt lõi và quan hệ nhân quả của câu gốc."
+          },
+          {
+            "n": 34,
+            "q": "were their closest living ancestors. Why was the discovery of dinosaur fossils with furculae important?",
+            "opts": [
+              "it indicated that several bird species had already evolved during the time of dinosaurs.",
+              "it proved that many reptilian animals, including dinosaurs, had furculae.",
+              "it made people uncertain about the theory that reptiles were the closest living",
+              "relatives of dinosaurs."
+            ],
+            "a": 2,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Did Birds Evolve from Dinosaurs?), phương án chính xác là <b>C. it made people uncertain about the theory that reptiles were the closest living</b>."
+          },
+          {
+            "n": 35,
+            "q": "D. it helped scientists determine the purpose of furculae in non-bird species. What can be inferred about dinosaurs in the Dromaeosawidae family?",
+            "opts": [
+              "They were closely related to Archaeopteryx.",
+              "They were able to fly.",
+              "They were the only dinosaurs that had furculae.",
+              "They were small compared to other dinosaurs."
+            ],
+            "a": 1,
+            "ex": "Câu hỏi ý chính / mục đích đoạn văn: Phương án <b>B. They were able to fly.</b> bao quát chính xác nhất nội dung trọng tâm của bài đọc."
+          },
+          {
+            "n": 36,
+            "q": "The word 'those' in paragraph 3 refers to",
+            "opts": [
+              "Velociraptor fossils.",
+              "front limbs.",
+              "likenesses.",
+              "early reptiles."
+            ],
+            "a": 1,
+            "ex": "Câu hỏi quy chiếu đại từ: Dựa vào mệnh đề liền trước trong bài đọc, đại từ được hỏi quy chiếu trực tiếp tới <b>B. front limbs.</b>."
+          },
+          {
+            "n": 37,
+            "q": "In which space (marked A, B, C and D in the passage) will the following sentence fit? Scientists have also observed structural similarities in the skulls and necks of some",
+            "opts": [
+              "[A]",
+              "[B]",
+              "[C]",
+              "[D]"
+            ],
+            "a": 3,
+            "ex": "Câu hỏi chèn câu vào đoạn: Vị trí <b>D</b> tạo sự liên kết mạch lạc nhất về mặt ý nghĩa và đại từ chuyển tiếp với câu trước và câu sau."
+          },
+          {
+            "n": 38,
+            "q": "The word 'compelling' in paragraph 4 is closest in meaning to",
+            "opts": [
+              "persuasive",
+              "conflicting",
+              "recent",
+              "sufficient"
+            ],
+            "a": 0,
+            "ex": "Từ vựng trong ngữ cảnh (Did Birds Evolve from Dinosaurs?): Đáp án đúng là <b>A. persuasive</b> (tương đương nghĩa với từ/cụm từ được hỏi trong đoạn văn)."
+          },
+          {
+            "n": 39,
+            "q": "What is true about protofeathers?",
+            "opts": [
+              "They were likely the type of feathers that Archaeopteryx had.",
+              "Only bird-like dinosaurs had them.",
+              "They probably helped dinosaurs stay warm.",
+              "Some modern birds have been found to have them."
+            ],
+            "a": 2,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Did Birds Evolve from Dinosaurs?), phương án chính xác là <b>C. They probably helped dinosaurs stay warm.</b>."
+          },
+          {
+            "n": 40,
+            "q": "What do primates and lizards have in common?",
+            "opts": [
+              "They have a more elaborate lung structure than dinosaurs did.",
+              "They are able to keep their lungs full of air constanfly.",
+              "Their lungs have a similar structure.",
+              "They have other organs in addition to lungs to help them breathe."
+            ],
+            "a": 2,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Did Birds Evolve from Dinosaurs?), phương án chính xác là <b>C. Their lungs have a similar structure.</b>."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rset14",
+    "title": "Đề số 14: Sách NXB ĐHQGHN — Reading Test 08",
+    "source": "Sách 10 Bộ đề Đọc hiểu VSTEP B1-B2-C1 (NXB ĐHQG Hà Nội — Test 08: Private Companies Leading the New Space Age · The Science of Overcoming Procrastination · Noun Classification & Grammatical Gender · High-Purity Nickel, Super-Alloys & The Mond Process)",
+    "passages": [
+      {
+        "title": "PASSAGE 1 - Private Companies Leading the New Space Age",
+        "body": "Though we have sent unmanned spacecraft to Mars and other parts of our solar system for decades, humans haven't ventured more than 650 kilometers (400 miles) from Earth since 1973. However, there is increasing interest in sending new missions - both robotic and manned - into space. But unlike in the past, this renewed interest is not primarily being driven by government agencies. Instead, private companies are leading today's new age of space exploration.\n\nTake, for example, SpaceX, a private company based near Los Angeles. In early 2012, it sent an unmanned rocket to the International Space Station (ISS). Until now, astronauts and supplies from the U.S have been transported by space shuttle to the ISS. SpaceX and other companies are competing to replace the U.S. government shuttle and become the ISS's supply ship.\n\nAnother company called Planetary Resources - which is backed by billionaires from Google - plans to use robotic spacecraft to mine asteroids for precious metals. One that\n\nthe company hopes to find is platinum, a metal so rare on Earth that an ounce (about\n\n28 grams) costs $1,600. Robots will have to travel millions of kilometers to locate and\n\nmine asteroids, and this requires technology that doesn't exist yet. This isn't stopping\n\ncompanies like Planetary Resources and others from trying, though. They are investing\n\nmillions into research, hoping to create tools that will make space mining possible. This\n\nis the beginning of the new space age,\" says Mason Peck, who works for NASA, the\n\nU.S. space organization. The energy we see now - the economic motivation to go into\n\nspace - we haven't seen that before.\" For centuries, economics has driven exploration. A thousand years ago, merchants\n\nrisked the dangers of the Silk Road to reach the markets of China. In the 15th century,\n\nEuropean ships traveled to new worlds, searching less for knowledge than for gold and\n\nspices. \"Historically, the driver has always been the search for resources.\" explains\n\ninvestor Peter Diamandis. If you want people to explore space, he says, create an\n\neconomic incentive. Entrepreneur Elon Musk, the founder of SpaceX and other companies, is spending\n\na large part of his fortune on his own space program. Spacex, as mentioned earlier,\n\nis developing a new rocket that can transport supplies to the ISS. It will be capable of\n\ncarrying twice the cargo of the U.S. government's space shuttle, Musk says, for about\n\none-fifth the price. He wants to reduce costs by creating reusable rockets - in the same\n\nway that we reuse a plane after a flight. Creating reusable rockets will be extremely\n\ndifficult, and most people think it's impossible, but I do not.\" Musk says. \"If we threw\n\naway airplanes after every flight, no one would flyi For Musk, creating reusable rockets is part of a much bigger plan: He wants to\n\nestablish a human colony on Mars. NASA has had enormous success on Mars with\n\nunmanned spacecraft, but it has yet to launch a manned mission. Musk says Spacex\n\ncould put astronauts on Mars within 20 years, and then keep sending them for decades\n\nafter that. \"We can't send one little group to Mars.\" he says. \"We have to take millions\n\nof people and lots of equipment to Mars to make it a self-sustaining civilization. It will\n\nbe the hardest thing that humanity has ever done, but Musk thinks his company can do\n\nit and he's eager to see it happen. \"It's about making life multi-planetary,\" he says. \"I's\n\nabout getting out there and exploring the stars.\"",
+        "questions": [
+          {
+            "n": 1,
+            "q": "Which statement about space exploration is NOT true?",
+            "opts": [
+              "In 2012, a private company sent an unmanned rocket to the ISS.",
+              "Humans have recenfly traveled more than 650 kilometers from Earth.",
+              "There is newfound interest in manned and unmanned missions to space.",
+              "More and more private companies are beginning to explore space."
+            ],
+            "a": 1,
+            "ex": "Câu hỏi loại trừ (NOT/EXCEPT): Ba phương án còn lại đều được nêu rõ trong bài; phương án <b>B. Humans have recenfly traveled more than 650 kilometers from Earth.</b> không đúng hoặc không được đề cập."
+          },
+          {
+            "n": 2,
+            "q": "What is mentioned about Planetary Resources company?",
+            "opts": [
+              "It is a government agency.",
+              "It has sent manned missions into space.",
+              "It has sent robotic missions into space to search for rare metals.",
+              "It is supported by some people working for Google."
+            ],
+            "a": 3,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Private Companies Leading the New Space Age), phương án chính xác là <b>D. It is supported by some people working for Google.</b>."
+          },
+          {
+            "n": 3,
+            "q": "What does 'one' in paragraph 3 refer to?",
+            "opts": [
+              "one asteroid",
+              "one metal",
+              "one spacecraft",
+              "one reason"
+            ],
+            "a": 1,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Private Companies Leading the New Space Age), phương án chính xác là <b>B. one metal</b>."
+          },
+          {
+            "n": 4,
+            "q": "What could the word 'energy' in paragraph 3 be replaced with?",
+            "opts": [
+              "fuel",
+              "investments",
+              "enthusiasm",
+              "capacity"
+            ],
+            "a": 2,
+            "ex": "Từ vựng trong ngữ cảnh (Private Companies Leading the New Space Age): Đáp án đúng là <b>C. enthusiasm</b> (tương đương nghĩa với từ/cụm từ được hỏi trong đoạn văn)."
+          },
+          {
+            "n": 5,
+            "q": "What is true about space mining?",
+            "opts": [
+              "Spacecraft transport people to mine precious metals.",
+              "Robots locate and mine asteroids millions of kilometers faraway.",
+              "Space mining is not available at present.",
+              "The government has invested a lot of money into space mining."
+            ],
+            "a": 2,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Private Companies Leading the New Space Age), phương án chính xác là <b>C. Space mining is not available at present.</b>."
+          },
+          {
+            "n": 6,
+            "q": "What is the main idea of paragraph 4?",
+            "opts": [
+              "Making money has always encouraged exploration, and space exploration is not different.",
+              "It will take many more resources to convince people to travel to space.",
+              "The development of space travel has been slow due to economic reasons.",
+              "The search for knowledge is what should drive space exploration rather than"
+            ],
+            "a": 0,
+            "ex": "Câu hỏi ý chính / mục đích đoạn văn: Phương án <b>A. Making money has always encouraged exploration, and space exploration is not different.</b> bao quát chính xác nhất nội dung trọng tâm của bài đọc."
+          },
+          {
+            "n": 7,
+            "q": "economics.",
+            "opts": [
+              "What does SpaceX want to do?",
+              "build a space station that can replace the ISS",
+              "get the government's approval to transport astronauts to the ISS",
+              "partner with Planetary Resources to mine asteroids for platinum"
+            ],
+            "a": 3,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Private Companies Leading the New Space Age), phương án chính xác là <b>D. partner with Planetary Resources to mine asteroids for platinum</b>."
+          },
+          {
+            "n": 8,
+            "q": "D. develop a reusable rocket that can take supplies to the ISS What is said about the new rocket of SpaceX?",
+            "opts": [
+              "It can carry the same number of people as planes.",
+              "It can carry the same number of supplies as the government's shuttle.",
+              "Its transportation cost is 20 percent of the government's shuttle.",
+              "It will be used for space mining."
+            ],
+            "a": 2,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Private Companies Leading the New Space Age), phương án chính xác là <b>C. Its transportation cost is 20 percent of the government's shuttle.</b>."
+          },
+          {
+            "n": 9,
+            "q": "What does 'it' in paragraph 6 refer to?",
+            "opts": [
+              "putting a few astronauts on Mars",
+              "sending several unmanned spacecraft to Mars",
+              "making a self-sustaining civilization on Mars",
+              "transporting supplies to the ISS"
+            ],
+            "a": 2,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Private Companies Leading the New Space Age), phương án chính xác là <b>C. making a self-sustaining civilization on Mars</b>."
+          },
+          {
+            "n": 10,
+            "q": "The word 'civilization' in paragraph 6 is closest in meaning to",
+            "opts": [
+              "society",
+              "group",
+              "government",
+              "life"
+            ],
+            "a": 0,
+            "ex": "Từ vựng trong ngữ cảnh (Private Companies Leading the New Space Age): Đáp án đúng là <b>A. society</b> (tương đương nghĩa với từ/cụm từ được hỏi trong đoạn văn)."
+          }
+        ]
+      },
+      {
+        "title": "PASSAGE 2 - The Science of Overcoming Procrastination",
+        "body": "Why do we spend so much of our time not doing the work we should be doing, or putting off minor tasks that have since piled up to create one enormous, insurmountable obstacle? Procrastinating, as putting things off like this is called, is in our genetic make- up; we avoid dull or difficult jobs, opting to browse the internet instead, until it's too late to do anything else.\n\n'We often put things off despite knowing that it will make life harder and more stressful,' says Dr Piers Steel, the author of a book on procrastination and an authority on the science of motivation. 'If these tasks were fun, we'd just do them now, but we put off what is difficult or unpleasant.' Such as the paperwork that needs doing before leaving the office or cleaning the bits of your home that people can't see.\n\nHowever, getting on and doing things bring people many benefits. The fact is, the less people procrastinate, the better relationships they have, and the healthier they are. This is obvious when you look at the couples who don't argue about whether anyone has cleaned the kitchen yet, then they can have more time to do physical exercise together, thus helping them keep fit and becoming closer. Some others, on the other hand, have endlessly rescheduling in their own heads and feel the chores piling up around them daily.\n\n'We've evolved to respond to the moment, and not to set our sights too far in an uncertain world,' Dr Steel adds. 'We are not set up to appreciate long-term rewards, whether it's the benefit of a four-year degree, doing exercise or dieting. You feel the cost now and the reward comes much later. But humans value the short term.' Procrastination is often associated with unhappiness, so now is the time to unlearn your time-wasting techniques and work-avoidance tactics. 'You have two decision-making systems in your brain,' Dr Steel says, 'the limbic, which is responsible for the short term, and the prefrontal cortex, which deals with the future - it's responsible for civilisation. We bounce between long-term goals and short-term temptations, so we need goals that will translate our plans for the limbic system.'\n\nFor example, take students writing dissertations; they set themselves targets and word counts per day. These are thus turned from seemingly endless tasks into something concrete with easily measured progress. Dr Steel recommends such techniques, or 'pre-commitments', adding that engaging yourself and others a month or so before the 'deadline' makes it more likely a task will be completed.\n\nOvercoming procrastination ultimately comes down to planning, which, if you're not careful, becomes procrastination in itself. But it's worth making sure you have everything in place to change your strategies for the better - a separate computer log-on screen for\n\nwork and for play, the former with a plain background, fewer applications and limited\n\ninternet access. If you wish to check your personal emails, make sure they're a log-out,\n\nrather than a click, away and remember every time you disengage, that it takes 15\n\nminutes fully to re-immerse yourself in the task at hand.",
+        "questions": [
+          {
+            "n": 11,
+            "q": "What is true about procrastinating?",
+            "opts": [
+              "It is something people use as an excuse.",
+              "It is something many people can't help.",
+              "It is caused by the technology in people's lives.",
+              "It is more common when people have small jobs to do."
+            ],
+            "a": 1,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (The Science of Overcoming Procrastination), phương án chính xác là <b>B. It is something many people can't help.</b>."
+          },
+          {
+            "n": 12,
+            "q": "Why does the author mention the paperwork in paragraph 2?",
+            "opts": [
+              "to give an example of something people often put off",
+              "to show a task people feel pleasant to do.",
+              "to compare it with housework",
+              "to talk about a subject of the book by Dr Piers Steel."
+            ],
+            "a": 0,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (The Science of Overcoming Procrastination), phương án chính xác là <b>A. to give an example of something people often put off</b>."
+          },
+          {
+            "n": 13,
+            "q": "What best paraphrases the following sentence in paragraph 3? The fact is, the less people procrastinate, the better relationships they have, and the",
+            "opts": [
+              "healthier they are.",
+              "People can improve their relationships and health when they do not procrastinate.",
+              "The more people procrastinate; the more relationships they can have.",
+              "Relationships can be badly affected when people put things off."
+            ],
+            "a": 0,
+            "ex": "Câu hỏi diễn đạt lại câu (Paraphrase): Phương án <b>A. healthier they are.</b> giữ nguyên đầy đủ ý nghĩa cốt lõi và quan hệ nhân quả của câu gốc."
+          },
+          {
+            "n": 14,
+            "q": "D. The less people procrastinate, the more relationships they have and the stronger they become.",
+            "opts": [
+              "According to paragraph 4, what should people who procrastinate do?",
+              "find out more about the way they make decisions.",
+              "be aware that their problem is relatively small.",
+              "attempt to overcome their natural tendencies."
+            ],
+            "a": 2,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (The Science of Overcoming Procrastination), phương án chính xác là <b>C. be aware that their problem is relatively small.</b>."
+          },
+          {
+            "n": 15,
+            "q": "D. take the advice of others in the same situation.",
+            "opts": [
+              "The word 'temptations' in paragraph 4 is closest in meaning to",
+              "targets",
+              "goals",
+              "wishes"
+            ],
+            "a": 2,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (The Science of Overcoming Procrastination), phương án chính xác là <b>C. goals</b>."
+          },
+          {
+            "n": 16,
+            "q": "D. values What does the word 'these' in paragraph 5 refers to?",
+            "opts": [
+              "students",
+              "dissertations",
+              "targets",
+              "word counts"
+            ],
+            "a": 1,
+            "ex": "Câu hỏi quy chiếu đại từ: Dựa vào mệnh đề liền trước trong bài đọc, đại từ được hỏi quy chiếu trực tiếp tới <b>B. dissertations</b>."
+          },
+          {
+            "n": 17,
+            "q": "Why does Dr Steel recommend making 'pre-commitments'?",
+            "opts": [
+              "They are an alternative to impossible goals.",
+              "They are an effective way of impressing others.",
+              "They allow people to achieve their aims sooner.",
+              "They make challenges feel more manageable."
+            ],
+            "a": 3,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (The Science of Overcoming Procrastination), phương án chính xác là <b>D. They make challenges feel more manageable.</b>."
+          },
+          {
+            "n": 18,
+            "q": "What does the author do in paragraph 6?",
+            "opts": [
+              "reminds the reader to take the time to focus properly on a task",
+              "warns the reader against spending too long planning.",
+              "advises the reader to deal with non-work tasks quickly",
+              "encourages the reader to use breaks effectively"
+            ],
+            "a": 1,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (The Science of Overcoming Procrastination), phương án chính xác là <b>B. warns the reader against spending too long planning.</b>."
+          },
+          {
+            "n": 19,
+            "q": "Which of the following idea will the author probably agree with?",
+            "opts": [
+              "Family members or friends can help avoid procrastination.",
+              "People should do minor tasks before challenging ones.",
+              "People should stay focused on important tasks only.",
+              "People should get on with things however difficult they are."
+            ],
+            "a": 3,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (The Science of Overcoming Procrastination), phương án chính xác là <b>D. People should get on with things however difficult they are.</b>."
+          },
+          {
+            "n": 20,
+            "q": "What is the passage mainly about?",
+            "opts": [
+              "causes of procrastination",
+              "benefits of not putting things off",
+              "effects of procrastination",
+              "causes, effects and solutions of procrastination"
+            ],
+            "a": 3,
+            "ex": "Câu hỏi ý chính / mục đích đoạn văn: Phương án <b>D. causes, effects and solutions of procrastination</b> bao quát chính xác nhất nội dung trọng tâm của bài đọc."
+          }
+        ]
+      },
+      {
+        "title": "PASSAGE 3 - Noun Classification & Grammatical Gender",
+        "body": "A few languages have only one class of nouns and treat all nouns the same way, but\n\nmost languages have different classes of nouns. One common way to classify nouns is\n\nby gender. In Indo-European languages, genders typically include feminine, masculine,\n\nand neuter. Latin has all three of these, but in many of its modern descendants, such as\n\nSpanish and French, the neuter gender has all but disappeared. However, a few words\n\nin French, especially pronouns with no clear gender, such as cela (this), are considered\n\nneuter by some grammarians. English is one language that uses natural gender (also called logical gender). Gender\n\ndepends on biology. Mother is feminine, father is masculine, and chair is neuter. There\n\nare, however, a few oddities. Ships are sometimes referred to as she, and so are nations.\n\nAnimals can be neuter or follow natural gender. Other languages use grammatical gender. Languages that have only two genders,\n\nsuch as Arabic, Spanish, French, and Urdu, all use grammatical gender. So do some\n\nlanguages, such as German, Russian, and Greek, which have masculine, feminine, and\n\nneuter nouns. Sometimes grammatical gender is logical, especially for nouns that refer to\n\npeople. In Spanish, for example, hijo (son) is masculine and hija (daughter) is feminine.\n\nHowever, while the assignment of gender to certain nouns seems obvious to a native\n\nspeaker of these languages, it seems arbitrary and confusing to non-native speakers. Why\n\nis chaise (chair) feminine in French but banc (bench) masculine? Why, in German, is Fels\n\n(rock) masculine, Fenster (window) neuter, and Tur (door) feminine? And noun gender\n\nvaries by culture. In French, soleil (sun) is masculine, while lune (moon) is feminine. The\n\nreverse is true in German: Sonne (sun) is feminine, but Mond (moon) is masculine.\n\nIn some languages, such as modern Greek, it is impossible to predict the gender of\n\na noun by the form of the noun. Gender must simply be memorized. In other languages, it is possible, or at least it is sometimes possible. In Latin, most singular nouns that end in a are feminine, most singular nouns that end in us are masculine, and most nouns that end in um are neuter. There are, however, exceptions, such as agricola (farmer), which is masculine, and ulmus (elm tree), which is feminine. For some languages, there are complicated and often incomplete rules that relate form to gender. This is true in German. It may be useful to learn the rule that nouns that end in leln and chert (meaning young or small are all neuter. The noun Mädchen (little girl) is, rather unexpectedly, neuter. However, is it worth learning that, of the 107 single-syllable nouns ending in a nasal sound plus another consonant, 70% are masculine? A student may end up learning more rules than nouns.\n\nBesides gender, there are many other classes of nouns. According to the linguist Carl Meinhof, the Bantu language family has a total of 22 noun classes. Tamil - spoken in Sri Lanka - divides nouns into rational versus non-rational. In Ojibwa (a Native American language), there is a distinction between animate and inanimate nouns. The names of all living things, as well as sacred things and things connected to the earth, belong to the animate class. Still, the assignment is somewhat arbitrary, as the word for raspberry is animate but the word for strawberry is inanimate.",
+        "questions": [
+          {
+            "n": 21,
+            "q": "What is the passage mainly about?",
+            "opts": [
+              "grammatical gender of nouns",
+              "noun classification",
+              "animate and inanimate nouns",
+              "rational and non-rational nouns."
+            ],
+            "a": 1,
+            "ex": "Câu hỏi ý chính / mục đích đoạn văn: Phương án <b>B. noun classification</b> bao quát chính xác nhất nội dung trọng tâm của bài đọc."
+          },
+          {
+            "n": 22,
+            "q": "What is true about Spanish language?",
+            "opts": [
+              "it has only one class of nouns.",
+              "the neuter gender exists.",
+              "It originates from the Latin language.",
+              "gender depends on biology."
+            ],
+            "a": 2,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Noun Classification & Grammatical Gender), phương án chính xác là <b>C. It originates from the Latin language.</b>."
+          },
+          {
+            "n": 23,
+            "q": "According to the grammarians, the French word cela",
+            "opts": [
+              "can be either feminine or masculine",
+              "is not really a pronoun",
+              "is neither masculine nor feminine",
+              "should not be considered neuter"
+            ],
+            "a": 2,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Noun Classification & Grammatical Gender), phương án chính xác là <b>C. is neither masculine nor feminine</b>."
+          },
+          {
+            "n": 24,
+            "q": "What is true about the oddities in paragraph 2?",
+            "opts": [
+              "they are exceptions to the general gender rules in English",
+              "they prove that English follows grammatical gender",
+              "they always follow natural gender",
+              "they show that natural gender is always logical"
+            ],
+            "a": 0,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Noun Classification & Grammatical Gender), phương án chính xác là <b>A. they are exceptions to the general gender rules in English</b>."
+          },
+          {
+            "n": 25,
+            "q": "What language does NOT use grammatical gender?",
+            "opts": [
+              "French",
+              "Spanish",
+              "English",
+              "Russian"
+            ],
+            "a": 2,
+            "ex": "Câu hỏi loại trừ (NOT/EXCEPT): Ba phương án còn lại đều được nêu rõ trong bài; phương án <b>C. English</b> không đúng hoặc không được đề cập."
+          },
+          {
+            "n": 26,
+            "q": "What best expresses the author's opinion of rules about the gender of nouns in",
+            "opts": [
+              "German?",
+              "They are more important for native speakers of German than for non-native learners.",
+              "It is more important for students to learn these rules than to memorize nouns.",
+              "The only rule that students must know is the one about nouns that end in lein and chen."
+            ],
+            "a": 3,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Noun Classification & Grammatical Gender), phương án chính xác là <b>D. The only rule that students must know is the one about nouns that end in lein and chen.</b>."
+          },
+          {
+            "n": 27,
+            "q": "Some of them are confusing and are probably not very useful.",
+            "opts": [
+              "What is the main idea of paragraph 5%",
+              "noun classes other than gender",
+              "the work of linguist Carl Meinhof",
+              "noun classes in the Bantu language family"
+            ],
+            "a": 0,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Noun Classification & Grammatical Gender), phương án chính xác là <b>A. What is the main idea of paragraph 5%</b>."
+          },
+          {
+            "n": 28,
+            "q": "D. gender in non-Western languages The word 'arbitrary' in paragraph 5 is closest in meaning to",
+            "opts": [
+              "logical",
+              "inconsistent",
+              "sensible",
+              "rational"
+            ],
+            "a": 1,
+            "ex": "Từ vựng trong ngữ cảnh (Noun Classification & Grammatical Gender): Đáp án đúng là <b>B. inconsistent</b> (tương đương nghĩa với từ/cụm từ được hỏi trong đoạn văn)."
+          },
+          {
+            "n": 29,
+            "q": "The author gives Tamil as an example of a language that",
+            "opts": [
+              "distinguishes between animate and inanimate",
+              "has 22 noun classes",
+              "distinguishes between thinking and non-thinking",
+              "has a class for all nouns that don't fit into other classes"
+            ],
+            "a": 2,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Noun Classification & Grammatical Gender), phương án chính xác là <b>C. distinguishes between thinking and non-thinking</b>."
+          },
+          {
+            "n": 30,
+            "q": "How does the author show that noun class assignment in Ojibwa is somewhat",
+            "opts": [
+              "arbitrary?",
+              "By pointing out that sacred things are considered animate",
+              "By explaining that two types of fruit belong to the same class",
+              "By showing that two very similar items belong to different classes"
+            ],
+            "a": 2,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Noun Classification & Grammatical Gender), phương án chính xác là <b>C. By explaining that two types of fruit belong to the same class</b>."
+          }
+        ]
+      },
+      {
+        "title": "PASSAGE 4 - High-Purity Nickel, Super-Alloys & The Mond Process",
+        "body": "Nickel (Ni), a precious metal with unique resistance to high temperatures, corrosion, and other extreme conditions, is occasionally used alone but is more often combined with another metal or metals to form an alloy used for different industrial applications. Different combinations of nickel and other metals can be combined to form alloys with specific characteristics.\n\nOne common nickel-based alloy is stainless steel, which generally contains 10 percent nickel and 90 percent iron. Alloys containing lower percentages of nickel resist stress and extreme temperatures more poorly compared to alloys with higher percentages of nickel. Alloys with higher percentages of nickel are called super-alloys, and may have nickel percentages as high as 70 percent, along with other substances that give them very specific performance features. Substances commonly combined with nickel to make super-alloys are chromium, iron, and cobalt. Super-alloys are used for chemical processing, the aerospace industry, various medical applications, and power plants.\n\nIt is vital that nickel mined for use in super-alloys is as pure as possible, because the parts manufactured from super-alloys are generally responsible for the proper functioning of the larger unit, or \"safety-critical.\" For this reason, mined nickel is refined specifically\n\nuntil it reaches the proper level of purity to be combined in a super-alloy for safety-critical\n\nparts. This extremely pure nickel is called high-purity nickel, and is extremely valuable\n\nbecause only a small portion of the nickel mined worldwide is ever refined to the required\n\nstate of purity to be labeled high-purity nickel. Nickel is extracted from ore by roasting at high temperatures. [A] This achieves\n\nup to a 75 percent purity level, which is enough for the many alloys creating stainless\n\nsteel. [B] For more resistant alloys, however, the nickel must be refined further. [C] The\n\nmost common nickel-refining process is a three-step procedure of flotation, smelting,\n\nand something called the Sherritt-Gordon process, in which the nickel is treated with\n\nhydrogen sulfide (which removes any copper) and then a solvent that separates the nickel\n\nfrom any cobalt. [D] This procedure can achieve 99 percent purity, which is enough for\n\nmost industrial applications, but is still not high-purity nickel.\n\nHigh-purity nickel is further refined using the Mond process achieving 99.99 percent\n\npurity to create high-purity nickel. Named after its creator, the Mond process has been in\n\nuse for over a century and involves several steps of refining. The first involves changing\n\nthe nickel to nickel carbonyl by combining the nickel with carbon monoxide at a very\n\nspecific temperature. Then the nickel carbonyl is put through a chamber filled with nickel\n\npellets and stirred until it decomposes and sticks to the pellets, or heated to a temperature\n\nof 230 degrees Celsius at which it turns into a fine, pure powder called carbonyl nickel,\n\nor high-purity nickel. Because the refining process to create high-purity nickel requires so many steps and\n\nsuch specific conditions, it is not performed in many locations. This means that high-\n\npurity nickel is quite expensive, and the producers of high-purity nickel have significant\n\ncontrol over the market price. This creates a unique industry situation, and the two main\n\nproducers of high-purity nickel have been investigated by authorities in several countries\n\nto determine if they have been colluding on price or exercising undue control over prices\n\nthrough the duopoly in the industry.",
+        "questions": [
+          {
+            "n": 31,
+            "q": "What is the passage mainly about?",
+            "opts": [
+              "Nickel-based common alloys",
+              "Nickel-based super alloys",
+              "Nickel extraction",
+              "Nickel mining"
+            ],
+            "a": 3,
+            "ex": "Câu hỏi ý chính / mục đích đoạn văn: Phương án <b>D. Nickel mining</b> bao quát chính xác nhất nội dung trọng tâm của bài đọc."
+          },
+          {
+            "n": 32,
+            "q": "What can be inferred from paragraph 2?",
+            "opts": [
+              "super-alloys resist stress and extreme temperatures better than regular alloys do",
+              "super-alloys contain iron just as stainless steel does",
+              "super-alloys contain cobalt instead of iron",
+              "stainless steel is a super-alloy with stress-resistant characteristics"
+            ],
+            "a": 0,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (High-Purity Nickel, Super-Alloys & The Mond Process), phương án chính xác là <b>A. super-alloys resist stress and extreme temperatures better than regular alloys do</b>."
+          },
+          {
+            "n": 33,
+            "q": "The word 'refined' in paragraph 3 is closest in meaning to",
+            "opts": [
+              "paid",
+              "mined",
+              "combined",
+              "purified"
+            ],
+            "a": 3,
+            "ex": "Từ vựng trong ngữ cảnh (High-Purity Nickel, Super-Alloys & The Mond Process): Đáp án đúng là <b>D. purified</b> (tương đương nghĩa với từ/cụm từ được hỏi trong đoạn văn)."
+          },
+          {
+            "n": 34,
+            "q": "How are super-alloys different from alloys?",
+            "opts": [
+              "they contain higher percentages of nickel",
+              "they contain higher percentages of stainless steel",
+              "they require longer mining times",
+              "they do not contain nickel"
+            ],
+            "a": 0,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (High-Purity Nickel, Super-Alloys & The Mond Process), phương án chính xác là <b>A. they contain higher percentages of nickel</b>."
+          },
+          {
+            "n": 35,
+            "q": "Part of the Sherritt-Gordon process involves",
+            "opts": [
+              "mining the nickel",
+              "removing copper from the nickel",
+              "creating a super-alloy",
+              "achieving 99.9 percent purity"
+            ],
+            "a": 1,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (High-Purity Nickel, Super-Alloys & The Mond Process), phương án chính xác là <b>B. removing copper from the nickel</b>."
+          },
+          {
+            "n": 36,
+            "q": "The phrase This procedure' in paragraph 4 refers to",
+            "opts": [
+              "the alloy process",
+              "the Sherritt-Gordon process",
+              "the Mond process",
+              "the carbonyl nickel process"
+            ],
+            "a": 1,
+            "ex": "Câu hỏi quy chiếu đại từ: Dựa vào mệnh đề liền trước trong bài đọc, đại từ được hỏi quy chiếu trực tiếp tới <b>B. the Sherritt-Gordon process</b>."
+          },
+          {
+            "n": 37,
+            "q": "What is true about the Mond process?",
+            "opts": [
+              "The Mond process and Sherritt-Gordon process are interchangeable.",
+              "The Mond process achieves lower purity than the Sherritt-Gordon process does.",
+              "The Mond process must be started immediately after mining the nickel to be",
+              "effective."
+            ],
+            "a": 3,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (High-Purity Nickel, Super-Alloys & The Mond Process), phương án chính xác là <b>D. effective.</b>."
+          },
+          {
+            "n": 38,
+            "q": "D. The Mond process achieves higher purity than the Sherritt-Gordon process does. In which space (marked A, B, C and D in the passage) will the following sentence fit? There are two processes used to refine nickel to a high-enough level of purity to be used",
+            "opts": [
+              "[A]",
+              "[B]",
+              "[C]",
+              "[D]"
+            ],
+            "a": 2,
+            "ex": "Câu hỏi chèn câu vào đoạn: Vị trí <b>C</b> tạo sự liên kết mạch lạc nhất về mặt ý nghĩa và đại từ chuyển tiếp với câu trước và câu sau."
+          },
+          {
+            "n": 39,
+            "q": "Which is NOT implied in the passage?",
+            "opts": [
+              "Nickel not refined and made into super-alloys is made into stainless steel.",
+              "Nickel must be refined before it can be combined into a super-alloy.",
+              "The Mond process produces high-purity nickel.",
+              "The Sherritt-Gordon process is not sufficient to refine nickel enough to make safety-"
+            ],
+            "a": 0,
+            "ex": "Câu hỏi loại trừ (NOT/EXCEPT): Ba phương án còn lại đều được nêu rõ trong bài; phương án <b>A. Nickel not refined and made into super-alloys is made into stainless steel.</b> không đúng hoặc không được đề cập."
+          },
+          {
+            "n": 40,
+            "q": "critical parts.",
+            "opts": [
+              "Why does the author mention the cost of refining high-purity nickel in paragraph 6?",
+              "to explain why safety-critical parts are so expensive to manufacture",
+              "to propose a solution to the revenue problems the producers of high-purity nickel face",
+              "to question why producers can't lower prices to the market"
+            ],
+            "a": 3,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (High-Purity Nickel, Super-Alloys & The Mond Process), phương án chính xác là <b>D. to question why producers can't lower prices to the market</b>."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rset15",
+    "title": "Đề số 15: Sách NXB ĐHQGHN — Reading Test 09",
+    "source": "Sách 10 Bộ đề Đọc hiểu VSTEP B1-B2-C1 (NXB ĐHQG Hà Nội — Test 09: Learning from Failure · Peru's Transoceanic Highway & The Amazon · King James I, William Cockayne & The English Cloth Trade · The Marine Stewardship Council (MSC) Certification)",
+    "passages": [
+      {
+        "title": "PASSAGE 1 - Learning from Failure: Everest to the Apple Newton",
+        "body": "Failure: We all avoid it, and most of us fear it. However, without failure, progress\n\nwould be impossible. Indeed, the word success comes from the Latin succedere, meaning\n\n\"to come after.\" And what does success usually come after? Failure. It seems that one\n\ncannot exist without the other. Learning from Failure Every failure - even the worst ones - helps us learn to do things differenfly in the\n\nfuture. \"I learned how not to climb the first four times I tried to summit Everest.\" says\n\nmountaineer Pete Athans, who has now reached the world's highest peak seven times.\n\nFailure gives you a chance to refine your approach. You're taking risks more and more\n\nintelligenfly. In Athans' case, his setbacks taught him that it was important to choose\n\na less challenging route for his first climb up Everest. Learning from past mistakes and\n\nmaking changes helped him to reach the top successfully. Failure also reminds us that things can go wrong - sometimes with disastrous results.\n\nAustrian Gerlinde Kaltenbrunner is the first woman to summit all 14 of the world's 8,000-meter peaks without extra oxygen. In 2007, while climbing in Nepal, she was in an avalanche. Luckily, she survived, but two nearby Spanish climbers died. The experience taught Kaltenbrunner that no matter how prepared a person is, bad things can still happen. The events of that day troubled her deeply, but in time, Kaltenbrunner decided she had to learn from the experience and move on. \"I realized that I couldn't make the tragedy unhappen.\" she says, \"and I couldn't stop climbing - this is my life.\"\n\nThe Value of Negative Results Accepting failure is not easy for many, though. We are often reluctant to admit failure because our professional reputations depend on success. However, things are slowly changing, notably in the fields of business and science. In the past decade, for instance, some scientific journals - mosfly in medicine and conservation have published reports of failed experiments. The belief is that the science community can also learn from \"negative\" results and that this can eventually lead to positive outcomes.\n\nIn many ways, the business world already understands the value of negative results. To encourage entrepreneurship, the Netherlands-based ABN AMRO bank started an Institute of Brilliant Failures to learn more about what works and what doesn't in banking. Similarly, Eli Lilly and Company, the pharmaceutical corporation, hasiR&D outcome celebrations - failure parties - to study data about drugs that don't work. (Almost 90 percent of all drug trials fail and the drugs cannot be sold.)\n\nIn fact, one of the business world's most famous failures eventually became one of its biggest successes, in part because the product's makers learned from their mistakes. In the early 1990s, Apple Corporation created a handheld device called the Apple Newton. The product, though unique at the time, was expensive and heavy; moreover, some of its most important features didn't work properly. Consequenfly, it became one of Apple's biggest failures, and in 1998, the company stopped selling it. However, Apple's CEO, Steve Jobs, believed the product had potential and he began to explore ways of improving it. In time, this led to the creation of the \"Phone and the \"Pad, two of the company's most successful products.\n\nThe story of the Apple Newton can teach us another important lesson about failure. Not only should we try to learn from it; if we want to succeed, we must also be persistent. Though Apple stopped selling the Newton in 1998, the first \"Phone wasn't available until 2007. It took a lot of research and hard work to go from the Apple Newton to \"Phone, but in the end, the effort paid off.\n\nUltimately, there is a lot we can learn by studying mistakes. Perhaps the most important\n\nlesson is that failure and success are two sides of the same coin. One truly cannot exist\n\nwithout the other",
+        "questions": [
+          {
+            "n": 1,
+            "q": "What is the passage mainly about?",
+            "opts": [
+              "Success and fear are basically the same thing.",
+              "Failure is always followed by success.",
+              "You may need to fail before you can succeed.",
+              "Accepting failure is very difficult."
+            ],
+            "a": 2,
+            "ex": "Câu hỏi ý chính / mục đích đoạn văn: Phương án <b>C. You may need to fail before you can succeed.</b> bao quát chính xác nhất nội dung trọng tâm của bài đọc."
+          },
+          {
+            "n": 2,
+            "q": "What is true about Pete Athans?",
+            "opts": [
+              "He successfully climbed up Everest seven times.",
+              "He set back his climb to wait for other mountaineers.",
+              "He chose a challenging route for his first climb up Everest.",
+              "He made many mistakes even on his successful climb up Everest."
+            ],
+            "a": 0,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Learning from Failure: Everest to the Apple Newton), phương án chính xác là <b>A. He successfully climbed up Everest seven times.</b>."
+          },
+          {
+            "n": 3,
+            "q": "What did Gerline say about failure?",
+            "opts": [
+              "If people are well prepared; they can do whatever they like.",
+              "She learned that she had to continue her climb even though disasters occurred.",
+              "She made some mistakes in her climb in 2007.",
+              "She stopped climbing because she saw two climbers die."
+            ],
+            "a": 1,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Learning from Failure: Everest to the Apple Newton), phương án chính xác là <b>B. She learned that she had to continue her climb even though disasters occurred.</b>."
+          },
+          {
+            "n": 4,
+            "q": "What is the purpose of the second and third paragraphs?",
+            "opts": [
+              "to teach us what not to do when mountain climbing",
+              "to convince us that success is something anyone can achieve",
+              "to show how bad things can happen in any situation",
+              "to give examples of how failure can be a good thing"
+            ],
+            "a": 3,
+            "ex": "Câu hỏi ý chính / mục đích đoạn văn: Phương án <b>D. to give examples of how failure can be a good thing</b> bao quát chính xác nhất nội dung trọng tâm của bài đọc."
+          },
+          {
+            "n": 5,
+            "q": "Why are some scientific journals starting to publish the results of failed experiments?",
+            "opts": [
+              "to encourage new experiments in other fields",
+              "so that people can discuss and share their findings at failure parties",
+              "to admit that the scientific community makes mistakes",
+              "because of the belief that negative results can lead to successful outcomes"
+            ],
+            "a": 3,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Learning from Failure: Everest to the Apple Newton), phương án chính xác là <b>D. because of the belief that negative results can lead to successful outcomes</b>."
+          },
+          {
+            "n": 6,
+            "q": "Which of the following is NOT true about the Apple Newton?",
+            "opts": [
+              "It was heavy and expensive.",
+              "Some of its features didn't work properly.",
+              "It was a unique handheld device.",
+              "It was Apple's first successful product."
+            ],
+            "a": 3,
+            "ex": "Câu hỏi loại trừ (NOT/EXCEPT): Ba phương án còn lại đều được nêu rõ trong bài; phương án <b>D. It was Apple's first successful product.</b> không đúng hoặc không được đề cập."
+          },
+          {
+            "n": 7,
+            "q": "According to the passage, what did the experience of the Apple Newton eventually",
+            "opts": [
+              "lead to?",
+              "Steve Jobs becoming Apple's CEO",
+              "the creation of the \"Pad and \"Phone",
+              "a move toward selling more expensive products"
+            ],
+            "a": 1,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Learning from Failure: Everest to the Apple Newton), phương án chính xác là <b>B. Steve Jobs becoming Apple's CEO</b>."
+          },
+          {
+            "n": 8,
+            "q": "D. the introduction of a cheaper version of the product",
+            "opts": [
+              "In paragraph 6, the word 'persistent' could be replaced by",
+              "sociable",
+              "hard-working",
+              "ambitious"
+            ],
+            "a": 3,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Learning from Failure: Everest to the Apple Newton), phương án chính xác là <b>D. ambitious</b>."
+          },
+          {
+            "n": 9,
+            "q": "D. determined",
+            "opts": [
+              "Which advice would the author most likely agree with?",
+              "If you want to be successful, ask successful people what they did to succeed.",
+              "Accept that some people fail and not everyone is meant to succeed.",
+              "If you make a mistake, ask yourself what went wrong and try to learn from it."
+            ],
+            "a": 2,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Learning from Failure: Everest to the Apple Newton), phương án chính xác là <b>C. Accept that some people fail and not everyone is meant to succeed.</b>."
+          },
+          {
+            "n": 10,
+            "q": "D. You should think of failure and success as the same thing.",
+            "opts": [
+              "In paragraph 7, the word 'Ultimately' could be replaced by",
+              "Finally",
+              "However",
+              "After that"
+            ],
+            "a": 0,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Learning from Failure: Everest to the Apple Newton), phương án chính xác là <b>A. In paragraph 7, the word 'Ultimately' could be replaced by</b>."
+          }
+        ]
+      },
+      {
+        "title": "PASSAGE 2 - Peru's Transoceanic Highway & The Amazon",
+        "body": "A new road that connects the Pacific with the Atlantic could bring riches - and\n\nenvironmental ruin. Bridging a Continent In early 2012, the Transoceanic Highway opened to public vehicles for the first\n\ntime. A dream of Peru's leaders since the 1950s, work on the vast network of roads\n\nand bridges began in 2006 and was completed in late 2011. Today, the east-west\n\npassageway spans 2,600 kilometers (1,600 miles). From Peru's Pacific Ocean coastline,\n\nit continues across the Andes Mountains and through a large part of the Amazon rain\n\nforest in the Peruvian state of Madre de Dios. It then travels into Brazil, where it connects\n\nwith a network of existing highways to the Atlantic. Improving People's Lives\n\nIn addition to making travel faster and easier, supporters say the highway will also be\n\ngood for business. There is enormous demand in North America and Asia for Brazilian\n\nand Peruvian products, including soybeans, beef, and gold. A number of companies in\n\nCusco and Puerto Maldonado also sell wood to different corners of the world. Many\n\nof these companies transport their lumber to the Pacific, where it travels by ship to\n\nother countries. Thanks to the highway, wood can now reach the Pacific in days; in the\n\npast, it could take a week or more. This lowers costs and allows the wood to reach a\n\ncompany's customers sooner, and also in better condition. In the long run, say many\n\nbusiness owners, this will mean more profit. Environmental Challenges\n\nDespite the highway's many potential benefits, environmentalists are concerned. The Transoceanic passes direcfly through a large part of the Amazon rain forest, in the state of Madre de Dios in Peru. According to a Peruvian government study, the forested area in the western mountains of this state has the greatest biodiversity of any place on Earth, and until recenfly, large parts of the forest were in pristine condition. As more people are moving into the region, environmentalists are worrying about the impact this will have on the Amazon's plants and animals, many of which are found nowhere else.\n\nShorfly after the highway opened, large numbers of people began coming into Puerto Maldonado from all over Peru - and the world - to mine gold. There's a lot of money to be made in mining, as well as in farming, says environmental photographer Gabby Salazar. \"I think we're going to see a big increase in farming,\" she says. \"Right across the border in Brazil, you see soybean farms all over the place. Studies show three- quarters of the deforestation of the Brazilian Amazon occurs within 50 kilometers (30 miles) of a highway, and environmentalists like Salazar are concerned that the same thing will happen in Peru. \"It's having an impact on the environment,\" she explains. \"It's having an impact on the people as welli\n\nFaced with these risks, many Peruvians talk about the importance of being practical. \"In rural Peru, a lot of people are living in poverty, so it's very difficult to say don't build the highway. explains Roger Mustalish, president of the Amazon Center for Environmental Education and Research. But every time you see a road like this going through, you soon see major changes. Will these changes be mosfly positive or negative? Many Peruvians are hopeful, but only time will tell.",
+        "questions": [
+          {
+            "n": 11,
+            "q": "What is the passage mainly about?",
+            "opts": [
+              "the impact a highway will have on the environment and people of Peru",
+              "how the Brazilian government helped the people of Peru build a new highway",
+              "a new development that is resulting in mining and farming jobs",
+              "how environmentalists are protecting the Amazon's diverse wildlife"
+            ],
+            "a": 0,
+            "ex": "Câu hỏi ý chính / mục đích đoạn văn: Phương án <b>A. the impact a highway will have on the environment and people of Peru</b> bao quát chính xác nhất nội dung trọng tâm của bài đọc."
+          },
+          {
+            "n": 12,
+            "q": "What is true about the Transoceanic Highway?",
+            "opts": [
+              "Its construction began in the 1950s.",
+              "It helps connect the Pacific Ocean with Brazil.",
+              "It was opened to the public in 2006.",
+              "It begins at the Atlantic Ocean."
+            ],
+            "a": 1,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Peru's Transoceanic Highway & The Amazon), phương án chính xác là <b>B. It helps connect the Pacific Ocean with Brazil.</b>."
+          },
+          {
+            "n": 13,
+            "q": "What is NOT a product exported from Brazil to North America?",
+            "opts": [
+              "soybeans",
+              "diamond",
+              "wood",
+              "beef"
+            ],
+            "a": 1,
+            "ex": "Câu hỏi loại trừ (NOT/EXCEPT): Ba phương án còn lại đều được nêu rõ trong bài; phương án <b>B. diamond</b> không đúng hoặc không được đề cập."
+          },
+          {
+            "n": 14,
+            "q": "The phrase 'in the long run' in paragraph 3 could be replaced by",
+            "opts": [
+              "on the other hand",
+              "as expected",
+              "eventually",
+              "optimistically"
+            ],
+            "a": 2,
+            "ex": "Từ vựng trong ngữ cảnh (Peru's Transoceanic Highway & The Amazon): Đáp án đúng là <b>C. eventually</b> (tương đương nghĩa với từ/cụm từ được hỏi trong đoạn văn)."
+          },
+          {
+            "n": 15,
+            "q": "What is NOT given as a reason the highway will be good for Peru?",
+            "opts": [
+              "The cost of transporting goods will be lower.",
+              "Goods will reach customers in better condition.",
+              "It will increase the number of tourists in Peru.",
+              "Goods will reach customers faster."
+            ],
+            "a": 2,
+            "ex": "Câu hỏi loại trừ (NOT/EXCEPT): Ba phương án còn lại đều được nêu rõ trong bài; phương án <b>C. It will increase the number of tourists in Peru.</b> không đúng hoặc không được đề cập."
+          },
+          {
+            "n": 16,
+            "q": "Which of the following concerns does the reading specifically mention?",
+            "opts": [
+              "Increased mining will lead to soil erosion.",
+              "Farming will lead to an increase in water pollution.",
+              "The highway will have an impact on plants and animals.",
+              "The cities along the highway will become overpopulated."
+            ],
+            "a": 2,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Peru's Transoceanic Highway & The Amazon), phương án chính xác là <b>C. The highway will have an impact on plants and animals.</b>."
+          },
+          {
+            "n": 17,
+            "q": "According to the passage, which activity has an impact on the environment?",
+            "opts": [
+              "Cutting down trees for wood.",
+              "Building hotels and restaurants along the highway.",
+              "Killing animals in the forest.",
+              "Mining gold and farming."
+            ],
+            "a": 3,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Peru's Transoceanic Highway & The Amazon), phương án chính xác là <b>D. Mining gold and farming.</b>."
+          },
+          {
+            "n": 18,
+            "q": "What does 'these risks' in paragraph 6 refer to?",
+            "opts": [
+              "environmental risks",
+              "financial risks",
+              "transportation risks",
+              "depopulation risks"
+            ],
+            "a": 0,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Peru's Transoceanic Highway & The Amazon), phương án chính xác là <b>A. environmental risks</b>."
+          },
+          {
+            "n": 19,
+            "q": "What would be the best heading for the final paragraph?",
+            "opts": [
+              "A Positive Future",
+              "Finding the Right Balance",
+              "An End to Poverty",
+              "Say No to Highways"
+            ],
+            "a": 1,
+            "ex": "Câu hỏi ý chính / mục đích đoạn văn: Phương án <b>B. Finding the Right Balance</b> bao quát chính xác nhất nội dung trọng tâm của bài đọc."
+          },
+          {
+            "n": 20,
+            "q": "The author's attitude toward the impact of the highway can be described as",
+            "opts": [
+              "positive",
+              "negative",
+              "unsure",
+              "indifferent"
+            ],
+            "a": 2,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Peru's Transoceanic Highway & The Amazon), phương án chính xác là <b>C. unsure</b>."
+          }
+        ]
+      },
+      {
+        "title": "PASSAGE 3 - King James I, William Cockayne & The English Cloth Trade",
+        "body": "After 45 years of the queen's rule, James I succeeded Elizabeth I to the English throne in 1603, at which point the English economy was struggling. The population of England was swelling, food production was insufficient, and prices were high. Despite its instability, a few industries brought reliable income to the English economy. In particular, many merchants relied on the export of cloth to continental Europe. For the first decade of James I's reign, the cloth trade prospered and was an important source of revenue for the English. However, the king was to make a serious mistake that would eventually lead to the fall of the English cloth trade.\n\nIn 1614, William Cockayne, an English merchant and politician, proposed that James\n\nI make a dramatic change to the way the English exported cloth. At the time, the English\n\nproduced primarily unfinished cloth. This meant that they sold cloth that had not been dyed,\n\nbleached, or otherwise processed. Most often, companies in the Netherlands bought the\n\nplain cloth from England and finished it themselves. The Dutch were experts in the complex\n\nprocedures and technologies required to finish cloth, and these processes added significant\n\nvalue to the unfinished cloth they had purchased from England. As a result, Dutch cloth\n\ncompanies could sell their goods at much higher prices than the English could. Hoping\n\nto transfer these profits to English companies, Cockayne proposed that the English finish\n\nthe cloth themselves to increase the value of their cloth exports. He also asked James I to\n\nestablish a company, which was to function under Cockayne's leadership, that would control\n\nand monopolize the export of finished cloth to continental Europe. The king was in need\n\nof money, and the prospect of increased revenue appealed to him. Thus, he agreed to\n\nCockayne's plan and, per Cockayne's request, founded the King's Merchant Adventurers, a\n\ncompany with a primary purpose of exporting finished cloth. However, Cockayne's plan disrupted the previously steady English cloth trade\n\nand was ultimately ineffective for a number of reasons. First, James I's support of\n\nCockayne's company created a rift between the king and many powerful English\n\nmerchants, particularly the members of the unfinished cloth company called the Merchant\n\nAdventurers, which had been cast aside in favor of Cockayne's group. Furthermore, the\n\nDutch, who had previously been Europe's main supplier of finished cloth, responded to\n\nEnglish competition by refusing to purchase any English cloth products, and many other\n\nEuropean nations did the same. In addition, merchants in other countries refused to ship\n\nEnglish cloth or charged English businesspeople inflated fees for shipping. The resistance\n\nfrom abroad was particularly damaging to the King's Merchant Adventurers because it\n\ncould not afford the ships that were necessary to transport its goods to European markets.\n\nIn addition to the difficulties caused by its widespread unpopularity, Cockayne's\n\ncompany was unable to produce quality goods. For one, Cockayne did not have the\n\nfunds to acquire the machines needed to finish cloth. [A] Moreover, English cloth makers\n\nwere not experts in the finishing process and could not match the high-quality finished\n\ncloth produced by their competitors in the Netherlands. [B] By 1617, just three years after\n\nthe company was established, James I had dissolved the King's Merchant Adventurers.\n\n[C] The failure of the King's Merchant Adventurers did more than bankrupt those who\n\nhad supported its efforts. [D] The damage Cockayne's plan inflicted on the cloth trade\n\nhad disastrous economic effects on other industries as well.",
+        "questions": [
+          {
+            "n": 21,
+            "q": "The word 'succeeded' in paragraph 1 is closest in meaning to",
+            "opts": [
+              "did away with",
+              "came after",
+              "turned aside",
+              "kept back"
+            ],
+            "a": 1,
+            "ex": "Từ vựng trong ngữ cảnh (King James I, William Cockayne & The English Cloth Trade): Đáp án đúng là <b>B. came after</b> (tương đương nghĩa với từ/cụm từ được hỏi trong đoạn văn)."
+          },
+          {
+            "n": 22,
+            "q": "The word 'its' in paragraph 1 refers to",
+            "opts": [
+              "population",
+              "food production",
+              "income",
+              "the English economy"
+            ],
+            "a": 3,
+            "ex": "Câu hỏi quy chiếu đại từ: Dựa vào mệnh đề liền trước trong bài đọc, đại từ được hỏi quy chiếu trực tiếp tới <b>D. the English economy</b>."
+          },
+          {
+            "n": 23,
+            "q": "Why does the author mention insufficient food production in paragraph 1?",
+            "opts": [
+              "to show the need for the expansion of the English cloth trade.",
+              "to show the consequences of heavily emphasizing the cloth trade.",
+              "to show the poor state of the English economy in 1603.",
+              "to show the king's mismanagement of the country."
+            ],
+            "a": 2,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (King James I, William Cockayne & The English Cloth Trade), phương án chính xác là <b>C. to show the poor state of the English economy in 1603.</b>."
+          },
+          {
+            "n": 24,
+            "q": "What is NOT a change that William Cockayne proposed to the English cloth",
+            "opts": [
+              "trade?",
+              "The establishment of a company that would exclusively handle the cloth trade",
+              "A focus on increasing the value of cloth created in England",
+              "The interruption of cloth supply to merchants in the Netherlands"
+            ],
+            "a": 2,
+            "ex": "Câu hỏi loại trừ (NOT/EXCEPT): Ba phương án còn lại đều được nêu rõ trong bài; phương án <b>C. A focus on increasing the value of cloth created in England</b> không đúng hoặc không được đề cập."
+          },
+          {
+            "n": 25,
+            "q": "D. A shift in the primary activities of the English cloth industry What best paraphrases the following sentence in paragraph 2? The Dutch were experts in the complex procedures and technologies required to finish cloth, and these processes added significant value to the unfinished cloth they had purchased from England",
+            "opts": [
+              "The procedures and technologies used to create finished cloth, which were often very complex, were primarily used by Dutch workers.",
+              "Unfinished cloth from England was typically finished by the Dutch, who were experts in the complicated procedures that resulted in more valuable cloth.",
+              "Finished cloth from England was often more valuable than Dutch cloth due to the complicated processes used to treat the cloth.",
+              "Unfinished cloth from England lost its value because the Dutch were able to create"
+            ],
+            "a": 1,
+            "ex": "Câu hỏi diễn đạt lại câu (Paraphrase): Phương án <b>B. Unfinished cloth from England was typically finished by the Dutch, who were experts in the complicated procedures that resulted in more valuable cloth.</b> giữ nguyên đầy đủ ý nghĩa cốt lõi và quan hệ nhân quả của câu gốc."
+          },
+          {
+            "n": 26,
+            "q": "finished cloth by using expert techniques. Why did the king agree to Cockayne's proposals?",
+            "opts": [
+              "He wanted to improve the English economy quickly.",
+              "He believed that the changes would allow England to expand the cloth industry.",
+              "He worried about England's overreliance on trade partnerships with the Netherlands.",
+              "He wanted to encourage technological advancement in English industries."
+            ],
+            "a": 0,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (King James I, William Cockayne & The English Cloth Trade), phương án chính xác là <b>A. He wanted to improve the English economy quickly.</b>."
+          },
+          {
+            "n": 27,
+            "q": "What is true about the Merchant Adventurers?",
+            "opts": [
+              "It continued to sell cloth to the Dutch after the execution of Cockayne's plan.",
+              "Its members objected to the changes proposed by Cockayne.",
+              "It was forced to focus primarily on shipping instead of the cloth trade.",
+              "It became the top English trader due to the unpopularity of Cockayne's plan."
+            ],
+            "a": 1,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (King James I, William Cockayne & The English Cloth Trade), phương án chính xác là <b>B. Its members objected to the changes proposed by Cockayne.</b>."
+          },
+          {
+            "n": 28,
+            "q": "The word 'inflated' in paragraph 3 is closest in meaning to",
+            "opts": [
+              "unfair",
+              "special",
+              "secret",
+              "increased"
+            ],
+            "a": 3,
+            "ex": "Từ vựng trong ngữ cảnh (King James I, William Cockayne & The English Cloth Trade): Đáp án đúng là <b>D. increased</b> (tương đương nghĩa với từ/cụm từ được hỏi trong đoạn văn)."
+          },
+          {
+            "n": 29,
+            "q": "Which of the following was a factor in the King's Merchant Adventurers inability",
+            "opts": [
+              "to create quality goods?",
+              "It did not have financial support from the king.",
+              "It couldn't afford to pay cloth-finishing experts.",
+              "Its employees didn't have the necessary knowledge about finishing cloth."
+            ],
+            "a": 2,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (King James I, William Cockayne & The English Cloth Trade), phương án chính xác là <b>C. It couldn't afford to pay cloth-finishing experts.</b>."
+          },
+          {
+            "n": 30,
+            "q": "D. It had an inadequate supply of unfinished cloth. In which space (marked A, B, C and D in the passage) will the following sentence fit?",
+            "opts": [
+              "[A]",
+              "[B]",
+              "[C]",
+              "[D]"
+            ],
+            "a": 2,
+            "ex": "Câu hỏi chèn câu vào đoạn: Vị trí <b>C</b> tạo sự liên kết mạch lạc nhất về mặt ý nghĩa và đại từ chuyển tiếp với câu trước và câu sau."
+          }
+        ]
+      },
+      {
+        "title": "PASSAGE 4 - The Marine Stewardship Council (MSC) Certification",
+        "body": "In 1997, multinational corporate giant Unilever joined with the World Wildlife Fund (WWF) to create the Marine Stewardship Council (MSC), an organization created to set standards for sustainable, environmentally sound practices for the fishing industry. These standards were voluntary for fisheries and fish suppliers, but full compliance with the standards earned any supplier MSC certification, which assured buyers that the seafood was caught and handled responsibly. Seafood with MSC certification earns higher prices on the wholesale and retail markets, so achieving MSC certification is worth it for producers. The cost of making the changes required to become MSC certified ranges from $50,000 to $500,000 for each fishing boat operator or processor, and can take up to two years to complete the rigorous process. Despite this, becoming MSC certified makes sense for operators and processors because of the higher prices their products command.\n\nThere are two standards managed by the MSC: the environmental standard for sustainable fishing and the chain of custody standard for seafood traceability. The environmental standard contains three practices: 1) sustainable fish stocks, 2) minimizing environmental impact, and 3) effective management. Each of these 3 practices is supported by approximately 10 more detailed criteria.\n\nSustainable fish stocks are important so that the seafood population continues to thrive. Overfishing of certain species threatens their existence, so to prevent extinction, the MSC requires boat operators and fisheries to prove that they are fishing numbers of each species that allow for repopulation. The standard states thatThe fishing activity must be at a level which is sustainable for the fish population. Any certified fishery must operate so that fishing can continue indefinitely and is not overexploiting the resources.\n\nMinimizing environmental impact means that fisheries commit to leave the ecosystems\n\nand neighborhoods in which they operate undamaged by their operations. The standard\n\nstates, Fishing operations should be managed to maintain the structure, productivity,\n\nfunction and diversity of the ecosystem on which the fishery depends.\"\n\nThe effective management requirement is designed to prevent fisheries from receiving\n\nMSC certification once and then not responding to changes in the environment, local\n\nlaws and policies, or fish populations. This requires fisheries to think about possible\n\nchanges that can occur and how they will respond to those changes in a way that keeps\n\nthem in compliance with MSC certification standards. The chain of custody standard is designed to ensure that fish that is labeled with the\n\nMSC certification was caught at a certified fishery, and that noncertified fish does not\n\nenter the MSC-certified system. This standard establishes processes to check origin and\n\nchain of custody at all steps in the chain. The actual MSC certification process relies on independent agencies, certified by\n\nthe MSC, that audit fishing boat, fishery, and processing plant practices and chains of\n\ncustody to guarantee that seafood is managed according to procedure from the time\n\nit is caught to the time it is sold to consumers. Because of the structure of the fishing\n\nindustry, with many small, independent boat owners fishing and selling to various\n\nprocessors and suppliers, this chain of command can be complex and confusing. In\n\naddition, there is room for abuse of the system, with unscrupulous dealers selling frozen\n\nand thawed seafood as fresh, or lying about the location of origin or fishing practices\n\nthey participate in.",
+        "questions": [
+          {
+            "n": 31,
+            "q": "The word 'rigorous' in paragraph 1 is closest in meaning to",
+            "opts": [
+              "dead",
+              "difficult",
+              "ancient",
+              "renewable"
+            ],
+            "a": 1,
+            "ex": "Từ vựng trong ngữ cảnh (The Marine Stewardship Council (MSC) Certification): Đáp án đúng là <b>B. difficult</b> (tương đương nghĩa với từ/cụm từ được hỏi trong đoạn văn)."
+          },
+          {
+            "n": 32,
+            "q": "What is NOT true about the process of obtaining MSC certification?",
+            "opts": [
+              "It can be cosfly.",
+              "It can be lengthy.",
+              "It is obligatory.",
+              "It is worth because of the economic benefits."
+            ],
+            "a": 2,
+            "ex": "Câu hỏi loại trừ (NOT/EXCEPT): Ba phương án còn lại đều được nêu rõ trong bài; phương án <b>C. It is obligatory.</b> không đúng hoặc không được đề cập."
+          },
+          {
+            "n": 33,
+            "q": "What best paraphrases the following sentence in paragraph 3? Overfishing of certain species threatens their existence, so to prevent extinction, the MSC requires boat operators and fisheries to prove that they are fishing numbers of each species that allow for repopulation.",
+            "opts": [
+              "Catching too many of one type of fish can lead to extinction, so the MSC asks fisheries to ensure that they aren't catching so many of any one type so that they can reproduce.",
+              "If too many of one type of fish are caught, the MSC cannot certify people who catch that type of fish because there won't be enough fish left to reproduce.",
+              "If too many of one type of fish are caught, none of them can be certified by the MSC because no one can be certain that the fish that repopulate are caught in a responsible way.",
+              "If too many of one type of fish are caught, boat operators and fisheries may end up"
+            ],
+            "a": 0,
+            "ex": "Câu hỏi diễn đạt lại câu (Paraphrase): Phương án <b>A. Catching too many of one type of fish can lead to extinction, so the MSC asks fisheries to ensure that they aren't catching so many of any one type so that they can reproduce.</b> giữ nguyên đầy đủ ý nghĩa cốt lõi và quan hệ nhân quả của câu gốc."
+          },
+          {
+            "n": 34,
+            "q": "putting themselves out of business because they won't have any fish left to catch. The word 'indefinitely' in paragraph 3 is closest in meaning to",
+            "opts": [
+              "earlier than expected",
+              "after a certain date",
+              "at no specific time",
+              "without authorization"
+            ],
+            "a": 2,
+            "ex": "Từ vựng trong ngữ cảnh (The Marine Stewardship Council (MSC) Certification): Đáp án đúng là <b>C. at no specific time</b> (tương đương nghĩa với từ/cụm từ được hỏi trong đoạn văn)."
+          },
+          {
+            "n": 35,
+            "q": "The MSC is concerned with sustainable fish stocks because it wants to",
+            "opts": [
+              "bill fisheries more for overfished species",
+              "breed new species of fish",
+              "guarantee delivery of species ordered by retailers",
+              "preserve fish species from extinction"
+            ],
+            "a": 3,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (The Marine Stewardship Council (MSC) Certification), phương án chính xác là <b>D. preserve fish species from extinction</b>."
+          },
+          {
+            "n": 36,
+            "q": "The word 'them' in paragraph 5 refers to",
+            "opts": [
+              "fisheries",
+              "fish",
+              "changes",
+              "MSC"
+            ],
+            "a": 0,
+            "ex": "Câu hỏi quy chiếu đại từ: Dựa vào mệnh đề liền trước trong bài đọc, đại từ được hỏi quy chiếu trực tiếp tới <b>A. fisheries</b>."
+          },
+          {
+            "n": 37,
+            "q": "The phrase 'This standard' in paragraph 6 refers to",
+            "opts": [
+              "the chain of custody standard",
+              "the fisheries standard",
+              "the environmental standard",
+              "the sustainable standard"
+            ],
+            "a": 0,
+            "ex": "Câu hỏi quy chiếu đại từ: Dựa vào mệnh đề liền trước trong bài đọc, đại từ được hỏi quy chiếu trực tiếp tới <b>A. the chain of custody standard</b>."
+          },
+          {
+            "n": 38,
+            "q": "Why does the MSC uses a network of independent agencies in the certification",
+            "opts": [
+              "processe",
+              "it cannot finance certification processes alone",
+              "certification is too difficult for the MSC to earn without help",
+              "no single agency can be responsible for standards as stringent as the MSC's standards"
+            ],
+            "a": 3,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (The Marine Stewardship Council (MSC) Certification), phương án chính xác là <b>D. no single agency can be responsible for standards as stringent as the MSC's standards</b>."
+          },
+          {
+            "n": 39,
+            "q": "D. the chain of suppliers is too complex for one agency alone to monitor What can describe the author's attitude toward MSC certification?",
+            "opts": [
+              "supportive",
+              "opposed",
+              "skeptical",
+              "indifferent"
+            ],
+            "a": 0,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (The Marine Stewardship Council (MSC) Certification), phương án chính xác là <b>A. supportive</b>."
+          },
+          {
+            "n": 40,
+            "q": "Why does the author mention illegal activities in the supply chain in the seventh",
+            "opts": [
+              "paragraph?",
+              "to give reasons for the MSC's use of multiple agencies to help with certification",
+              "to show examples of crimes committed by MSC-certified fisheries",
+              "to explain how fisheries can meet the standards set by the MSC"
+            ],
+            "a": 0,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (The Marine Stewardship Council (MSC) Certification), phương án chính xác là <b>A. paragraph?</b>."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rset16",
+    "title": "Đề số 16: Sách NXB ĐHQGHN — Reading Test 10",
+    "source": "Sách 10 Bộ đề Đọc hiểu VSTEP B1-B2-C1 (NXB ĐHQG Hà Nội — Test 10: The Psychology & Symbolism of Colors · Dorando Pietri & The 1908 London Olympic Marathon · Elisabeth Kübler-Ross & The Five Stages of Grief · Compressed Natural Gas (CNG) Vehicles)",
+    "passages": [
+      {
+        "title": "PASSAGE 1 - The Psychology & Symbolism of Colors",
+        "body": "Early humans watched their fires blacken the ceilings of the caves where they lived. They saw blue and red in the sky and brown and green on the ground. In time, people began to understand that color not only made the world more beautiful, it was also able to convey emotion and symbolize power. In the 19th century, a young chemistry student became the first to manufacture a synthetic dye, and suddenly the world became a much more colorful place. By the 20th century, as scientists discovered the psychological effects of colors, everyone from advertisers to educators found ways to make use of color to influence our feelings and behavior. [A]\n\nRed, the color of human blood, has traditionally symbolized intensity, fire, love, and anger. In Eastern cultures, it also represents luck, wealth, and success. In humans, the color red can send different messages. Some people redden, for example, when they are angry or embarrassed. British anthropologists Russell Hill and Robert Barton of the\n\nUniversity of Durham found that when opponents in a game are equally matched, the\n\nteam dressed in red is more likely to win. Why? According to Barton,red seems to\n\nbe the color, across species, that signals dominance - giving those dressed in red\n\nan advantage in sporting events. In many animal species, contact with this bold color\n\ncauses the heart rate to accelerate. However, one of red's lighter shades, pink, can have\n\nthe opposite effect on people. Men in prisons are reported to be more passive when\n\nthe walls are painted a specific shade of pink. Humans have also used the color red in\n\neverything from politics to advertising. Many food products in the U.S, for example, are\n\npackaged in red containers. Why? [B] Yellow, the color we most often associate with sunshine, is found throughout nature\n\nand the man-made world as a color that commands attention; indeed, it is one of the\n\neasiest colors to see. This highly visible shade is found on everything from school buses\n\nto traffic signs and pens used to highlight important information in a text. The color is\n\nalso used to caution people. [C] Soccer players, for example, are shown yellow as a\n\nreminder to behave. It can be used as a stimulant as well: In a number of studies, yellow\n\nhas been found to help children focus on their work and do better in school.\n\nBlue has long been associated in many cultures with water, holy or religious objects,\n\nand protection against evil. Over the years, darker shades of the color have also come to\n\nrepresent calm, stability, and power. Dark blue, for example, is the color of the business\n\nsuit or police uniform. In other cultures, blue has been associated with sadness. If's\n\ncommon in English, for example, when feeling sad or depressed, to talk about \"feeling\n\nblue while in Iran, blue is the color of mourning, worn when a person dies. Like pink,\n\nblue has a neutral, calming effect on people. Rooms painted blue help people relax or\n\nsleep. (Sleeping pills are often colored blue to suggest exacfly this idea.) [D]",
+        "questions": [
+          {
+            "n": 1,
+            "q": "What is the passage mainly about?",
+            "opts": [
+              "how color influences our lives",
+              "the various sources for extracting color",
+              "how views about color have changed",
+              "how certain colors can have a calming effect"
+            ],
+            "a": 0,
+            "ex": "Câu hỏi ý chính / mục đích đoạn văn: Phương án <b>A. how color influences our lives</b> bao quát chính xác nhất nội dung trọng tâm của bài đọc."
+          },
+          {
+            "n": 2,
+            "q": "The first non-natural colors were produced",
+            "opts": [
+              "many centuries ago",
+              "in the 19th century",
+              "in the 20th century",
+              "only recenfly"
+            ],
+            "a": 1,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (The Psychology & Symbolism of Colors), phương án chính xác là <b>B. in the 19th century</b>."
+          },
+          {
+            "n": 3,
+            "q": "What does the red color NOT symbolize tor?",
+            "opts": [
+              "dominance",
+              "anger",
+              "attention",
+              "success"
+            ],
+            "a": 2,
+            "ex": "Câu hỏi loại trừ (NOT/EXCEPT): Ba phương án còn lại đều được nêu rõ trong bài; phương án <b>C. attention</b> không đúng hoặc không được đề cập."
+          },
+          {
+            "n": 4,
+            "q": "According to the passage, which color can give a sports team a competitive",
+            "opts": [
+              "advantage?",
+              "black",
+              "yellow",
+              "blue"
+            ],
+            "a": 3,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (The Psychology & Symbolism of Colors), phương án chính xác là <b>D. blue</b>."
+          },
+          {
+            "n": 5,
+            "q": "D. red",
+            "opts": [
+              "In paragraph 2, what does the word accelerate mean?",
+              "go slower",
+              "go faster",
+              "become uneven"
+            ],
+            "a": 1,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (The Psychology & Symbolism of Colors), phương án chính xác là <b>B. go slower</b>."
+          },
+          {
+            "n": 6,
+            "q": "D. become louder",
+            "opts": [
+              "What do people use the yellow color for?",
+              "to warn people of something",
+              "to decorate things",
+              "to express the feeling of sadness."
+            ],
+            "a": 0,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (The Psychology & Symbolism of Colors), phương án chính xác là <b>A. What do people use the yellow color for?</b>."
+          },
+          {
+            "n": 7,
+            "q": "D. to reduce one's hunger",
+            "opts": [
+              "Which color has been used to help children study better?",
+              "red",
+              "yellow",
+              "blue"
+            ],
+            "a": 1,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (The Psychology & Symbolism of Colors), phương án chính xác là <b>B. red</b>."
+          },
+          {
+            "n": 8,
+            "q": "D. pink",
+            "opts": [
+              "In paragraph 4, the phrase 'this idea' refers to",
+              "inhibiting hunger",
+              "blue food",
+              "relaxation"
+            ],
+            "a": 2,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (The Psychology & Symbolism of Colors), phương án chính xác là <b>C. blue food</b>."
+          },
+          {
+            "n": 9,
+            "q": "D. painting rooms",
+            "opts": [
+              "According to the passage, what do the colors pink and blue have in common?",
+              "They both have a calming effect.",
+              "They both make people less hungry.",
+              "They both express sadness."
+            ],
+            "a": 0,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (The Psychology & Symbolism of Colors), phương án chính xác là <b>A. According to the passage, what do the colors pink and blue have in common?</b>."
+          },
+          {
+            "n": 10,
+            "q": "D. They both represent power. In which space (marked A, B, C and D in the passage) will the following sentence fit?",
+            "opts": [
+              "[A]",
+              "[B]",
+              "[C]",
+              "[D]"
+            ],
+            "a": 1,
+            "ex": "Câu hỏi chèn câu vào đoạn: Vị trí <b>B</b> tạo sự liên kết mạch lạc nhất về mặt ý nghĩa và đại từ chuyển tiếp với câu trước và câu sau."
+          }
+        ]
+      },
+      {
+        "title": "PASSAGE 2 - Dorando Pietri & The 1908 London Olympic Marathon",
+        "body": "In what is probably the first memorable sporting action photo, we see a tiny man with\n\na moustache, bent backwards, eyes closing in exhaustion, a handkerchief slipping off\n\nhis head, surrounded by officials as he finishes the marathon at the London Olympics\n\nof 1908. [A] The man was Dorando Pietri, an Italian baker. In many ways, this was the\n\nbeginning of global media coverage for big sporting events, and Pietri became the first\n\nglobal sporting celebrity. [B] Early last century, when Pietri began running in his home town of Carpi in northern\n\nItaly, the ancient Greek idea of the marathon race was just being rediscovered. The\n\ncourse for the London Games was set by Britain's Queen Alexandra, who decided that\n\nfor her grandchildren's convenience, the race should start beneath the nursery window at\n\ntheir home, Windsor Castle. The finish line in London's White City stadium was 26 miles\n\nand 385 yards away - which remains the marathon's official distance today.\n\nBack then, the best preparation for running a marathon was believed to be steak\n\nfor breakfast. Pietri had also taken a chemical called strychnine - today typically used\n\nin rat poison - in the mistaken belief that it would improve his performance. By the time he approached White City he understandably felt a little unwell. He later recalled seeing 'a grey mass in front', which proved to be the stadium. He added, 'After that, I remember little.'\n\nIt soon became obvious that Pietri was struggling. He began running the wrong way around the track. When officials pointed this out to him, he fell over. He got up, then collapsed again. Arthur Conan Doyle, creator of Sherlock Holmes, was watching from a few metres away, reporting for the Daily Mail. He wrote: 'It is horrible, and yet fascinating, this struggle between a set purpose and an utterly exhausted frame.'\n\nThe crowd - including Queen Alexandra - began urging the officials to help Pietri. Pietri kept collapsing, but eventually they practically pushed him across the finish line. Conan Doyle was impressed: 'No ancient Roman had known how to accept the laurels of victory better than Pietri.' Seconds after Pietri, the American runner Johnny Hayes, a sales clerk at Bloomingdale's department store in New York, trotted over the line. Quite naturally, Hayes pointed out that Pietri had been helped, which was against the rules. After much debate, Hayes was declared the winner. Pietri fell unconscious, and several newspapers prematurely reported his death.\n\nThere is no celebrity without mass media. If you could choose anyone on earth to write up your drama in 1908, it would be Conan Doyle in the Daily Mail, which in 1902 had become the bestselling newspaper on earth, with circulation topping one million. Newspapers around the world reprinted Conan Doyle's article. He also started a collection to help Pietri set up his own bakery. Throw in the startling action picture by an unknown photographer, and Pietri's story went global.\n\n[C] Nowadays people dressed in Donald Duck costumes run double marathons for charity, but in 1908 completing a marathon was considered an almost superhuman feat. [D] To my mind, that distinguishes Pietri from the Olympic heroes of today. Most of them have lived since childhood in a higher realm of top-performance sport. They are better prepared than Pietri in every way, but it is much easier to see ourselves in him.",
+        "questions": [
+          {
+            "n": 11,
+            "q": "What can be the best title for the passage?",
+            "opts": [
+              "the original Olympic hero",
+              "the length of ancient Olympic marathon",
+              "the history of Olympic Games.",
+              "preparation for Olympic marathon"
+            ],
+            "a": 0,
+            "ex": "Câu hỏi ý chính / mục đích đoạn văn: Phương án <b>A. the original Olympic hero</b> bao quát chính xác nhất nội dung trọng tâm của bài đọc."
+          },
+          {
+            "n": 12,
+            "q": "What is true about the length of the modern marathon race?",
+            "opts": [
+              "it was based on measurements used in ancient games.",
+              "it used to be changed quite often at the Olympic Games.",
+              "it used to be much longer than it is in the current Games.",
+              "it was originally fixed at the 1908 London Olympic Games."
+            ],
+            "a": 3,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Dorando Pietri & The 1908 London Olympic Marathon), phương án chính xác là <b>D. it was originally fixed at the 1908 London Olympic Games.</b>."
+          },
+          {
+            "n": 13,
+            "q": "What is mentioned about Pietri's preparation for the race?",
+            "opts": [
+              "it had ignored expert advice.",
+              "it hadn't really been appropriate.",
+              "it had been interrupted by illness.",
+              "it had not involved running the course itself."
+            ],
+            "a": 1,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Dorando Pietri & The 1908 London Olympic Marathon), phương án chính xác là <b>B. it hadn't really been appropriate.</b>."
+          },
+          {
+            "n": 14,
+            "q": "Where did Pietri come from?",
+            "opts": [
+              "Britain",
+              "Greece",
+              "Italy",
+              "the US"
+            ],
+            "a": 2,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Dorando Pietri & The 1908 London Olympic Marathon), phương án chính xác là <b>C. Italy</b>."
+          },
+          {
+            "n": 15,
+            "q": "The word 'this' in paragraph 4 refers to",
+            "opts": [
+              "Pietri's state of health.",
+              "an error which Pietri made.",
+              "an attempt to give Pietri first aid.",
+              "the correct direction in which Pietri should run."
+            ],
+            "a": 1,
+            "ex": "Câu hỏi quy chiếu đại từ: Dựa vào mệnh đề liền trước trong bài đọc, đại từ được hỏi quy chiếu trực tiếp tới <b>B. an error which Pietri made.</b>."
+          },
+          {
+            "n": 16,
+            "q": "What impressed Sir Arthur Conan Doyle about the end of the race?",
+            "opts": [
+              "Pietri's determination to finish it.",
+              "Pietri's willingness to accept defeat.",
+              "The way Pietri was helped to complete it.",
+              "The respect which Pietri showed for the rules."
+            ],
+            "a": 0,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Dorando Pietri & The 1908 London Olympic Marathon), phương án chính xác là <b>A. Pietri's determination to finish it.</b>."
+          },
+          {
+            "n": 17,
+            "q": "The word 'prematurely' in paragraph 5 is closest in meaning to",
+            "opts": [
+              "surprisingly",
+              "too soon",
+              "immediately",
+              "finally"
+            ],
+            "a": 1,
+            "ex": "Từ vựng trong ngữ cảnh (Dorando Pietri & The 1908 London Olympic Marathon): Đáp án đúng là <b>B. too soon</b> (tương đương nghĩa với từ/cụm từ được hỏi trong đoạn văn)."
+          },
+          {
+            "n": 18,
+            "q": "What does the author suggest in paragraph 6?",
+            "opts": [
+              "Conan Doyle felt that he had treated Pietri badly.",
+              "Pietri didn't approve of what was written about him.",
+              "Pietri benefitted from the fact that Conan Doyle was famous.",
+              "The photograph of Pietri was more important than the newspaper article."
+            ],
+            "a": 2,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Dorando Pietri & The 1908 London Olympic Marathon), phương án chính xác là <b>C. Pietri benefitted from the fact that Conan Doyle was famous.</b>."
+          },
+          {
+            "n": 19,
+            "q": "What does the author want to express in paragraph 7?",
+            "opts": [
+              "admiration for Pietri's attempt at the marathon.",
+              "surprise that Pietri attracted so much media attention.",
+              "doubts about the commitment of some modern athletes.",
+              "disappointment with the way modern marathons are organised."
+            ],
+            "a": 0,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Dorando Pietri & The 1908 London Olympic Marathon), phương án chính xác là <b>A. admiration for Pietri's attempt at the marathon.</b>."
+          },
+          {
+            "n": 20,
+            "q": "In which space (marked A, B, C and D in the passage) will the following sentence fit? What moved the world in 1908 was the sight of an ordinary man attempting something",
+            "opts": [
+              "[A]",
+              "[B]",
+              "[C]",
+              "[D]"
+            ],
+            "a": 2,
+            "ex": "Câu hỏi chèn câu vào đoạn: Vị trí <b>C</b> tạo sự liên kết mạch lạc nhất về mặt ý nghĩa và đại từ chuyển tiếp với câu trước và câu sau."
+          }
+        ]
+      },
+      {
+        "title": "PASSAGE 3 - Elisabeth Kübler-Ross & The Five Stages of Grief",
+        "body": "In 1969, in her book On Death and Dying, psychologist Elisabeth Kübler-Ross\n\nintroduced the idea that there are several distinct stages of grief. The book, which was\n\nbased on her work with terminally ill and dying patients, posited that people who were\n\ngoing through the grieving process went through unique and separate stages. These\n\nstages are as follows: denial, anger, bargaining, depression, and acceptance.\n\nWhile there are five commonly accepted stages in the Kübler-Ross model, other\n\ninterpretations of her model use seven stages of grief, which are shock and denial,\n\npain and guilt, anger and bargaining, depression and loneliness, beginning to heal,\n\nreconstruction, and acceptance and hope. The main differences are that the five stages\n\nmodel considers anger and bargaining to be two separate stages, does not include guilt,\n\nand considers the final three stages of the seven stages model to be one stage.\n\nThe five stages of the Kübler-Ross model can be summarized and applied to a wide\n\nvariety of grief situations. The first stage, denial, consists of a phase in which the victim\n\ncan't believe that something bad is happening. It takes time for the victim to process that\n\nthe bad event is actually happening, and this stage may be lengthened by the unfolding\n\nof the news of the situation. The second stage, anger, consists of a phase in which the victim becomes upset and\n\nfilled with rage and jealousy of those outside of the bad situation. While the victim may\n\nfeel justified in having these feelings, this stage can isolate the victim from people who\n\nwould care for him or her by pushing them away. In bargaining, the third stage, the victim feels a temporary hope that something they\n\ncan do, give, or sacrifice will stop the bad situation from occurring or make the bad\n\nsituation that has already happened (such as the death of a loved one or a divorce) go\n\naway. While this is rarely true, the hope provides the victim with a brief respite from the\n\nnegative feelings of the anger stage, and can cause a temporary positive outlook. While\n\nthis makes the victim easier to be around, those around the victim who know that the bad\n\nsituation will continue also know that the victim's negative feelings will return as soon as\n\nit is discovered that no bargain can be struck that will end the bad situation.\n\nThe fourth stage of grief, depression, consists of the victim's realization that the bad\n\nsituation is not going to end, and that he or she will not be able to escape it. Some victims\n\nbecome so mired in the sadness and other negative feelings of this stage that they lose\n\ninterest in maintaining their lives and relationships. Ironically, the sadness and other\n\nnegative feelings of the depression stage show that the victim is finally realizing that the\n\nbad situation is real and beginning to process that reality. The fifth stage, acceptance, is when the victim begins to find peace with the bad situation and his or her place in it. While acceptance contains sadness, it is not the paralyzing sadness of the depression stage that makes the victim lose interest in others or in maintaining daily activities. Acceptance is the stage referred to as coming out the other side.\"",
+        "questions": [
+          {
+            "n": 21,
+            "q": "What is the main idea of the passage?",
+            "opts": [
+              "to describe the stages of grief",
+              "to explain who Elisabeth Kübler-Ross was",
+              "to detail the differences in the five stages versus the seven stages of grief",
+              "to question the importance of the stages of grief theory"
+            ],
+            "a": 0,
+            "ex": "Câu hỏi ý chính / mục đích đoạn văn: Phương án <b>A. to describe the stages of grief</b> bao quát chính xác nhất nội dung trọng tâm của bài đọc."
+          },
+          {
+            "n": 22,
+            "q": "The word 'grief' in paragraph 1 is closest in meaning to",
+            "opts": [
+              "sadness",
+              "mourning",
+              "theory",
+              "death"
+            ],
+            "a": 1,
+            "ex": "Từ vựng trong ngữ cảnh (Elisabeth Kübler-Ross & The Five Stages of Grief): Đáp án đúng là <b>B. mourning</b> (tương đương nghĩa với từ/cụm từ được hỏi trong đoạn văn)."
+          },
+          {
+            "n": 23,
+            "q": "Kübler-Ross based her theory on her experience",
+            "opts": [
+              "working with children whose parents were divorcing",
+              "working with people who were dying",
+              "working with researchers who had a theory of seven stages of grief",
+              "working with the author of the book On Death and Dying"
+            ],
+            "a": 1,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Elisabeth Kübler-Ross & The Five Stages of Grief), phương án chính xác là <b>B. working with people who were dying</b>."
+          },
+          {
+            "n": 24,
+            "q": "What is NOT a stage of grief by Kübler-Ross?",
+            "opts": [
+              "depression",
+              "bargaining",
+              "reconstruction",
+              "acceptance"
+            ],
+            "a": 2,
+            "ex": "Câu hỏi loại trừ (NOT/EXCEPT): Ba phương án còn lại đều được nêu rõ trong bài; phương án <b>C. reconstruction</b> không đúng hoặc không được đề cập."
+          },
+          {
+            "n": 25,
+            "q": "The word 'stage' in paragraph 3 is closest in meaning to",
+            "opts": [
+              "theory",
+              "theater",
+              "phase",
+              "denial"
+            ],
+            "a": 2,
+            "ex": "Từ vựng trong ngữ cảnh (Elisabeth Kübler-Ross & The Five Stages of Grief): Đáp án đúng là <b>C. phase</b> (tương đương nghĩa với từ/cụm từ được hỏi trong đoạn văn)."
+          },
+          {
+            "n": 26,
+            "q": "What is true about the denial stage?",
+            "opts": [
+              "It results from information received by the victim.",
+              "It is the shortest stage.",
+              "It always lasts from a few days to a week.",
+              "It is combined with guilt."
+            ],
+            "a": 0,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Elisabeth Kübler-Ross & The Five Stages of Grief), phương án chính xác là <b>A. It results from information received by the victim.</b>."
+          },
+          {
+            "n": 27,
+            "q": "What best paraphrases the following sentence in paragraph 5? While this is rarely true, the hope provides the victim with a brief respite from the negative feelings of the anger stage, and can cause a temporary positive outlook.",
+            "opts": [
+              "Although nothing the victim does can affect the outcome of the situation, he or she may temporarily have hope that something can become happy.",
+              "The victim may become very happy that something he or she does can change the outcome of the situation. The victim may become very happy to think that something he or she does can",
+              "change the outcome of the situation.",
+              "Nothing the victim does can change the outcome of the situation positively or"
+            ],
+            "a": 0,
+            "ex": "Câu hỏi diễn đạt lại câu (Paraphrase): Phương án <b>A. Although nothing the victim does can affect the outcome of the situation, he or she may temporarily have hope that something can become happy.</b> giữ nguyên đầy đủ ý nghĩa cốt lõi và quan hệ nhân quả của câu gốc."
+          },
+          {
+            "n": 28,
+            "q": "negatively. The word 'it' in paragraph 6 refers to",
+            "opts": [
+              "the theory",
+              "Kübler-Ross",
+              "the victim",
+              "the bad situation"
+            ],
+            "a": 3,
+            "ex": "Câu hỏi quy chiếu đại từ: Dựa vào mệnh đề liền trước trong bài đọc, đại từ được hỏi quy chiếu trực tiếp tới <b>D. the bad situation</b>."
+          },
+          {
+            "n": 29,
+            "q": "What is characteristic of the acceptance stage?",
+            "opts": [
+              "feeling jealous",
+              "feeling guilty",
+              "feeling peaceful",
+              "feeling angry"
+            ],
+            "a": 2,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Elisabeth Kübler-Ross & The Five Stages of Grief), phương án chính xác là <b>C. feeling peaceful</b>."
+          },
+          {
+            "n": 30,
+            "q": "It can be inferred from the passage that",
+            "opts": [
+              "people who are dying will not survive to reach the acceptance stage",
+              "the seven stages model is more robust than the five stages model",
+              "Kübler-Ross's critics have more experience with grief than she did",
+              "the grieving person is not always dying"
+            ],
+            "a": 3,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Elisabeth Kübler-Ross & The Five Stages of Grief), phương án chính xác là <b>D. the grieving person is not always dying</b>."
+          }
+        ]
+      },
+      {
+        "title": "PASSAGE 4 - Compressed Natural Gas (CNG) Vehicles",
+        "body": "A new trend in vehicle technology is to design systems that run on natural gas instead of gasoline or diesel. Compressed natural gas (CNG) is far better for the environment than either gasoline or diesel because it burns cleaner, vehicles that run on natural gas instead of gasoline or diesel are more fuel efficient, and CNG is less expensive than more traditional options. Auto and truck manufacturers are rushing to bring new engines to market that run on natural gas and to modify existing engines to run on natural gas.\n\nThere is a growing market for fuel-efficient vehicles in the United States and around the world, and vehicles that run on natural gas are at the forefront of meeting this demand. Most of the market for fuel-efficient vehicles that run on natural gas are companies with large fleets of trucks, specifically energy companies, field service companies, telecom companies, and government fleets. They are making the decision to switch to CNG vehicles primarily because of the fuel savings, but also for the environmental benefits and the push toward supporting a domestic fuel source that creates economic growth in the United States.\n\nCompressed natural gas is produced in the United States as well as around the world, so using CNG gives American companies a way to use a local fuel source that is not subject to fluctuations in the international market or external factors affecting the price of gasoline, such as conflicts in oil-producing regions, OPEC, or other political maneuverings. Increasing CNG use and production in the United States also contributes to the country's gross domestic product (GDP), a number that indicates the health and strength of the country's economy overall. Using CNG is good for the economy.\n\nIn addition, because of the political visibility of the vast benefits of CNG, many states are implementing tax incentives that further reduce the cost of converting current vehicles\n\nfrom using gasoline to using CNG. At the same time, vehicles are being designed to use\n\neither CNG alone or to have duel-combustion systems that can run on either gasoline or\n\ncompressed natural gas. Because of rapid industry growth and the increased availability\n\nof CNG technology, companies producing CNG or developing CNG conversion\n\ntechnology are investing in the development of infrastructure (CNG fueling stations)\n\nneeded to support the rising number of CNG vehicles on the road.\n\nConverting a vehicle that currenfly runs on gasoline or diesel to run on CNG is a\n\nsimple process consisting of installing a converter unit to the existing engine. These units\n\nare produced by companies that have obtained certification from environmental agencies\n\nthat have determined the parameters for considering a CNG engine conversion \"clean\"\n\nenough to be environmentally friendly. The companies that produce these conversion\n\nunits install them into existing vehicles owned by the companies that request them, or\n\nto new vehicles delivered straight from the vehicle manufacturer to the CNG conversion\n\ncompany. Technicians install the CNG converter units, test the installation, and deliver\n\nthem to the customer company, which can begin using the vehicles immediately.\n\nBecause of the simplicity and relatively low cost of converting engines to using CNG,\n\nit makes solid financial sense for companies running large fleets of trucks to convert them.\n\nOnce the tax savings and incentives to these companies are figured in, the conversion\n\nprocess is a negligible expense that pays for itself almost immediately. As more and more\n\ncompanies running fleets of trucks discover the financial benefits of running their trucks\n\non CNG instead of gasoline, the market for CNG conversions and CNG-native engines\n\nwill continue to increase.",
+        "questions": [
+          {
+            "n": 31,
+            "q": "What is the passage mainly about?",
+            "opts": [
+              "what compressed natural gas is.",
+              "why companies are becoming more environmentally friendly.",
+              "compressed natural gas as a fuel source that is good for the environment and for",
+              "companies that convert to it."
+            ],
+            "a": 2,
+            "ex": "Câu hỏi ý chính / mục đích đoạn văn: Phương án <b>C. compressed natural gas as a fuel source that is good for the environment and for</b> bao quát chính xác nhất nội dung trọng tâm của bài đọc."
+          },
+          {
+            "n": 32,
+            "q": "D. how CNG conversion is performed on a truck that runs on gasoline.",
+            "opts": [
+              "The word 'modify' in paragraph 1 is closest in meaning to",
+              "substitute",
+              "make less intense",
+              "change"
+            ],
+            "a": 2,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Compressed Natural Gas (CNG) Vehicles), phương án chính xác là <b>C. make less intense</b>."
+          },
+          {
+            "n": 33,
+            "q": "D. reduce",
+            "opts": [
+              "Why does the author mention energy companies in paragraph 2?",
+              "to give examples of companies that use fleets of trucks and might use CNG vehicles.",
+              "to question whether the market is so narrow that the technology is not worth pursuing",
+              "to examine the motivations for these companies to make such a radical choice for fuel"
+            ],
+            "a": 0,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Compressed Natural Gas (CNG) Vehicles), phương án chính xác là <b>A. Why does the author mention energy companies in paragraph 2?</b>."
+          },
+          {
+            "n": 34,
+            "q": "D. to describe the process of converting a gasoline engine to a CNG engine",
+            "opts": [
+              "What is NOT a reason for companies using CNG vehicles?",
+              "to protect the environment",
+              "to save fuel",
+              "to promote use of local fuel source"
+            ],
+            "a": 3,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Compressed Natural Gas (CNG) Vehicles), phương án chính xác là <b>D. to promote use of local fuel source</b>."
+          },
+          {
+            "n": 35,
+            "q": "D. to be forced by the government The word 'factors' in paragraph 3 is closest in meaning to",
+            "opts": [
+              "issues",
+              "disasters",
+              "products",
+              "benefits"
+            ],
+            "a": 0,
+            "ex": "Từ vựng trong ngữ cảnh (Compressed Natural Gas (CNG) Vehicles): Đáp án đúng là <b>A. issues</b> (tương đương nghĩa với từ/cụm từ được hỏi trong đoạn văn)."
+          },
+          {
+            "n": 36,
+            "q": "What best paraphrases the following sentence in paragraph 4? Because of rapid industry growth and the increased availability of CNG technology, companies producing CNG or developing CNG conversion technology are investing in the development of infrastructure (CNG fueling stations) needed to support the rising number of CNG vehicles on the road.",
+            "opts": [
+              "CNG producers would like to see more CNG fueling stations available for users of CNG and companies that convert trucks to using CNG.",
+              "Companies that install CNG converters do not know where to refuel on CNG because there are still very few CNG fueling stations.",
+              "CNG producers are investing in CNG fueling stations to support the companies that perform CNG conversions on trucks.",
+              "CNG producers and companies that sell truck conversions are investing in building"
+            ],
+            "a": 3,
+            "ex": "Câu hỏi diễn đạt lại câu (Paraphrase): Phương án <b>D. CNG producers and companies that sell truck conversions are investing in building</b> giữ nguyên đầy đủ ý nghĩa cốt lõi và quan hệ nhân quả của câu gốc."
+          },
+          {
+            "n": 37,
+            "q": "CNG fuel stations to support growth in the use of CNG.",
+            "opts": [
+              "The phrase 'these units' in paragraph 5 refers to",
+              "CNG fueling stations",
+              "gasoline engines",
+              "CNG engines"
+            ],
+            "a": 3,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Compressed Natural Gas (CNG) Vehicles), phương án chính xác là <b>D. CNG engines</b>."
+          },
+          {
+            "n": 38,
+            "q": "D. CNG engine conversion units",
+            "opts": [
+              "Why converting truck engines using gasoline to CNG is easy?",
+              "the conversion is financed by environmental groups",
+              "the conversion simply requires installing one premade unit onto the engine",
+              "the conversion can be done by the driver of the truck"
+            ],
+            "a": 1,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Compressed Natural Gas (CNG) Vehicles), phương án chính xác là <b>B. the conversion is financed by environmental groups</b>."
+          },
+          {
+            "n": 39,
+            "q": "D. the conversion is done when the truck is manufactured in the factory Which is NOT true about trucks that run on CNG?",
+            "opts": [
+              "They are cheaper to run than trucks that run on gasoline.",
+              "The conversion process makes them more difficult to drive than trucks that run on",
+              "gasoline.",
+              "They have a smaller environmental impact than trucks that run on gasoline."
+            ],
+            "a": 1,
+            "ex": "Câu hỏi loại trừ (NOT/EXCEPT): Ba phương án còn lại đều được nêu rõ trong bài; phương án <b>B. The conversion process makes them more difficult to drive than trucks that run on</b> không đúng hoặc không được đề cập."
+          },
+          {
+            "n": 40,
+            "q": "D. Companies can have them converted to run CNG before delivery. The passage implies that",
+            "opts": [
+              "trucks that run on CNG have more cargo space than trucks that run gasoline",
+              "more trucks will run on CNG in the future",
+              "CNG fueling stations will be subsidized by CNG producers",
+              "the long-term environmental benefits of running a truck on CNG do not outweigh"
+            ],
+            "a": 1,
+            "ex": "Theo thông tin chi tiết và suy luận từ bài đọc (Compressed Natural Gas (CNG) Vehicles), phương án chính xác là <b>B. more trucks will run on CNG in the future</b>."
+          }
+        ]
+      }
+    ]
+  }
+];
+const VNU_10_EXAM_SETS = [
+  {
+    "id": "exam7",
+    "code": "Đề 07",
+    "name": "Sách ĐHQGHN Test 01 (Glencorn Lodge in County Antrim)",
+    "source": "Sách 10 Bộ đề Đọc hiểu VSTEP B1-B2-C1 — NXB Đại học Quốc gia Hà Nội (Test 01)",
+    "badge": "Sách ĐHQGHN #01",
+    "readingSetIndex": 6,
+    "listeningSet": 2,
+    "w1Id": "w01",
+    "w2Id": "w06",
+    "s1Id": "s11",
+    "s2Id": "s21",
+    "s3Id": "s31"
+  },
+  {
+    "id": "exam8",
+    "code": "Đề 08",
+    "name": "Sách ĐHQGHN Test 02 (Journey to the Danakil Desert (Dallol))",
+    "source": "Sách 10 Bộ đề Đọc hiểu VSTEP B1-B2-C1 — NXB Đại học Quốc gia Hà Nội (Test 02)",
+    "badge": "Sách ĐHQGHN #02",
+    "readingSetIndex": 7,
+    "listeningSet": 3,
+    "w1Id": "w02",
+    "w2Id": "w07",
+    "s1Id": "s12",
+    "s2Id": "s22",
+    "s3Id": "s32"
+  },
+  {
+    "id": "exam9",
+    "code": "Đề 09",
+    "name": "Sách ĐHQGHN Test 03 (The Life and Art of Vincent van Gogh)",
+    "source": "Sách 10 Bộ đề Đọc hiểu VSTEP B1-B2-C1 — NXB Đại học Quốc gia Hà Nội (Test 03)",
+    "badge": "Sách ĐHQGHN #03",
+    "readingSetIndex": 8,
+    "listeningSet": 1,
+    "w1Id": "w03",
+    "w2Id": "w08",
+    "s1Id": "s13",
+    "s2Id": "s23",
+    "s3Id": "s33"
+  },
+  {
+    "id": "exam10",
+    "code": "Đề 10",
+    "name": "Sách ĐHQGHN Test 04 (Can Scientists Predict Earthquakes?)",
+    "source": "Sách 10 Bộ đề Đọc hiểu VSTEP B1-B2-C1 — NXB Đại học Quốc gia Hà Nội (Test 04)",
+    "badge": "Sách ĐHQGHN #04",
+    "readingSetIndex": 9,
+    "listeningSet": 2,
+    "w1Id": "w04",
+    "w2Id": "w10",
+    "s1Id": "s14",
+    "s2Id": "s24",
+    "s3Id": "s34"
+  },
+  {
+    "id": "exam11",
+    "code": "Đề 11",
+    "name": "Sách ĐHQGHN Test 05 (In Search of Brazil's Dream Beach)",
+    "source": "Sách 10 Bộ đề Đọc hiểu VSTEP B1-B2-C1 — NXB Đại học Quốc gia Hà Nội (Test 05)",
+    "badge": "Sách ĐHQGHN #05",
+    "readingSetIndex": 10,
+    "listeningSet": 3,
+    "w1Id": "w05",
+    "w2Id": "w12",
+    "s1Id": "s15",
+    "s2Id": "s25",
+    "s3Id": "s35"
+  },
+  {
+    "id": "exam12",
+    "code": "Đề 12",
+    "name": "Sách ĐHQGHN Test 06 (The Biology of Risk: Dopamine & Fear)",
+    "source": "Sách 10 Bộ đề Đọc hiểu VSTEP B1-B2-C1 — NXB Đại học Quốc gia Hà Nội (Test 06)",
+    "badge": "Sách ĐHQGHN #06",
+    "readingSetIndex": 11,
+    "listeningSet": 1,
+    "w1Id": "w09",
+    "w2Id": "w14",
+    "s1Id": "s16",
+    "s2Id": "s26",
+    "s3Id": "s31"
+  },
+  {
+    "id": "exam13",
+    "code": "Đề 13",
+    "name": "Sách ĐHQGHN Test 07 (Humanitarian Dorothea Dix & Mental Health Reform)",
+    "source": "Sách 10 Bộ đề Đọc hiểu VSTEP B1-B2-C1 — NXB Đại học Quốc gia Hà Nội (Test 07)",
+    "badge": "Sách ĐHQGHN #07",
+    "readingSetIndex": 12,
+    "listeningSet": 2,
+    "w1Id": "w11",
+    "w2Id": "w06",
+    "s1Id": "s11",
+    "s2Id": "s21",
+    "s3Id": "s32"
+  },
+  {
+    "id": "exam14",
+    "code": "Đề 14",
+    "name": "Sách ĐHQGHN Test 08 (Private Companies Leading the New Space Age)",
+    "source": "Sách 10 Bộ đề Đọc hiểu VSTEP B1-B2-C1 — NXB Đại học Quốc gia Hà Nội (Test 08)",
+    "badge": "Sách ĐHQGHN #08",
+    "readingSetIndex": 13,
+    "listeningSet": 3,
+    "w1Id": "w13",
+    "w2Id": "w07",
+    "s1Id": "s12",
+    "s2Id": "s22",
+    "s3Id": "s33"
+  },
+  {
+    "id": "exam15",
+    "code": "Đề 15",
+    "name": "Sách ĐHQGHN Test 09 (Learning from Failure: Everest to the Apple Newton)",
+    "source": "Sách 10 Bộ đề Đọc hiểu VSTEP B1-B2-C1 — NXB Đại học Quốc gia Hà Nội (Test 09)",
+    "badge": "Sách ĐHQGHN #09",
+    "readingSetIndex": 14,
+    "listeningSet": 1,
+    "w1Id": "w01",
+    "w2Id": "w08",
+    "s1Id": "s13",
+    "s2Id": "s23",
+    "s3Id": "s34"
+  },
+  {
+    "id": "exam16",
+    "code": "Đề 16",
+    "name": "Sách ĐHQGHN Test 10 (The Psychology & Symbolism of Colors)",
+    "source": "Sách 10 Bộ đề Đọc hiểu VSTEP B1-B2-C1 — NXB Đại học Quốc gia Hà Nội (Test 10)",
+    "badge": "Sách ĐHQGHN #10",
+    "readingSetIndex": 15,
+    "listeningSet": 2,
+    "w1Id": "w02",
+    "w2Id": "w10",
+    "s1Id": "s14",
+    "s2Id": "s24",
+    "s3Id": "s35"
+  }
+];
+
+ALL_READING_SETS.push(...VNU_10_READING_SETS);
+VSTEP_EXAM_SETS.push(...VNU_10_EXAM_SETS);
+/* ==========================================================
+   NGÂN HÀNG ĐỀ THIÊN ÂN — VSTEP COLLECTION 20 MOCK TESTS (TEST 1–5)
+   Nguồn: Anh Ngữ Thiên Ân (anhnguthienan.edu.vn) — Đề mẫu VSTEP B1-B2-C1
+   Test 1-5 Full 4 kỹ năng có đáp án. Câu hỏi/đáp án bóc tách từ trang + ảnh
+   đáp án (OCR). Script Nghe được viết lại khớp đáp án chính thức để TTS phát.
+   ========================================================== */
+
+const THIENAN_READING_SETS = [
+
+  {
+    id: "rset17",
+    title: "Đề số 17 — Thiên Ân VSTEP Test 1 (4 bài đọc)",
+    source: "Anh Ngữ Thiên Ân — Đề thi mẫu VSTEP B1-B2-C1 Test 1 Full 4 kỹ năng (Sách VSTEP Collection 20 Mock Tests, anhnguthienan.edu.vn)",
+    passages: [
+      {
+        title: "Raising a Family of Great Horned Owls",
+        body: "It takes a long time to raise a family of owlets, so the great homed owl begins early in the year. In January and February, or as late as March in the North, the male calls to the female with a resonant boot. The female is larger than the male. She sometimes reaches a body length of twenty-two to twenty-four inches, with a wingspread up to fifty inches. To impress her, the male does a strange courtship dance. He bobs. He bows. He ruffles his feathers and hops around with an important air. He flutters from limb to limb and makes flying sorties into the air. Sometimes he returns with an offering of food. They share the repast, after which she joins the dance, hopping and bobbing about as though keeping time to the beat of an inner drum. Owls are poor home builders. They prefer to nest in a large hollow in a tree or even to occupy the deserted nest of a hawk or crow. These structures are large and rough, built of sticks and bark and lined with leaves and feathers. Sometimes owls nest on a rocky ledge, or even on the bare ground. The mother lays two or three round, dull white eggs. Then she stoically settles herself on the nest and spreads her feather skirts about her to protect her precious charges from snow and cold. It is fiveweeks before the first downy white owlet pecks its way out of the shell. As the young birds feather out, they look like wise old men with their wide eyes and quizzical expressions. They clamor for food and keep the parents busy supplying mice, squirrels, rabbits, crayfish, and beetles. Later in the season baby crows are taken. Migrating songsters, waterfowl, and game birds all fall prey to the hungry family. It is nearly ten weeks before fledglings leave the nest to search for their own food. The parent birds weary of family life by November and drive the young owls away to establish hunting ranges of their own.",
+        questions: [
+          { n: 1, q: "What is the topic of this passage?", opts: ["Raising a family of great homed owls", "Mating rituals of great homed owls", "Nest building of great homed owls", "Habits of young great homed owls"], a: 0, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>A. Raising a family of great homed owls</b>." },
+          { n: 2, q: "The phrase \" a resonant hoot \" in the passage is closest in meaning to ____.", opts: ["an instrument", "a sound", "a movement", "an offering of food"], a: 1, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>B. a sound</b>." },
+          { n: 3, q: "It can be inferred from the passage that the courtship of great horned owls ____.", opts: ["takes place on the ground", "is an active process", "happens in the fall", "involves the male alone"], a: 1, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>B. is an active process</b>." },
+          { n: 4, q: "According to the passage, great horned owls ____.", opts: ["are discriminate nest builders", "need big nests for their numerous eggs", "may inhabit a previously used nest", "build nests on tree limbs"], a: 2, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>C. may inhabit a previously used nest</b>." },
+          { n: 5, q: "According to the passage, which of the following is the mother owl's job?", opts: ["To initiate the courtship ritual", "To feed the young", "To sit on the nest", "To build the nest"], a: 2, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>C. To sit on the nest</b>." },
+          { n: 6, q: "The phrase \" precious charges \" in paragraph 3 refers to ____.", opts: ["the eggs", "the-nest", "the hawks and crows", "other nesting owls"], a: 0, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>A. the eggs</b>." },
+          { n: 7, q: "According to the passage, young owlets eat everything EXCEPT ____.", opts: ["other small birds", "insects", "small mammals", "nuts and seeds"], a: 3, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>D. nuts and seeds</b>." },
+          { n: 8, q: "The word \" they \" in the passage refers to ____.", opts: ["the wise old men", "the adult birds", "the young birds", "the prey"], a: 2, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>C. the young birds</b>." },
+          { n: 9, q: "What can be inferred from the passage about the adult parents of the young great homed owls?", opts: ["They are sorry to see their young leave home", "They are lazy and careless about feeding the small owlets", "They probably don't see their young after November", "They don't eat while they are feeding their young"], a: 2, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>C. They probably don't see their young after November</b>." },
+          { n: 10, q: "The phrase \" weary of ' in the passage is closest in meaning to ____.", opts: ["tire of", "become sad about", "support", "are attracted to"], a: 0, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>A. tire of</b>." },
+        ]
+      },
+      {
+        title: "Emigrants Heading West: The Jump-Off Points",
+        body: "In the early 1800s, to reach the jump-off point for the West, a family from the East of the United States, could either buy steamboat passage to Missouri for themselves, their wagons, and their livestock or – as happened more often- simply pile everything into a wagon, hitch up a team, and begin their overland trek right in their front yard. Along the macadamized roads and turnpikes east of the Missouri River, travel was comparatively fast, camping easy, and supplies plentiful. Then, in one river town or another, the neophyte emigrants would pause to lay in provisions. For outfitting purposes, the town of Independence had been preeminent ever since 1827, but the rising momentum of pioneer emigration had produced some rival jump-off points. Westport and Fort Leavenworth flourished a few miles upriver. St. Joseph had sprung up 55 miles to the northwest; in fact, emigrants who went to Missouri by riverboat could save four days on the trail by staying on the paddle-wheelers to St. Joe before striking overland. At whatever jump-off point they chose, the emigrants studied guidebooks and directions, asked questions of others as green as themselves, and made their final decisions about outfitting. They had various, sometimes conflicting, options. For example, either pack animals or two-wheel carts or wagons could be used for the overland crossing. A family man usually chose the wagon. It was the costliest and slowest of the three, but it provided space and shelter for children and for a wife who likely as not was pregnant. Everybody knew that a top-heavy covered wagon might blow over in a prairie wind or be overturned by mountain rocks, that it might mire in river mud or sink to its hubs in desert sand – but maybe if those things happened on this trip, they would happen to someone else. Anyway, most pioneers, with their farm background, were used to wagons.",
+        questions: [
+          { n: 11, q: "What is the topic of this passage?", opts: ["Important river towns", "Getting started on the trip west", "The advantages of traveling by wagon", "Choosing a point of departure"], a: 1, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>B. Getting started on the trip west</b>." },
+          { n: 12, q: "All of the following can be inferred from the passage about travel east of the Missouri EXCEPT that it ____.", opts: ["was faster than in the West", "was easier than in the West", "took place on good roads", "was usually by steamboat"], a: 3, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>D. was usually by steamboat</b>." },
+          { n: 13, q: "The phrase \" jump–off point \" in the passage is closest in meaning to ____.", opts: ["a bridge across a river", "a point of departure", "a gathering place", "a trading post"], a: 1, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>B. a point of departure</b>." },
+          { n: 14, q: "Which of the cities that served as a jump-off point can be inferred from the passage to be farthest west?", opts: ["Independence", "St. Joseph", "Westport", "Fort Leavenworth"], a: 1, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>B. St. Joseph</b>." },
+          { n: 15, q: "The word \" preeminent \" in the passage is closest in meaning to ____.", opts: ["oldest", "superior", "most easily reached", "closest"], a: 1, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>B. superior</b>." },
+          { n: 16, q: "The author implies in the passage that the early emigrants ____.", opts: ["knew a lot about travel", "were well stocked with provisions when they left their homes", "left from the same place in Missouri", "preferred wagon travel to other types of travel"], a: 3, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>D. preferred wagon travel to other types of travel</b>." },
+          { n: 17, q: "The word \"neophyte\" in the passage is closest in meaning to ____.", opts: ["eager", "courageous", "prosperous", "inexperienced"], a: 3, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>D. inexperienced</b>." },
+          { n: 18, q: "All of the following were mentioned in the passage as options for modes of transportation from the Missouri River to the West EXCEPT ____.", opts: ["a wagon", "a riverboat", "a pack animal", "a two-wheel cart"], a: 1, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>B. a riverboat</b>." },
+          { n: 19, q: "The word \" striking \" in the passage is closest in meaning to ____.", opts: ["hitting", "orienting", "departing", "marking"], a: 2, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>C. departing</b>." },
+          { n: 20, q: "All of the following features of the covered wagon made it unattractive to the emigrants EXCEPT ____.", opts: ["speed at which it could travel", "its bulk", "its familiarity and size", "its cost"], a: 2, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>C. its familiarity and size</b>." },
+        ]
+      },
+      {
+        title: "The Royal Library of Alexandria",
+        body: "Alexander the Great commissioned the city of Alexandria to create a Mediterranean stronghold in Egypt to rival Rome and cities in Greece. He died before his idea came to fruition, but his successors built it into one of the greatest cities of the Hellenistic world. The Royal Library of Alexandria has achieved an almost mythical status among scholars of classical studies. As with many ancient topics, scholarship on the matter often conflicts and relies heavily on hearsay and supposition.We will examine the importance of the library during its heyday and how it operated. As with many ancient landmarks, there is much debate and controversy over Alexandria's library, especially regarding its destruction. The tale has been retold by countless historians and attributed to just as many different factions and rulers, not to profile this landmark of education, but as a tool for political slander. It is estimated that there are over 4000 writings regarding its destruction, yet very little data exists regarding the structure, layout, organization, administration, or whereabouts of the complex. The accuracy of the available information is suspect. However, 20th century scholars have reached some general consensus from the remaining sources. Most historians have come to the conclusion that the original library (also known as the Temple of the Muses) was commissioned by Ptolemy I, Alexander's key general. More accurately, it was commissioned by the Athenian exile Demetrius of Phaleron under Ptolemy l's patronage. Traditionally it was attributed to his son Ptolemy II. However, it was later shown that Demetrius was antagonistic toward Ptolemy II and did not survive for much of his reign. Ptolemy II can be seen as responsible for the fruition and. completion of the library and museum complex. H.G. Wells asserts that Ptolemy and his son encouraged a blaze of knowledge and discovery at Alexandria' through their funding of the library and other endowments. The library itself was not a 'library' in the modem etymology. In fact, the library was essentially a collection of scholars and scribes encouraged to expand scientific and philosophical wisdom and musings brought about because of the ambition and drive of Ptolemy I. It was not the first institution of its type, developing about a half-century after Plato's Academy and Aristotle's Lyceum. About 30-50 scholars were probably permanently housed there, fed, and funded, first by the royal family, and later, according to an early Roman scroll, by public money. It served a religious, as well as an intellectual, function and it was the centerpiece of a so-called cult of the muses, governed by a priest. [A] The library's output was created through observation and deduction in math, medicine, astronomy, and geometry, the editing of texts and manuscripts, and debating various advances in Western knowledge. [B] For two or three generations, the scientific output at Alexandria was considerably good. Its achievements included the introduction of the first steam engine, the first star map, and an astoundingly accurate estimate of the Earth's diameter. [C] Famous scholars employed there included Euclid, Eratosthenes, Apollonius, and Hero. [D] The library may have consisted of a group of buildings, including lecture halls, study rooms, dining rooms, gardens, and an astronomical observatory. In organization of the library, it is believed that, in the time of Ptolemy II, the scrolls were haphazardly stored and grouped by general category. From the time of Callimachus onwards, they used an early iteration of a subject catalog. Subject divisions outlined by Callimachus included mathematics, medicine, astronomy, and geometry, as well as philology. At its peak, it is estimated about 600,000 scrolls were held within its walls, although that is likely an overstatement. The Ptolemys achieved their goal of creating the largest collection of its kind by varied and often forceful means. At the time of its founding, Greek libraries were usually collections of manuscripts by private individuals. Ptolemy had a vision to collect all accepted literature on all matters scientific,philosophical and spiritual. The library tried to get copies of all known books and would send agents far and wide to acquire them. Ptolemy Ill wrote a letter \"to all the world's sovereigns\" asking to borrow their books. On more than a few occasions, scribes made copies and kept the originals. Supposedly, all ships entering Alexandria's harbor were searched for books to copy. The Royal Library of Alexandria was created at an ideal time and place in world history. It was able to combine the deductive techniques of Greek thought toward the learning of other world cultures. As such, it holds a legendary position among historians as an important center of classical knowledge. Although much of the story has been buried with time and conflict, the importance and significance of its contributions are clear.",
+        questions: [
+          { n: 21, q: "All of the following sentences express important ideas in the passage EXCEPT ____.", opts: ["The library was essentially a collection of scholars and scribes encouraged to expand scientific and philosophical wisdom.", "In the time of Callimachus, the scrolls were haphazardly stored and grouped by general category.", "It is estimated that there were over 4000 writings about its destruction, yet very little evidence exists.", "The library tried to get copies of all known books and would employ several methods of acquiring them."], a: 1, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>B. In the time of Callimachus, the scrolls were haphazardly stored and grouped by general category.</b>." },
+          { n: 22, q: "The word \" factions \" in the passage is closest in meaning to ____.", opts: ["sections", "insubordinates", "cliques", "conspiracies"], a: 2, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>C. cliques</b>." },
+          { n: 23, q: "The word \" its \" in the passage refers to ____.", opts: ["data", "education", "the Royal Library of Alexandria", "destruction"], a: 2, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>C. the Royal Library of Alexandria</b>." },
+          { n: 24, q: "The author mentions \" its destruction \" in the passage in order to ____.", opts: ["introduce the idea that the destruction was caused by natural disaster", "illustrate that there are so many arguments surrounding its demise and disappearance", "indicate the difference between its destruction and other libraries destruction", "highlight the difference between the library and other historic sites"], a: 1, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>B. illustrate that there are so many arguments surrounding its demise and disappearance</b>." },
+          { n: 25, q: "Which of the following best expresses the essential information in the highlighted sentence in the passage? Incorrect answer choices change the meaning in important ways or leave out essential information.", opts: ["Commissioned by Ptolemy I, the Royal Library was a place where people who wanted to learn gathered to study and record their philosophies.", "The library was a large building where students gathered to research and study.", "Philosophers often visited the library to further their studies.", "Many people gathered at the Royal Library in Alexandria in order to socialize with their friends."], a: 0, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>A. Commissioned by Ptolemy I, the Royal Library was a place where people who wanted to learn gathered to study and record their philosophies.</b>." },
+          { n: 26, q: "According to paragraph 6, what was true about the early iteration of a subject catalog?", opts: ["All the books were grouped within two general categories.", "The books were chosen for their innovation, thematic impact, and popular appeal.", "The librarians organized the collection of books systematically.", "The library achieved an astonishing collection and many developments."], a: 2, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>C. The librarians organized the collection of books systematically.</b>." },
+          { n: 27, q: "The word \" overstatement \" in the passage is closest in meaning to ____.", opts: ["estimation", "falsehood", "exaggeration", "presumption"], a: 2, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>C. exaggeration</b>." },
+          { n: 28, q: "Which of the following can be inferred about the Royal Library from the passage?", opts: ["Most of the manuscripts from the library are preserved in modem museums.", "Several writings from the library have been scanned and can be viewed on the Internet.", "Little of the manuscripts contained in the library are in existence today.", "The library is currently being reconstructed."], a: 2, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>C. Little of the manuscripts contained in the library are in existence today.</b>." },
+          { n: 29, q: "According to historians, all of the following were true about the Royal Library of Alexandria EXCEPT ___.", opts: ["It probably contained over 600,000 writings.", "Little is known of its exact location.", "It was responsible for the first star map.", "It was the largest and most magnificent library in history."], a: 3, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>D. It was the largest and most magnificent library in history.</b>." },
+          { n: 30, q: "Look at the four squares [_] that indicate where the following sentence can be added to the passage. It remained an important intellectual center for over 500 years until numerous fires and other problems eroded its significance. Where would the sentence best fit?", opts: ["[A]", "[B]", "[C]", "[D]"], a: 3, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>D. [D]</b>." },
+        ]
+      },
+      {
+        title: "The Pacific Islands: Settlement & Ecological Change",
+        body: "The Pacific Ocean contains approximately. 20, 000 to 30, 000 islands. Islands, e x cluding Australia, that are south o f the Tropic of Can ce r are grouped into three di v isions: Melanesia, Micronesia, and Polynesia. Melanesia includes the nation of Papua New Guin e a, provinces of Indonesia, and the Solomon Islands. Micronesia means 'small i slands,' most of which are north o f the equator. Finally, Polynesia, which means ' many islands,' includes th e Hawaiian Islands, Tonga, Tuvalu, and Easter Island, among others. Migrants from South East Asian cities were the first settlers. The next wave of migrant s populated New Guinea, gradually spreading to Fiji. The last of the Pacific islands to be settled was Polynesia. Hawaii was discovered sometime between the 7th and 13th centuries. Bats were the only mammals on these islands until the arrival of the first humans. Birds adapted to environmental niches, like grazers and insectivores. Due to the cool and humid location, New Zealand lost plants and animals, like the giant flightless bird, that were Intolerant of its climate. However, the extinction coincided With the arrival of the Melanesians, so it was probably caused by hunting and fires. Adding to that, mining and a natural drought destroyed a majority of the natural habitat. This was repeated on Easter Island, where early settlers wiped out 22 species of sea birds and land birds. By the time the Europeans had arrived, most of the plant life was extinct and nearly 30% of the forests were cleared. The invasion of New Zealand by the Europeans resulted in a complete transformation of the island, importing over 3,198 species of plants and animals and filling most of the wetlands. Australia also imported animals and plants from many Pacific island countries. Sheep, pigs, goats and foxes were brought to Australia, which further disrupted the native ecosystems. Many plants and animals are presently endangered. The plants and animals that inhabit Pacific islands are found nowhere else on earth. They are often adapted to specific habitats and live on a small part of a few islands. New Caledonia is-an island that has been isolated from other lands for over 80 million years. 66 percent of the plant life there evolved on the island. Numerous plant species, unique in the world, are on a small area of one mountain and are represented by only a few specimens. This varied genetic heritage is of such scientific importance that New Caledonia has been listed as one of the ten hot spots where the primary forest is in danger of extinction. It also boasts 68 species of bird; the most diverse bird life in the Southwest Pacific. During the first Ice Age, ocean levels were much lower than they are at present. Levels in the shallow seas, now separating Asia from North America near the present-day Bering strait; dropped approximately 300 feet, creating 1,000 miles of grassland plain. Called the 'Bering Land Bridge,' this linked Asia and North America together. The Bering Sea has a long history of stable anima populations, despite the harsh environments, which sustain human life. Lemmings, ox, and mammoths all made the journey across the land bridge. Although mammoths have been extinct for quite a while now, the other two have remained. Pacific walruses inhabit shallow waters of the Bering Sea during winter. They congregate to feed on clams, their principal food. [A] This type of feeding releases nutrients into the water, providing food for starfish and increasing the roughness of the sea floor. [B] Actual impact of the ecology of bottom communities is unknown, but walruses, along with other animals like beavers and sea otters, have huge effects on the biological communities they occupy. [C] Animals such as seals, bowhead whales, and walruses are important for the subsistence of their community. [D] Pacific islands have the same pollution and over fishing problems as most countries. Destructive forms of fishing in Asian nations have taken their toll on marine animals such as birds and tuna. Many of these nations have now entered joint venture agreements to enable them to develop their marine resources more efficiently.",
+        questions: [
+          { n: 31, q: "The word \" populated \" in the passage is closest in meaning to ____.", opts: ["inhabited", "exiled", "traveled", "governed"], a: 0, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>A. inhabited</b>." },
+          { n: 32, q: "The word \" it \" in the passage refers to ____.", opts: ["arrival", "extinction", "climate", "hunting"], a: 1, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>B. extinction</b>." },
+          { n: 33, q: "Why does the author mention \" The invasion of New Zealand by the Europeans \" in the passage?", opts: ["To demonstrate its destructive effect on local ecosystems", "To explain how many of New Zealand's species came into being", "To show the lack of responsibility that early settlers had toward new-places", "To draw a comparison to the way Australia expanded in the Pacific"], a: 0, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>A. To demonstrate its destructive effect on local ecosystems</b>." },
+          { n: 34, q: "According to paragraph 5, what is unique about the Pacific Islands?", opts: ["They have a long history of traditional management approaches for marine resources.", "They are home to rare and unique animals.", "They are made up of 66% plant life.", "They have all been damaged by European settlers."], a: 1, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>B. They are home to rare and unique animals.</b>." },
+          { n: 35, q: "The word \" specimens \" in the passage is closest in meaning to ____.", opts: ["genres", "features", "examples", "images"], a: 2, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>C. examples</b>." },
+          { n: 36, q: "According to paragraph 7, how bas the Bering Sea aided life forms in the past?", opts: ["By providing creatures with plentiful food", "By being home to a diverse and varied ecosystem", "By allowing transit across the great iceshelves m the Americas", "By keeping creatures cool and comfortable-in the ice"], a: 2, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>C. By allowing transit across the great iceshelves m the Americas</b>." },
+          { n: 37, q: "According to the passage, which of the following is true of walruses?", opts: ["They protect the surrounding ecosystem by preventing over- fishing.", "Their unique feeding habits enrich the ecosystem with nutrients.", "They are solitary animals which hunt and eat by themselves.", "They are usually found living in the deepest regions of the Bering Sea."], a: 1, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>B. Their unique feeding habits enrich the ecosystem with nutrients.</b>." },
+          { n: 38, q: "Which of the following best expresses the essential information in the highlighted sentence? Incorrect answer choices change the meaning in important ways or leave out essential information.", opts: ["Although ecological impacts are not known, many species are largely dependent on animals occupying a sub-level.", "The true biological diversity of all the walruses is revealed only below the species level.", "Beavers and otters are strongly related to the walrus family because there is a clear cause-effect relationship.", "There is a great deal that still needs to be learned about biological communities and ecosystems."], a: 0, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>A. Although ecological impacts are not known, many species are largely dependent on animals occupying a sub-level.</b>." },
+          { n: 39, q: "According to paragraph 9, what measures have been taken to protect sea creatures?", opts: ["Protection agencies have begun guarding areas known for high fish population.", "Destructive fishing methods such as drag-nets have been outlawed.", "Agreements have been made to ensure that marine resources are used carefully.", "Restrictions have been placed on 'amounts permitted to be fished in certain areas."], a: 2, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>C. Agreements have been made to ensure that marine resources are used carefully.</b>." },
+          { n: 40, q: "Look at the four squares [_] that indicate where the following sentence can be added to the passage. Walruses blow the clams loose with a jet of water, then suck them from their shells. Where would the sentence best fit?", opts: ["[A]", "[B]", "[C]", "[D] Đề Thi Thật VSTEP"], a: 0, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>A. [A]</b>." },
+        ]
+      },
+    ]
+  },
+  {
+    id: "rset18",
+    title: "Đề số 18 — Thiên Ân VSTEP Test 2 (4 bài đọc)",
+    source: "Anh Ngữ Thiên Ân — Đề thi mẫu VSTEP B1-B2-C1 Test 2 Full 4 kỹ năng (Sách VSTEP Collection 20 Mock Tests, anhnguthienan.edu.vn)",
+    passages: [
+      {
+        title: "Food Allergies and Sensitivities",
+        body: "Scientists do not yet thoroughly understand just how the body of an individual becomes sensitive to a substance that is harmless or even wholesome for the average person. Milk, wheat, and egg, for example, rank among the most healthful and widely used foods. Yet these foods can cause persons sensitive to them to suffer greatly. At first, the body of the individual is not harmed by coming into contact with the substance, After a varying interval of time, usually longer than a few weeks, the body becomes sensitive to it, and an allergy has begun to develop. Sometimes it's hard to figure out if you have a food allergy, since it can show up so many different ways. Your symptoms could be caused by many other problems. You may have rashes, hives, joint pains mimicking arthritis, headaches, irritability, or depression. The most common food allergies are to milk, eggs, seafood, wheat, nuts, seeds, chocolate, oranges, and tomatoes. Many of these allergies will not develop if these foods are not fed to an infant until her or his intestines mature at around seven months. Breast milk also tends to be protective. Migraines can be set off by foods containing tyramine, phenethylamine, monosodium glutamate, or sodium nitrate. Common foods which contain these are chocolate, aged cheeses, sour cream, red wine, pickled herring, chicken livers, avocados, ripe bananas, cured meats, many Oriental and prepared foods (read the labels!). Some people have been successful in treating their migraines with supplements of B-vitamins, particularly B6 and niacin. Children who are hyperactive may benefit from eliminating food additives, especially colorings, and foods high in salicylates from their diets. A few of these are almonds, green peppers, peaches, tea, grapes. This is the diet made popular by Benjamin Feingold, who has written the book \"Why Your Child Is Hyperactive\". Other researchers have had mixed results when testing whether the diet is effective.",
+        questions: [
+          { n: 1, q: "The topic of this passage is", opts: ["reactions to foods", "food and nutrition", "infants and allergies", "a good diet"], a: 0, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>A. reactions to foods</b>." },
+          { n: 2, q: "According to the passage, the difficulty in diagnosing allergies to foods is due to ____.", opts: ["the vast number of different foods we eat", "lack of a proper treatment plan.", "the similarity of symptoms of the allergy to other problems", "the use of prepared formula to feed babies"], a: 2, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>C. the similarity of symptoms of the allergy to other problems</b>." },
+          { n: 3, q: "The word \"symptoms\" in the passage is closest in meaning to ____.", opts: ["indications", "diet", "diagnosis", "prescriptions"], a: 0, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>A. indications</b>." },
+          { n: 4, q: "The phrase \"set off\" in the passage is closest in meaning to ____.", opts: ["relieved", "identified", "avoided", "triggered"], a: 3, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>D. triggered</b>." },
+          { n: 5, q: "What can be inferred about babies from this passage?", opts: ["They can eat almost anything.", "They should have a carefully restricted diet as infants.", "They gain little benefit from being breast fed.", "They may become hyperactive if fed solid food too early."], a: 1, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>B. They should have a carefully restricted diet as infants.</b>." },
+          { n: 6, q: "The word \"hyperactive\" in the passage is closest in meaning to ____.", opts: ["overly active", "unusually low activity", "excited", "inquisitive"], a: 0, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>A. overly active</b>." },
+          { n: 7, q: "The author states that the reason that infants need to avoid certain foods related to allergies has to do with the infant's ____.", opts: ["lack of teeth", "poor metabolism", "underdeveloped intestinal tract", "inability to swallow solid foods"], a: 2, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>C. underdeveloped intestinal tract</b>." },
+          { n: 8, q: "The word \"these\" in the passage refers to ____.", opts: ["food additives", "food colorings", "innutritious foods", "foods high in salicylates"], a: 3, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>D. foods high in salicylates</b>." },
+          { n: 9, q: "Which of the following was a suggested treatment for migraines in thepassage?", opts: ["Eating more ripe bananas", "Avoiding all Oriental foods", "Getting plenty of sodium nitrate", "Using Vitamin B in addition to a good diet"], a: 3, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>D. Using Vitamin B in addition to a good diet</b>." },
+          { n: 10, q: "According to the article the Feingold diet is NOT ____.", opts: ["verified by researchers as being consistently effective", "available in book form", "beneficial for hyperactive children", "designed to eliminate foods containing certain food additives"], a: 0, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>A. verified by researchers as being consistently effective</b>." },
+        ]
+      },
+      {
+        title: "The Rise of Women Entrepreneurs in America",
+        body: "Until recently, most American entrepreneurs were men. Discrimination against women in business, the demands of caring for families, and lack of business training had kept the number of women entrepreneurs small. Now, however, businesses owned by women account for more than $40 billion in annual revenues, and this figure is likely to continue rising throughout the 1990s. As Carolyn Doppelt Gray; an official of the Small Business Administration, has noted, \"The 1970s was the decade of women entering management, and the 1980s turned out to be the decade of the woman entrepreneur.\" What are some of the factors behind this trend? For one thing, as more women earn advanced degrees in business and enter the corporate world, they are finding obstacles. Women are still excluded from most executive suites. Charlotte Taylor, a management consultant, had noted, \"In the 1970s women believed if they got an MBA and worked hard they could become chairman of the board. Now they've found out that isn't going to happen, so they go out on their own.\" In the past, most women entrepreneurs worked in \"women's\" fields cosmetics and clothing, for example. But this is changing. Consider ASK Computer Systems, a $22-million-a-year computer software business. It was founded in 1973 by Sandra Kurtzig, who was then a housewife with degrees in math and engineering. When Kurtzig founded the business, her first product was software that let weekly newspapers keep tabs on their newspaper carriers and her office was a bedroom at home, with a shoebox under the bed to hold the company's cash. After she succeeded with the newspaper software system, she hired several bright computer-science graduates to develop additional programs. When these were marketed and sold, ASK began to grow. It now has 200 employees, and Sandra Kurtzig owns $66.9 million of stock. Of course, many women who start their own businesses fail, just as men often do. They still face hurdles in the business world, especially problems in raising money; the banking and finance world is still dominated by men, and old attitudes die hard. Most businesses owned by women are still quite small. But the situation is changing; there are likely to be many more Sandra Kurtzig in the years ahead.",
+        questions: [
+          { n: 11, q: "What is the main idea of this passage?", opts: ["Women today are better educated than in the past, making them more attractive to the business world.", "The computer is especially lucrative for women today.", "Women are better at small businesses than men are.", "Women today are opening more businesses of their own."], a: 3, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>D. Women today are opening more businesses of their own.</b>." },
+          { n: 12, q: "The word \"excluded\" in the passage is closest in meaning to ____.", opts: ["not permitted in", "often invited to", "decorators of", "charged admission to"], a: 0, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>A. not permitted in</b>." },
+          { n: 13, q: "All of the following were mentioned in the passage as detriments to women in the business world EXCEPT ____.", opts: ["women were required to stay at home with their families.", "women lacked ability to work in business.", "women faced discrimination in business.", "women were not trained in business."], a: 1, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>B. women lacked ability to work in business.</b>." },
+          { n: 14, q: "The word \"that\" in the passage refers to ____.", opts: ["a woman becomes chairman of the board", "women working hard", "women achieving advanced degrees", "women believing that business is a place for them"], a: 0, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>A. a woman becomes chairman of the board</b>." },
+          { n: 15, q: "According to the passage, Charlotte Taylor believes that women in the 1970s ____.", opts: ["were unrealistic about their opportunities in business management", "were still more interested in education than business opportunities", "had fewer obstacles in business than they do today", "were unable to work hard enough to succeed in business"], a: 0, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>A. were unrealistic about their opportunities in business management</b>." },
+          { n: 16, q: "The author mentions the \"shoebox under the bed\" in the third paragraph in order to ____.", opts: ["show the frugality of women in business", "show the resourcefulness of Sandra Kurtzig", "point out that initially the financial resources of Sandra Kurtzig's business were limited", "suggest that the company needed to expand"], a: 2, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>C. point out that initially the financial resources of Sandra Kurtzig's business were limited</b>." },
+          { n: 17, q: "The word \"this\" in the passage refers to ____.", opts: ["women becoming entrepreneurs", "women buying cosmetics and clothing", "women working in \"women's fields\"", "women staying at home"], a: 2, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>C. women working in \"women's fields\"</b>." },
+          { n: 18, q: "The expression \"keep tabs on\" in the passage is closest in meaning to ____.", opts: ["recognize the appearance of", "keep records of", "provide transportation for", "pay the salaries of"], a: 1, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>B. keep records of</b>." },
+          { n: 19, q: "It can be inferred from the passage that the author believes that businesses operated by women are small because ____.", opts: ["women prefer a small intimate setting", "women can't deal with money", "women are not able to borrow money easily", "many women fail at large businesses"], a: 2, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>C. women are not able to borrow money easily</b>." },
+          { n: 20, q: "The author's attitude about the future·of women in business is ____.", opts: ["skeptical", "optimistic", "frustrated", "negative"], a: 1, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>B. optimistic</b>." },
+        ]
+      },
+      {
+        title: "Symbiosis: Mutualism, Commensalism and Parasitism",
+        body: "Symbiosis is a close ecological relationship between two dissimilar organisms. They assist each other with feeding, defending, and reproducing, In symbiosis, at least one of the pair benefits from the relationship. The other may be injured (parasitism), unaltered (commensalism), or may also benefit (mutualism). An interesting mutually dependent relationship exists between the · pine and the pinon jay. Blue pinon jays settle on the tops of pine trees and pick at the dark round seeds from the sticky cones. They store the seeds in their throats, fly off and hide them somewhere, and then return to repeat the process again. It seems the reproductive cycle of a pine jay corresponds with the ripening of the pine's seed. Similarly, the pine is dependent on the pinon jays for distribution of the seeds. Seeds are stored in the bark of a tree or in the ground. Using their long bills, pinon jays plant and store them for later consumption. Their throats can expand to hold a large number of seeds; one pinon jay has been reported carrying 50 seeds in one trip. After they have planted the seeds, they return to eat them. Using their bills like a woodpecker, they hammer the seed until the shell breaks. Any unrecovered nuts are then grown into new trees. This fascinating relationship has been ongoing for thousands of years. When both species benefit each other, this is called mutualism. An example of mutualism is a plant and fungi. The fungus occupies · the cortex cells of the secondary roots of the plant. This relationship is called a 'mycorrhiza.' It helps the plant absorb inorganic nitrogen and phosphorus from the soil. Some fungi also produce antibiotics which may prevent the invasion of parasitic fungi and bacteria. Another example of mutualism is pollination. Bees carry pollen from one plant to the next when they seek out plants for nectar. They feed themselves on the nectar, and the plants reproduce after fertilization by the pollen from other plants. Mutualism can also bring together two very different organisms, for example, a buffalo and an ox bird. These birds journey on the backs of African buffalo eating their parasites. The bird receives food, and the buffalo is rid of irritating insects. There are also a number of fish that provide an excellent example of mutualism. Known as 'cleaner fish,' these fish get rid of parasites and dead skin found on other fish. The best-known example is the 'cleaner wrasse,' which dwells in the Pacific and Indian oceans. They clean large predatory fish by eating tissue and parasites off their skin. This relationship provides food and protection for the wrasse and several health benefits for the other fish. The other two types of symbiosis, besides mutualism, are commensalism and parasitism. [A] Commensalism refers to a symbiotic relationship where one organism eats the unused food of another. [B] One benefits, but the other is not affected. Examples include the remora and the shark. The remora attaches itself to the shark, when the shark feeds itself, the remora picks up scraps. [C] One example of commensalism in humans is bacteria living in our intestines that feed on food in our gut. [D] In parasitism, one organism benefits and the other is harmed. Parasites live off the body of other organisms and receive nourishment from their tissues, while also inflicting damage on their hosts. Plants are parasitized by bacteria, fungi, and a handful of other plants. Parasites cause harm by entering the tissue of the host for their own nutritional benefit. None of these relationships are fixed, and it is likely that what starts as a parasitic relationship may gradually evolve into a mutualistic one. For example, in 1966, amebas were discovered that had become infected with bacteria. However, after five years, it was found that the core of the amebas had become dependent on the bacteria; thus, parasitism had evolved into mutualism. Unfortunately, the inverse is also possible; mutualistic associations may evolve into parasitic ones.",
+        questions: [
+          { n: 21, q: "According to paragraph 2, what does the pinon jay do for the pine tree?", opts: ["It gives the tree important nutrition.", "It provides a primary means of seed dissemination for pinon trees.", "It keeps the tree free from parasites.", "It helps the tree produce larger seeds."], a: 1, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>B. It provides a primary means of seed dissemination for pinon trees.</b>." },
+          { n: 22, q: "The word \"corresponds\" in the passage is closest in meaning to ____.", opts: ["matches", "includes", "exposes", "protects"], a: 0, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>A. matches</b>." },
+          { n: 23, q: "According to paragraph 3, how does the blue pinon jay store the seeds for later?", opts: ["By holding up to 50 in its mouth", "By burying them in the ground", "By protecting them in its nest", "By allowing them to develop into new trees"], a: 1, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>B. By burying them in the ground</b>." },
+          { n: 24, q: "The word \"It\" in the passage refers to ____.", opts: ["bacteria", "mutualism", "mycorrhiza", "fungus"], a: 2, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>C. mycorrhiza</b>." },
+          { n: 25, q: "According to paragraph 5, what is an example of a mutual relationship?", opts: ["An animal eating parasites from another", "An animal licking the body of another", "An animal providing protection for another", "An animal keeping another awake and alert"], a: 0, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>A. An animal eating parasites from another</b>." },
+          { n: 26, q: "The author mentions \"the remora and the shark\" in the passage in order to ____.", opts: ["explain the details behind a mutualist association", "demonstrate a connection between an active parasite picker and host", "show how one animal can benefit from the acts of another", "give an example of one animal causing the suffering of another"], a: 1, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>B. demonstrate a connection between an active parasite picker and host</b>." },
+          { n: 27, q: "Which of the following best expresses the essential information in the highlighted sentence? Incorrect answer choices change the meaning in important ways or leave out essential information.", opts: ["There are many types of creatures that are very well developed and have the strength to support other species.", "Sometimes, the organisms supplying parasites are very harmful to their hosts.", "Some animals are selfish and only cause damage to their hosts.", "Organismswhich must depend on others die easily because they are not strong."], a: 2, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>C. Some animals are selfish and only cause damage to their hosts.</b>." },
+          { n: 28, q: "The word \"gradually\" in the passage is closest in meaning to ____.", opts: ["slowly", "increasingly", "constantly", "rapidly"], a: 0, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>A. slowly</b>." },
+          { n: 29, q: "According to the passage, which of the following is NOT an example of mutualism?", opts: ["A plant and its fungi", "Pollen transfer from one plant to another", "The remora and the shark", "A buffaloand an ox bird"], a: 2, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>C. The remora and the shark</b>." },
+          { n: 30, q: "Look at the four squares [_] that indicate where the following sentence can be added to the passage. *They are completely safe and may possibly help us, hence a commensalism relationship.* Where would the sentence best fit?", opts: ["[A]", "[B]", "[C]", "[D]"], a: 3, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>D. [D]</b>." },
+        ]
+      },
+      {
+        title: "The Layers of the Earth and Seismic Waves",
+        body: "Earth has several distinct layers; the outermost of these is the crust, which has an inconsistent thickness of 35-70 km in the continents and 5-10 km in the ocean basins. The second layer is known as the mantle, which is about 2900 km thick, and divided into an upper and lower mantle. Most of Earth's internal heat is situated here. The upper mantle has an area known as the low-velocityzone, where secondary waves decrease rapidly and then gradually increase. The last layer is the core. This is a thick ball of iron and nickel divided into two layers, the inner core and the outer core. The inner core is solid, whereas the outer core is so hot that the metal is always molten. However, because the force at the inner core is so immense, it cannot melt. Due to Earth's rotation, the outer core spins around the inner core, which causes the Earth's magnetism. The inner core consists of iron nickel and other elements, probably a mix of carbon, oxygen, sulphur, silicon, and potassium. The temperature is extremely high, and due to pressure, the core is solid. Because the outer core is liquid, mainly consisting of iron, nickel and about 10% oxygen and sulphur, here the temperature is not as high. Both the outer and inner cores together create the Earth's magnetism. The core has a huge influence on Earth. Because it is so hot, it radiates a natural heat to the upper layers, setting off a current of heat, which in turn causes the movement of the tectonic plates. Because of Earth's rotation, the outer core spins, but the inner core does not because it is solid. This provides a sort of dynamo effect and causes the Earth's magnetic force. A seismic wave is a wave that travels through Earth; it is often the result of a tectonic earthquake. There are two kinds of seismic waves, \"body waves\" and \"surface waves.\" Other waves do exist, but are of little importance. Body waves travel through the center of Earth, following ray paths which are bent by the unstable density and stiffuess of Earth's interior. These differ according to temperature, phase, and structure. Body waves send out the first tremors of an earthquake as well as any later ones. There are two kinds of body waves, \"primary\" and \"secondary\" waves. Primary waves are compression waves, meaning the ground is alternately compressed and expanded in the direction of propagation. These waves can travel slightly faster through solids than secondary waves can, and are also able to travel through any type of material. Through air, they take the form of sound waves and so travel at the speed of sound. Primary waves, when created by an earthquake, are less destructive than sound waves due to their minor amplitudes. Secondary waves are tilted waves; in other words, the ground is shifted vertically in the direction of transmission. Here, the ground moves from one side to the other. Secondary waves are only able to travel through solids, not liquids or gases, and thus are unable to travel through Earth's core. Primary waves are faster than secondary waves. Primary and secondary waves are usually produced by earthquakes and volcanoes. However, they can also be produced by people using explosives or large machinery. Surface waves are comparable to water waves traveling just under Earth's surface. They travel at slower speeds than body waves. Surface waves can be the most devastating type of seismic wave due to their low frequency, long duration, and large amplitude. In theory, they are understood as a system which relates to primary and secondary waves. [A] The moment an earthquake occurs, seismographs try to record its primary and secondary waves, but often they cannot detect the secondary waves of a distant earthquake. [B] This may be due to the fact that secondary waves are unable to pass through liquids. [C] This information about wave travel helps scientists determine the internal structure of the planet. [D]",
+        questions: [
+          { n: 31, q: "In paragraph 1, what does the author say about the presence of the low-velocity zone in the Earth's interior?", opts: ["It causes the high-frequency stimulation.", "Its width is consistent with the fault zone.", "It induces regionally extensive oscillations.", "It is located just above the lower crustal boundary."], a: 2, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>C. It induces regionally extensive oscillations.</b>." },
+          { n: 32, q: "The word \"immense\" in the passage is closest in meaning to ____.", opts: ["compressed", "dilated", "immeasurable", "varied"], a: 2, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>C. immeasurable</b>." },
+          { n: 33, q: "According to paragraph 2, which of the following Is NOT true about the inner core?", opts: ["It contributes to the Earth's magnetic field.", "It is always molten and liquid.", "It is under a lot of pressure.", "It mainly consists of iron, nickel and some lighter elements."], a: 1, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>B. It is always molten and liquid.</b>." },
+          { n: 34, q: "According to paragraph 3, which of the following is the reason for tectonic plate movement?", opts: ["The convection of heat from the core", "The gravitational effect of the core", "The powerful magnetic forces of the core", "The spinning of the inner and outer core together"], a: 0, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>A. The convection of heat from the core</b>." },
+          { n: 35, q: "Why does the author mention \"a tectonic earthquake\" in the passage?", opts: ["To show that primary waves are far more powerful than secondary waves", "To demonstrate the effect of seismic waves on the Earth", "To develop understanding of the structure of the Earth's interior", "To explain that scientific detection methods are very efficient"], a: 1, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>B. To demonstrate the effect of seismic waves on the Earth</b>." },
+          { n: 36, q: "The word \"phase\" in the passage is closest in meaning to ____.", opts: ["change", "period", "heat", "construction"], a: 1, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>B. period</b>." },
+          { n: 37, q: "The word \"devastating\" in the passage is closest in meaning to ____.", opts: ["faint", "destructive", "productive", "quiet"], a: 2, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>C. productive</b>." },
+          { n: 38, q: "Which of the following best expresses the essential mformation in the highlighted sentence? Incorrect answer choices change the meaning in important ways or leave out essential information.", opts: ["Although primary and secondary waves would be recorded, the secondary waves are not strong enough to be detected at a distance.", "Seismic waves are too small to be felt as a noticeable earthquake, but detectable by seismographs.", "Secondary waves can be generated as a result of nonlinear interaction, so seismographs cannot detect them.", "Because of extensive fault repetition, the primary wave is the most powerful force in an earthquake."], a: 0, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>A. Although primary and secondary waves would be recorded, the secondary waves are not strong enough to be detected at a distance.</b>." },
+          { n: 39, q: "It can be inferred from the passage that the author most likely believes which of the following about earthquakes in the world?", opts: ["Volcanoes would not exist if earthquakes never happened.", "They are caused by the force of primary waves hitting the crust.", "They are primarily caused by the heat from the Earth's core.", "There is no more destructive thing in the world."], a: 2, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>C. They are primarily caused by the heat from the Earth's core.</b>." },
+          { n: 40, q: "Look at the four squares [_] that indicate where the following sentence can be added to the passage. *For example, with the use of secondary waves, scientists were able to suggest that Earth has a liquid outer core.* Where would the sentence best fit?", opts: ["[A]", "[B]", "[C]", "[D]"], a: 3, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>D. [D]</b>." },
+        ]
+      },
+    ]
+  },
+  {
+    id: "rset19",
+    title: "Đề số 19 — Thiên Ân VSTEP Test 3 (4 bài đọc)",
+    source: "Anh Ngữ Thiên Ân — Đề thi mẫu VSTEP B1-B2-C1 Test 3 Full 4 kỹ năng (Sách VSTEP Collection 20 Mock Tests, anhnguthienan.edu.vn)",
+    passages: [
+      {
+        title: "America's Rapid Transcontinental Settlement",
+        body: "This rapid transcontinental settlement and these new urban industrial circumstances of the last half of the 19th century were accompanied by the development of a national literature of great abundance and variety. New themes, new forms, new subjects, new regions, new authors, new audiences all emerged in the literature of this half century. As a result, at the onset of World War I, the spirit and substance of American literature had evolved remarkably, just as its center of production had shifted from Boston to New York in the late 1880s and the sources of its energy to Chicago and the Midwest. No longer was it produced, at least in its popular forms, in the main by solemn, typically moralistic men from New England and the Old South; no longer were polite, well-dressed, grammatically correct, middle-class young people the only central characters in its narratives; no longer were these narratives to be set in exotic places and remote times; no longer, indeed, were fiction, poetry, drama, and formal history the chief acceptable forms of literary expression; no longer, finally, was literature read primarily by young, middle class women. In sum, American literature in these years fulfilled in considerable measure the condition Walt Whitman called for in 1867 in describing Leaves of Grass: it treats, he said of his own major work, each state and region as peers \"and expands from them, and includes the world connecting an American citizen with the citizens of all nations\". At the same time, these years saw the emergence of what has been designated \"the literature of argument\", powerful works in sociology, philosophy, psychology, many of them impelled by the spirit of exposure and reform. Just as America learned to play a role in this half century as an autonomous international political, economic, and military power, so did its literature establish itself as a producer of major works.",
+        questions: [
+          { n: 1, q: "The main idea of this passage is ____.", opts: ["that the new American literature was less provincial than the old", "that World War I caused a dramatic change in America", "that centers of culture shifted from East to West", "that most people were wary of the new literature"], a: 0, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>A. that the new American literature was less provincial than the old</b>." },
+          { n: 2, q: "It can be inferred that the previous passage probably discussed ____.", opts: ["the importance of tradition to writers", "new developments in industrialization and population shifts", "the fashions and values of 19th century America", "the limitations of American literature to this time"], a: 1, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>B. new developments in industrialization and population shifts</b>." },
+          { n: 3, q: "The word \" evolved \" in the passage is closest in meaning to ____.", opts: ["became famous", "turned back", "diminished", "changed"], a: 3, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>D. changed</b>." },
+          { n: 4, q: "The word \"it\" in the passage refers to", opts: ["the population", "the energy", "American literature", "the manufacturing"], a: 2, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>C. American literature</b>." },
+          { n: 5, q: "The word \" exotic \" in the passage is closest in meaning to ____.", opts: ["urban", "unusual", "well-known", "old-fashioned"], a: 1, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>B. unusual</b>." },
+          { n: 6, q: "The author uses the word \" indeed \" in the passage for what purpose?", opts: ["To emphasize the contrast he is making", "For variety in a lengthy paragraph", "To wind down his argument", "To show a favorable attitude to these forms of literature"], a: 0, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>A. To emphasize the contrast he is making</b>." },
+          { n: 7, q: "The phrase \" these years \" in the passage refers to ____.", opts: ["1850-1900", "the 1900s", "the early 1800s", "the present"], a: 0, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>A. 1850-1900</b>." },
+          { n: 8, q: "It can be inferred from the passage that Walt Whitman ____.", opts: ["disliked urban life", "was disapproving of the new literature", "wrote Leaves of Grass.", "was an international diplomat"], a: 2, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>C. wrote Leaves of Grass.</b>." },
+          { n: 9, q: "All of the following can be inferred from the passage about the new literature EXCEPT ____.", opts: ["It was not highly regarded internationally.", "It introduced new American themes, characters, and settings.", "It broke with many literary traditions of the past.", "It spoke to the issue of reform and change."], a: 0, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>A. It was not highly regarded internationally.</b>." },
+          { n: 10, q: "This passage would probably be read in which of the following academic courses?", opts: ["European history", "American literature", "Current events", "International affairs"], a: 1, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>B. American literature</b>." },
+        ]
+      },
+      {
+        title: "Daniel Boone and the Missouri Farmhouse",
+        body: "When Daniel Boone died peacefully in bed in his son Nathan's elegant stone Missouri farmhouse on September 26, 1820, the surge of emigrants along the Oregon Trail was still a generation away. But Boone already exemplified the pioneer at his best. He was neither the physical giant (five feet nine) nor the innocent child of nature that legend has made of him. He was an intelligent, soft spoken family man who cherished the same wife for 57 years. He befriended Indians, preferred company to solitude, and when he told his wife it was time to move because a newcomer had settled some 70 miles away, he was joking. Pennsylvania- born, Boone was one of 11 children in a family of Quakers who migrated to North Carolina. There Boone was recruited at age 40 to undertake a scheme designed to open up Kentucky to settlers and establish it as a 14th colony. He arranged a deal by which the Cherokees sold 20 million acres for $20,000 worth of goods to Boone's employers, the Transylvania Company. It was all fair and square the Indians had an attorney, an interpreter, and the sound advice of their squaws. Toe deal completed, Boone led a party from Tennessee through the Cumberland Gap, hacked out the Wilderness Road, and set up a town Boonesboro and a government. Elected a legislator, he introduced on the first session's first day a bill to protect game against wanton slaughter and a second bill to \"improve the breed of horses.\" He got 2,000 acres for his work, but after the Revolution in which Boone won considerable fame as a militia commander the scheme of the Transylvania Company was declared illegal and Boone lost his land. Undaunted, he staked out more claims and lost them because he impatiently neglected to register his deeds. Ever hopeful, he accepted an invitation from Spanish-held Missouri to come and settle there and bring others with him. The Spanish gave him 8,500 acres and made him a judge. But the Louisiana Purchase, which embraced Missouri, again left him but not his children landless. Old and broke, Boone cheerfully continued hunting find trapping long after his hands shook. Shortly before he died, he was talking knowledgeably with young men about the joys to be experienced in settling California.",
+        questions: [
+          { n: 11, q: "What is the author's purpose in writing this passage?", opts: ["To chronicle the life of a model pioneer", "To romanticize the legend of Daniel Boone", "To show Boone's many successes on the frontier", "To trace Boone's explorations in Kentucky, Missouri, and Louisiana"], a: 0, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>A. To chronicle the life of a model pioneer</b>." },
+          { n: 12, q: "It can 'be inferred that one area in which Boone was NOT successful was ____.", opts: ["politics", "hunting and trapping", "business", "the military"], a: 2, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>C. business</b>." },
+          { n: 13, q: "The phrase \"fair and square\" in the passage is closest in meaning to ____.", opts: ["honest", "simple", "efficient", "lucrative"], a: 0, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>A. honest</b>." },
+          { n: 14, q: "It can be inferred from the passage that Boone died ____.", opts: ["a rich man", "an eternal optimist", "in California", "a lonely trapper"], a: 1, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>B. an eternal optimist</b>." },
+          { n: 15, q: "According to the passage, where is Boone's namesake city located?", opts: ["In North Carolina", "In Transylvania", "In Kentucky", "In Missouri"], a: 2, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>C. In Kentucky</b>." },
+          { n: 16, q: "The Transylvania Company wanted Boone to ____.", opts: ["settle Kentucky", "ensure animal rights", "be fair to the Indians", "claim Missouri"], a: 0, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>A. settle Kentucky</b>." },
+          { n: 17, q: "The word \" undoubted \" in the passage is closet in meaning to ____.", opts: ["unscrupulous", "fearless", "undiscouraged", "uninformed"], a: 2, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>C. undiscouraged</b>." },
+          { n: 18, q: "According to the passage, the Louisiana Purchase ____.", opts: ["legitimized Boone's land claim in Missouri", "revoked the earlier Spanish bequest to Boone", "drove the Spanish from the East", "excluded Missouri from its jurisdiction"], a: 1, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>B. revoked the earlier Spanish bequest to Boone</b>." },
+          { n: 19, q: "What can be inferred from the passage about Boone's children?", opts: ["They were better off financially than Boone.", "They supported Boone's desire to settle new areas.", "They lived in Kentucky.", "They had no land due to Boone's bad investments."], a: 0, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>A. They were better off financially than Boone.</b>." },
+          { n: 20, q: "The author's attitude toward Daniel Boone in the passage can be best described as ____.", opts: ["admiring", "critical", "admonishing", "indifferent"], a: 0, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>A. admiring</b>." },
+        ]
+      },
+      {
+        title: "The Solar System and Its Many Objects",
+        body: "The Solar System, as we know it, contains over 178 objects which revolve around our central star, or the Sun. Some of these objects can be seen from Earth with the unaided eye or an earth-based telescope, but the majority have only been detected through the development of instruments such as the Hubble Space Telescope, or unmanned probes like Voyager. These instruments operate outside Earth's atmosphere collecting information on the composition and behavior of objects in the Solar System, which has enabled researchers to hypothesize their origins. [A] It is generally thought that a cloud of interstellar gas and dust known as a 'nebula', was disturbed by some major event in space, possibly a supernova, about five billion years ago and began to collapse under its own gravity, forming a cloud. [B] The center of the cloud became so hot that it eventually exploded into a star with the cooler gases flowing around it. [C] In time, the gases condensed into dust, metals, and various kinds of ice in the cold outer reaches of space. [D] These solid particles collided with each other to form larger objects, or asteroids, a s they continued to spin around our central star. As these asteroids increased in size, their gravity began topull in all the material in their immediate surroundings, and the largest of these went on to become planets. The very different composition of the inner planets (Mercury, Venus, Earth and Mars) and the outer planets (Jupiter, Saturn, Neptune and Uranus) has led astronomers to hypothesize.that their distances from the Sun caused them to develop at different rates and in different ways. According to the most widely-held opinions, the planets closest to the Sun, where all the ice particles were vaporized due to the incredible heat, were formed mostly of rock, silicates, and metals with high melting points. These particles collided and were pulled together by gravity. These inner planets have thin atmospheres or none at all, and few, if any, satellites, which would indicate that most of the available material was either pulled into their own gravity or burned away in the heat of the Sun. The inner and outer planets are separated by an asteroid belt, consisting of material that was not able to form into planets due to Jupiter's immense gravity. Beyond this area, as more dust and ice particles escaped destruction by the Sun, four larger planets formed over a longer period of time in a far colder environment as material was thrown out from the center by the spinning star's centrifugal force. About a million years after the cooling of the original nebula, the Sun began to emit a stream of charged protons and electrons known as solar wind which blew the remaining gases outwards, to be sucked in by the outer planets which became gas giants. These planets attracted many objects in their vast gravity fields, some of which are big enough to be termed 'satellites', and countless smaller fragments which formed rings around the planets. The discovery of more objects in the Solar System in recent times has led to the need for further classification. Far beyond the outer planets lies Pluto, which was originally considered to be the ninth planet, but which has since been found to be a binary system of two dwarf planets, the other being Charon. Pluto's origins may be in the recently discovered Kuiper Belt, the source of many of the comets which travel through the Solar System. This theory is based on Pluto's rock/ice composition which is similar to that of a comet. At one time, also thought to be a moon of Neptune, Pluto/Charon was reclassified in 2006 as one of three dwarf planets discovered so fat, the others being Eris and Ceres. Scientific knowledge is only as good as the ability of scientists to collect evidence, so as new advances are made in astronomy, the present theories may be disproved, as in the case of Pluto. The above account represents the consensus of current opinions on the matter.",
+        questions: [
+          { n: 21, q: "In paragraph 1, what does the author say about the role of theHubbleSpaceTelescope?", opts: ["It is too defective for our scientists to come up with definite answers to the origin of the universe.", "Scientists discovered.billions of new planets by combining measurements from the Hubble Space Telescope with Voyager measurements.", "It solved the age of the universe and measured the age of what may be the youngest galaxy ever seen in the universe.", "It has helped unveil many mysteries or queries about our universe."], a: 3, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>D. It has helped unveil many mysteries or queries about our universe.</b>." },
+          { n: 22, q: "The word \" composition \" in the passage is closest in meaning to ____.", opts: ["make-up", "musical", "evolution", "revolution"], a: 0, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>A. make-up</b>." },
+          { n: 23, q: "The word \" disturbed \" in the passage is closest in meaning to ____.", opts: ["broken", "attracted", "bothered", "imported"], a: 2, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>C. bothered</b>." },
+          { n: 24, q: "Which of the following best expresses the essential information in the highlighted sentence in the passage? Incorrect answer choices change the meaning in important ways or leave out essential information.", opts: ["Planets formed from gases and dust particles after comets collided with the Sun.", "According to scientists, the manner in which planets developed was wholly dependent on their distance from Jupiter's rings.", "The dissimilar make-up of the planets closest to the Sun and those farthest from the Sun suggests that their distance from the Sun affected their formation.", "Scientists believe the Sun evolved from the composition of several older planets in the solar system."], a: 2, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>C. The dissimilar make-up of the planets closest to the Sun and those farthest from the Sun suggests that their distance from the Sun affected their formation.</b>." },
+          { n: 25, q: "According to paragraph 4, the inner and outer planets are separated by what?", opts: ["An asteroid belt", "A star", "Comets", "A moon"], a: 0, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>A. An asteroid belt</b>." },
+          { n: 26, q: "According to the passage, all of the following are true about our solar system EXCEPT ____.", opts: ["Planets nearest the Sun were formed mostly of rock.", "There continue to be new discoveries as technology improves.", "Colliding asteroids eventually formed planets.", "Most of the comets in the solar system can be seen with the naked eye during an annular solar eclipse."], a: 3, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>D. Most of the comets in the solar system can be seen with the naked eye during an annular solar eclipse.</b>." },
+          { n: 27, q: "Why does the author mention \" Pluto \" in paragraph 5?", opts: ["To discuss Pluto's rock/ice composition", "To introduce the concept of planet formation", "To.show that new discoveries are always occurring", "To introduce the distinction between planets and dwarf planets"], a: 2, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>C. To.show that new discoveries are always occurring</b>." },
+          { n: 28, q: "It can be inferred from the passage that the planets ____.", opts: ["broke off from the rapidly spinning Moon.", "collided more frequently, to spur the formation and growth of protoplanets", "were initially asteroids", "were formed by the collision of massive objects circling a black hole in eccentric orbits"], a: 2, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>C. were initially asteroids</b>." },
+          { n: 29, q: "According to the passage, what were the universe's origins?", opts: ["A nebula collapsed under its gravity.", "A black hole exploded and merged to create the universe.", "A super being wished it into existence.", "The Sun collapsed in on itself."], a: 0, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>A. A nebula collapsed under its gravity.</b>." },
+          { n: 30, q: "Look at the four squares [_] that indicate where the following sentence can be added to the passage. This cloud began to rotate rapidly as it got smaller and denser and heated up to several thousand degrees, causing some of its elements to vaporize into gas. Where would the sentence best fit?", opts: ["[A]", "[B]", "[C]", "[D]"], a: 1, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>B. [B]</b>." },
+        ]
+      },
+      {
+        title: "Ocean Thermal Energy Conversion (OTEC)",
+        body: "Ocean Thermal Energy Conversion (OTEC) is a method of producing electricity developed from the temperature difference that subsists between deep and shallow waters. It converts solar radiation to electric power. The system uses the ocean's natural thermal gradient to direct a power-producing cycle. To produce a significant amount of power, the temperature between warm water on the surface and deep cold water should differ by about 20 degrees Celsius: On average, 23 million square miles of tropical seas absorb an amount of solar radiation equal in heat content to about 250 million barrels of oil. If less than one tenth of this could be converted into electric power, it would provide more than 20 times the total amount of electricity utilized in America on any given day. Oceans are a huge renewable resource with the possibility of producing millions of watts of electric power. Some experts think the cold, deep seawater that is used in the OTEC process is rich in nutrients and, therefore, can be used to culture marine and plant life on shore or on land. There are certain conditions which have to be met to enable OTEC to work. First, commercial OTEC facilities must be located in an environment that is stable enough for efficient system operation. This means that they must be built on land or submerged on the continental shelf. In addition, the natural ocean thermal gradient necessary for OTEC operation is generally found between latitudes 20° N and 20° S. The temperature of the surface water must differ from that of deep water and allowances should be made for a wide-open space. Tropical islands meet the requirements for a wide space, so they are areas for OTEC development. Land-based facilities offer advantages. For example, plants do not require extensive maintenance, and they can be installed in sheltered areas, safe from storms and general bad weather. Land-based sites allow OTEC plants to function with related industries. Thermal energy from the ocean was first proposed as far back as 1881. However, it wasn't until 1930 that a system was built, producing 22kw of electricity. Another was constructed sometime later, but it was destroyed by waves. In 1980, the U.S department of energy built a site for OTEC heat exchangers on board a navy ship. Tests revealed that OTEC systems are able to function on slow moving ships and are of little consequence to the surrounding marine environment. In 1981, Japan established a closed-cycle plant in the Pacific Ocean, producing 40,000 watts of electricity. In May 1993, another 50,000 watts of electricity was produced. However, it was an impractical energy source as the materials used were expensive. Currently, scientists are continuing to develop more cost effective and open-cycle OTEC systems. An integrated OTEC system can help create harmonious, self sustaining island communities, independent of imported fossil fuels and their associated costs. Tidal energy is another form of ocean energy caused by the gravitational pull of the moon and sun, and the rotation of the Earth. When tides come into shore, they can be trapped in reservoirs behind dams. Then when the tide lowers, the water behind the dam can be released, functioning similarly to a hydroelectric power plant. Tidal dams can change the tidal level. In the local basin, affecting the navigation. The prime disadvantage is the effect a tidal station has on plants and animals. However, tidal fences, which are also used to channel the energy of tides, have less environmental impact than traditional sources of power such as fossil fuels or nuclear power, and are cheaper to install. Turbines are devices with blades attached to a central rod that spin when a force hits the blades. [A] This spinning motion is extremely practical. The first turbine used was the undershot waterwheel, probably the oldest type of waterwheel dating back over 2,000 years. [B] Waterwheels and windmills were the first turbines; their wooden blades captured the power of wind or rivers to lift water for irrigation or to rotate huge stones to grind grain. [C] It wasn't until the 1880s, when the generator was first invented, that people began using turbines to produce electricity. [D]",
+        questions: [
+          { n: 31, q: "According to paragraph 1, OTEC uses, what to produce power?", opts: ["The wave energy stored in the Earth's oceans", "The salt in the ocean", "The seawater temperature differences", "The tropical oceans' warm surface water"], a: 2, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>C. The seawater temperature differences</b>." },
+          { n: 32, q: "The word \" absorb \" in the passage is closest in meaning to ____.", opts: ["take", "work together with", "reject", "make efficient"], a: 0, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>A. take</b>." },
+          { n: 33, q: "The word \" converted \" in the passage is closest in meaning to ____.", opts: ["consumed", "released", "used", "transformed"], a: 3, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>D. transformed</b>." },
+          { n: 34, q: "In paragraph 3, the author mentions \" The temperature of the surface water \" as an example of ____.", opts: ["the requirements for the perfect OTEC settlement", "the specific requirements needed for OTEC to work", "the careful calculations and considerations needed in OTEC", "why water based programs are always superior to land-based ones"], a: 1, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>B. the specific requirements needed for OTEC to work</b>." },
+          { n: 35, q: "According to paragraph 5, what does the author say was the main problem with the closed cycle plant in the Pacific Ocean?", opts: ["It was damaged by the salt water.", "It was environmentally damaging to the area.", "It could not generate electricity without pollution.", "The overall cost was far too high to be economically feasible."], a: 3, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>D. The overall cost was far too high to be economically feasible.</b>." },
+          { n: 36, q: "Which of the following best expresses the essential information in the highlighted sentence? Incorrect answer choices change the meaning in iinportant ways or leave out essential information.", opts: ["The beauty of the OTEC system is that it allows islands to be self-sufficient.", "The OTEC system could prove to lead the world in an age of co-dependency.", "A completely autonomous, cost effective society could be created by the system.", "The system could mean that societies are no longer dependent on fossil fuels."], a: 2, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>C. A completely autonomous, cost effective society could be created by the system.</b>." },
+          { n: 37, q: "According to paragraph 6, which of the following is true of tidal energy?", opts: ["It is derived from the hydrological climate cycle.", "It is based on the small fluctuation of tide in a given area.", "It has no environmental and ecological effects on local inhabitants..", "It needs a barrage to convert tidal energy into electricity."], a: 3, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>D. It needs a barrage to convert tidal energy into electricity.</b>." },
+          { n: 38, q: "The word \" practical \" in the passage is closest in meaning to ____.", opts: ["unnecessary", "swift", "useful", "sensitive"], a: 2, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>C. useful</b>." },
+          { n: 39, q: "The following are all characteristics of the OTEC system EXCEPT ____.", opts: ["It seeks to harness the temperature difference.", "It is not technically feasible for the production of base load electricity.", "It can be practiced on slow moving ships.", "It can create self-sufficient systems."], a: 1, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>B. It is not technically feasible for the production of base load electricity.</b>." },
+          { n: 40, q: "Look at the four squares [_] that indicate where the following sentence can be added to the passage. It was turned by water flowing under the wheel and striking the boards. Where would the sentence best fit?", opts: ["[A]", "[B]", "[C]", "[D]"], a: 1, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>B. [B]</b>." },
+        ]
+      },
+    ]
+  },
+  {
+    id: "rset20",
+    title: "Đề số 20 — Thiên Ân VSTEP Test 4 (4 bài đọc)",
+    source: "Anh Ngữ Thiên Ân — Đề thi mẫu VSTEP B1-B2-C1 Test 4 Full 4 kỹ năng (Sách VSTEP Collection 20 Mock Tests, anhnguthienan.edu.vn)",
+    passages: [
+      {
+        title: "Industrialism and Urban Growth after the Civil War",
+        body: "As new industrialism swept over the land in the wake of the Civil War, people flocked to the nation's cities in unprecedented·numbers from rural regions, villages, and foreign countries. Housing for the new city-dwellers took many forms as new architectural styles were developed. During this period of urban expansion, speculative builders discovered a bonanza in the form of the row house. Designed for single-family occupancy, these dwellings cost relatively little to construct because they shared common walls with their neighbors and because many could be erected side by side on a narrow street frontage. Along New York's gridiron of streets and avenues rose block after block of row houses, which, by the 1880s, were almost invariably faced with brownstone. In contrast, wooden row houses on the West Coast appeared light and airy with their coats of bright paint. San Francisco developed a particularly successful row vernacular, suitable for rich and poor alike, as typified by clusters of homes like the Rountree group, which featured Queen Anne elements in their pitched roofs and heavily decorated exteriors. Although critics likened the facades of such structures to the \"puffing, paint, and powder of our female friends\", the houses were efficiently planned, sanitary, and well-lighted. Virtually every dwelling boasted one or more bay windows, which were as important to sun-loving San Franciscans as brownstone fronts were to New Yorkers. As an English traveler observed, California architecture, \"with all the windows gracefully leaping out at themselves\", should rightly be called the \"bay-window order\".",
+        questions: [
+          { n: 1, q: "The main purpose of the author in this passage is ____.", opts: ["to contrast two versions of a similar architectural form", "to persuade people to live in row houses", "to argue for the excellence of California row houses", "to describe the effects of urbanization"], a: 0, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>A. to contrast two versions of a similar architectural form</b>." },
+          { n: 2, q: "The phrase \" a bonanza \" in the passage is closest in meaning to ____.", opts: ["a confusing choice", "a difficult challenge", "an exciting design", "a good investment"], a: 3, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>D. a good investment</b>." },
+          { n: 3, q: "The phrase \" almost invariably \" in the passage is closest in meaning to ____.", opts: ["usually", "seldom", "sometimes", "never"], a: 0, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>A. usually</b>." },
+          { n: 4, q: "According to the passage, why did speculative builders profit from row houses?", opts: ["Because they cost very little to build.", "Because they were for single families.", "Because they were well-constructed.", "Because they were attractive."], a: 0, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>A. Because they cost very little to build.</b>." },
+          { n: 5, q: "All of the following can be inferred about row houses from the passage EXCEPT ____.", opts: ["they provided for high-density housing", "they housed people of different economic classes", "they provided a new and popular form of architectural design", "they had no front yards"], a: 1, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>B. they housed people of different economic classes</b>." },
+          { n: 6, q: "The phrase \" such structures \" in the passage refers to ____.", opts: ["West Coast wooden row houses", "poor people's houses", "the homes in the Rountree group", "Queen Anne's home"], a: 2, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>C. the homes in the Rountree group</b>." },
+          { n: 7, q: "What can be inferred from the passage about New York row houses?", opts: ["They were less colorful than row houses on the West Coast.", "They were windowless.", "They were smaller than California row houses.", "They were less similar in appearance than row liouses in California."], a: 0, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>A. They were less colorful than row houses on the West Coast.</b>." },
+          { n: 8, q: "In the passage, critics of California row houses commented on their ____.", opts: ["excessive use of bay windows", "ostentatious decoration", "repetitive nature", "lack of light"], a: 1, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>B. ostentatious decoration</b>." },
+          { n: 9, q: "The word \"boasted\" in the passage is used to indicate the owners' ____.", opts: ["skill", "wealth", "intelligence", "pride"], a: 3, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>D. pride</b>." },
+          { n: 10, q: "The author of the passage implies that the most important feature for Californians living in row houses was ____.", opts: ["the color", "the price", "the windows", "the heavily decorated exteriors"], a: 2, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>C. the windows</b>." },
+        ]
+      },
+      {
+        title: "Water: The Basis of All Life",
+        body: "Since water is the basis of life, composing the greater part of the tissues of all living things, the crucial problem of desert animals is to survive in a world where sources of flowing water are rare. And since man's inexorable necessity is to absorb large quantities of water at frequent intervals, he can scarcely comprehend that many creatures of the desert pass their entire lives without a single drop. Uncompromising as it is, the desert has not eliminated life but only those forms unable to withstand its desiccating effects. No moist-skinned, water-loving animals can exist there. Few large animals are found: the giants of the North American desert are the deer, the coyote, and the bobcat. Since desert country is open, it holds more swift-footed, running, and leaping creatures than the tangled forest. Its population are largely nocturnal, silent, filled with reticence and ruled by stealth. Yet they are not emaciated. Having adapted to their austere environment, they are as healthy as animals anywhere in the world. The secret of their adjustment lies in a combination of behavior and physiology. None could survive if, like mad dogs and Englishmen, they went out in the midday sun; many would die in a matter of minutes. So most of them pass the burning hours asleep in cool, humid burrows underneath the ground, emerging to hunt only by night. The surface of the sun-baked desert averages around 150 degrees, but 18 inches down the temperature is only 60 degrees. An example of a desert animal that has adapted to subterranean living and lack of water is the kangaroo rat. Like many desert animals, kangaroo rats stay underground during the day. At night, they go outside to look for food. As evening temperatures drop, moisture from the air forms on plants and seeds. They absorb some of this moisture and kangaroo rats take in the life-giving water as they eat.",
+        questions: [
+          { n: 11, q: "What is the topic of this passage?", opts: ["Desert plants", "Life underground", "Animal life in a desert environment", "Man's life in the desert"], a: 2, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>C. Animal life in a desert environment</b>." },
+          { n: 12, q: "The word \" greater \" in the passage is· closest in meaning to ____.", opts: ["stronger", "larger", "more noticeable", "heavier"], a: 1, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>B. larger</b>." },
+          { n: 13, q: "The phrase \"those forms\" in the passage refers to all of the following EXCEPT ____.", opts: ["water-loving animals", "the bobcat", "moist-skinned animals", "many large animals"], a: 1, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>B. the bobcat</b>." },
+          { n: 14, q: "The word \" desiccating \" in the passage means ____.", opts: ["drying", "humidifying", "killing", "life threatening"], a: 0, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>A. drying</b>." },
+          { n: 15, q: "The author mentions all of the following as examples of the behavior of desert animals EXCEPT ____.", opts: ["animals sleep during the day.", "animals dig homes underground.", "animals are noisy and aggressive.", "animals are watchful and quiet."], a: 2, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>C. animals are noisy and aggressive.</b>." },
+          { n: 16, q: "The word \" emaciated \" in the passage is closest in meaning to ____.", opts: ["wild", "cunning", "unmanageable.", "unhealthy"], a: 3, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>D. unhealthy</b>." },
+          { n: 17, q: "The author states that one characteristic of animals who live in the desert is that they ____.", opts: ["are smaller and fleeter than forest animals", "are less healthy than animals who five in different places", "can hunt in temperatures of 150 degrees", "live in an accommodating environment"], a: 0, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>A. are smaller and fleeter than forest animals</b>." },
+          { n: 18, q: "The word \" subterranean \" in the passage is closest in meaning to ____.", opts: ["underground", "safe", "precarious", "harsh"], a: 0, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>A. underground</b>." },
+          { n: 19, q: "The word \" they \" in the passage refers to ____.", opts: ["kangaroo rats", "the desert population", "plants and seeds", "the burrows of desert animals"], a: 2, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>C. plants and seeds</b>." },
+          { n: 20, q: "Which of the following generalizations are supported by the passage?", opts: ["Water is the basis of life.", "All living things adjust to their environments.", "Desert life is colorful.", "Healthy animals live longer lives."], a: 1, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>B. All living things adjust to their environments.</b>." },
+        ]
+      },
+      {
+        title: "Nitrogen, Soil and Agriculture",
+        body: "Animals and higher-order plants depend on nitrogen that is present in soil as they cannot utilize free nitrogen from the atmosphere. To enter living systems, nitrogen must be combined with oxygen or hydrogen to form compounds such as ammonia or nitrates that plants are able to use. Nitrogen gas is converted to ammonia fertilizer by a chemical process involving high pressure and high temperature. This process is called nitrogen fixation. Martinus Willem Beijerinck discovered nitrogen fixation. The nitrogen molecule is quite inert and breaking it apart requires a considerable amount of energy. There are three processes that are responsible for most of the nitrogen fixation in the biosphere. They are atmospheric fixation, biological fixation, and industrial fixation. Atmospheric fixation occurs through lightning, forest fires, or even hot lava flows where energy breaks down nitrogen molecules and enables their atoms to combine with oxygen in the air, thus forming nitrogen oxides. These liquefy in rain, forming nitrates, that are then carried to earth. In biological nitrogen fixation, the nitrogen is available to some species of microorganisms. Atmospheric nitrogen is converted to ammonia by bacterial enzymes called nitrogenase. More than 90% of all nitrogen fixation is affected by them. There are two kinds of nitrogen-fixing microorganisms: free-living (non-symbiotic) bacteria and symbiotic bacteria Microorganisms that fix nitrogen are called diazotrophs. These need a chemical energy source if they are non photosynthetic. However, if they are photosynthetic, they can utilize light energy. The free-living diazotrophs supply little fixed nitrogen to agricultural crops, whereas the symbiotic, nitrogen-fixing bacterias live close to plant roots and can obtain energy materials from the plants. The symbiotic, nitrogen-fixing bacteria invade the root hairs of plants. Here they multiply the formation of root nodules, and enlargements of plant cells and bacteria in close proximity. Within the nodules, the bacteria convert the free nitrogen to nitrates, which the plant makes use of for its development. To make certain of sufficient nodule formation and the best possible growth of legumes (beans, clover, peas, soybeans), seeds are usually inoculated, particularly in poor soils where bacteria is lacking. This system is the most important for agriculture as many legumes are then able to grow vigorously under nitrogen deficient conditions, contributing nitrogen to the fanning system or as green manure included in the soil. Legumes are also a significant source of protein primarily for the developing world. Industrial fixation takes place at a temperature of 600 degrees Celsius. In this method, atmospheric nitrogen and hydrogen can be combined to form ammonia, which in tum can be used directly as a fertilizer. It was during the early 19th century that the-importance of fixed nitrogen to growing plants was understood. Where people practiced intensive agriculture; demand arose for nitrogen compounds to augment the natural supply present in the soil. Around the same time, Chilean saltpeter was increasingly used to make gunpowder. This led to a global search for natural deposits of this nitrogen compound Toward the end of the 19th century, it was realized that Chilean imports would not meet future demands, and, in the event of a major war, without the Chilean supply, manufacturing sufficient weapons would not be possible. [A] Several processes were then developed: directly combining oxygen with nitrogen, the reaction of nitrogen with calcium carbide, and the direct combination of nitrogen with hydrogen. [B] Combining oxygen and nitrogen was inefficient in its use of energy. Both were costly and the process was abandoned. [C] It is named after FritzHaber and Carl Bosch, who determined that nitrogen from the air could be combined with nitrogen under enormously high pressures and fairly high temperatures in the presence of an active mechanism to produce an extremely high quantity of ammonia. [D] Germany heavily relied on this process during World War I, which led to a rapid expansion of the construction of nitrogen plants in many other countries. This method is now one of the leading processes of the chemical industry throughout the world.",
+        questions: [
+          { n: 21, q: "According to paragraph 1, how must nitrogen molecules enter living organisms?", opts: ["They must be converted to ammonia or nitrates.", "They must be combined with oxygen in the form of nitrate.", "They must be absorbed by the plant to furnishits nitrogen,", "They must be mixed with oxygen or hydrogen."], a: 3, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>D. They must be mixed with oxygen or hydrogen.</b>." },
+          { n: 22, q: "The word \" breaks down \" in the passage is closest in meaning to ____.", opts: ["destroys", "discontinues", "ceases", "decomposes"], a: 3, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>D. decomposes</b>." },
+          { n: 23, q: "Which of the following can be inferred from paragraph 2 about nitrogen fixation?", opts: ["Nature cannot make it occur by itself.", "It is a process that does not necessarily require the influence of man.", "The process needs perfect circumstances to happen.", "Nitrogen is essential to all life on Earth."], a: 1, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>B. It is a process that does not necessarily require the influence of man.</b>." },
+          { n: 24, q: "According to paragraph 3, one factor needed for photosynthetic biological fixation is ____.", opts: ["a light source", "the presence of ammonia", "90% rainfall for a week", "a chemical energy source"], a: 0, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>A. a light source</b>." },
+          { n: 25, q: "The word \" affected \" in the passage is closest in meaning to ____.", opts: ["driven", "influenced", "stopped", "changed"], a: 1, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>B. influenced</b>." },
+          { n: 26, q: "Why does the author mention \" diazotrophs \" in the passage?", opts: ["To explain the industrial process of nitrogen fixation", "To show how a plants roots are important for this process", "To give an example of a living organism capable of fixing nitrogen", "To explain the impact of nitrogen on a microorganism"], a: 2, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>C. To give an example of a living organism capable of fixing nitrogen</b>." },
+          { n: 27, q: "The word \" invade \" in the passage is closest in meaning to ____.", opts: ["attack", "defend", "occupy", "dominate"], a: 2, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>C. occupy</b>." },
+          { n: 28, q: "Which of the following best expresses the essential information in the highlighted sentence? Incorrect answer choices change the meaning in important ways or leave out essential information.", opts: ["The ability to grow legumes with little nitrogen is highly valuable.", "Legumes do not need much nitrogen to develop and grow strong.", "The fanning system makes huge demands on the nitrogen level in the ground.", "Agriculture creates a great need for legumes and their produce."], a: 0, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>A. The ability to grow legumes with little nitrogen is highly valuable.</b>." },
+          { n: 29, q: "According to paragraph 8, which of the following is characteristic of the Haber-Bosch process?", opts: ["Producing low amount of Anunonia", "Using extremely high pressures", "Reducing the supply of nitrogen compounds", "Leading to widespread use during World War I"], a: 1, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>B. Using extremely high pressures</b>." },
+          { n: 30, q: "Look at the four squares [_] that indicate where the following sentence can be added to the passage. However, the Haber-Bosch process which created ammonia from nitrogen and hydrogen is the most cost-effective nitrogen fixation process known. Where would the sentence best fit?", opts: ["[A]", "[B]", "[C]", "[D]"], a: 2, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>C. [C]</b>." },
+        ]
+      },
+      {
+        title: "Women's Suffrage in Western Civilization",
+        body: "Throughout Western civilization, women's suffrage and the progression of these rights have played a pivotal role in its history. The best example of how these rights have progressed is in two nations that share a common history, Great Britain and the United States of America. [A] In England, the suffrage movement began in 1866 when prominent women's rights reformers gathered over 1,500 signatures on a petition to Parliament appealing for the right to vote. [B] However, significant headway had not been made yet. Women's rights activists soon grew combative and thus made certain that suffrage was a central issue. [C] In America, due to the Civil War, women's suffrage was temporarily halted. However, from 1876, campaigns, referendums, and gatherings were organized and carried out. [D] The influence of Great Britain on the United States cannot be understated, yet there are both significant differences and similarities in how suffrage rights have progressed and evolved within each of these nations. In both countries, suffrage was based on class, race, nation, and gender. The suffragists were outside of the political establishment, campaigning alone and without support. They were predominately white and middle class in both countries, and their arguments reflected their class. In the first phase of the two countries, the arguments for suffrage focused on equality, and then turned to women's contribution to nation building after World War I. Feudalism and hereditary rule predated the establishment of limited suffrage in Great Britain. Aspects of this system remained for a significant period of time with only the wealthy and land-owning males allowed to vote. This system was based on the principles that the wealthy would vote in the interests of the nation, just as the monarchy of Britain would rule in the interest of all its subjects. This distributive system of power played an important role in the history of the United States. English landowners asserted their right to vote based on their personal wealth. Aspects of this trend are clearly evident in America. In 1776, a clause that guaranteed voting rights for white, male landowners was included in the United States Declaration of Independence. This was identical to the suffrage rights in Great Britain at that time in history. Voting was generally perceived not as a right, but as a privilege that only those who owned land could exercise. By 1786, the United States Constitution had been amended to give individual states the power to establish their own suffrage rights. As a result of this, in 1791, Vermont passed a law declaring that all white males, regardless of whether they possessed property or not, could vote. In contrast, it was not until the Chartist movement in Great Britain in the 1840s that a popular movement had demanded wider suffrage rights. The eventual failure of the Chartist movement in 1850 ensured that only one in every five adult males in England was entitled to vote. While popular suffrage reform stalled in Great Britain, it accelerated in America during this period. In the wake of the American Civil War, the Fifteenth Amendment to the Constitution granted African-American men the right to vote throughout the country. However, just as in England, women remained excluded by law from voting. In the aftermath of the first World war, suffrage rights were extended to include women. This change took place first in America in 1920 with the 1991 amendment to the Constitution. It was not until 1928 that voting rights between men and women in Great Britain were equalized. As suffrage rights have extended to include groups formerly excluded, this trend continues in the West. In 1971, a further amendment lowered the age of voting from 20 to 18 in America. Today, in Great Britain and the majority of Western nations, the voting age is 18. Initially, the progression of suffrage rights in America mirrored Great Britain's. The wealthy male landowners dominated voting and, therefore, political power, and voted only in their interests. In the wake of the American Civil War and the first World War suffrage rights were extended to African-Americans, women, and individuals possessing no property, which boosted their status from lower class citizens to a higher level. Today, suffrage, in its universal form, plays a key role in democracies worldwide.",
+        questions: [
+          { n: 31, q: "According to paragraph 1, why were 1,500 signatures gathered on a petition?", opts: ["Women sought the right to peaceful demonstrations.", "Women and men urged for the right to vote and own property.", "Women were requesting the right to vote.", "Collaboration was needed to facilitate women's right to vote."], a: 2, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>C. Women were requesting the right to vote.</b>." },
+          { n: 32, q: "The word \" progressed \" in the passage is closest in meaning to ____.", opts: ["withheld", "withstood", "advanced", "contained"], a: 2, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>C. advanced</b>." },
+          { n: 33, q: "According to paragraph 2, which of the following was true of the suffragist movement?", opts: ["Suffragists had a chance to change their position in society.", "Women achieved their goal of winning full voting rights.", "It was primarily run by working class women.", "Most suffragists were moderate in their tactics."], a: 0, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>A. Suffragists had a chance to change their position in society.</b>." },
+          { n: 34, q: "According to paragraph 4, the United States Declaration of Independence guaranteed ____.", opts: ["that African Americans could vote", "that all 21- year olds could vote", "that women could vote and hold political office", "that only white, male landowners were allowed to vote"], a: 3, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>D. that only white, male landowners were allowed to vote</b>." },
+          { n: 35, q: "The word \" their \" in the passage refers to ____.", opts: ["Englishmen", "British royalty", "English landowners", "American landowners"], a: 2, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>C. English landowners</b>." },
+          { n: 36, q: "Why does the author mention that \"Aspects of this trend are clearly evident in America\"?", opts: ["To argue that the right to vote only was exercised by the wealthy and elite.", "To provide evidence that voting was not a right only for those who owned land", "To show that the right to voting privileges only was granted to wealthy male property holders", "To support the claim that the right to vote was an attribute of U.S. citizenship"], a: 2, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>C. To show that the right to voting privileges only was granted to wealthy male property holders</b>." },
+          { n: 37, q: "The word \"stalled\" in the passage is closest in meaning to ____.", opts: ["prevented", "profited", "contributed", "halted"], a: 3, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>D. halted</b>." },
+          { n: 38, q: "Which of the following can be inferred from the passage about the Chartist movement?", opts: ["Suffrage rights became the standard and expanded to include people of middle Eastern descent after the Chartist movement failed.", "The Chartist movement was quashed by a group of hostile forces who were opposed to progression.", "The Chartist movement helped ensure that only woman could vote.", "The progression of suffrage rights started to slow after the Chartist movement failed."], a: 3, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>D. The progression of suffrage rights started to slow after the Chartist movement failed.</b>." },
+          { n: 39, q: "Which of the following best expresses the essential information in the highlighted sentence? Incorrect answer choices change the meaning in important ways or leave out essential information.", opts: ["In the period following the Civil War and World War I, voting rights were extended to most minorities.", "No one could vote in Great Britain unless they owned land, were white, and could read.", "War in Europe and America led many countries to disallow people of color the right to vote.", "Voting has always been considered a privilege in most Western countries."], a: 0, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>A. In the period following the Civil War and World War I, voting rights were extended to most minorities.</b>." },
+          { n: 40, q: "Look at the four squares [_] that indicate where the following sentence can be added to the passage. American suffragists, however, were not as aggressive as their British counterparts. Where would the sentence best fit?", opts: ["[A]", "[B]", "[C]", "[D]"], a: 2, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>C. [C]</b>." },
+        ]
+      },
+    ]
+  },
+  {
+    id: "rset21",
+    title: "Đề số 21 — Thiên Ân VSTEP Test 5 (4 bài đọc)",
+    source: "Anh Ngữ Thiên Ân — Đề thi mẫu VSTEP B1-B2-C1 Test 5 Full 4 kỹ năng (Sách VSTEP Collection 20 Mock Tests, anhnguthienan.edu.vn)",
+    passages: [
+      {
+        title: "The Oregon Boundary Dispute of the 1840s",
+        body: "The influx of Americans into Oregon in the 1840s ignited a dispute between Britain and the United States that, in its more intemperate phases, was accompanied by shrill demands in both countries for war. The argument originated in the fact that the boundaries of Oregon had never been clearly fixed. The name vaguely embraced the territory west of the Rockies between the northern boundary of Mexican-held California and the southern edge of Russian-held Alaska, which at the time extended south to farallel 54°40′. In 1818, when America proposed a boundary at the 49t parallel an extension of the border with Canada that already existed east of the Rockies and the British suggested a line farther south, statesmen of both nations avoided the resulting impasse by agreeing to accept temporary \"joint occupancy\". But by the early 1840s, the issue could no longer be avoided: Oregon fever and Manifest Destiny had become potent political forces. Though many eastern Americans considered Oregon country too remote to become excited about, demands for its occupation were shouted with almost religious fervor. Senator Thomas Hart Benton, for one, urged Congress to muster \"thirty or forty thousand American rifles beyond the Rocky Mountains that will be our effective negotiators.\" The Democratic Party made \"54°40′ or fight\", an issue of the 1844 Presidential election and just managed to install James K. Polk, an ardent expansionist, in the White House. But despite their seeming intransigence, neither Polk nor the British government wanted to fight. And just about the time that Polk learned that the land lying north of the 49th parallel was useless for agriculture, the British decided the American market for goods was worth far more than Oregon's fast-dying fur trade. So they quietly settled for the 49th parallel, the boundary that the United States had proposed in the first place.",
+        questions: [
+          { n: 1, q: "What is t he main idea of this passage is?", opts: ["The disagreement over the boundaries of Oregon was peacefully solved.", "The United States wanted more \"land than it needed.", "Politicians in 1840 favored war with Britain.", "The United States ended up by sharing Oregon with Canada."], a: 2, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>C. Politicians in 1840 favored war with Britain.</b>." },
+          { n: 2, q: "The word \"intemperate\" in the passage is closest in meaning to ____.", opts: ["untimely", "initial", "immoderate", "uninformed"], a: 3, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>D. uninformed</b>." },
+          { n: 3, q: "As used in the passage, the word \" fixed \" is closest in meaning to ____.", opts: ["repaired", "adjusted", "built", "established"], a: 0, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>A. repaired</b>." },
+          { n: 4, q: "The word \" remote \" in the passage is closest in meaning to ____.", opts: ["far away", "dangerous", "large", "uninteresting"], a: 2, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>C. large</b>." },
+          { n: 5, q: "The confrontation with Britain over Oregon boundaries came to a head in the early 1840s for all the following reasons EXCEPT ____.", opts: ["more people were living in Oregon at that time", "the expansionists made the situation a political issue", "all people were united in favoring the expansion and settlement of Oregon", "Manifest Destiny was a major political force at this time"], a: 2, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>C. all people were united in favoring the expansion and settlement of Oregon</b>." },
+          { n: 6, q: "The word \" ardent \" in the passage is closest in meaning to ____.", opts: ["superficial", "enthusiastic", "old", "moderate"], a: 1, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>B. enthusiastic</b>." },
+          { n: 7, q: "The word \" they \" in the passage refers to ____.", opts: ["the Americans", "the British and the Americans", "the British", "the Democratic Party"], a: 1, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>B. the British and the Americans</b>." },
+          { n: 8, q: "It can be inferred from the passage that Senator Thomas Hart Benton ____.", opts: ["was a temperate man", "supported the occupation of Oregon by force", "felt negotiation was the best policy", "proposed and approved the final boundary decision"], a: 1, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>B. supported the occupation of Oregon by force</b>." },
+          { n: 9, q: "The 49th parallel was accepted by both parties in the border dispute for all of the following reasons EXCEPT ____.", opts: ["the dying fur trade in Oregon", "the attraction of the American market for goods", "the condition of the land north of 49°", "the desire for a good fight"], a: 3, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>D. the desire for a good fight</b>." },
+          { n: 10, q: "It can be inferred from the passage that in the final boundary, settlement the United States ____.", opts: ["got the land that it had originally demanded", "got less land than it had originally demanded", "got more land than it had originally demanded", "had no interest in the land involved in the dispute"], a: 0, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>A. got the land that it had originally demanded</b>." },
+        ]
+      },
+      {
+        title: "Glaciers: Two Essential Types",
+        body: "For all their great diversity of shapes and sizes, glaciers can be divided into two essential types: valley glaciers, which flow downhill from mountains and are shaped by the constraints of topography, and ice sheets, which flow outward in all directions from dome like centers of accumulated ice to cover vast expanses of terrain. Whatever their type, most glaciers are remnants of great shrouds of ice that covered the earth eons ago. In a few of these glaciers the oldest ice is very ancient indeed; the age of parts of the Antarctic sheet may exceed 500,000 years. Glaciers are born in rocky wombs above the snow line, where there is sufficient winter snowfall and summer cold for snow to survive the annual melting. The long gestation period of a glacier begins with the accumulation and gradual transformation of snowflakes. Soon after they reach the ground, complex snowflakes are reduced to compact, roughly spherical ice crystals, the basic components of a glacier. As new layers of snow and ice, snow that survives the melting of the previous summer, accumulate, they squeeze out most of the air bubbles trapped within and between the crystals below. This process of recrystallization continues throughout the life of the glacier. The length of time required for the creation of glacier ice depends mainly upon the temperature and the rate of snowfall. In Iceland, where snowfall is heavy and summer temperatures are high enough to produce plenty of meltwater, glacier ice may come into being in a relatively short time say, ten years. In parts of Antarctica, where snowfall is scant and the ice remains well below its melting temperature year-round, the process may require hundreds of years. The ice does not become a glacier until it moves under its own weight, and it cannot move significantly until it reaches a critical thickness the point at which the weight of the piled-up layers overcomes the internal strength of the ice and the friction between the ice and the ground. This critical thickness is about 60 feet. The fastest moving glaciers have been gauged at not much more than two and a half miles per year, and some cover less than 1/100 inch in that same amount of time. But no matter how infinitesimal the flow, movement is what distinguishes a glacier from a mere mass of ice.",
+        questions: [
+          { n: 11, q: "This passage mainly discusses ____.", opts: ["the size and shape of glaciers", "the formation of glaciers", "why glaciers move", "two types of glaciers"], a: 1, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>B. the formation of glaciers</b>." },
+          { n: 12, q: "The word \"constraints\" in the passage is closest in meaning to ____.", opts: ["restrictions", "height", "beauty", "speed"], a: 0, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>A. restrictions</b>." },
+          { n: 13, q: "Why does the author mention the Antarctic ice sheet in the first paragraph?", opts: ["It is a slow-moving glacier.", "One would expect glaciers in this part of the world.", "It contains some of the oldest ice in existence.", "It is an example of a well-formed ice sheet."], a: 2, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>C. It contains some of the oldest ice in existence.</b>." },
+          { n: 14, q: "In order to describe the development of glaciers, the author uses the analogy of ____.", opts: ["birth", "snowflakes", "crystals", "Iceland"], a: 0, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>A. birth</b>." },
+          { n: 15, q: "The phrase \" this process \" in the passage refers to ____.", opts: ["air bubbles being trapped below", "snow andice compressing the ice crystals", "formation of ice from snow that is about to melt", "melting of summer snow"], a: 1, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>B. snow andice compressing the ice crystals</b>." },
+          { n: 16, q: "The word \" trapped \" in the passage is closest in meaning to ____.", opts: ["enclosed", "hunted", "formed", "stranded"], a: 0, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>A. enclosed</b>." },
+          { n: 17, q: "According to the passage, what is one of the differences between valley glaciers and ice sheets?", opts: ["Ice sheets move faster than valley glaciers.", "While valley glaciers flow downhill, ice sheets flow in all directions.", "Valley glaciers are thicker than ice sheets because of the restricting land formations.", "Valley glaciers are not as old as ice sheets."], a: 1, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>B. While valley glaciers flow downhill, ice sheets flow in all directions.</b>." },
+          { n: 18, q: "The word \" it \" in the passage refers to ____.", opts: ["glacier", "weight", "ice", "critical thickness"], a: 2, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>C. ice</b>." },
+          { n: 19, q: "The word \"significantly\" in the passage is closest in meaning to ____.", opts: ["quickly", "naturally", "thoroughly", "notably"], a: 3, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>D. notably</b>." },
+          { n: 20, q: "According to the passage, the characteristic that identifies a glacier is ____.", opts: ["the critical thickness of the ice", "the amount of ice accumulated", "themovement ofthe ice", "the weight of the ice"], a: 2, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>C. themovement ofthe ice</b>." },
+        ]
+      },
+      {
+        title: "Pottery through the Ages",
+        body: "Pottery refers to dishes, plates, cups and cooking pots made out of clay. Chinese pottery was invented during the Neolithic period (5,000- 2,200 BC) and it was molded by hand. Before this time, people had been nomadic, making it difficult to carry heavy, breakable pieces of pottery. At first, pottery was made by pushing a hole into a ball of clay or by taking a piece of clay and coiling it up into a pot shape. Many early pots were simple lumps of clay. However, people rater discovered that clay, when placed in an open fire, hardened. This technique, known as firing, soon became common practice in pottery production. People used pottery as a way of forming their social identity or showing who they were and how they were different from other people. Many of the designs that were used on pottery were usually borrowed from those already found on clothing and garments. The decoration of pottery began with simple incisions, which were later painted on. Gradually, plants, animals, and human figures were included on the vases. Mythological scenes were common as were dancers, musicians, and images from everyday life. [A] Pottery also has roots in ancient China where, for centuries, people produced black, carved, and painted pieces from rough clay. It was in the Sui dynasty, however, that the aesthetics of pottery took a major leap forward. [B] Potters began experimenting with porcelain and the effect was a stunning, shiny new look and feel for Chinese ceramics. [C] This gleaming pottery became popular not only in China, but in West Asia as well. [D] Inevitably, this led to a new market for cheap imitations. After 1,200 AD, Chinese potters began using different colored glazes to create designs on their pots. Chinese pottery was still the best and most expensive. After thousands of years of advancements in technique and materials, painted porcelain such as blue and white, tri- color, and under-glazed became successfully produced. The Chinese often used pottery as part of the burial ritual; bronze vessels were decorated with elaborate designs of plants and animals. In Chinese culture, jade symbolizes nobility, perfection, and immortality. Jade utensils were laid over the deceased and some were placed in the mouth or enclosed in the hand. Liquids were placed in the vessels to help the dead in their afterlife and also to aid in funerary ceremonies in which the living communicated with deceased ancestors and gods in an altered state of consciousness after drinking fermented beverages. Such vessels containing liquids have been excavated at centers near the Yellow River, especially from burials of elite, eminent individuals. Many pottery fragments and figurines have also been discovered in the Chang Jiang drainage area. Pottery can be divided into three groups: those designed for storage, those for preserving or holding liquids, and those for special uses. The Greeks made pottery for many purposes. the custom of burning their dead involved using vases to collect the ashes. Some pottery served as decorative pieces, while others were used for ceremonies or during religious festivals. Amphoras were larger vessels used to store liquids such as water or wine. Amphoras have occasionally been found in ancient shipwrecks; some held wine-and others were shipped empty after selling their contents off to other countries. The Alabastron had special uses such as holding perfume or oil. The Skyphes, a flat-bottomed bowl, was used as a drinking cup. Grecian soil had many deposits of clay near rivers. This abundance of raw material was not available to others, giving the Greeks a strategic. advantage in manufacturing material. They made full use of clay. After its discovery, vessels were made in a wide range of sizes and shapes. Jugs, vases, fruit bowls, and feeding bottles were widely used in homes. Although some larger vessels were made of stone, glass, or metal, clay was by far the most prominent. The ancient Egyptians used pottery and ceramic art for burial purpose. Four vases were sometimes deposited with the mumified body. A large number of vases which have been recovered had been buried with the dead in tombs. Some vases are found hanging or standing upright in the tomb. They appear to have been valued by the deceased, hence leaving them for burial in the tomb.",
+        questions: [
+          { n: 21, q: "According to paragraph 1, which of the following statements is true of early pottery?", opts: ["The first pots were made of hardened clay.", "The nomadic nature of man before the Neolithic period prevented the widespread use of pottery.", "Pottery was invented as a way of storing fresh fish and meats.", "It was not possible to fashion clay into shapes for pottery."], a: 1, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>B. The nomadic nature of man before the Neolithic period prevented the widespread use of pottery.</b>." },
+          { n: 22, q: "The word \" incisions \" in the passage is closest in meaning to ____.", opts: ["figures", "squares", "paintings", "cuts"], a: 3, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>D. cuts</b>." },
+          { n: 23, q: "Which of the following can be inferred from paragraph 2 about pottery designs?", opts: ["Designs helped the pot to stay together and not break.", "The designs on pottery reflected the culture of those who made them.", "Three basic techniques to produce pottery vessels have been used around the world.", "Pot design was imaginative arid unique in every example."], a: 1, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>B. The designs on pottery reflected the culture of those who made them.</b>." },
+          { n: 24, q: "The word \" gleaming \" in the passage is closest in meaning to ____.", opts: ["shiny", "dull", "delicate", "soft"], a: 0, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>A. shiny</b>." },
+          { n: 25, q: "According to the passage, whose pottery was regarded as the most valuable?", opts: ["Japanese", "Egyptian", "Chinese", "Greek"], a: 2, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>C. Chinese</b>." },
+          { n: 26, q: "The author mentions \" jade \" in the passage in order to ____.", opts: ["demonstrate how stone could be carved into pottery", "give an example of the use of expensive material in burials", "show how different cultures value different materials", "explain the difficulties in mining a stone for pottery"], a: 1, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>B. give an example of the use of expensive material in burials</b>." },
+          { n: 27, q: "The word \" deceased \" in the passage is closest in meaning to ____.", opts: ["sick", "dying", "dead", "diseased"], a: 2, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>C. dead</b>." },
+          { n: 28, q: "Which of the following best expresses the essential information in the highlighted sentence? Incorrect answer choices change the meaning in important ways or leave out essential information.", opts: ["The use of substantial amounts of clay in Greece resulted in a culture rich in pottery.", "The ancient Greeks had a more advanced way to construct pottery.", "Pottery making was harder for the ancient Greeks, but pottery was important to them for storage.", "Pottery was very convenient and useful because the raw material, clay, was abundant and simple to shape and fire In Greek."], a: 0, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>A. The use of substantial amounts of clay in Greece resulted in a culture rich in pottery.</b>." },
+          { n: 29, q: "According to the passage, which of the following was NOT a use of pottery? ____.", opts: ["storing wine", "ceremonial offerings", "holding ashes", "cooking"], a: 3, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>D. cooking</b>." },
+          { n: 30, q: "Look at the four squares [_] that indicate where the following sentence can be added to the passage. However, it was very expensive there because it had to be carried from China on camel sand donkeys. Where would the sentence best fit?", opts: ["[A]", "[B]", "[C]", "[D]"], a: 3, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>D. [D]</b>." },
+        ]
+      },
+      {
+        title: "Louis Pasteur: Father of Modern Biology",
+        body: "Louis Pasteur was arguably the greatest biologist of the 19th century. His immense contributions were among the most varied and beneficial in the field of science and industry. Pasteur's methods of conducting experiments illustrated brilliance, which started when he studied the crystal structure. He observed that tartrate, when created in a laboratory, was optically inactive. This is different from the tartrate from grapes because the artificial tartrate is composed of two optically asymmetric crystals. Pasteur succeeded in unraveling the asymmetric crystals from each other and showed that each regained optical activity. He then theorized that living organisms only produce molecules that are of one specific objective and that these molecules are active at all times. This experiment contradicted 'Mitscherlich' who had observed only a single type of crystal. Later in his career, Pasteur was approached by the parent of one of his students, regarding a contamination problem in alcoholic fermentation. At the time fermentation leading to the making of wine, or beer was thought to be a simple breakdown of sugar to the favored molecules. Yeast cells were believed to be either a useful ingredient in maintaining or' simply a product of fermentation. · The manufacturers of alcohol were having economic problems related to fermentation. Wine would suddenly tum sour or into vinegar, or the quality and taste of beer would suddenly change. Therefore, the producers would have to start anew. Pasteur proved that yeast was an organism which did not necessitate oxygen for fermentation to occur. This proved to Justin Von Liebig, who had upheld that fermentation was purely chemical, that he was incorrect. Pasteur was able to prove that the yeast was responsible for forming alcohol from sugar and that contaminating microorganisms turned the fermentations sour. Over the years, he segregated the organisms that were responsible for normal and abnormal fermentations when producing wine or beer. He demonstrated that if he heated them to mild temperatures, this would kill the microorganisms and prevent souring. This was a major discovery and Pasteur showed brewers how to refine the right organisms for good beer. He proposed that heating milk to a high temperature before bottling it would prevent souring. This is now known as pasteurization. All this had given Pasteur an iconic status throughout the world. After his research on fermentation, he refuted the principle of spontaneous generation. The theory that maggots, beetles and microbes could arise spontaneously from matter had always been a matter of speculation. Pasteur carried out ingenious experiments wiping-out every argument in favor of spontaneous generation. In his famous experiment using the ' swan neck flask ', fermented juice was put in a flask and after sterilization; the neck was heated, (this resembled the neck of a swan). The end of the neck was then sealed. If the flask was opened by pinching off the end of the neck, air would enter but dust would get trapped on the inside of the neck which was wet. The fluid, however, would still be germ free. If the flask was tipped over allowing the juice to touch the inside of the neck, microorganisms would grow instantly. Pasteur's work with silkworm parasites and germs led to the proposal of the gem theory of disease. After visiting the hospital wards, he became more aware of the infections being spread by physicians from sick patients to the healthy patients. He compelled doctors to disinfect their instruments by boiling and steaming them. Surgeons were told to wash their hands and use disinfectant. At the time, countries were suffering from anthrax, which is a disease that affects cattle. He believed it was possible that if the animals were intentionally infected with a very mild case of the disease, this may be enough to prevent them from getting the disease later on. To prove this, he needed to test his theory on live animals. [A] They recovered and, when placed with cattle that did have the disease, they remained immune. [B] Pasteur's last major research success was the development of a vaccine against rabies. [C] Institutes were built and people were treated for the disease in them. Pasteur was a national hero in France. [D] He died in 1895 and was given a state funeral.",
+        questions: [
+          { n: 31, q: "The word \" inactive \" in the passage is closest in meaning to ____.", opts: ["motionless", "occupied", "dangerous", "reactive"], a: 0, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>A. motionless</b>." },
+          { n: 32, q: "According to paragraph 2, what evidence contradicted the previous beliefs of 'Mitscherlich'?", opts: ["Proof of the process of fermentation", "Molecules being active at all times", "Observed only a single type of crystal", "Molecules produce all living organisms"], a: 1, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>B. Molecules being active at all times</b>." },
+          { n: 33, q: "According to Pasteur's experiments, what did he prove to be true?", opts: ["The wine would change to vinegar because of fermentation.", "Microorganisms were present in all alcoholic drinks.", "Yeast was an organism that did not need oxygen to work.", "The fermentation was a purely chemical process."], a: 2, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>C. Yeast was an organism that did not need oxygen to work.</b>." },
+          { n: 34, q: "The word \" necessitate \" in the passage is closest in meaning to ____.", opts: ["facilitate", "require", "produce", "consume"], a: 1, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>B. require</b>." },
+          { n: 35, q: "According to paragraph 5, what did Pasteur publicly refute?", opts: ["That fermentation contributed to spontaneous generation", "That bottle-neck glasses can keep things germ-free", "That maggots can form suddenly from matter without warning", "That flies were created from the maggots on dead meat"], a: 2, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>C. That maggots can form suddenly from matter without warning</b>." },
+          { n: 36, q: "Why does the author describe Pasteur's 'swan neck flask' experiment in the passage?", opts: ["To explain the method of scientific experimentation", "To demonstrate the correct way to do a scientific experiment", "To show how microbes contribute to spontaneous generation", "To illustrate exactly how Pasteur determined his findings"], a: 3, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>D. To illustrate exactly how Pasteur determined his findings</b>." },
+          { n: 37, q: "The word \"ingenious\" in the passage is closest in meaning to ____.", opts: ["original", "tremendous", "controlled", "significant"], a: 0, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>A. original</b>." },
+          { n: 38, q: "Which of the following best expresses the essential information in the highlighted sentence? Incorrect answer choices change the meaning in important ways or leave out essential information.", opts: ["Most patients became sick from being infected by doctors in the emergency room.", "Hospital wards had become dirty and dangerous places due to the lack of proper training and space.", "Pasteur learned that infections could be transmitted to healthy patients from dirty, non-sterile instruments doctors had used, on previous patients.", "Healthy patients could become·infected by sick people, simply by the shake of a hand or sharing a drink."], a: 2, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>C. Pasteur learned that infections could be transmitted to healthy patients from dirty, non-sterile instruments doctors had used, on previous patients.</b>." },
+          { n: 39, q: "According to the passage, which method was NOT used in Pasteur's experiments?", opts: ["Sealed bottles under observation", "Disinfection of materials and instruments", "Heating to mild temperatures", "Going into animal experimentation known to be scientifically unsound"], a: 3, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>D. Going into animal experimentation known to be scientifically unsound</b>." },
+          { n: 40, q: "Look at the four squares [_] that indicate where the following sentence can be added to the passage. Pasteur was successful in producing a safe version of anthrax bacteria which he then injected into a population of cows. Where would the sentence best fit?", opts: ["[A]", "[B]", "[C]", "[D]"], a: 0, ex: "Theo nội dung bài đọc, đáp án chính xác là <b>A. [A]</b>." },
+        ]
+      },
+    ]
+  }
+
+];
+
+const THIENAN_LISTENING = [
+
+  {
+    gid: "ta1_1", part: 1, set: 4, official: false,
+    title: "Thiên Ân Test 1 — P1: Thông báo nha sĩ, spa, sân bay & an toàn nhà máy",
+    script: [
+      { v: 1, t: "Number 1. Hello, this is Doctor Reed's office calling for Mister Parker. I'm calling to confirm your dental appointment for Thursday at three o'clock. If you can't make it, please give us a ring." },
+      { v: 2, t: "Number 2. This weekend only, Riverside Wellness is offering a special spa package: a sixty-minute massage, a facial treatment, and full-day access to our sauna and pool — all for one low price. Call now to reserve your spot." },
+      { v: 1, t: "Number 3. The Berryville city council announced on Monday that construction of a new airport terminal will begin just outside the town next spring — a project expected to create hundreds of local jobs." },
+      { v: 2, t: "Number 4. Attention all plant workers: starting next Monday, protective goggles and gloves must be worn at all times on the assembly line. Please collect your new safety equipment from the supply room before your shift." },
+    ],
+    qs: [
+      { id: "ta101", q: "What is the purpose of the message?", opts: ["To schedule a checkup", "To delay a meeting", "To confirm an appointment", "To request some files"], a: 2, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>C. To confirm an appointment</b>." },
+      { id: "ta102", q: "What is being advertised?", opts: ["A city tour", "A spa package", "A hotel", "A hospital"], a: 1, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>B. A spa package</b>." },
+      { id: "ta103", q: "According to the announcement, what will be built near Berryville?", opts: ["A university", "A high school", "A new hospital wing", "An airport terminal"], a: 3, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>D. An airport terminal</b>." },
+      { id: "ta104", q: "Who is this announcement probably for?", opts: ["Factory employees", "Office managers", "Safety supervisors", "Hotel workers"], a: 0, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>A. Factory employees</b>." },
+    ]
+  },
+  {
+    gid: "ta1_2", part: 1, set: 4, official: false,
+    title: "Thiên Ân Test 1 — P1: Mời ăn tối, chuyển văn phòng, offer việc & người sáng lập",
+    script: [
+      { v: 1, t: "Number 5. Hi Tom, it's Lisa from accounting. A few of us are getting together for dinner at Mario's on Friday after work, and we'd love you to join us. Let me know if you can make it." },
+      { v: 2, t: "Number 6. This message is for all staff of the marketing department. Please be advised that our office will be relocating to the fifth floor of the Bradley Building next month. Instructions for packing your desks will be sent by Friday." },
+      { v: 1, t: "Number 7. Good afternoon, this is Maria from Human Resources. I'm pleased to tell you that we'd like to offer you the sales associate position you interviewed for last week. Please call us back to discuss your start date." },
+      { v: 2, t: "Number 8. Welcome, everyone. When I founded this company in my garage twenty years ago, I never imagined we would grow into the largest organic food supplier in the region. Thank you all for being part of this journey." },
+    ],
+    qs: [
+      { id: "ta105", q: "What is the purpose of the message?", opts: ["To make a reservation at a restaurant", "To ask about a new employee", "To invite a co-worker for dinner", "To offer a ride home"], a: 2, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>C. To invite a co-worker for dinner</b>." },
+      { id: "ta106", q: "What is this message about?", opts: ["A new security policy", "The business hours", "An office relocation", "A permanent closure"], a: 2, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>C. An office relocation</b>." },
+      { id: "ta107", q: "What is the purpose of the message?", opts: ["To make an appointment", "To offer a position", "To cancel an interview", "To confirm receipt of an application"], a: 0, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>A. To make an appointment</b>." },
+      { id: "ta108", q: "Who is the speaker?", opts: ["A new employee", "The founder", "The chairman of the board", "The personnel director"], a: 1, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>B. The founder</b>." },
+    ]
+  },
+  {
+    gid: "ta1_3", part: 2, set: 4, official: false,
+    title: "Thiên Ân Test 1 — Hội thoại: Xác nhận lịch hẹn bác sĩ",
+    script: [
+      { v: 1, t: "Hi, I'm calling about my appointment with Doctor Johnson tomorrow at two. I just wanted to confirm that I'm still on the schedule." },
+      { v: 2, t: "Let me check… yes, you're confirmed. Things have been really hectic here this week — I've been flat out with schedule changes since Monday. Could you actually come about ten minutes early? We need to fill out a short form first." },
+      { v: 1, t: "Sure, no problem. Should I bring anything with me?" },
+      { v: 2, t: "Just your insurance documents, please. Your past medical records are already in our system." },
+    ],
+    qs: [
+      { id: "ta109", q: "Why is the woman calling?", opts: ["To make an appointment", "To speak with Dr. Johnson", "To confirm an appointment", "To receive some medical advice"], a: 2, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>C. To confirm an appointment</b>." },
+      { id: "ta110", q: "What is probably true about the man?", opts: ["He is a doctor", "He is very busy these days", "He is the woman's friend", "He will be late for the appointment"], a: 1, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>B. He is very busy these days</b>." },
+      { id: "ta111", q: "What does the woman ask the man to do?", opts: ["Show up to his appointment a little early", "Get more medical insurance", "Wait 10 minutes in the waiting area", "Always arrange his appointments a day early"], a: 0, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>A. Show up to his appointment a little early</b>." },
+      { id: "ta112", q: "What will the man likely take to his appointment?", opts: ["His past medical records", "Some insurance documents", "His appointment book", "An application form"], a: 1, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>B. Some insurance documents</b>." },
+    ]
+  },
+  {
+    gid: "ta1_4", part: 2, set: 4, official: false,
+    title: "Thiên Ân Test 1 — Hội thoại: Hai bác sĩ bàn về nghiên cứu cholesterol",
+    script: [
+      { v: 2, t: "Have you heard about that new clinical study on cholesterol medication?" },
+      { v: 1, t: "Yes — several of my patients have mentioned it to me this week. Apparently it's being presented at the cardiology conference." },
+      { v: 2, t: "Are you going? I'm flying out on Saturday morning." },
+      { v: 1, t: "I think I'll join you on Saturday. My husband is coming up to visit that weekend anyway, so we can drive together." },
+    ],
+    qs: [
+      { id: "ta113", q: "Who most likely are they?", opts: ["Journalists", "Physicians", "Lawyers", "Restaurant owners"], a: 1, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>B. Physicians</b>." },
+      { id: "ta114", q: "Who has been mentioning the study to the woman?", opts: ["Her patients", "Her mother-in-law", "Her doctor", "Her friends"], a: 0, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>A. Her patients</b>." },
+      { id: "ta115", q: "When will they likely attend the conference?", opts: ["Today", "Friday", "Saturday", "Sunday"], a: 2, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>C. Saturday</b>." },
+      { id: "ta116", q: "Who is going to visit the woman?", opts: ["Her friends", "Her husband", "Her mother-in-law", "Her patients"], a: 2, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>C. Her mother-in-law</b>." },
+    ]
+  },
+  {
+    gid: "ta1_5", part: 2, set: 4, official: false,
+    title: "Thiên Ân Test 1 — Hội thoại: Khách hàng và chế độ bảo hành laptop",
+    script: [
+      { v: 1, t: "Remember that customer who brought in the broken laptop yesterday? He was sure his warranty had already expired." },
+      { v: 2, t: "Right! He was so relieved when I told him it was covered for six more months. He also kept saying our prices were the most competitive he'd found anywhere." },
+      { v: 1, t: "He did seem delighted. Honestly, though, I think what really makes customers happy is great service." },
+      { v: 2, t: "I completely agree — friendly service keeps them coming back." },
+    ],
+    qs: [
+      { id: "ta117", q: "What are they talking about?", opts: ["A newly released product", "Toe duration of the warranty", "A customer they helped", "A vehicle the man recently fixed"], a: 2, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>C. A customer they helped</b>." },
+      { id: "ta118", q: "According to the man, what was the customer most satisfied with?", opts: ["The low cost of the repair work", "The free service they provided", "The competitive price of their products", "The length of the warranty period"], a: 1, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>B. The free service they provided</b>." },
+      { id: "ta119", q: "What do the speakers feel makes customers happy?", opts: ["The low price", "The great service", "The free gifts", "The store hours"], a: 1, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>B. The great service</b>." },
+      { id: "ta120", q: "What is true about the customer?", opts: ["He is a loyal one", "He thought the warranty had expired", "He will definitely come back to the store", "He will recommend the store to his friend"], a: 1, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>B. He thought the warranty had expired</b>." },
+    ]
+  },
+  {
+    gid: "ta1_6", part: 3, set: 4, official: false,
+    title: "Thiên Ân Test 1 — Giờ làm việc: Đăng ký ngành học & chương trình honors",
+    script: [
+      { v: 2, t: "Good morning, how can I help you?" },
+      { v: 1, t: "Hi, I'm deciding between a few majors, and I'd like to register for a course in this department. Could you explain the process?" },
+      { v: 2, t: "Of course. This department has a rather elaborate registration process. They want students to think carefully about which courses they'll take, to plan a coherent program, and to have realistic expectations about the workload." },
+      { v: 1, t: "I see. I'm also curious about the honors program — why are there so few students in it?" },
+      { v: 2, t: "Mainly because the requirements are difficult to meet — you must maintain over a B average in every required course." },
+      { v: 1, t: "And how do the majors differ? For example, what does a Political Science student take?" },
+      { v: 2, t: "For Political Science you'd take Political Science One, Political Science Two, and a writing seminar. If you choose International Relations instead, you must also complete economics plus a second history credit." },
+      { v: 1, t: "That's a big difference. Thanks for explaining everything." },
+    ],
+    qs: [
+      { id: "ta121", q: "Why is the woman visiting this office?", opts: ["She wants to be a science major", "She wants to learn about politics", "She is interested in registering for a course", "She is interested in Political Science"], a: 2, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>C. She is interested in registering for a course</b>." },
+      { id: "ta122", q: "Why are there few people in the honors program?", opts: ["It is not considered a prestigious program", "The requirements are difficult to meet", "No one likes the economics requirement", "It is an unpopular program"], a: 1, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>B. The requirements are difficult to meet</b>." },
+      { id: "ta123", q: "What subject is NOT included, if the woman chooses Political Science?", opts: ["Political Science 1", "Political Science 2", "Writing seminar", "Economics"], a: 3, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>D. Economics</b>." },
+      { id: "ta124", q: "Which is one of the requirements, if the woman chooses International Relation program?", opts: ["Students have to maintain over a \"B\" average in all required courses", "Students have to study economics and a second history credit", "Students need to be realistic in their expectation", "A, B, and Care all correct"], a: 1, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>B. Students have to study economics and a second history credit</b>." },
+      { id: "ta125", q: "What is NOT a reason for the Political Science Department's elaborate registration process?", opts: ["To make students think carefully about what courses they will take", "To have a similar system with other majors", "To make students have a planned program", "To ensure students have realistic expectations"], a: 1, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>B. To have a similar system with other majors</b>." },
+    ]
+  },
+  {
+    gid: "ta1_7", part: 3, set: 4, official: false,
+    title: "Thiên Ân Test 1 — Câu lạc bộ tranh luận: Đổi phòng họp",
+    script: [
+      { v: 1, t: "Hey, did you hear the debate club meeting got moved to a different room this week?" },
+      { v: 2, t: "Really? I didn't get any email about that — my computer has been out of order for days, so I've been offline." },
+      { v: 1, t: "Yes, they're repainting our usual room, so we're meeting in the basement classroom temporarily. Between you and me, I can't wait for it to be finished — that room is already too small for everyone anyway." },
+      { v: 2, t: "Tell me about it — we can barely squeeze everyone in. And honestly I could use the extra practice; I lost every single round at the last tournament." },
+      { v: 1, t: "Don't worry, you'll improve with time." },
+    ],
+    qs: [
+      { id: "ta126", q: "What happened to the debate club meeting?", opts: ["They painted instead of debating", "The club was disbanded", "The meeting was moved to another room", "The meeting was postponed"], a: 2, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>C. The meeting was moved to another room</b>." },
+      { id: "ta127", q: "Why couldn't the man receive the email?", opts: ["He was too busy with his classes", "He was in a meeting", "His computer has been out of order", "His friend forgot to tell him"], a: 2, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>C. His computer has been out of order</b>." },
+      { id: "ta128", q: "What is going to happen with the debate club's meeting room?", opts: ["It is going to be demolished", "It is going to be sold", "It is going to be repainted", "It is going to be closed"], a: 2, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>C. It is going to be repainted</b>." },
+      { id: "ta129", q: "What is true about the debate club's meeting room?", opts: ["It is too small for the group", "It is called \"Turner Auditorium\"", "It will soon be enlarged to accommodate everyone", "It is the most run-down room in the student building"], a: 0, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>A. It is too small for the group</b>." },
+      { id: "ta130", q: "What can be inferred about the man?", opts: ["He does not enjoy the debate club", "He is not taking many classes", "He is a weak debater", "He is not ready for his debate yet"], a: 3, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>D. He is not ready for his debate yet</b>." },
+    ]
+  },
+  {
+    gid: "ta1_8", part: 3, set: 4, official: false,
+    title: "Thiên Ân Test 1 — Bài giảng: Sai lầm khoa học trong phim viễn tưởng",
+    script: [
+      { v: 1, t: "Today I'd like to discuss the scientific errors you find in most science fiction. Take space travel: in almost every film, spaceships zip between stars at faster-than-light speed. But in reality, there is no known way to exceed the speed of light — and even reaching the closest star to Earth would mean covering more than three light years of distance, which takes years, not minutes." },
+      { v: 1, t: "Now, one movie that is refreshingly accurate is 2001: A Space Odyssey. It does not show faster-than-light travel, it portrays weightlessness and gravity correctly, and — true to physics — it depicts no sound in the vacuum of space. It is a rare example of science fiction that respects real science, although the genre, of course, is not really meant to teach us science — it is meant to entertain and to imagine." },
+    ],
+    qs: [
+      { id: "ta131", q: "What is the professor mainly talking about?", opts: ["The science of space travel", "Scientific problems in Star Wars", "The erroneous science in science fiction", "Why science fiction is bad literature"], a: 2, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>C. The erroneous science in science fiction</b>." },
+      { id: "ta132", q: "According to the lecture, what is wrong with space travel in most science fiction?", opts: ["There are no aliens in outer space", "There is no way to go faster than light speed", "There are many other stars and galaxies", "There is nowhere to go in outer space"], a: 1, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>B. There is no way to go faster than light speed</b>." },
+      { id: "ta133", q: "According to the professor, how long does it take to travel to the closest star to Earth?", opts: ["Three light years", "One hundred light years", "Hundreds light year", "A million light years"], a: 0, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>A. Three light years</b>." },
+      { id: "ta134", q: "What does the professor NOT say about the movie 2001: A Space Odyssey?", opts: ["It is exceptionally good", "It portrays gravity correctly", "It does not have faster-than-light travel", "It does not depict sound in space"], a: 0, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>A. It is exceptionally good</b>." },
+      { id: "ta135", q: "What can be inferred about science fiction?", opts: ["Many people do not like watching science fiction", "It is costly to make science fiction", "Science fiction is not meant to teach us about science", "The film Space Odyssey is a famous science fiction"], a: 2, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>C. Science fiction is not meant to teach us about science</b>." },
+    ]
+  },
+  {
+    gid: "ta2_1", part: 1, set: 5, official: false,
+    title: "Thiên Ân Test 2 — P1: Nha sĩ, đổi địa điểm họp, doanh số & an toàn trượt băng",
+    script: [
+      { v: 1, t: "Number 1. Good morning, Doctor Chen's dental office. This is the receptionist calling to remind Mister Park about his root canal appointment tomorrow at ten. Please arrive fifteen minutes early." },
+      { v: 2, t: "Number 2. Attention, everyone: this week's managers' meeting has been moved from the North Tower to the South Tower conference room, because the North Tower offices are currently being renovated. Same time — Thursday at nine." },
+      { v: 1, t: "Number 3. Our quarterly report shows that domestic sales dropped fifteen percent this year. While the domestic economy remains stable, the main factor is clearly the aggressive pricing of new competitors entering our market." },
+      { v: 2, t: "Number 4. Before anyone gets on the ice this afternoon, please make sure you are wearing the proper safety equipment — helmets and pads are required. You can pick everything up at the equipment desk." },
+    ],
+    qs: [
+      { id: "ta201", q: "Who is probably making talking on the phone?", opts: ["The receptionist at a hotel", "The receptionist at a dentist's", "A travel agent", "A real estate agent"], a: 1, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>B. The receptionist at a dentist's</b>." },
+      { id: "ta202", q: "Why has the meeting been relocated?", opts: ["Because a building is being renovated", "Because the North Tower is being painted", "Because the South Tower is sold", "Because the North Tower is more spacious"], a: 0, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>A. Because a building is being renovated</b>." },
+      { id: "ta203", q: "What is the main cause of decreased domestic sales?", opts: ["A weak economy", "Competition", "Retail clothing sector", "Domestic economy"], a: 1, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>B. Competition</b>." },
+      { id: "ta204", q: "What should the listeners do before they skate?", opts: ["Get permission from the safety coordinator", "Wear the proper safety equipment", "Pay a nominal fee", "Have membership cards"], a: 1, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>B. Wear the proper safety equipment</b>." },
+    ]
+  },
+  {
+    gid: "ta2_2", part: 1, set: 5, official: false,
+    title: "Thiên Ân Test 2 — P1: Phát thanh viên, Ricardo, nhà hàng & niềm tin kinh doanh",
+    script: [
+      { v: 1, t: "Number 5. As a sports broadcaster, I spend most weekends in the commentary box describing the action for millions of radio listeners. It's a profession that lets me combine my love of athletics with live broadcasting." },
+      { v: 2, t: "Number 6. This is Ricardo from our Sao Paulo branch. I'm visiting your headquarters this week mainly to learn about your business methods and reporting procedures, so that we can apply them back home." },
+      { v: 1, t: "Number 7. Luigi's Family Restaurant is now open for dinner every night until eleven. Come and try our new wood-fired pizza and enjoy live music on weekends. Reserve your table today!" },
+      { v: 2, t: "Number 8. Business confidence rose sharply this quarter, mainly because inflation has stayed at its lowest level in five years, making companies more willing to expand and hire." },
+    ],
+    qs: [
+      { id: "ta205", q: "What profession does the speaker work in?", opts: ["Sports therapy", "Sports broadcasting", "Physical training", "Sports fashion"], a: 1, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>B. Sports broadcasting</b>." },
+      { id: "ta206", q: "What is the purpose of Ricardo's visit?", opts: ["To train staff members", "To oversee a project", "To learn business methods", "To see a client"], a: 2, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>C. To learn business methods</b>." },
+      { id: "ta207", q: "What kind of business would be making this announcement?", opts: ["A gas station", "A hotel", "A restaurant", "A store"], a: 2, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>C. A restaurant</b>." },
+      { id: "ta208", q: "Why has confidence increased?", opts: ["Because of increased investment", "Because of low inflation", "Because of higher production", "Because of government data"], a: 1, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>B. Because of low inflation</b>." },
+    ]
+  },
+  {
+    gid: "ta2_3", part: 2, set: 5, official: false,
+    title: "Thiên Ân Test 2 — Hội thoại: Máy photocopy bị hỏng",
+    script: [
+      { v: 1, t: "Thanks for calling back. Our office copy machine isn't working properly — it keeps jamming and the display shows an error message." },
+      { v: 2, t: "I'm the technician assigned to your account. Before I come over, could you open the side panel and check whether there's a paper jam inside?" },
+      { v: 1, t: "Sure… yes, there's a crumpled sheet stuck right in there." },
+      { v: 2, t: "Carefully pull it out. If it still doesn't work afterwards, I'll be at your office this afternoon to take a proper look." },
+    ],
+    qs: [
+      { id: "ta209", q: "What is the problem?", opts: ["The woman does not know how to get to the man's office.", "The copy machine is not working properly.", "The man is late for his appointment.", "The woman can't go to the office today."], a: 1, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>B. The copy machine is not working properly.</b>." },
+      { id: "ta210", q: "Who most likely is the man?", opts: ["An auto mechanic", "A photocopier technician", "A new assistant", "A coffee shop owner"], a: 1, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>B. A photocopier technician</b>." },
+      { id: "ta211", q: "What does the man ask the woman to do?", opts: ["To have a clinic check-up", "To turn off the machine", "To check the inside paper jam", "To call another technician"], a: 2, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>C. To check the inside paper jam</b>." },
+      { id: "ta212", q: "When will the man most likely get to the woman's office?", opts: ["In the morning", "During lunch", "In the afternoon", "In the evening"], a: 2, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>C. In the afternoon</b>." },
+    ]
+  },
+  {
+    gid: "ta2_4", part: 2, set: 5, official: false,
+    title: "Thiên Ân Test 2 — Hội thoại: Mượn sách liên thư viện",
+    script: [
+      { v: 1, t: "Excuse me, I've searched the catalogue and the shelves, but the library doesn't seem to have this book on post-war Germany." },
+      { v: 2, t: "Let me check… you're right, our copy is missing. What do you need it for?" },
+      { v: 1, t: "It's essential for my history essay that's due next month." },
+      { v: 2, t: "Then I can request it from other libraries in our network — we can usually locate the material within a week. Just so you know, it's free for the first five books, but borrowing more than five books from other libraries carries a small service charge." },
+      { v: 1, t: "That's fine, I only need this one." },
+    ],
+    qs: [
+      { id: "ta213", q: "What is the woman's problem?", opts: ["She lost a library book.", "She does not know where Germany is.", "The library does not have a book she needs.", "The library will not let her sign out a book."], a: 2, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>C. The library does not have a book she needs.</b>." },
+      { id: "ta214", q: "Why does the woman need to find the book?", opts: ["She wants to borrow it for a friend.", "She wants it for her essay.", "She wants to learn about computer systems.", "She wants to collect it."], a: 1, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>B. She wants it for her essay.</b>." },
+      { id: "ta215", q: "What does the man offer to do for the woman?", opts: ["He will help her to locate the material she wants from other libraries.", "He will ask his friends about the material she needs.", "He asks her to go to the nearest library.", "He asks her to go to the book store."], a: 0, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>A. He will help her to locate the material she wants from other libraries.</b>." },
+      { id: "ta216", q: "What if the woman borrows more than 5 books from other libraries?", opts: ["She has to return the books earlier than usual.", "She has to pay a small service charge.", "She has to fill in a special form.", "She has to deposit."], a: 1, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>B. She has to pay a small service charge.</b>." },
+    ]
+  },
+  {
+    gid: "ta2_5", part: 2, set: 5, official: false,
+    title: "Thiên Ân Test 2 — Hội thoại: Hẹn James ôn thi chemistry",
+    script: [
+      { v: 2, t: "Hey Jane, aren't you supposed to be meeting James soon?" },
+      { v: 1, t: "Yes, at four o'clock — but knowing James, he'll probably show up at four fifteen. He's never on time." },
+      { v: 2, t: "That's James all right. Anyway, why the rush to the library?" },
+      { v: 1, t: "I need to review for my chemistry exam tomorrow, and James promised to quiz me on the practice questions." },
+      { v: 2, t: "Well, tell him I said hi — we all went to high school together, you know." },
+    ],
+    qs: [
+      { id: "ta217", q: "When is the woman supposed to meet James?", opts: ["At noon", "At four o'clock", "At four fifteen", "At ten o'clock"], a: 1, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>B. At four o'clock</b>." },
+      { id: "ta218", q: "What can be inferred about James?", opts: ["He is very lazy.", "He is punctual.", "He is not very punctual.", "He is very busy."], a: 2, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>C. He is not very punctual.</b>." },
+      { id: "ta219", q: "What is true about the man?", opts: ["He is a friend of Jane's and James'.", "He is Jane's teacher.", "He doesn't know James.", "He is an irresponsible man."], a: 0, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>A. He is a friend of Jane's and James'.</b>." },
+      { id: "ta220", q: "Why does Jane have this appointment?", opts: ["To meet her old friends", "To complain about James' behavior", "To prepare for her exam", "To have an interview"], a: 2, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>C. To prepare for her exam</b>." },
+    ]
+  },
+  {
+    gid: "ta2_6", part: 3, set: 5, official: false,
+    title: "Thiên Ân Test 2 — Hội thoại: Gia hạn bài tập của giáo sư Kensington",
+    script: [
+      { v: 1, t: "I was up all night working on my paper — my roommate Rachel helped me proofread the final draft. It's finally finished." },
+      { v: 2, t: "Did you hear? Professor Kensington gave everyone a two-day extension on the assignment, because the computer lab crashed." },
+      { v: 1, t: "I know, but since mine is already done, I'm just going to submit it now and be done with it." },
+      { v: 2, t: "Fair enough — after an all-nighter I wouldn't want to sit on it either. The extension was reasonable anyway, given the circumstances." },
+    ],
+    qs: [
+      { id: "ta221", q: "What did the woman do last night?", opts: ["Studied for a final test", "Worked on her paper", "Stayed in the computer lab", "Turned the paper in early"], a: 1, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>B. Worked on her paper</b>." },
+      { id: "ta222", q: "What is probably true about the woman?", opts: ["She called Professor Kensington and asked for an extension.", "She had her friend help to complete her paper.", "She had plenty of time to complete her paper last night.", "She completed his paper without help from anyone else."], a: 1, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>B. She had her friend help to complete her paper.</b>." },
+      { id: "ta223", q: "What can be inferred about the man?", opts: ["He is too unhappy to express his anger to the woman.", "He does not feel the extension was necessary at all.", "He understands the reasoning behind the extension.", "He is planning to hand in the paper today no matter what."], a: 2, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>C. He understands the reasoning behind the extension.</b>." },
+      { id: "ta224", q: "What is the extension for the assignment submission?", opts: ["They have 1 more day.", "They have 2 more days.", "They have 1 more week.", "They have 2 more weeks."], a: 1, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>B. They have 2 more days.</b>." },
+      { id: "ta225", q: "What is the woman probably going to do next?", opts: ["She is going to revise the paper.", "She is going to talk with the professor.", "She is going to submit her paper.", "She is going to prepare for the exam."], a: 2, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>C. She is going to submit her paper.</b>." },
+    ]
+  },
+  {
+    gid: "ta2_7", part: 3, set: 5, official: false,
+    title: "Thiên Ân Test 2 — Hội thoại: Báo cáo thí nghiệm chemistry lệch 10%",
+    script: [
+      { v: 1, t: "Professor Atkins, could I talk to you about my chemistry lab report? My results came out about ten percent off the textbook values." },
+      { v: 2, t: "I'm your chemistry teacher, so let's look at this properly. A small deviation is normal — the acceptable range of difference from the textbook is about four or five percent. But ten percent suggests something went wrong." },
+      { v: 1, t: "So should I just hand it in? The experiment is due on Friday." },
+      { v: 2, t: "I'd rather you redid the experiment in the evenings this week. And this time, clean the tubes carefully before you start — dirty glassware is the most common cause of skewed results." },
+    ],
+    qs: [
+      { id: "ta226", q: "Who is professor Atkins?", opts: ["A math teacher", "A physics teacher", "A chemistry teacher", "A laboratory manager"], a: 2, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>C. A chemistry teacher</b>." },
+      { id: "ta227", q: "What is the acceptable range of difference off the textbook?", opts: ["4% or 5%", "10%", "Less than 10%", "45%"], a: 0, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>A. 4% or 5%</b>." },
+      { id: "ta228", q: "What will the woman most likely do?", opts: ["Redo the experiment in the evenings", "Ask the professor f or more time", "Hand in the experiment as it is", "Lower her results by 10% from the textbook"], a: 0, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>A. Redo the experiment in the evenings</b>." },
+      { id: "ta229", q: "When is the experiment due day?", opts: ["Tomorrow", "Next week", "Tuesday", "Friday"], a: 3, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>D. Friday</b>." },
+      { id: "ta230", q: "What does the professor advise Julie to do?", opts: ["Spend more time in the lab", "Clean the tubes before the experiment", "Ask someone to help her", "Meet him after class hours in the lab"], a: 1, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>B. Clean the tubes before the experiment</b>." },
+    ]
+  },
+  {
+    gid: "ta2_8", part: 3, set: 5, official: false,
+    title: "Thiên Ân Test 2 — Bài giảng: Bang Alaska — địa lý, giao thông & đời sống",
+    script: [
+      { v: 1, t: "Today we're going to look at America's largest state — Alaska. It covers more land than California and Texas combined, yet it is bordered by Canada on the east and remains one of the least populous regions in the country. Because of its vast distances, harsh winters and small population, middle school classes there average only about ten students. And since there are few highways — no complex road or railway networks — the most popular way to travel between communities is by small airplanes; many families even own a bush plane." },
+      { v: 1, t: "Life in Alaska is not easy: long dark winters, isolation and the constant threat of earthquakes mean it is probably not a very desirable place for some people to live in. Next class, we'll discuss one of the most dramatic events in its history — the volcanic eruption of Mount Katmai in the early twentieth century." },
+    ],
+    qs: [
+      { id: "ta231", q: "What is true about Alaska?", opts: ["It is the second largest state in the US", "It is bordered by Canada on the East.", "It is smaller than California and Texas combined.", "It is populous."], a: 1, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>B. It is bordered by Canada on the East.</b>." },
+      { id: "ta232", q: "What is the average number of students in a middle school classroom?", opts: ["10", "15", "20", "25"], a: 0, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>A. 10</b>." },
+      { id: "ta233", q: "Which of the following is a popular transportation system in Alaska?", opts: ["Airplanes", "Ships", "Railways", "A complex highway system"], a: 0, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>A. Airplanes</b>." },
+      { id: "ta234", q: "What will the professor probably talk about in the next class?", opts: ["The volcanic eruption of Mount Katmai in the early 20th century.", "The type of airplanes used by Alaskans to move from point to point.", "The amount of food imported by the Alaskans to balance out theirminiscule fanning production.", "The effects of seismic sea waves that reach far inland and destroy communities."], a: 0, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>A. The volcanic eruption of Mount Katmai in the early 20th century.</b>." },
+      { id: "ta235", q: "What does the professor feel about life in Alaska?", opts: ["It is a fantastic place to dwell for anyone.", "It is probably not very desirable for some to live in.", "It is not a place that he knows much about.", "It is a peaceful place without any worries to think about."], a: 1, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>B. It is probably not very desirable for some to live in.</b>." },
+    ]
+  },
+  {
+    gid: "ta3_1", part: 1, set: 6, official: false,
+    title: "Thiên Ân Test 3 — P1: Xin file, dời lịch mua hàng, chuyển IT & thay hàng order",
+    script: [
+      { v: 2, t: "Number 1. Hi, it's Mark again — I'm really sorry to bother you, but I need to ask a favour. Could you send me the sales files we discussed yesterday? I can't seem to find them anywhere on my computer." },
+      { v: 1, t: "Number 2. Hello, this is Daniel Jergens. I'd like to move our Thursday meeting up to Tuesday morning if that's possible — the sooner we meet, the sooner I can sign the paperwork and complete the purchase." },
+      { v: 2, t: "Number 3. Please be advised that the information technology division will relocate to the east wing earlier than planned, because the construction work will cause an interruption of network service next week." },
+      { v: 1, t: "Number 4. Hi, this is Grace from Central Office Supply. About your order — item forty-five, the blue binders, is currently out of stock. Would it be all right to substitute them with black binders, or would you prefer a refund?" },
+    ],
+    qs: [
+      { id: "ta301", q: "Why is the speaker apologizing?", opts: ["To schedule a checkup", "To delay a meeting", "To confirm an appointment", "To request some files"], a: 3, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>D. To request some files</b>." },
+      { id: "ta302", q: "Why would Daniel Jergens like to reschedule the meeting?", opts: ["To satisfy a request from Barrier Associates", "To complete the purchase more quickly", "To reconsider the contract", "To avoid the severe weather condition"], a: 1, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>B. To complete the purchase more quickly</b>." },
+      { id: "ta303", q: "Why will the information technology division be relocating earlier?", opts: ["Because of an increase in staff", "Because of aninterruption of network service", "Because of the full relocation", "Because of the high release costs"], a: 1, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>B. Because of aninterruption of network service</b>." },
+      { id: "ta304", q: "What is the message mainly about?", opts: ["A question about substituting order items", "A question about the number of the items", "The list of items that will be delivered", "The shipping service that will be used"], a: 0, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>A. A question about substituting order items</b>." },
+    ]
+  },
+  {
+    gid: "ta3_2", part: 1, set: 6, official: false,
+    title: "Thiên Ân Test 3 — P1: Phân công task, nhà đất, hủy chuyến bay & kỷ niệm công ty",
+    script: [
+      { v: 2, t: "Number 5. Before we finish today's meeting, I'd like to hand out the assignments for the Henderson project. Sarah will handle the budget report, Mike is responsible for the client presentation, and Priya will coordinate the schedule." },
+      { v: 1, t: "Number 6. Thank you for coming to the open house. As your real estate agent, I've prepared a handout with the property details — three bedrooms, two bathrooms and a recently renovated kitchen, listed at three hundred and fifty thousand." },
+      { v: 2, t: "Number 7. Due to the severe snowstorm, all flights tonight have been cancelled. The airline will provide hotel rooms for all stranded passengers, and shuttle buses will leave from gate C every twenty minutes." },
+      { v: 1, t: "Number 8. Ladies and gentlemen, please join us this Friday evening as we celebrate twenty-five years of service. Our company has grown from a small family shop into a regional leader, and this anniversary dinner is our way of thanking all of you." },
+    ],
+    qs: [
+      { id: "ta305", q: "What is the purpose of the talk?", opts: ["To address customer complaints", "To discuss a presentation", "To celebrate a new contract", "To hand out assignments"], a: 3, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>D. To hand out assignments</b>." },
+      { id: "ta306", q: "Who most likely is the speaker?", opts: ["A landlord", "A business executive", "A real estate agent", "A police officer"], a: 2, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>C. A real estate agent</b>." },
+      { id: "ta307", q: "What will be provided for the travelers?", opts: ["A free flight", "Meal vouchers", "Winter clothing", "Hotel rooms"], a: 3, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>D. Hotel rooms</b>." },
+      { id: "ta308", q: "What is the celebration for?", opts: ["A merger", "An anniversary", "A new CEO", "A stock offering"], a: 1, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>B. An anniversary</b>." },
+    ]
+  },
+  {
+    gid: "ta3_3", part: 2, set: 6, official: false,
+    title: "Thiên Ân Test 3 — Hội thoại: Thợ ống nước và cuộc hẹn khách hàng",
+    script: [
+      { v: 1, t: "Any news from the plumber about that leaking pipe in the restroom?" },
+      { v: 2, t: "He's still working on another job across town, but he promised to be here at two o'clock." },
+      { v: 1, t: "Will you be around when he arrives?" },
+      { v: 2, t: "Actually, no — I'm heading out to meet a client for lunch. I'll be back in the office around four, so could you let the plumber in and show him the restroom?" },
+    ],
+    qs: [
+      { id: "ta309", q: "Where most likely is the plumber now?", opts: ["He is having lunch.", "He is working somewhere else.", "He is at home relaxing.", "He is doing a favor for the man."], a: 1, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>B. He is working somewhere else.</b>." },
+      { id: "ta310", q: "When is the plumber expected to arrive?", opts: ["At one o'clock", "At two o'clock", "At three o'clock", "At four o'clock"], a: 1, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>B. At two o'clock</b>." },
+      { id: "ta311", q: "Where is the man going?", opts: ["To meet a client", "To talk to the plumber", "To fix the pipe", "To have lunch"], a: 0, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>A. To meet a client</b>." },
+      { id: "ta312", q: "When will the man come back to his office?", opts: ["At one o'clock", "At two o'clock", "At three o'clock", "At four o'clock"], a: 3, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>D. At four o'clock</b>." },
+    ]
+  },
+  {
+    gid: "ta3_4", part: 2, set: 6, official: false,
+    title: "Thiên Ân Test 3 — Hội thoại: Hội nghị tuần sau & ghi hình hội thảo",
+    script: [
+      { v: 1, t: "Are you ready for the conference next week?" },
+      { v: 2, t: "Mostly — I only got back from a business trip to Asia yesterday, so I'm still catching up on everything. It's a shame John will miss it, though." },
+      { v: 1, t: "Why, where's he going?" },
+      { v: 2, t: "He's taking a vacation in Europe — two weeks in Italy and France, I heard. Say, thanks again for offering to record the sessions I want to see — with two presentations running at the same time, I'd have no way to catch both." },
+    ],
+    qs: [
+      { id: "ta313", q: "When is the conference scheduled to take place?", opts: ["Today", "Tomorrow", "Next week", "Next month"], a: 1, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>B. Tomorrow</b>." },
+      { id: "ta314", q: "Why will John miss the conference?", opts: ["He is going on a business trip.", "He is taking a vacation in Europe.", "He has too much work.", "He has to review the videos."], a: 2, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>C. He has too much work.</b>." },
+      { id: "ta315", q: "Where has the man just been to for a business trip?", opts: ["Chicago", "Toronto", "Europe", "Asia"], a: 3, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>D. Asia</b>." },
+      { id: "ta316", q: "Why is the man thanking the woman?", opts: ["She offered to give him aride.", "She will lend him her video recorder.", "She will go to the seminar in his place.", "She will record the sessions he wants to see."], a: 3, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>D. She will record the sessions he wants to see.</b>." },
+    ]
+  },
+  {
+    gid: "ta3_5", part: 2, set: 6, official: false,
+    title: "Thiên Ân Test 3 — Hội thoại: Đặt 50 máy tính cho công ty",
+    script: [
+      { v: 1, t: "Excuse me, I ordered fifty desktop computers from your store last week for our company. Any idea when they'll arrive?" },
+      { v: 2, t: "Let me check the delivery log… the truck left the warehouse an hour ago, so they'll be here by this evening." },
+      { v: 1, t: "Great. And do I need to do anything when they get here?" },
+      { v: 2, t: "No, ma'am — as the store director I'll supervise the delivery personally. In fact, I'll help lift the boxes off the truck myself." },
+    ],
+    qs: [
+      { id: "ta317", q: "Where is the conversation most likely taking place?", opts: ["In a truck", "At the bus stop", "In a warehouse", "At an electronics store"], a: 3, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>D. At an electronics store</b>." },
+      { id: "ta318", q: "When will the computers arrive at the store?", opts: ["In five minutes", "In fifteen minutes", "By this evening", "By tomorrow morning"], a: 2, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>C. By this evening</b>." },
+      { id: "ta319", q: "Who most likely the man is?", opts: ["A manager", "A director", "A secretary", "A blue worker"], a: 1, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>B. A director</b>." },
+      { id: "ta320", q: "What will the man do next?", opts: ["Call the electronics shop", "Talk to the truck driver", "Turn on the computer", "Lift some boxes"], a: 3, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>D. Lift some boxes</b>." },
+    ]
+  },
+  {
+    gid: "ta3_6", part: 3, set: 6, official: false,
+    title: "Thiên Ân Test 3 — Bài giảng: Chiến tranh Lạnh và những ảnh hưởng",
+    script: [
+      { v: 1, t: "Today we'll discuss the Cold War — the period of political tension between the United States and the Soviet Union that lasted nearly fifty years, from the late nineteen forties until the early nineteen nineties. Interestingly, the two superpowers never actually fought each other directly, largely because an open war with nuclear weapons could have destroyed the world." },
+      { v: 1, t: "The Cold War grew out of fundamentally different opinions about how society should be organized — capitalism versus communism. Let me give you some examples of how it shaped history: it drove the space race, it produced the Berlin Wall, and it fueled the conflicts in Korea and Vietnam." },
+    ],
+    qs: [
+      { id: "ta321", q: "What is the main topic in this lecture?", opts: ["Russian leaders", "The Cold War", "The wars between the USSR and the US", "The impacts of the Cold War"], a: 1, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>B. The Cold War</b>." },
+      { id: "ta322", q: "Why did the US and the USSR never actually fight each other?", opts: ["Because the USSR had nuclear weapons.", "Because the US were afraid of Stalin.", "Because they did not want to destroy the world.", "Because nuclear power could destroy the US."], a: 2, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>C. Because they did not want to destroy the world.</b>." },
+      { id: "ta323", q: "According to the professor, how long did the Cold War last?", opts: ["Around 50 years", "Around 60 years", "Around 70 years", "Around 80 years"], a: 0, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>A. Around 50 years</b>." },
+      { id: "ta324", q: "What can be inferred from the lecture?", opts: ["The Cold War was caused by different opinions.", "The Cold War was a long, violent war between the US and USSR.", "The Cold War was an important time in history of the US and the USSR.", "The Cold War changed the world dramatically."], a: 0, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>A. The Cold War was caused by different opinions.</b>." },
+      { id: "ta325", q: "How does the professor describe the main topic?", opts: ["By comparing and contrasting", "By giving examples", "By listing the events chronologically", "By giving definitions"], a: 1, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>B. By giving examples</b>." },
+    ]
+  },
+  {
+    gid: "ta3_7", part: 3, set: 6, official: false,
+    title: "Thiên Ân Test 3 — Bài giảng: Seurat và trường phái Tân ấn tượng",
+    script: [
+      { v: 2, t: "Today we're going to compare two very different approaches to painting: the traditional blended style and Neo-Impressionism. Unlike earlier painters who mixed their paints smoothly on the canvas, Georges Seurat placed tiny dots of pure colour side by side. He believed that blending paints dulled the image, while separate dots would make the art appear brighter and more luminous from a distance." },
+      { v: 2, t: "Seurat was famously proud of this technique — he called it 'divisionism' and defended it passionately against his critics. But I must admit, while I find it historically fascinating, this style is quite difficult to learn — it demands enormous patience and precision, and I suspect few of you would enjoy the process." },
+    ],
+    qs: [
+      { id: "ta326", q: "What is the lecture mainly about?", opts: ["The way the eye sees colors", "The steps to paint in a Neo-Impressionism style", "The artists who learned from Seurat", "The difference between painting styles"], a: 3, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>D. The difference between painting styles</b>." },
+      { id: "ta327", q: "What is the professor's opinion of this style of painting?", opts: ["He thinks painting in brush strokes is a better way.", "He is surprised that so many artists are good at it.", "He thinks it is difficult to learn.", "He doesn't like it."], a: 2, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>C. He thinks it is difficult to learn.</b>." },
+      { id: "ta328", q: "According to the professor, why did Seurat not blend his paints?", opts: ["He thought it would ruin the paints.", "He thought mixed paints did not look real.", "He thought blended paints made paintings look too divided.", "He thought it would make the art bright."], a: 3, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>D. He thought it would make the art bright.</b>." },
+      { id: "ta329", q: "What is true about Georges Seurat?", opts: ["He was the best artist at his time.", "He was proud of his painting style.", "He used brush strokes to make the pictures brighter.", "He didn't spend a lot of time finishing his paintings."], a: 1, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>B. He was proud of his painting style.</b>." },
+      { id: "ta330", q: "How did the professor organize the information about this way of painting?", opts: ["By describing only Seurat's style", "By describing only other styles", "By comparing Seurat and other Neo-Impressionists", "By comparing Neo-Impressionism and other styles"], a: 3, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>D. By comparing Neo-Impressionism and other styles</b>." },
+    ]
+  },
+  {
+    gid: "ta3_8", part: 3, set: 6, official: false,
+    title: "Thiên Ân Test 3 — Bài giảng: Cách các loài rắn tự bảo vệ",
+    script: [
+      { v: 1, t: "Many snakes have developed remarkable ways to protect themselves from predators, and today we'll look at three of them. First, the rattlesnake: the hollow beads on its tail produce a loud buzzing sound when shaken — a warning that scares off other animals before the snake ever needs to strike." },
+      { v: 1, t: "Second, the spitting cobra takes a more aggressive approach — it sprays its poison directly at the eyes of an animal that is attacking it, causing instant pain and even blindness." },
+      { v: 1, t: "But my personal favourite is the hognose snake — and honestly, it amazes me every time I read about it. When threatened, this snake actually plays dead: it flips onto its back, opens its mouth, and lets its tongue hang out, as if it were already decaying. Predators lose interest in apparently dead prey, and the hognose simply slithers away unharmed." },
+    ],
+    qs: [
+      { id: "ta331", q: "What is the lecture about?", opts: ["The feeding habits of snakes", "How certain snakes protect themselves", "The most dangerous snakes in the world", "The different uses of sriake poison"], a: 1, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>B. How certain snakes protect themselves</b>." },
+      { id: "ta332", q: "Why does the professor discuss the beads on a rattlesnake's tail?", opts: ["To show how the rattlesnake is more dangerous than other snakes", "To compare the rattlesnake to less scary animals", "To explain how the rattlesnake scares off animals", "To describe how the rattlesnake uses its tail to hunt"], a: 2, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>C. To explain how the rattlesnake scares off animals</b>." },
+      { id: "ta333", q: "According to the professor, where does the spitting cobra spray its poison?", opts: ["At the animal it is hunting", "At other snakes", "At the tongue of an animal that is attacking it", "At the eyes of an animal that is attacking it"], a: 3, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>D. At the eyes of an animal that is attacking it</b>." },
+      { id: "ta334", q: "What is the professor's attitude towards the hognose snake?", opts: ["She is amazed by it.", "She thinks that it is stupid.", "She thinks that it is the best snake.", "She thinks that it is the most dangerous."], a: 0, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>A. She is amazed by it.</b>." },
+      { id: "ta335", q: "What can be inferred from the lecture?", opts: ["The spitting cobra rattles its tail.", "The hognose snake pretends to be sick.", "Beads in a rattlesnake's tail make the sound.", "There are.no creatures that eat snakes."], a: 2, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>C. Beads in a rattlesnake's tail make the sound.</b>." },
+    ]
+  },
+  {
+    gid: "ta4_1", part: 1, set: 7, official: false,
+    title: "Thiên Ân Test 4 — P1: Thẻ bảo hiểm, nhân sự, công ty luật & xác nhận đơn hàng",
+    script: [
+      { v: 2, t: "Number 1. Hello, this message is for Missus Cook. This is Doctor Perez's clinic confirming your appointment for tomorrow at nine. Please remember to take along your medical insurance card when you come in." },
+      { v: 1, t: "Number 2. Good afternoon, this is Sachiko Suzuki, the personnel officer at Northgate Manufacturing. I'm calling about the orientation schedule for our new factory employees starting next Monday." },
+      { v: 2, t: "Number 3. You've reached the offices of Hartman Legal Group. Our offices are currently closed for the holiday weekend. If your matter is urgent, please call back during business hours, Monday to Friday, nine to six." },
+      { v: 1, t: "Number 4. This is Home Style Furniture calling to confirm your order of the oak dining set. It will be delivered to your address on Thursday between ten and noon." },
+    ],
+    qs: [
+      { id: "ta401", q: "What does the caller ask Ms. Cook to do?", opts: ["Take along her medical insurance card", "Make an appointment", "Call the receptionist", "Drive his car to the clinic"], a: 0, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>A. Take along her medical insurance card</b>." },
+      { id: "ta402", q: "Who is Sachiko Suzuki?", opts: ["A job applicant", "A receptionist", "A client", "A personnel officer"], a: 3, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>D. A personnel officer</b>." },
+      { id: "ta403", q: "What is the listener asked to do?", opts: ["Order a new phone", "Call back", "Go to the office", "Contact the speaker"], a: 1, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>B. Call back</b>." },
+      { id: "ta404", q: "What is the purpose of this message?", opts: ["To confirm an order", "To order some furniture", "To ask for order information", "To inform a change"], a: 0, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>A. To confirm an order</b>." },
+    ]
+  },
+  {
+    gid: "ta4_2", part: 1, set: 7, official: false,
+    title: "Thiên Ân Test 4 — P1: Đổi lịch phỏng vấn, sửa máy in, doanh số nội địa & trượt băng",
+    script: [
+      { v: 2, t: "Number 5. Hello, this is Karen Diaz from the admissions office. I'm calling about your interview scheduled for Monday — unfortunately, our director has an emergency, so we'd like to reschedule your interview for Wednesday at two." },
+      { v: 1, t: "Number 6. Hi Missus Kim, this is Robert at TechPrint Services. Your printer repair is now complete — please return my call at your earliest convenience so that we can arrange the delivery." },
+      { v: 2, t: "Number 7. Our year-end figures show that domestic sales fell by seventeen percent, while international sales actually grew by eleven percent. The retail clothing sector was hit hardest by the weak economy." },
+      { v: 1, t: "Number 8. Before we begin the skating session, let me introduce Rea, our safety coordinator. If you have any questions about the safety equipment — helmets, pads or harnesses — Rea is the person to ask." },
+    ],
+    qs: [
+      { id: "ta405", q: "What is the main purpose of the call?", opts: ["To reschedule an interview", "To arrange a class", "To postpone an exhibition", "To request an application"], a: 0, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>A. To reschedule an interview</b>." },
+      { id: "ta406", q: "What is Ms. Kim asked to do?", opts: ["Return a phone call", "Deliver a printer", "Meet him on Friday", "Change the order"], a: 0, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>A. Return a phone call</b>." },
+      { id: "ta407", q: "What is the decreasing percentage of domestic sales?", opts: ["7 percent", "11 percent", "17 percent", "70 percent"], a: 2, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>C. 17 percent</b>." },
+      { id: "ta408", q: "What does the speaker say about Rea?", opts: ["She can answer questions about safety equipment.", "She can teach people how to skate.", "She can provide safety helmet.", "She can stake with others."], a: 0, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>A. She can answer questions about safety equipment.</b>." },
+    ]
+  },
+  {
+    gid: "ta4_3", part: 2, set: 7, official: false,
+    title: "Thiên Ân Test 4 — Giờ làm việc: Ghi chép và tìm tài liệu nghiên cứu",
+    script: [
+      { v: 1, t: "Professor Lane, I'm having trouble with my research paper — I've gathered so much information from books and websites that I don't know how to handle it all." },
+      { v: 2, t: "That's very common. When you're taking notes, I recommend making a short summary of each source rather than copying everything — just write down the main idea and why it matters." },
+      { v: 1, t: "So I shouldn't try to write down all the information?" },
+      { v: 2, t: "Exactly. And once you've summarised, organise your notes by topic before you start writing. If you combine books and computer sources wisely, you'll end up with plenty of information — more than enough for your assignment." },
+    ],
+    qs: [
+      { id: "ta409", q: "What is the conversation mainly about?", opts: ["Giving a presentation", "Organizing an essay in a clear way", "Finding a partner for a class project", "Finding information and taking notes"], a: 3, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>D. Finding information and taking notes</b>." },
+      { id: "ta410", q: "What does the professor recommend doing when taking notes?", opts: ["Writing as quickly as possible", "Making a summary", "Checking the information", "Getting lots of information"], a: 1, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>B. Making a summary</b>." },
+      { id: "ta411", q: "What does the professor suggest the woman do?", opts: ["She only needs to read the summary.", "She should use computers to search for information.", "She should go to the library to find information.", "She should organize her notes."], a: 3, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>D. She should organize her notes.</b>." },
+      { id: "ta412", q: "What is the likely outcome of using both books and computers as sources?", opts: ["The student will need help doing the research.", "The student will not be able to finish her project.", "The student will have plenty of information.", "The student will like books more than the computer."], a: 2, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>C. The student will have plenty of information.</b>." },
+    ]
+  },
+  {
+    gid: "ta4_4", part: 2, set: 7, official: false,
+    title: "Thiên Ân Test 4 — Hội thoại: Thủ tục mượn sách thư viện",
+    script: [
+      { v: 1, t: "Excuse me, Mister Baker — I'm new here and I have no idea how to check out these library books." },
+      { v: 2, t: "No problem, let me walk you through the borrowing procedure. First, take the books to the front desk and show your library card. I sign them out under your name, and you'll get a stamped due-date slip — they're due back in three weeks." },
+      { v: 1, t: "And what about that self-service machine over there?" },
+      { v: 2, t: "Ah, that's only for the photocopier and printer. If you want to use it, you'll need some money — it takes coins and small bills, fifty cents a page." },
+    ],
+    qs: [
+      { id: "ta413", q: "What is the main topic of this conversation?", opts: ["The different sections of the library", "How to check out library books", "How to return the due books", "The use of computer in the library"], a: 1, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>B. How to check out library books</b>." },
+      { id: "ta414", q: "Who is Mr. Baker likely be?", opts: ["A librarian", "A janitor", "A shopkeeper", "A student"], a: 0, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>A. A librarian</b>." },
+      { id: "ta415", q: "What does the woman need if she wants to use the self-service machine?", opts: ["Librarian's permission", "Library account", "Money", "A receipt"], a: 1, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>B. Library account</b>." },
+      { id: "ta416", q: "How does the man explain the solution?", opts: ["By mentioning the ways to check out books", "By describing which books to check out", "By giving information about the self-service machine", "By explaining the procedure of borrowing books"], a: 0, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>A. By mentioning the ways to check out books</b>." },
+    ]
+  },
+  {
+    gid: "ta4_5", part: 2, set: 7, official: false,
+    title: "Thiên Ân Test 4 — Hội thoại: Tìm sách lịch sử trong thư viện",
+    script: [
+      { v: 2, t: "Excuse me, could you help me? I've been wandering around for twenty minutes trying to find a book, and I'm completely lost." },
+      { v: 1, t: "Of course! What kind of book are you looking for?" },
+      { v: 2, t: "It's for my history class — I need something on the French Revolution. I actually checked the economics section by mistake first." },
+      { v: 1, t: "The catalogue on that computer will help. Books are listed alphabetically — you can search by the author's last name or by title." },
+      { v: 2, t: "Oh, is that all? Honestly, I thought finding a book would be harder — this seems easier than I expected." },
+    ],
+    qs: [
+      { id: "ta417", q: "Why is the student looking for help?", opts: ["He is supposed to meet with one of his friends.", "He is looking for a part-time job.", "He wants to know how to find a book.", "He is struggling with his job."], a: 2, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>C. He wants to know how to find a book.</b>." },
+      { id: "ta418", q: "What kind of books is the man looking for?", opts: ["Economics", "Poetry", "Geography", "History"], a: 3, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>D. History</b>." },
+      { id: "ta419", q: "How does the book listing organize the books?", opts: ["Alphabetically", "By the author's name", "By the subject and then title", ":By the subject and then the author's name"], a: 0, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>A. Alphabetically</b>." },
+      { id: "ta420", q: "What is implied about the student's opinion of finding a book?", opts: ["He thinks it will be easier than he expected.", "He doesn't think that he can do it.", "He is not looking forward to trying to find a book.", "He thinks that the librarian should find it for him."], a: 0, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>A. He thinks it will be easier than he expected.</b>." },
+    ]
+  },
+  {
+    gid: "ta4_6", part: 3, set: 7, official: false,
+    title: "Thiên Ân Test 4 — Bài giảng: Ba cách truyền nhiệt (conduction, convection, radiation)",
+    script: [
+      { v: 1, t: "Today we're discussing the three ways heat transfers from one place to another: conduction, convection, and radiation. Let's start with convection — the movement of heat through liquids and gases. A hot air balloon is the perfect example: as the flame heats the air inside, the warm air rises and the balloon goes up; as the air cools, the balloon comes back down." },
+      { v: 1, t: "Conduction, on the other hand, is heat moving through solid materials — and frankly, it's the one that gets people hurt most often; countless people burn their hands every year on hot pans and stove tops. It's also worth remembering that some materials are simply better at conducting heat than others — metal conducts far better than wood, which is why a wooden spoon is safer in the kitchen." },
+      { v: 1, t: "And finally, radiation — heat transferred without any contact at all. Think of a toaster: those glowing red coils radiate heat onto your bread without ever touching it." },
+    ],
+    qs: [
+      { id: "ta421", q: "What is the lecture mainly about?", opts: ["What heat is", "How heat transfers", "The properties of heat", "Heatin hot air balloons"], a: 1, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>B. How heat transfers</b>." },
+      { id: "ta422", q: "What happens to a hot air balloon because of convection?", opts: ["The balloon's air is heated.", "The balloon becomes filled with gas.", "The balloon goes up and goes down.", "The balloon's flame gets hotter and hotter."], a: 2, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>C. The balloon goes up and goes down.</b>." },
+      { id: "ta423", q: "What is the professor's opinion of the conduction?", opts: ["He finds it easiest to teach by cooking.", "He feels that it is good for making buildings.", "He believes that it is useful for heating buildings.", "He thinks many people get hurt from it."], a: 3, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>D. He thinks many people get hurt from it.</b>." },
+      { id: "ta424", q: "Why does the professor mention a toaster?", opts: ["To explain how toast is made by convection", "To discuss how conduction makes toasters hot", "To give an example of something that bums people", "To give an example of heat radiation"], a: 3, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>D. To give an example of heat radiation</b>." },
+      { id: "ta425", q: "What can be inferred from the lecturer?", opts: ["Heat moving through solid materials is convection.", "Convection is not a pattern that repeats.", "Heat cannot move through solid materials.", "Some materials are better at conducting heat than others."], a: 3, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>D. Some materials are better at conducting heat than others.</b>." },
+    ]
+  },
+  {
+    gid: "ta4_7", part: 3, set: 7, official: false,
+    title: "Thiên Ân Test 4 — Bài giảng: Đặc trưng hội họa Ấn tượng",
+    script: [
+      { v: 1, t: "I'd like to highlight the key features that make Impressionist painting so distinctive — and I'll focus on the most important points rather than covering every detail. First, unlike earlier artists who worked in studios under controlled lighting, the Impressionists painted outside, capturing scenes in natural light. Second, instead of blending colours smoothly, they used short, visible brushstrokes of pure colour that blend in the viewer's eye. Third, they chose ordinary subjects — picnics, train stations, haystacks — rather than historical or religious scenes." },
+      { v: 1, t: "Compare that to earlier styles: academic painters worked indoors, idealised their subjects and polished away every brushstroke. Personally, I love Impressionism precisely because it is so different — it broke every rule of its time." },
+    ],
+    qs: [
+      { id: "ta426", q: "What is the lecture mainly about?", opts: ["The Impressionist painters and their work", "Why people didn't like Impressionism", "How people posed in Impressionist paintings", "The key features of Impressionist painting"], a: 3, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>D. The key features of Impressionist painting</b>." },
+      { id: "ta427", q: "How did Impressionist art differ from previous art?", opts: ["It featured people instead of landscapes.", "It used new and different blends of colors.", "It created a three-dimensional effect.", "It was created outside using natural light."], a: 3, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>D. It was created outside using natural light.</b>." },
+      { id: "ta428", q: "What is the speaker's opinion of Impressionism?", opts: ["She likes it because it is different.", "She likes it because the colors blend so well.", "She thinks it's difficult because it uses natural light.", "She doesn't like it because it's blurry."], a: 0, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>A. She likes it because it is different.</b>." },
+      { id: "ta429", q: "How are the points in the lecture organized?", opts: ["In the order that the painters painted", "From most difficult to least difficult", "In the order the textbook mentions them.", "By describing the most important points"], a: 3, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>D. By describing the most important points</b>." },
+      { id: "ta430", q: "Why does the professor say this?", opts: ["To show·why older styles ofart were better", "To show how older styles of'art were different", "To explain how the students should paint", "To describe a famous canvas"], a: 1, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>B. To show how older styles of'art were different</b>." },
+    ]
+  },
+  {
+    gid: "ta4_8", part: 3, set: 7, official: false,
+    title: "Thiên Ân Test 4 — Bài giảng: Chủ đề tiểu thuyết Watership Down",
+    script: [
+      { v: 1, t: "Today, instead of discussing the plot or the characters of Watership Down, I want to examine its deeper themes and how Richard Adams develops them throughout the novel. So I'll organise today's lecture around each major theme and show you how it appears in the story." },
+      { v: 1, t: "The first theme is home and displacement: the rabbits are forced to leave their warren because their home is about to be destroyed by a housing development — a warning delivered by the prophetic rabbit Fiver." },
+      { v: 1, t: "The second theme is leadership and government. Consider General Woundwort, the leader of Efrafa — he rules through fear and strict military discipline, showing us a government style built on tyranny, in clear contrast to Hazel's democratic leadership." },
+      { v: 1, t: "What makes this novel remarkable, in my view, is how faithfully it mirrors real life — the politics, the fear, the courage. It isn't really a book about rabbits at all; it's about us." },
+    ],
+    qs: [
+      { id: "ta431", q: "What is the lecture mainly about?", opts: ["The writer of Watership Down", "The main characters of Watership Down", "The themes of Watership Down", "The political ideas behind Watership-Down"], a: 2, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>C. The themes of Watership Down</b>." },
+      { id: "ta432", q: "What is the reason the rabbits leave home?", opts: ["They do not have any freedom.", "Their home is going to be destroyed.", "They want to have an adventure.", "They want a new government."], a: 1, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>B. Their home is going to be destroyed.</b>." },
+      { id: "ta433", q: "Why does the professor mention the leader of Efrafa?", opts: ["To show the government style of Efrafa", "To compare Efrafa and the Tham Warren", "To describe how the rabbits typically acted", "To show that the rabbits lived peacefully with others"], a: 0, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>A. To show the government style of Efrafa</b>." },
+      { id: "ta434", q: "How is the professor's lecture organized?", opts: ["The themes of the story and how they are shown.", "The characters and then what the themes aren't.", "The character comparisons followed by the contrasts.", "The steps the author took in writing the book."], a: 0, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>A. The themes of the story and how they are shown.</b>." },
+      { id: "ta435", q: "What is the professor's attitude towards Watership Down?", opts: ["She thinks that it shows real life very well.", "She believes that Watership Down is a very simple book.", "She thinks that the book is just about rabbits.", "She thinks that it is hard to understand."], a: 0, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>A. She thinks that it shows real life very well.</b>." },
+    ]
+  },
+  {
+    gid: "ta5_1", part: 1, set: 8, official: false,
+    title: "Thiên Ân Test 5 — P1: Thang máy, công ty luật, lớp học tối & nhắn Jen",
+    script: [
+      { v: 2, t: "Number 1. Attention all tenants: the elevators on floors five through eight will be out of service tomorrow for scheduled maintenance. Please use the stairs or the freight elevator near the lobby. We apologise for the inconvenience." },
+      { v: 1, t: "Number 2. Thank you for calling Hartman, Cole and Associates, attorneys at law. Our office hours are nine to six, Monday through Friday. To speak with a lawyer about your case, press two; for billing questions, press three." },
+      { v: 2, t: "Number 3. Registration for our evening English courses is now open. Classes meet twice a week, and each session runs an hour and a half — from six thirty until eight o'clock. Sign up at the front desk." },
+      { v: 1, t: "Number 4. Hi Jen, it's your sister. Congratulations on the new apartment! Since your phone number and address have changed, don't forget tomorrow to give everyone your new contact information — Mum's been trying to reach you all week." },
+    ],
+    qs: [
+      { id: "ta501", q: "Where would you probably hear this announcement?", opts: ["In a moving van", "In a school", "In an office building", "In an office supply shop"], a: 2, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>C. In an office building</b>." },
+      { id: "ta502", q: "Where would someone hear this message?", opts: ["Calling a newspaper company", "Calling ajournalist", "Calling a telephone company", "Calling a law firm"], a: 3, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>D. Calling a law firm</b>." },
+      { id: "ta503", q: "How long are the classes?", opts: ["45 minutes", "An hour", "An hour and a half", "Two hours"], a: 2, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>C. An hour and a half</b>." },
+      { id: "ta504", q: "What should Jen do tomorrow?", opts: ["Turn her cell phone back on", "Check her email, even if it is at home", "Make sure she gets an office address", "Give people her new contact information"], a: 3, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>D. Give people her new contact information</b>." },
+    ]
+  },
+  {
+    gid: "ta5_2", part: 1, set: 8, official: false,
+    title: "Thiên Ân Test 5 — P1: Bảo tàng đóng cửa, công viên, nhân viên hàng không & khách sạn",
+    script: [
+      { v: 2, t: "Number 5. Attention visitors: the museum will be closing in fifteen minutes. Please make your way towards the main exit, and thank you for visiting the Modern Art exhibition." },
+      { v: 1, t: "Number 6. Ladies and gentlemen, the city park gates will close in ten minutes. For your own safety, please finish your walk and head towards the nearest exit. The park reopens at sunrise." },
+      { v: 2, t: "Number 7. Attention please: will Gary Reynolds, a member of our airline crew travelling on standby, please come to gate B-4 immediately? Gary Reynolds, airline staff, please report to gate B-4." },
+      { v: 1, t: "Number 8. Attention guests: this is the hotel manager. Due to a small electrical fire in the kitchen, we evacuated the lobby earlier this evening. The fire department has now declared the building completely safe, so you may all go back to your rooms. Thank you for your patience." },
+    ],
+    qs: [
+      { id: "ta505", q: "What is the purpose of this announcement?", opts: ["To welcome visitors", "To ask people to leave soon", "To tell people about the exhibition", "To ask people to come"], a: 1, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>B. To ask people to leave soon</b>." },
+      { id: "ta506", q: "What is the main point of this announcement?", opts: ["To welcome visitors", "To ask people to leave soon", "To tell people about the exhibition", "To ask people to come"], a: 1, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>B. To ask people to leave soon</b>." },
+      { id: "ta507", q: "Who is Gary Reynolds?", opts: ["A security officer", "An airline pilot", "A flight attendant", "An airline employee"], a: 3, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>D. An airline employee</b>." },
+      { id: "ta508", q: "What does the woman recommend the listeners to do?", opts: ["Go to the website", "Go back to their rooms", "Talk to the hotel manager", "Wait for more information"], a: 1, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>B. Go back to their rooms</b>." },
+    ]
+  },
+  {
+    gid: "ta5_3", part: 2, set: 8, official: false,
+    title: "Thiên Ân Test 5 — Giờ làm việc: Cách viết essay tốt hơn",
+    script: [
+      { v: 1, t: "Professor Smith, I got a C on my last essay and I really want to improve. What am I doing wrong?" },
+      { v: 2, t: "Your ideas were actually quite good — the problem was organisation. For essay writing, the single most important thing is a clear structure: a well-organised essay always has three parts." },
+      { v: 1, t: "Three parts?" },
+      { v: 2, t: "Right — an introduction with your thesis statement, the body paragraphs, and a conclusion. Each body paragraph should support your thesis with evidence and details — facts, statistics, quotations. Organise it that way, and your next essay will be much stronger." },
+    ],
+    qs: [
+      { id: "ta509", q: "What is the main topic of this conversation?", opts: ["How to get a better grade in class", "How to write a better essay", "How to write a paragraph", "How to organize an essay"], a: 1, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>B. How to write a better essay</b>." },
+      { id: "ta510", q: "According to professor Smith, what is important for essay writing?", opts: ["Many good ideas", "Strong introduction", "Summary", "Organization"], a: 3, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>D. Organization</b>." },
+      { id: "ta511", q: "How many parts are there in an essay?", opts: ["Two", "Three", "Four", "Five"], a: 1, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>B. Three</b>." },
+      { id: "ta512", q: "What are the functions of the body paragraphs?", opts: ["To summarize the main ideas", "To provide examples and ideas", "To provide evidences and details", "To give main ideas for an essay"], a: 2, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>C. To provide evidences and details</b>." },
+    ]
+  },
+  {
+    gid: "ta5_4", part: 2, set: 8, official: false,
+    title: "Thiên Ân Test 5 — Hội thoại: Nhờ gia sư môn chemistry",
+    script: [
+      { v: 2, t: "Excuse me, are you the tutor who works at the learning centre?" },
+      { v: 1, t: "Yes, I am. What do you need help with?" },
+      { v: 2, t: "I failed my last chemistry exam, and I'm desperate. Could you tutor me in the subject until the finals?" },
+      { v: 1, t: "Of course — I can help you with learning strategies, taking better notes and reviewing the concepts together. What I can't do is your homework — that's against the rules here. And a warning: if you ever cheat on a test, students here get expelled from school." },
+      { v: 2, t: "Understood. I just need real help learning this material." },
+    ],
+    qs: [
+      { id: "ta513", q: "What is the main topic of this conversation?", opts: ["Taking a math test", "Getting a tutor", "Taking a midterm test", "Having a part-time job"], a: 1, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>B. Getting a tutor</b>." },
+      { id: "ta514", q: "What does the man ask the woman to do?", opts: ["Help him finish his homework", "Tutor him with a subject at school", "Teach him English", "Find him a good math teacher"], a: 1, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>B. Tutor him with a subject at school</b>." },
+      { id: "ta515", q: "What will happen if the students cheat?", opts: ["They will be expelled from school.", "They cannot take the final exam.", "They will be fined.", "They will have to study again."], a: 0, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>A. They will be expelled from school.</b>." },
+      { id: "ta516", q: "Which of the following the tutor CANNOT do for the student?", opts: ["The learning strategies", "Taking notes", "Homework", "Leaming tips"], a: 2, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>C. Homework</b>." },
+    ]
+  },
+  {
+    gid: "ta5_5", part: 2, set: 8, official: false,
+    title: "Thiên Ân Test 5 — Giờ làm việc: Bù bài giảng đã lỡ vì ốm",
+    script: [
+      { v: 1, t: "Professor Allen, I'm so sorry — I missed all of last week's lectures because I was sick with the flu." },
+      { v: 2, t: "I'm sorry to hear that. You'll need to catch up on the material quickly, though." },
+      { v: 1, t: "I know — that's why I'm here. Could you give me an extension on the research paper? I'm behind on everything." },
+      { v: 2, t: "I can give you until Friday. As for the missed lectures, here's what I suggest: go to the library, do some research on the topics we covered, and borrow a classmate's notes to compare with the reading. That should get you back on track." },
+    ],
+    qs: [
+      { id: "ta517", q: "What is the main topic of this conversation?", opts: ["Ways a student can make up for missed lectures", "How to avoid getting sick and missing school", "How to get a scholarship", "How to get high scores"], a: 0, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>A. Ways a student can make up for missed lectures</b>." },
+      { id: "ta518", q: "Why did the woman miss the lessons?", opts: ["Because of her sickness", "Because of the accident", "Because of the severe weather", "Because of her laziness"], a: 0, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>A. Because of her sickness</b>." },
+      { id: "ta519", q: "What does the woman want the man to do for her?", opts: ["Lend her his notes", "Give her an extension", "Give her a scholarship", "Explain the lessons"], a: 1, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>B. Give her an extension</b>." },
+      { id: "ta520", q: "What should the woman probably do next?", opts: ["Go on a vacation", "Go to the library to do some research", "Hang out with her classmates", "Apply for a scholarship"], a: 1, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>B. Go to the library to do some research</b>." },
+    ]
+  },
+  {
+    gid: "ta5_6", part: 3, set: 8, official: false,
+    title: "Thiên Ân Test 5 — Giờ làm việc: Xin incomplete vì chuyển nhà xa trường",
+    script: [
+      { v: 1, t: "Come in — what can I do for you?" },
+      { v: 2, t: "Professor Hayes, I'm really worried about my grade. The thing is, I moved away from the school this semester — I live an hour away now — and I missed the final exam because of the commute." },
+      { v: 1, t: "Hmm, that's a serious problem. What exactly are you asking me to do?" },
+      { v: 2, t: "Could you give me a new test? Or maybe just give me an incomplete in the class?" },
+      { v: 1, t: "I can't create a brand-new test for one student — that wouldn't be fair to the others. But here is the solution: I'll give you an incomplete, and by next month you must have read all the Shakespeare's plays on the syllabus; then you'll take the same final as everyone else." },
+      { v: 2, t: "Oh, thank you — that's such a relief. I'll start reading tonight." },
+    ],
+    qs: [
+      { id: "ta521", q: "What is the student's problem?", opts: ["He didn't do well on his final exam.", "He didn't do all his coursework.", "He missed too many classes.", ". He moved away from the school."], a: 0, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>A. He didn't do well on his final exam.</b>." },
+      { id: "ta522", q: "What does the student want the professor to do?", opts: ["He wants her to give him a new test.", "He wants an immediate change of grade.", "He wants her to let him take the class again.", "He wants her to give him an incomplete in the class."], a: 3, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>D. He wants her to give him an incomplete in the class.</b>." },
+      { id: "ta523", q: "Listen again to a part of the conversation. Then answer the question. What does the professor mean when she says this?", opts: ["You have to deal with this.", "This is the solution.", "I can't deal with this.", "Let's come to an agreement."], a: 1, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>B. This is the solution.</b>." },
+      { id: "ta524", q: "What is the professor's solution to the student's problem?", opts: ["He has to write 2 critical essays.", "He has to fill out a lot of paperworks.", "He has to re-read all of Shakespeare's plays.", "He has to have read all the Shakespeare's plays."], a: 3, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>D. He has to have read all the Shakespeare's plays.</b>." },
+      { id: "ta525", q: "What is the student's attitude toward the solution?", opts: ["Relieved", "Disappointed", "Shocked", "Ungrateful"], a: 0, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>A. Relieved</b>." },
+    ]
+  },
+  {
+    gid: "ta5_7", part: 3, set: 8, official: false,
+    title: "Thiên Ân Test 5 — Hội thoại: Nhờ hỗ trợ làm slide thuyết trình",
+    script: [
+      { v: 1, t: "Hi, is this the tutoring centre? I have a presentation due on Thursday, and I've never used the presentation viewer program before — I'm hoping someone can help me put it together." },
+      { v: 2, t: "Sure, come on in. First, just so I know how much time we'll need — will your presentation have graphics and animation?" },
+      { v: 1, t: "Yes, actually — quite a lot of images." },
+      { v: 2, t: "Don't worry. The program looks complicated, but it's actually very easy to use; I'll show you the basics in ten minutes." },
+      { v: 1, t: "Honestly, I'm more nervous about speaking in front of other people than about the software." },
+      { v: 2, t: "We can work on that too. When you come to the tutoring session tomorrow, bring your outline — not the whole research paper — and we'll build the slides from your main points." },
+    ],
+    qs: [
+      { id: "ta526", q: "Why does the student go to the tutoring center?", opts: ["Because she doesn't have a clue how to use a computer", "Because she wants to help putting her presentation together", "Because she's never used the presentation viewer program before", "Because she's nervous about speaking in front of people"], a: 2, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>C. Because she's never used the presentation viewer program before</b>." },
+      { id: "ta527", q: "Listen again to a part of the conversation. Then answer the question. What does the man mean when he says this?", opts: ["He wants to know if her presentation will have graphics and animation.", "He wants to know if she needs a whistle.", "He wants to know if she needs a timer.", "He wants to know if she needs sound."], a: 0, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>A. He wants to know if her presentation will have graphics and animation.</b>." },
+      { id: "ta528", q: "What does the man say about using the presentation viewer program?", opts: ["It is an easy program to use.", "It is a very complicated program.", "It is not part of the tutoring subjects at the center.", "It doesn't have as many interesting features as the word processing."], a: 0, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>A. It is an easy program to use.</b>." },
+      { id: "ta529", q: "What is the student concerned about?", opts: ["Researching her topic", "Working with the computer", "Speaking in front of other people", "How to operate the power source on her computer"], a: 2, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>C. Speaking in front of other people</b>." },
+      { id: "ta530", q: "What does the man advise the student to bring to the tutoring session?", opts: ["Her research paper", "Her outline", "The program", "Her laptop"], a: 1, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>B. Her outline</b>." },
+    ]
+  },
+  {
+    gid: "ta5_8", part: 3, set: 8, official: false,
+    title: "Thiên Ân Test 5 — Bài giảng: Dự án 'Changing New York' của Berenice Abbott",
+    script: [
+      { v: 1, t: "Today, let's look at Berenice Abbott and her famous 'Changing New York' project of the nineteen thirties. Abbott was a natural candidate for the Federal Art Project, which funded artists during the Depression — after all, she had already been documenting American city life for years before the programme began." },
+      { v: 1, t: "Interestingly, Abbott rejected the soft rural settings and landscapes that dominated artistic photography at the time. She preferred the grit and geometry of the modern city — skyscrapers, storefronts, crowded streets. And to 'keep the life in her shots,' as she put it, she made sure to include random people going about their day in the frame — a businessman hurrying to work, a vendor arranging his fruit." },
+      { v: 1, t: "Decades later, the photographer Doug Levere revisited her exact locations and re-photographed them. Frankly, I think his project is a wonderful tribute — deeply complimentary work that shows how the city evolved while honouring Abbott's original vision." },
+    ],
+    qs: [
+      { id: "ta531", q: "What is the focus of the lecture?", opts: ["Doug Levere's re-photography of Abbott's work", "Berenice Abbott's Changing New York project", "Two examples of photography supported by the FAP", "The effect of the Depression on Berenice Abbott's work"], a: 1, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>B. Berenice Abbott's Changing New York project</b>." },
+      { id: "ta532", q: "According to the professor, why was Abbott a good candidate for the FAP?", opts: ["She had already been documenting America.", "She had a fresh perspective due to her recent return.", "She was willing to change her approach to fit the FAP.", "She was a widely recognized figure in the art world."], a: 0, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>A. She had already been documenting America.</b>." },
+      { id: "ta533", q: "Based on the lecture, what artistic characteristics did Abbott reject in her art?", opts: ["Modem urban life", "Depiction of older buildings", "Meticulous composition", "Rural settings and landscapes"], a: 3, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>D. Rural settings and landscapes</b>." },
+      { id: "ta534", q: "What did Abbott do to \"keep the life in her shots\"?", opts: ["Use a hand-held camera", "Include random people in the frame", "Frame scenes of urban activity", "Juxtapose old and new buildings"], a: 1, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>B. Include random people in the frame</b>." },
+      { id: "ta535", q: "What is the professor's attitude toward Levere's re-photography of Abbott's work?", opts: ["Concerned", "Unimpressed", "Disappointed", "Complimentary"], a: 3, ex: "Theo nội dung đoạn nghe, đáp án chính xác là <b>D. Complimentary</b>." },
+    ]
+  }
+
+];
+
+const THIENAN_WRITING = [
+
+  {
+    id: "w15", task: 1, official: false,
+    type: "Thư điện tử — trả lời Sara về cuộc sống ở Manchester (Thiên Ân Test 1)",
+    time: 20, target: 120,
+    prompt: "You live in Ho Chi Minh City. You moved to Manchester to study English three months ago. You have just received an email from a friend of yours, Sara from London. Read part of her email below:\n\n“What's Manchester like? I bet the weather's not too good! Have you still got that part-time job in the fast-food restaurant? It must be a good way of speaking to new people and making friends. What about the family you're staying with? Do you go out much in the evening? I hope the English classes are going well.”\n\nWrite a reply to Sara. In your email, you have to describe Manchester and the weather there, tell her about your part-time job, the family you are staying with, and your activities in the evening, and finally you have to write about your English classes there. You should write at least 120 words.",
+    checklist: ["Mô tả Manchester (shops, nightlife, people) + thời tiết (always raining)", "Kể về việc bán thời gian ở quán fast-food (giờ làm, luyện nói với khách, ông chủ strict)", "Nói về chỗ ở: không hợp host family → share flat với 4 sinh viên Pháp", "Hoạt động buổi tối: ít đi chơi vì về học bài; lớp tiếng Anh buổi sáng tiến bộ tốt", "Kết thư thân mật, ≥120 từ"],
+    phrases: ["Manchester is a really interesting city — lots of shops and fantastic nightlife.", "It's a pity it's always raining!", "I work at a fast-food restaurant from 5 to 9 in the evening.", "I love the job because I get to practise speaking English with the customers.", "I'm now sharing a flat with four French students.", "I'm attending English classes every morning and making great progress."],
+    model: "Dear Sara,\n\nManchester is a really interesting city. There are a lot of shops here, the people are friendly and the nightlife is fantastic. It's a pity it's always raining!\n\nAs you know, I'm working in a fast-food restaurant. I go to work from 5 to 9 in the evening, so I don't go out with my friends very often. I go straight home after work to review the lessons and get ready for the class the next day. However, I love my job because I have lots of chances to practise speaking English with the customers, and I believe my spoken English will improve a lot. The only thing I don't like is my boss — he's too strict.\n\nI was living with an English family, but I didn't get on very well with them. Now I'm sharing a flat with four French students. We have a lot of fun together, though I'm not speaking much English at home because we always use French.\n\nI'm going to English classes every morning at a language school next to my flat. I can learn a lot there and I'm making great progress.\n\nWell, it's time for work now. Looking forward to hearing from you.\n\nBest wishes,"
+  },
+  {
+    id: "w16", task: 2, official: false,
+    type: "Luận văn — đánh thuế xe riêng giải quyết kẹt xe (Thiên Ân Test 1)",
+    time: 40, target: 250,
+    prompt: "You should spend about 40 minutes on this task. Write about the following topic:\n\nIn order to solve traffic problems, the Vietnamese government should tax private car owners heavily and use the money to improve public transportation. What are the advantages and disadvantages of such a solution? Give reasons for your answer and include any relevant examples from your own experience or knowledge. You should write at least 250 words.",
+    checklist: ["Mở bài: bối cảnh kẹt xe + nêu rõ sẽ phân tích cả lợi và hại", "Thân bài lợi ích: thuế cao làm giảm sử dụng xe riêng → ít tai nạn/ô nhiễm; có tiền nâng cấp public transport", "Thân bài hại: gánh nặng cho người buộc phải lái xe; thuế cố định thiếu công bằng với người thu nhập thấp", "Kết bài: quan điểm cá nhân — giải pháp đáng cân nhắc", "≥250 từ, cấu trúc On the one hand / On the other hand / In conclusion"],
+    phrases: ["Traffic congestion in many big cities is getting more and more serious.", "One possible solution is to impose heavy taxes on car drivers.", "The heavy taxes would discourage car owners from using their cars.", "This would be a heavy burden on people who have no choice but to drive.", "A fixed tax hits those with less money harder — it is not a fair tax.", "This measure is obviously worth considering."],
+    model: "Traffic congestion in many big cities of Viet Nam is getting more and more serious. Many people believe that one possible solution is to impose heavy taxes on car drivers and spend this money on making public transport better. However, there are both pros and cons to this. This essay will discuss the benefits and drawbacks of such a measure.\n\nLet's begin with the positive aspects. One main advantage is that heavy taxes would discourage car owners from driving because it would become very expensive. People would then make use of public transport instead, reducing road accidents and pollution. Another good point is that more people would use public transport if it were improved. Public transport in major cities like Hanoi and Saigon is very poor — we often see old, dirty buses that no one wants to take. High taxes would create enough money to make the necessary changes.\n\nOn the other hand, there are negative points. First, this would be a heavy burden on car drivers. Taxes on private cars are already high, and further taxes would mean less money at the end of the month for people who have no choice but to drive. Second, a fixed tax hits those with less money harder, while the rich could easily afford it. It is, therefore, not a fair tax.\n\nIn conclusion, there are two sides to everything. Personally, I think it's time we did something to tackle the traffic jams in big cities, so this measure is obviously worth considering to improve the current situation."
+  },
+  {
+    id: "w17", task: 1, official: false,
+    type: "Thư điện tử — trả lời Daisy về chuyến đi Hạ Long (Thiên Ân Test 2)",
+    time: 20, target: 120,
+    prompt: "You live in Ho Chi Minh City. You just took a trip to Ha Long Bay with an English friend named Daisy. You received an email from her after she returned to London. Read part of her email below:\n\n“I hope you like the photos we took in Ha Long Bay. Did you get home all right? I'm back at work now, but it's a bit difficult to start again. I wish we were still on holiday. Why don't we plan another trip this spring if you've got time and money? Any suggestions where we could go?”\n\nWrite a reply to Daisy. In your email, you have to tell her that you really like the photos and the time you spent together, describe a problem you had at the airport, and suggest the time and place for the next trip. You should write at least 120 words.",
+    checklist: ["Nói rất thích bộ ảnh Hạ Long + nhớ lại khoảng thời gian bên nhau", "Kể sự cố ở sân bay Tân Sơn Nhất (mất điện đột ngột) nhưng về nhà an toàn", "Khéo léo từ chối chuyến đi mùa xuân (bận thăm ông bà miền Trung)", "Đề xuất địa điểm + thời gian chuyến sau (Hà Nội, mùa hè sau khi tốt nghiệp)", "Thân mật, ≥120 từ"],
+    phrases: ["Thanks for sending me the photos — I really like them.", "They remind me of the great time we spent together in Ha Long Bay.", "I had a bit of trouble at Tan Son Nhat airport because of an accidental power-cut, but I got home safely in the end.", "I'm afraid I won't be able to get away this spring.", "What about a trip to Hanoi next summer?", "Drop me a line and let me know what you think about my plan."],
+    model: "Dear Daisy,\n\nIt's great to hear from you again. I hope everything is going well in London.\n\nThanks for sending me the photos. I really like them because they remind me of the great time we spent together in Ha Long Bay. I believe you enjoyed the breath-taking scenery here very much.\n\nAs you probably know, I had a bit of trouble at Tan Son Nhat airport because of the accidental power-cut, but I got home safely in the end.\n\nI'm afraid I won't be able to get away this spring, as I have to visit my grandparents in Central Vietnam then. What about a trip to Hanoi, the capital city of Viet Nam, next summer? I will have graduated from university by next June, and I've got a whole month to travel before starting my first job.\n\nWell, that's all for now, Daisy. Drop me a line when you have time and let me know what you think about my plan.\n\nAll the best,"
+  },
+  {
+    id: "w18", task: 2, official: false,
+    type: "Luận văn — máy móc thay thế lao động người (Thiên Ân Test 2)",
+    time: 40, target: 250,
+    prompt: "You should spend about 40 minutes on this task. Write about the following topic:\n\nRecent advances in technology lead to the fact that human workforce is gradually replaced with machinery. What are some problems caused by this trend, and how could they be dealt with? Give reasons for your answer and include any relevant examples from your own experience or knowledge. You should write at least 250 words.",
+    checklist: ["Mở bài: xu hướng máy móc thay người + nêu sẽ phân tích vấn đề & giải pháp", "Vấn đề 1 + giải pháp: ít tương tác xã hội → tổ chức team-building, dã ngoại", "Vấn đề 2 + giải pháp: công nhân lười/phụ thuộc máy → nâng cao ý thức trách nhiệm", "Vấn đề 3 + giải pháp: thất nghiệp lao động phổ thông → chương trình đào tạo nghề của chính quyền/trường nghề", "Kết bài cân bằng, ≥250 từ"],
+    phrases: ["Technological advances gradually replace the human workforce with state-of-the-art machines.", "There is less social interaction among factory workers.", "Workers tend to depend heavily on machines and may refuse to do tasks by hand.", "This replacement may increase the unemployment rate among unskilled workers.", "Vocational schools should launch training courses to help manual workers operate modern machines.", "The government, factory management and vocational schools can take these measures to minimize the downsides."],
+    model: "Technological advances in the past few decades have gradually replaced the human workforce with state-of-the-art machines in a wide range of industries. Although people can benefit a lot from this replacement, I personally think the ongoing trend brings some drawbacks. This essay will examine the negative effects of technological development on human beings and propose some solutions.\n\nOne of the biggest problems is that there is less social interaction among factory workers because they always work with machines, focusing on the machine they operate instead of communicating with their co-workers. The solution is for the board of directors to organize social activities such as team building, picnics at amusement parks or staff parties on national holidays. Thanks to these activities, workers have a chance to spend time together, talking and sharing work and life experience.\n\nAnother issue is that this trend has made workers lazier, as they tend to depend heavily on machines and even refuse to fulfil their tasks by hand when a technical problem like a breakdown or power cut occurs. To tackle this, management and trainers should raise workers' sense of responsibility so that they do their duty without machinery when necessary.\n\nLast but not least, this replacement may increase the unemployment rate. As machines perform faster and more efficiently, the need for manpower decreases dramatically; there might only be vacancies for highly qualified technicians. As a result, unskilled manual workers risk being jobless. Dealing with this requires the government, local authorities and vocational schools to launch training courses in which manual workers learn to control modern machines and keep up with today's science and technology.\n\nAll things considered, there are two sides of the same coin — we can see both the pros and cons of substituting machinery for manpower. However, the government, factory management and vocational schools can take the above measures to minimise its downsides."
+  },
+  {
+    id: "w19", task: 1, official: false,
+    type: "Thư điện tử — trả lời Clare về cuộc sống mới (Thiên Ân Test 3)",
+    time: 20, target: 120,
+    prompt: "Your English-speaking friend, Clare, has recently gone to live in another city. Read part of her email below:\n\n“Well, I've now been here for two weeks and I'm beginning to get used to my new life here. I've certainly been very busy since I moved — there have been all sorts of things happening! I'm quite happy in my new home although lots of my belongings are still in bags and boxes! I'm glad I decided to come and live here — it's a really good city. But there are some things and people that I miss, of course! It would be really good if you could come and stay with me here, perhaps in a couple of months when I really settle down. What do you think? Keep in touch.”\n\nWrite a reply to Clare. In your email, you have to ask her what is happening to her, tell her to describe her new home, ask her to tell you what and who she misses after she moves there, and suggest the time when you can visit her. You should write at least 120 words.",
+    checklist: ["Vui vẻ nhận tin + hỏi cô ấy bận những gì / chuyện gì đang xảy ra", "Hỏi mô tả nhà mới (phòng ngủ, vườn) + nhờ gửi ảnh", "Hỏi cô ấy nhớ ai & điều gì ở quê cũ", "Đề xuất thời điểm đến thăm cụ thể (tháng 9, nghỉ 1 tuần)", "Thân mật, ≥120 từ"],
+    phrases: ["I'm very happy to get your email and know that you are getting used to your new life.", "Why don't you tell me what has been keeping you so busy?", "How many bedrooms are there in your new house? Remember to send me some photos!", "I wonder who and what you miss — do you miss me and the time we spent together?", "What about next September? I have a week off then.", "Hope to hear from you soon."],
+    model: "Dear Clare,\n\nI'm very happy to get your email yesterday and to know that you are getting used to your new life. Why don't you tell me why you have been so busy and what is going on there?\n\nHow many bedrooms are there in your new house? Is there a garden in front? What do you like most about the house? Remember to send me some photos of it — I'd love to see them.\n\nYou know, missing some things and people after moving to a new place is a matter of course. However, I wonder who and what you miss. Do you miss me and the time we spent together?\n\nI can't wait to visit you there. What about next September? I have a week off then, so I can arrange to go and stay with you for a few days.\n\nHope to hear from you soon.\n\nAll the best,"
+  },
+  {
+    id: "w20", task: 2, official: false,
+    type: "Luận văn — fast food cho người bận rộn (Thiên Ân Test 3)",
+    time: 40, target: 250,
+    prompt: "You should spend about 40 minutes on this task. Write about the following topic:\n\nSome people argue that we have to think twice before deciding to eat fast food because of some health problems it may cause, while others believe that this kind of food is a good choice for those with a very busy life. Which opinion do you agree with? Use specific reasons and examples to support your answer. You should write at least 250 words.",
+    checklist: ["Mở bài: nêu 2 quan điểm + chọn phe (fast food hợp người bận)", "Lý do 1: tiện lợi, phục vụ nhanh — ví dụ kẹt xe thì ghé KFC", "Lý do 2: không gian quán thoải mái, đồ ăn ngon", "Nhượng bộ: ăn nhiều → béo phì, tim mạch → cần hạn chế khẩu phần", "Kết bài dứt khoát, ≥250 từ"],
+    phrases: ["The popularity of fast food is growing at a considerable rate.", "Fast food can be prepared and served within a very short time.", "Eaters can enjoy the pleasant atmosphere in an air-conditioned fast food restaurant.", "Consuming too much fast food is the cause of obesity, diabetes and heart disease.", "You should limit the amount of oily and salty fast food consumed.", "Going to a fast food restaurant is the best choice when you are as busy as a bee."],
+    model: "In most parts of the world, including Vietnam, the popularity of fast food is growing at a considerable rate. Some people hold the view that fast food poses several health hazards to consumers. However, personally, I strongly believe that eating fast food is a great idea for busy people, for the following reasons.\n\nTo begin with, most people, especially young adults, consider fast food a convenient source of food. In fact, it can be prepared and served within a very short time. One day, if you get stuck in a traffic jam on the way home from work and don't have enough time to cook dinner, just take the whole family straight to a KFC restaurant for some fried chicken with french fries. Obviously, the fast food industry helps save human time.\n\nAnother reason is that eaters can enjoy the pleasant atmosphere of an air-conditioned fast food restaurant, beautifully decorated with colorful lights, nice paintings and modern tables and chairs. It can't be denied that you will definitely feel relaxed and comfortable after hard work and enjoy the good taste of hamburgers, hot dogs and pizzas there.\n\nTurning to the other side of the argument, consuming too much fast food is the cause of obesity, diabetes, high blood pressure and heart disease, since this kind of food is rich in fat, salt, artificial substances and oils. Some recent surveys show the number of obese children is alarmingly on the increase.\n\nAll in all, I'm in favour of the idea that going to a fast food restaurant for meals is the best choice when you are as busy as a bee. However, you should limit the amount of oily and salty fast food you consume, in light of the health warnings suggested by doctors and nutritionists."
+  },
+  {
+    id: "w21", task: 1, official: false,
+    type: "Thư điện tử — trả lời Mary, bạn cũ ở Oxford (Thiên Ân Test 4)",
+    time: 20, target: 120,
+    prompt: "Your English-speaking friend, Mary, whom you haven't met for a long time, sent you an email. Read part of her email below:\n\n“Do you remember me? We met when you visited my high school in Oxford during your summer trip to England 3 years ago. We haven't heard from each other for a long time, right? Anyway, how are you? What have you been doing? You always wanted to be a teacher! Here's some of my news. I'm studying Law at Oxford University. I think I have changed a lot over the years. I don't like thrillers any more — I prefer history books now. Do you remember Pete, the tall thin guy with glasses? He's on the same course as me. We are best friends now! It would be really good if we could get together again.”\n\nWrite a reply to Mary. In your email, you have to tell her you still remember her and the time you visited her high school, tell her all your news, and ask her to send your regards to Pete. You should write at least 120 words.",
+    checklist: ["Vui khi nhận lại tin + khẳng định nhớ cô ấy & kỳ hè ở Oxford", "Kể tin tức của mình: học ĐH Sư phạm TP.HCM, làm gia sư, sắp làm giáo viên", "Tin lớn: được thưởng chuyến đi Oxford 2 tuần tháng 6 → hẹn gặp lại", "Nhờ gửi lời hỏi thăm Pete", "Thân mật, ≥120 từ"],
+    phrases: ["It's been such a long time — of course I still remember you!", "I had lots of nice memories with you and your classmates that summer.", "I'm studying English at the University of Education and work part-time as a tutor.", "I have been awarded a two-week trip to Oxford this June — we can definitely see each other again!", "Please send my best regards to Pete.", "Keep in touch."],
+    model: "Hi Mary,\n\nI'm very happy to hear from you again. It's been such a long time. Of course I still remember you and the time I visited your high school in Oxford. I had lots of nice memories with you and your classmates that summer.\n\nI'm studying English at Ho Chi Minh City University of Education. I will be a teacher of English after graduation. I also work part-time as a tutor. I love teaching English to children because they look so adorable and seem eager to study another language.\n\nYou know, it's great to tell you that I will have a chance to return to Oxford this summer and definitely see you again there. As the best student of the course I'm taking at university, I have been awarded a two-week trip to Oxford this June. Just think and tell me what we should do then.\n\nPlease send my best regards to Pete.\n\nKeep in touch."
+  },
+  {
+    id: "w22", task: 2, official: false,
+    type: "Luận văn — tội phạm thanh thiếu niên: nguyên nhân & giải pháp (Thiên Ân Test 4)",
+    time: 40, target: 250,
+    prompt: "You should spend about 40 minutes on this task. Write about the following topic:\n\nLevels of youth crime are increasing rapidly in major cities in Viet Nam. What are the reasons for this? Suggest some solutions. Give reasons for your answer and include any relevant examples from your own experience or knowledge. You should write at least 250 words.",
+    checklist: ["Mở bài: thực trạng tội phạm trẻ tăng + nêu sẽ phân tích nguyên nhân & giải pháp", "Nguyên nhân 1: cha mẹ bận rộn, thiếu chăm sóc và định hướng kịp thời", "Nguyên nhân 2: nghèo đói + khoảng cách giàu nghèo → trộm cướp", "Giải pháp: cha mẹ dành thời gian; trừng phạt nghiêm + trung tâm cải tạo & dạy nghề", "Kết bài khẳng định giải pháp khả thi, ≥250 từ"],
+    phrases: ["Many cities have seen an alarming increase in the levels of youth crime.", "It is vital that a child is nurtured by parents with love, care and support.", "Many parents in cities are too busy with their work to give children timely advice.", "Globalization makes the rich richer and the poor much poorer.", "Those who commit a crime must be severely punished and sent to rehabilitation centers.", "Young criminals should get vocational training so they can support themselves later."],
+    model: "Over the last few years, many cities throughout the country have seen an alarming increase in the levels of youth crime. This has become a question that not only the authorities but also parents are concerned about. In this essay, I would like to analyze some reasons for this and suggest possible solutions.\n\nThe causes of this issue lie in the way young people are brought up by their parents and the increasing level of poverty in cities. The first reason is connected with the family. For a child to grow up in a balanced way, it is very important that he or she is nurtured by parents with love, care and support. However, these days children are often neglected, because many parents in cities are too busy with their work to give them good advice and support in time. Another factor is the increasing level of poverty. With globalization, the rich get far richer and the poor get much poorer, which inevitably means that those born into a poor family who are reluctant to work hard but want to live in comfort may turn to robbing and stealing.\n\nTo solve the problem, we should take several measures on the part of both families and society. First, parents must spend more time with their children to control what they do and how they behave, so as to offer timely guidance and prevent them from committing crimes. Second, those who commit a crime must be severely punished. It is also essential that the authorities send young criminals to rehabilitation centers, where they can learn how to behave well and get vocational training so that they can find a job to support themselves later.\n\nIn conclusion, several factors have led to a dramatic increase in youth crime at present, but feasible solutions are available. I'm convinced that taking the above measures can help reduce the level of youth crime substantially in big cities of Viet Nam."
+  },
+  {
+    id: "w23", task: 1, official: false,
+    type: "Thư điện tử — hướng dẫn Natalie từ sân bay (Thiên Ân Test 5)",
+    time: 20, target: 120,
+    prompt: "Your English-speaking friend, Natalie, sent you an email. Read part of her email below:\n\n“Thanks for inviting me to stay with you when I visit your country next month. I'm not sure how to get to your apartment from the airport. Could you write back giving me some simple directions? What's the cheapest means of transport? What will the weather be like when I get there? I'll need to know which clothes to pack. Hope to get your early reply.”\n\nWrite a reply to Natalie. In your email, you have to express your excitement about her trip to your country, tell her how to get to your apartment from the airport and what the cheapest means of transport is, and tell her about the weather next month. You should write at least 120 words.",
+    checklist: ["Háo hức đón Natalie + xác nhận rảnh đi chơi cùng", "Chỉ đường: xe buýt số 30 rẻ & dễ nhất, dừng chợ Bến Thành, đón tại bến", "Thời tiết tháng sau: còn nóng → mang đồ mùa hè; có thể mưa → mượn ô", "Nhờ xác nhận chuyến bay & giờ đến", "Thân mật, ≥120 từ"],
+    phrases: ["How's it going? I hope you're looking forward to your trip to Viet Nam.", "The cheapest and easiest way to get to my apartment is by bus.", "The Number 30 Bus will drop you off at Ben Thanh Market — I'll be waiting at the bus stop.", "It will still be quite hot next month, so bring some summer clothes.", "It might rain as well, but you can borrow my umbrella!", "Drop me a line and confirm your flight and arrival times."],
+    model: "Hi Natalie,\n\nHow's it going? I hope you're well and looking forward to your trip to Viet Nam. It'll be great to see you again. I'll be on holiday when you come, so I've got plenty of time to spend with you. We'll definitely be able to visit a few places together.\n\nThe cheapest and easiest way to get to my apartment from the airport is on the bus. The Number 30 Bus will drop you off at Ben Thanh Market. I'll be waiting for you at the bus stop when you get there, so you won't get lost!\n\nIt will still be quite hot here next month, so bring some summer clothes. It might rain as well, but you can borrow my umbrella!\n\nWell, that's all for now, Natalie. When you have a moment, drop me a line and confirm your flight and arrival times. I'm sure you'll have a great time here.\n\nSee you soon,"
+  },
+  {
+    id: "w24", task: 2, official: false,
+    type: "Luận văn — trẻ em chơi game máy tính: lợi, hại & giải pháp (Thiên Ân Test 5)",
+    time: 40, target: 250,
+    prompt: "You should spend about 40 minutes on this task. Write about the following topic:\n\nNowadays many people have access to computers on a wide basis and a large number of children play computer games. What are the positive and negative impacts of playing computer games, and what can be done to minimize the bad effects? Give reasons for your answer and include any relevant examples from your own experience or knowledge. You should write at least 250 words.",
+    checklist: ["Mở bài: trẻ em chơi game phổ biến + nêu sẽ phân tích tác động & giải pháp", "Tích cực: phát triển tư duy trừu tượng, giải quyết vấn đề, logic", "Tiêu cực: game bạo lực → hành vi hung hăng; nghiện game → học sút", "Giải pháp: chọn game phù hợp + giới hạn ≤30 phút/ngày", "Kết bài: cái hại > lợi nếu không kiểm soát, ≥250 từ"],
+    phrases: ["The number of children playing games on computers has increased considerably.", "Many popular games require abstract and high-level thinking skills.", "Most computer games contain a great deal of violence — children are rewarded for being more violent.", "If children are absorbed in games, they distract themselves from their studies.", "Parents should choose suitable games and set limits on playing time.", "The negatives of this activity obviously outweigh its positives."],
+    model: "Access to computers has become more and more popular over recent decades, and the number of children playing games on computers has increased considerably too. While there is no doubt that children can get some benefits from this leisure activity, this trend is a big concern to all parents due to the serious downsides it may cause. This essay will consider the positive and negative impacts of playing computer games and discuss ways to mitigate the potential bad effects.\n\nWith regards to the advantages, playing computer games can develop children's cognitive skills. Many popular games require abstract and high-level thinking skills in order to win. For instance, children need to follow instructions, solve complex problems and use logic in many of the games currently popular. Such experience is beneficial to a child's development into an adult.\n\nTurning to the other side of the argument, most computer games played by children contain a great deal of violence. In many games children are rewarded for being more violent — helping their character kill, kick, stab and shoot — and this may lead to increasing aggressive feelings, thoughts and behaviours. Also, if children are absorbed in computer games, they distract themselves from their studies; as a result, they inevitably perform worse at school.\n\nTo minimise these negative impacts, parents need to take certain steps. The way forward might be to choose suitable computer games and ensure children do not have access to violent ones. Parents can also set limits on the length of time games are played — for example, no more than thirty minutes a day.\n\nTo sum up, there are both pros and cons to everything, and playing computer games is not an exception. From my perspective, the negatives of this activity obviously outweigh its positives, but with proper parental control its harm can be limited."
+  }
+
+];
+
+const THIENAN_SPEAKING_P1 = [
+
+  {
+    id: "s17", official: false,
+    topic: "Walking & Eating habits — Đi bộ & Thói quen ăn (Thiên Ân Test 1)",
+    questions: ["Do you like walking? When and where do you walk?", "Do you think walking is important?", "Do you think walking in the countryside is better than walking in the city?", "Do you often eat healthy food?", "What do you usually eat at school/at work?", "What is the unhealthiest food you can think of?"],
+    sample: "Yes, I actually enjoy walking a lot — I usually go for a walk in the park near my house every morning before work, and sometimes along the beach at weekends. Walking is definitely important to me: it's a good way to relax, reduce stress, improve blood circulation and keep fit without any equipment. Comparing the two, I'd say walking in the countryside is better than in the city, because there's lots of fresh air, green areas and no traffic — it's a safer and more enjoyable experience. As for eating, I try to eat healthily: lots of fruit, vegetables and whole grains, plus good protein from fish, milk and eggs, and little red meat or sugar. At school I usually have a light lunch at the canteen. The unhealthiest food I can think of is deep-fried fast food — an unbalanced diet heavy in fat and sugar is the worst habit of all.",
+    tip: "Đề này ghép 2 chủ đề (walking + eating habits). Dùng từ vựng sức khỏe B2: reduce stress, blood circulation, keep fit, whole grains, unbalanced diet."
+  },
+  {
+    id: "s18", official: false,
+    topic: "Weather & Childhood games — Thời tiết & Trò chơi tuổi thơ (Thiên Ân Test 2)",
+    questions: ["What kind of weather do you like?", "Does weather affect your mood/feeling?", "What do you usually do in hot/cold weather?", "What game(s) did you enjoy playing when you were a child?", "Who did you play with?", "Did you need any skills to play the game?"],
+    sample: "I love cool, dry weather — not too hot and not too cold — because it's perfect for being outdoors. Weather absolutely affects my mood: sunny, clear days keep me happy and excited, while wet, grey days can make me feel a bit bored or even depressed. In hot weather I usually go swimming or hang out with friends at a café; in cold weather I prefer staying in, listening to music, reading books or surfing the Internet. When I was a child, my favourite game was hide-and-seek. I usually played it with the kids next door and my classmates after school. The game didn't need equipment, but it did need skills — turn-taking, cooperating in teams, and especially concentrating so the seeker couldn't hear you giggle!",
+    tip: "Câu 'Does weather affect your mood?' → trả lời 2 chiều (nắng vui / mưa buồn). Câu kỹ năng của trò chơi: dùng turn-taking, cooperating, conflict-solving, concentrating."
+  },
+  {
+    id: "s19", official: false,
+    topic: "Noise & Photographs — Tiếng ồn & Bức ảnh yêu thích (Thiên Ân Test 3)",
+    questions: ["Do you like to live in a noisy place or a quiet place?", "What kind of noise disturbs you most?", "Does noise affect your health?", "What is your favorite photograph?", "When was it taken?", "What makes the photograph special to you?"],
+    sample: "To be honest, I prefer living in a quiet place — noisy places feel annoying and distracting, while quiet surroundings are calming and almost healing for me. The noise that disturbs me most is traffic noise, especially motorbike horns at night; machine noise and crying babies also drive me crazy. And yes, I do think noise affects our health — doctors say long-term noise can cause hearing problems, high blood pressure, even sleep disturbance. Talking about photos, my favourite one is a family photo taken at my grandfather's 80th birthday three years ago. What makes it special is that it's the last photo with all four generations of my family together — every time I look at it, I'm reminded of that happy moment.",
+    tip: "Chủ đề noise: dùng cặp tính từ annoying/distracting ↔ calming/soothing + hệ quả y tế (hearing impairment, hypertension, sleep disturbance). Câu ảnh: chọn 1 bức cụ thể + lý do cảm xúc."
+  },
+  {
+    id: "s20", official: false,
+    topic: "Colors & Library — Màu sắc & Thư viện (Thiên Ân Test 4)",
+    questions: ["What color(s) do you like most?", "Do you care for colors when choosing clothes to wear?", "Does color affect your mood/feeling?", "How often do you go to the library?", "What do you usually do in the library?", "Do you think that fewer people go to the library nowadays?"],
+    sample: "My favourite colours are cool colours, especially deep blue and green — they feel calm and reliable to me. Yes, I do care about colours when choosing clothes: I usually go for simple combinations like a white shirt with dark trousers, and I add one highlight colour so the outfit isn't boring. I believe colour really affects mood — warm colours like red can raise energy or even blood pressure, while cool colours create feelings of calm or sometimes sadness. As for the library, I go to my university library about twice a week, usually to borrow course books or find a quiet desk for research. And unfortunately, yes — I think fewer people visit libraries nowadays because e-books and the Internet give us information instantly, though I still believe nothing beats browsing real stacks of books.",
+    tip: "Chủ đề color: dùng 'warm/cool colors', 'highlight color', 'color combination'. Câu thư viện: thừa nhận e-book cạnh tranh nhưng giữ quan điểm cá nhân — điểm cao."
+  },
+  {
+    id: "s21", official: false,
+    topic: "Parties & Your city — Tiệc & Thành phố (Thiên Ân Test 5)",
+    questions: ["Do you enjoy going to a party?", "What do you usually do at a party?", "On what occasions do you hold a party?", "Which part of the city do you like best?", "Why do you like it?", "Are there any changes you would like to make to the place?"],
+    sample: "Yes, I really enjoy parties — they're exciting and satisfying experiences where I can relax after busy weeks. At a party I usually enjoy good food, toast drinks with friends, chat, sing karaoke and exchange small gifts or best wishes. In my family we hold parties for birthdays, wedding anniversaries and festive holidays like New Year. Talking about my city, the part I like best is the downtown area around the old quarter — it carries the city spirit: ancient districts, shady streets with sidewalks, small boutiques and street food stalls everywhere. If I could change anything, I'd add more public gardens and pedestrian-only zones, so people can enjoy the city centre without the constant motorbike noise.",
+    tip: "Part 1 ghép 2 chủ đề: trả lời mỗi câu 1-2 câu, đừng dàn trải. Câu về thành phố: chọn 1 khu vực cụ thể + lý do mang 'city spirit' (lịch sử, văn hóa) + 1 thay đổi thực tế."
+  }
+
+];
+
+const THIENAN_SPEAKING_P2 = [
+
+  {
+    id: "s27", official: false,
+    topic: "Quà sinh nhật cho bạn — book / music show ticket / shopping coupon (Thiên Ân Test 1)",
+    situation: "You are choosing a birthday gift for your friend. There are three suggestions: a book, a music show ticket, and a shopping coupon. Which do you think is the best choice?",
+    points: ["Book: quà phải chăng, đầy ý nghĩa lưu giữ (a good memory), dễ tìm, nhiều lựa chọn thể loại", "Music show ticket: món quà đặc biệt — được xem trình diễn trực tiếp & gặp thần tượng (seeing one's idols)", "Shopping coupon: tiện lợi, bạn tự chọn món thích, phù hợp với bạn nữ", "Chọn 1 phương án + giải thích theo sở thích người nhận"],
+    sample: "Choosing a birthday gift is never easy because the gift should match the receiver's personality. Let me consider the three suggestions. A book is an affordable and meaningful gift — there are so many titles to choose from, and a good book stays as a beautiful memory for years. However, it only suits friends who actually enjoy reading. A shopping coupon is convenient and lets my friend choose whatever she likes, but honestly it feels a bit impersonal for a close friend's birthday. For me, the best choice is a music show ticket. My friend is a huge music fan, so giving her a ticket means she can enjoy a live performance and maybe even see her idols on stage — an experience far more memorable than any object. It is also something we could enjoy together, which makes the gift double as quality time. So a ticket to her favourite singer's show would be my choice — special, personal and unforgettable.",
+    tip: "Tiêu chí so sánh: tính cá nhân (personal) và trải nghiệm (experience) — vé show nhạc thắng vì biến quà thành kỷ niệm."
+  },
+  {
+    id: "s28", official: false,
+    topic: "Chọn kiểu kỳ nghỉ — beach / climbing / sight-seeing holiday (Thiên Ân Test 2)",
+    situation: "You are planning your holiday. There are three suggestions: a beach holiday, a climbing holiday, and a sight-seeing holiday. Which do you think is the best choice for you?",
+    points: ["Beach holiday: thư giãn, tắm nắng, bơi, thể thao dưới nước, xây lâu đài cát", "Climbing holiday: leo núi/vách đá, cắm trại đỉnh núi, khám phá hang động — đòi hỏi thể lực", "Sight-seeing holiday: tham quan danh lam thắng cảnh, thiên nhiên & động vật hoang dã, thử món ăn địa phương, khám phá văn hóa mới", "Chọn theo nhu cầu nghỉ dưỡng vs khám phá"],
+    sample: "Planning a holiday really depends on what you need most — rest or adventure. Let me compare the three suggestions. A climbing holiday sounds exciting — camping on a mountaintop and discovering caves would be unforgettable — but it demands good physical fitness, and honestly, I'd return more exhausted than refreshed. A beach holiday is the classic option: sunbathing, swimming, playing water sports — pure relaxation, though after two or three days it can feel a little repetitive. For me, a sight-seeing holiday is the best choice. It offers the perfect balance: I can visit famous tourist attractions, appreciate nature and wildlife, try local foods and discover new cultures — all at my own pace, without needing special training. Sight-seeing feeds both the body and the mind. So for this holiday, I'd definitely pick a sight-seeing tour — perhaps to a historic city I've never visited before.",
+    tip: "Đặt tiêu chí 'rest vs adventure vs balance' rồi so sánh — sight-seeing thắng nhờ cân bằng trải nghiệm và không đòi hỏi thể lực."
+  },
+  {
+    id: "s29", official: false,
+    topic: "Buổi tối thư giãn — hang out / read books / surf the Internet (Thiên Ân Test 3)",
+    situation: "You are thinking about how to spend your evening. There are three options: hanging out with friends, reading books, and surfing the Internet. Explain your choice.",
+    points: ["Hanging out with friends: nhảy club, ăn fast food, BBQ, cà phê, tám chuyện — vui nhưng tốn kém, về khuya", "Reading books: đọc trước khi ngủ, fiction/non-fiction, giải trí + kiến thức, giúp ngủ ngon", "Surfing the Internet: website yêu thích, video nhạc, research, chat với bạn, check email — tiện nhưng dễ mất thời gian", "Chọn theo mục đích buổi tối (thư giãn + nạp năng lượng cho ngày mai)"],
+    sample: "Evenings are precious because they decide how refreshed I'll feel tomorrow, so let me think about the three options. Hanging out with friends is fun — a barbecue or coffee and a good chat always lifts my mood — but it costs money and usually ends late, which ruins my sleep. Surfing the Internet is the easiest choice: watching music videos, chatting with friends, checking emails — but it's a trap; one video leads to another, and suddenly it's midnight. That's why my choice is reading books. Reading before bedtime relaxes my mind far better than any screen; I can pick a fiction novel for pure fun or a non-fiction book for knowledge. It costs nothing, improves my English vocabulary, and — unlike the Internet — it actually helps me fall asleep faster. So after a long day, give me a quiet corner and a good book: that's my perfect evening.",
+    tip: "Nêu rõ tiêu chí 'buổi tối phải nạp lại năng lượng' — từ đó loại Internet (mất ngủ) và đi chơi (tốn kém/về khuya)."
+  },
+  {
+    id: "s30", official: false,
+    topic: "Địa điểm tiệc sinh nhật — fast food / sit-down restaurant / at home (Thiên Ân Test 4)",
+    situation: "You are going to celebrate your birthday. There are three suggestions for the place where you can hold the party: in a fast-food restaurant, in a sit-down restaurant, and in your house. What do you think is the best choice?",
+    points: ["Fast-food restaurant: nhanh, tiện, giá phải chăng, không khí informal, phù hợp khách trẻ — nhưng ồn, ít riêng tư", "Sit-down restaurant: món ngon đa dạng, đầu bếp giỏi, không khí lịch sự — nhưng đắt, cứng nhắc", "At-home party: không gian quen thuộc & riêng tư, trang trí theo ý, chủ động thời gian & ngân sách, món ăn gia đình healthy", "Chọn theo đội hình khách (bạn bè thân → nhà)"],
+    sample: "A birthday party should feel personal and relaxed, so the place matters more than the menu. Let me compare the three options. A fast-food restaurant is cheap and convenient with friendly staff and quick service, but the atmosphere is noisy, informal, and there's little privacy for a birthday moment. A sit-down restaurant offers delicious dishes prepared by good cooks and a more formal atmosphere — yet the bill for a dozen guests can be painful, and everything feels a bit stiff. For me, the best choice is a party at home. At home I get familiar surroundings, complete privacy and total freedom: we can decorate the living room with a fun theme, cook healthy food we actually like, manage the budget ourselves, and let the party run as long as we want without waiters waiting for the table. An at-home party turns my birthday into a warm family-and-friends gathering — that's exactly what birthdays are for.",
+    tip: "Đề này nên chọn 'at home' — nhiều lý do nhất: privacy, theme decorations, budget management, warm atmosphere."
+  },
+  {
+    id: "s31", official: false,
+    topic: "Mua đồng hồ hiệu — website / mall / phone order (Thiên Ân Test 5)",
+    situation: "You are considering buying a brand watch. There are three suggestions for how to get it: placing an order through a website, shopping in a mall, and calling over the phone. Which one is the best option for you?",
+    points: ["Order qua website: nhanh, tiện, so sánh giá, ưu đãi & sale season, mẫu giới hạn — rủi ro hàng giả/không thử được", "Shopping in mall: được chạm/thử thật, mặc cả, tương tác trực tiếp, hậu mãi rõ ràng", "Gọi điện đặt hàng: nhanh, mô tả chi tiết, hàng may đo — nhưng không thấy thật", "Với đồ hiệu (brand watch) → yếu tố xác thực & thử lên tay quan trọng"],
+    sample: "A brand watch is a serious purchase — it's expensive, and fake products are everywhere — so the way I buy it really matters. Ordering through a website is fast and convenient: I can compare prices, hunt special offers and even find limited editions — but with a costly watch, I can't verify it's genuine, and I can't see how it looks on my wrist. Calling over the phone has the same problem: a reassuring human voice can't replace seeing the real item. That's why I'd choose shopping in a mall. At an official store in a mall, I get a real touch of the watch — I can try it on, check the weight, feel the strap, compare models side by side and even bargain a little. Face-to-face communication also means trustworthy after-sales service: if anything goes wrong, I know exactly where to bring it back. For an expensive brand item, that peace of mind is worth far more than a small online discount.",
+    tip: "Luận điểm mạnh cho mall: 'real touch of the item' + 'after-sales service' — chìa khóa khi mua hàng hiệu đắt tiền."
+  }
+
+];
+
+const THIENAN_SPEAKING_P3 = [
+
+  {
+    id: "s36", official: false,
+    topic: "Cheap air travel should be promoted — Du lịch giá rẻ (Thiên Ân Test 1)",
+    mindmap: { center: "Cheap air travel", branches: ["Reducing travelling costs", "Offering a flexible travelling mode", "Creating business opportunities", "Your own idea"] },
+    followups: ["Do you think that governments should encourage cheap flights?", "Are there any problems with low-cost air travel?", "Should cheap air tickets be offered on domestic flights or international flights?"],
+    sample: "I believe cheap air travel should definitely be promoted, for three main reasons. First, it reduces travelling costs dramatically — passengers can enjoy deep discounts on undersold flights, find the best fares on different dates, and get good deals on early booking, so even low-income families can afford to fly. Second, it offers a flexible travelling mode: by opting for limited comforts, travellers can save up to seventy percent of their budget with flexible travel times and destinations. Third, cheap flights create business opportunities: flying is both time-efficient and cost-efficient for business deals, helping companies expand local and international markets and seek partners more easily. As my own idea, I'd add that cheap air travel promotes cultural exchange — low-budget international flights bridge cultural gaps and boost world tourism, creating jobs and profit for local economies.\n\nAnswering the follow-up questions: yes, governments should encourage cheap flights because they help develop remote areas and create employment. As for problems, low-cost travel does come with extra fees for baggage and meals, small seats, basic service and non-refundable tickets — passengers should be aware of that trade-off. And I think cheap tickets should be offered on both domestic and international flights — domestic ones boost local tourism and family visits, while international ones promote world travel and trade.",
+    tip: "Mindmap 4 nhánh rất rõ: chi phí ↓, linh hoạt, cơ hội kinh doanh + ý riêng (giao lưu văn hóa). Câu hỏi trade-off: liệt kê nhược điểm thật (baggage fees, legroom, non-refundable) để ghi điểm chân thực."
+  },
+  {
+    id: "s37", official: false,
+    topic: "Music should be taught in schools — Dạy nhạc trong trường (Thiên Ân Test 2)",
+    mindmap: { center: "Music education at school", branches: ["Relaxing / fighting stress", "Improving memory", "Helping language and reasoning", "Your own idea"] },
+    followups: ["Should children be encouraged to learn music early?", "Do you agree that music can change people's moods/feelings?", "How would life be like without music?"],
+    sample: "I strongly believe music should be taught in schools. First of all, music helps students relax and fight stress — soothing music keeps them calm and entertains them between heavy academic lessons. Second, learning music improves memory: music learners constantly memorise notes, rhythms and lyrics, and this memorisation skill transfers directly to studying other subjects. Third, early musical training improves the parts of the brain responsible for language and reasoning — information can be imprinted on young minds through melodies and songs far more effectively than through plain text. As my own addition, music education develops imagination, creativity and emotional intelligence, giving students positive attitudes and even a better appreciation of other cultures.\n\nFor the follow-up questions: yes, children should be encouraged to learn music early because it gives them a sense of achievement, keeps them engaged in school and trains creative thinking. I absolutely agree music changes moods — soothing music calms our feelings while upbeat songs instantly lift our energy. And life without music? Honestly, it would be unbearably silent and emotionless — music is the soundtrack of our memories, our celebrations and even our sadness.",
+    tip: "Nhánh 'your own idea' mạnh nhất: imagination + emotional development + positive attitudes towards cultures. Câu hỏi 'life without music' → trả lời cảm xúc, đừng chung chung."
+  },
+  {
+    id: "s38", official: false,
+    topic: "Ways to make friends — Các cách kết bạn (Thiên Ân Test 3)",
+    mindmap: { center: "How to make friends", branches: ["Joining social events", "Forming interest-based groups", "Attending parties", "Your own idea"] },
+    followups: ["Should people trust online friends? Why or why not?", "What factors can contribute to a true friendship?", "Which one is more important: family or friends?"],
+    sample: "There are several ways for people to make friends, and I'd like to discuss the most effective ones. First, joining social events such as workshops, seminars, conferences, exhibitions or charity events naturally connects you with strangers who share your professional or social interests. Second, forming interest-based groups — sports clubs, cooking clubs, drama clubs or groups of collectors — builds friendship on the strongest foundation: a shared passion you practise together every week. Third, attending parties like wedding receptions, year-end parties and family celebrations introduces you to friends of friends, quickly widening your circle. As my own idea, I'd add volunteering and social networks — community service and online communities both connect like-minded people across distances.\n\nAbout the follow-ups: I think people should be cautious but not closed about online friends — you share common interests and communicate frequently, but online profiles can be fake, so meeting in real life should come slowly and safely. True friendship, in my view, rests on loyalty, being a good listener, mutual respect and making friendship a priority. As for family versus friends, family bonds are natural, longer and more reassuring, while friends are close by choice and personality — I need both, since both are true sources of happiness.",
+    tip: "Câu 'trust online friends' → trả lời cân bằng (cautious but not closed). Câu family vs friends → không chọn tuyệt đối: family = by nature, friends = by choice."
+  },
+  {
+    id: "s39", official: false,
+    topic: "More recycling centers in communities — Trung tâm tái chế (Thiên Ân Test 4)",
+    mindmap: { center: "Benefits of recycling centers", branches: ["Reducing landfill size", "Utilizing waste products", "Creating employment opportunities", "Your own idea"] },
+    followups: ["Are you aware of what recycling means?", "Do you recycle as part of your everyday life?", "Do you agree that everyone should reuse and recycle products?"],
+    sample: "I fully support the idea that more recycling centers should be built in our communities. Firstly, they reduce the size of landfills — recycling in the first place and reusing items wherever possible cuts down the amount of rubbish dumped into landfill sites. Secondly, they utilize waste products: material that would otherwise be lost to landfills becomes a resource again, cutting the cost and effort of transport and production and reducing demand for new raw resources. Thirdly, recycling centers offer employment opportunities — they create vacancies for collecting, transporting, sorting and reprocessing waste, making recycling a win-win strategy for both the environment and the economy. As my own idea, recycling also reduces the need to exploit natural resources, lowers greenhouse gas emissions and helps deal with climate change.\n\nFor the follow-up questions: yes, I understand recycling well — it's the process of reusing materials instead of manufacturing new products, turning old material into a continuing resource. In daily life I try to cut down on disposable products, use reusable items, sort my trash and save energy. And I strongly agree everyone should reuse and recycle — it protects the environment long-term, conserves natural resources and builds environmental responsibility for the whole community.",
+    tip: "Định nghĩa recycling bằng 1 câu chuẩn ('the process whereby materials are reused instead of manufacturing new products') — giám khảo chấm lexical resource cao."
+  },
+  {
+    id: "s40", official: false,
+    topic: "Factors that lead to success — Yếu tố thành công (Thiên Ân Test 5)",
+    mindmap: { center: "Factors for success", branches: ["Education and skills", "Vision", "Passion", "Your own idea"] },
+    followups: ["Why is money the most common way of judging success?", "Is your idea of success the same as your parents' idea of success?", "Does luck play a part in success?"],
+    sample: "Success in life, in my view, comes from several factors working together. The first is education and skills — staying knowledgeable and skillful minimises obstacles, avoids mistakes and lets us work efficiently with time and labor to achieve goals. The second is vision: the ability to see the big picture helps us set up plans, anticipate problems before they arrive, and make good strategies to fulfil tasks. The third is passion — passion keeps us consistent to our plans, gives us the desire to overcome challenges, and lets us enjoy the sense of making progress rather than suffering through it. As my own addition, I'd include self-determination and hard work: determination puts things on the right track, and hard work ensures we meet our deadlines.\n\nRegarding the follow-ups: money is the most common way of judging success simply because financial success tends to prove one's ability and talent, and wealth brings the self-esteem and social respect people can see. Is my idea of success the same as my parents'? Partly — my parents value stability and family, while I also see success as things done for the community, achieved even at a young age. And does luck play a part? I believe it does — luck enhances situations and saves effort — but luck only helps those already prepared.",
+    tip: "Câu 'money judging success' → giải thích hệ quả xã hội (proof of ability, social respect). Câu 'luck' → 'yes, but luck favors the prepared' — câu kết đắt giá."
+  }
+
+];
+
+const THIENAN_EXAM_SETS = [
+
+  {
+    id: "exam17",
+    code: "Đề 17",
+    name: "Thiên Ân VSTEP Test 1 (Owls, Alexandria, Pacific Islands)",
+    source: "Anh Ngữ Thiên Ân — Đề mẫu VSTEP Test 1 Full 4 kỹ năng (Sách VSTEP Collection 20 Mock Tests)",
+    badge: "Thiên Ân #01",
+    readingSetIndex: 16,
+    listeningSet: 4,
+    w1Id: "w15",
+    w2Id: "w16",
+    s1Id: "s17",
+    s2Id: "s27",
+    s3Id: "s36",
+  },
+  {
+    id: "exam18",
+    code: "Đề 18",
+    name: "Thiên Ân VSTEP Test 2 (Food Allergies, Symbiosis, Earth Layers)",
+    source: "Anh Ngữ Thiên Ân — Đề mẫu VSTEP Test 2 Full 4 kỹ năng (Sách VSTEP Collection 20 Mock Tests)",
+    badge: "Thiên Ân #02",
+    readingSetIndex: 17,
+    listeningSet: 5,
+    w1Id: "w17",
+    w2Id: "w18",
+    s1Id: "s18",
+    s2Id: "s28",
+    s3Id: "s37",
+  },
+  {
+    id: "exam19",
+    code: "Đề 19",
+    name: "Thiên Ân VSTEP Test 3 (Daniel Boone, Solar System, OTEC)",
+    source: "Anh Ngữ Thiên Ân — Đề mẫu VSTEP Test 3 Full 4 kỹ năng (Sách VSTEP Collection 20 Mock Tests)",
+    badge: "Thiên Ân #03",
+    readingSetIndex: 18,
+    listeningSet: 6,
+    w1Id: "w19",
+    w2Id: "w20",
+    s1Id: "s19",
+    s2Id: "s29",
+    s3Id: "s38",
+  },
+  {
+    id: "exam20",
+    code: "Đề 20",
+    name: "Thiên Ân VSTEP Test 4 (Water, Nitrogen, Women Suffrage)",
+    source: "Anh Ngữ Thiên Ân — Đề mẫu VSTEP Test 4 Full 4 kỹ năng (Sách VSTEP Collection 20 Mock Tests)",
+    badge: "Thiên Ân #04",
+    readingSetIndex: 19,
+    listeningSet: 7,
+    w1Id: "w21",
+    w2Id: "w22",
+    s1Id: "s20",
+    s2Id: "s30",
+    s3Id: "s39",
+  },
+  {
+    id: "exam21",
+    code: "Đề 21",
+    name: "Thiên Ân VSTEP Test 5 (Oregon Dispute, Glaciers, Pasteur)",
+    source: "Anh Ngữ Thiên Ân — Đề mẫu VSTEP Test 5 Full 4 kỹ năng (Sách VSTEP Collection 20 Mock Tests)",
+    badge: "Thiên Ân #05",
+    readingSetIndex: 20,
+    listeningSet: 8,
+    w1Id: "w23",
+    w2Id: "w24",
+    s1Id: "s21",
+    s2Id: "s31",
+    s3Id: "s40",
+  }
+
+];
+
+
+ALL_READING_SETS.push(...THIENAN_READING_SETS);
+LISTENING.push(...THIENAN_LISTENING);
+WRITING.push(...THIENAN_WRITING);
+SPEAKING_P1.push(...THIENAN_SPEAKING_P1);
+SPEAKING_P2.push(...THIENAN_SPEAKING_P2);
+SPEAKING_P3.push(...THIENAN_SPEAKING_P3);
+VSTEP_EXAM_SETS.push(...THIENAN_EXAM_SETS);
