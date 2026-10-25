@@ -3048,7 +3048,8 @@ function viewSettings(){
   app.innerHTML = moduleHead("Cấu hình hệ thống", "Cài đặt Trợ lý Giám khảo AI",
     "Toàn bộ ngân hàng đề, từ điển và bộ phân tích cục bộ đều hoạt động miễn phí. Để kích hoạt Giám khảo AI chấm chi tiết bài Viết và bài Nói theo thang VSTEP, bạn có thể nhập API Key cá nhân (chỉ lưu trữ cục bộ trên trình duyệt của bạn).",
     AI.available() ? "Trạng thái: Đã kết nối AI" : "Trạng thái: Chưa kết nối AI") + `
-    <div class="sheet sheet--pad" style="max-width:760px">
+    <div class="settings-grid">
+    <div class="sheet sheet--pad">
       <div class="ai-conn ${AI.available() ? "is-on" : ""}">
         <span class="ai-conn__dot"></span>
         <div style="flex:1;min-width:0">
@@ -3098,7 +3099,7 @@ function viewSettings(){
         <b>Cấu hình lưu ở đâu?</b> Trong <code>localStorage</code> của trình duyệt hiện tại — chỉ máy này thấy, đổi trình duyệt/máy khác cần nhập lại (hoặc dùng bản sao lưu JSON bên dưới).
       </div>
     </div>
-    <div class="sheet sheet--pad" style="max-width:740px;margin-top:22px">
+    <div class="sheet sheet--pad">
       <div class="section-head" style="margin-top:0;margin-bottom:14px"><span class="section-head__no">Dữ liệu</span><h2 style="font-size:22px">Sao lưu &amp; khôi phục</h2></div>
       <p style="font-size:13.5px;color:var(--ink-2);line-height:1.75;margin-bottom:16px">Toàn bộ tiến trình học (lịch sử thi, Sổ lỗi, hộp flashcard, bài thi dở, cấu hình AI) nằm trong trình duyệt. Xuất bản sao lưu để chuyển máy hoặc phòng trường hợp dữ liệu trình duyệt bị xóa.</p>
       <div style="display:flex;gap:10px;flex-wrap:wrap">
@@ -3108,6 +3109,7 @@ function viewSettings(){
       </div>
       <div id="dataIoOut" style="margin-top:14px"></div>
       <p style="font-size:12.5px;color:var(--ink-3);margin-top:12px">Tệp sao lưu chứa toàn bộ dữ liệu — kể cả API Key nếu bạn đã lưu — hãy giữ riêng tư và không chia sẻ tệp này.</p>
+    </div>
     </div>`;
   const provSel = $("#aiProvider");
   provSel.onchange = () => { $("#baseUrlRow").style.display = provSel.value === "openai" ? "block" : "none"; };
