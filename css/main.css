@@ -1431,7 +1431,7 @@ textarea:focus-visible,
   gap: 6px;
   max-height: 260px;
   overflow-y: auto;
-  padding: 2px;
+  padding: 5px;
 }
 
 .gq {
@@ -1748,30 +1748,48 @@ textarea:focus-visible,
 
 .wtask-picker {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 12px;
-  margin-bottom: 24px;
+  grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+  gap: 4px 8px;
+  max-height: 296px;
+  overflow-y: auto;
+  padding: 6px;
+  margin-bottom: 22px;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-md);
+  background: var(--surface-2);
+  scrollbar-width: thin;
+  scrollbar-color: var(--line) transparent;
+}
+
+.wtask-picker::-webkit-scrollbar {
+  width: 6px;
+}
+
+.wtask-picker::-webkit-scrollbar-thumb {
+  background: var(--line);
+  border-radius: 3px;
 }
 
 .wtask {
-  background: var(--surface);
-  padding: 16px 18px;
-  text-align: left;
-  border: 1.5px solid var(--line-soft);
-  border-radius: var(--r-md);
-  transition:
-    transform 150ms var(--ease-out),
-    border-color 150ms ease,
-    background-color 150ms ease;
   display: flex;
-  flex-direction: column;
-  gap: 6px;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  padding: 7px 10px;
+  text-align: left;
+  border: 1px solid transparent;
+  border-radius: var(--r-sm);
+  background: transparent;
+  transition:
+    background-color 140ms ease,
+    border-color 140ms ease,
+    transform 120ms var(--ease-out);
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .wtask:hover {
-    border-color: var(--primary-border);
-    transform: translate3d(0, -2px, 0);
+  .wtask:not(.on):hover {
+    background: var(--surface);
+    border-color: var(--line);
   }
 }
 
@@ -1780,21 +1798,200 @@ textarea:focus-visible,
 }
 
 .wtask.on {
-  background: var(--primary-soft);
+  background: var(--surface);
   border-color: var(--primary);
+  box-shadow: inset 0 0 0 1px var(--primary);
 }
 
-.wtask .t {
-  font-size: 12px;
+.wtask__code {
+  flex: 0 0 auto;
+  font-size: 10.5px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
   color: var(--primary);
-  font-weight: 700;
+  background: var(--primary-soft);
+  border-radius: 5px;
+  padding: 2px 6px;
 }
 
-.wtask b {
-  font-size: 15.5px;
-  font-weight: 700;
-  line-height: 1.35;
+.wtask__name {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-size: 13px;
+  font-weight: 600;
   color: var(--ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.wtask.on .wtask__name {
+  color: var(--primary);
+}
+
+.wtask__tag {
+  flex: 0 0 auto;
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: var(--amber);
+  background: var(--amber-soft);
+  border: 1px solid var(--amber-border);
+  border-radius: 4px;
+  padding: 1px 5px;
+}
+
+.wtask__meta {
+  flex: 0 0 auto;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--ink-muted);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* --- Bộ công cụ triển khai ý (đề lạ) --- */
+.ideakit {
+  margin-bottom: 22px;
+  overflow: hidden;
+}
+
+.ideakit__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  padding: 13px 18px;
+  background: var(--surface);
+  text-align: left;
+  transition: background-color 140ms ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .ideakit__head:hover {
+    background: var(--surface-hover);
+  }
+}
+
+.ideakit__title {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.ideakit__title small {
+  font-weight: 500;
+  color: var(--ink-muted);
+}
+
+.ideakit__arrow {
+  flex: 0 0 auto;
+  color: var(--ink-3);
+  font-size: 13px;
+  transition: transform 200ms var(--ease-out);
+}
+
+.ideakit.open .ideakit__arrow {
+  transform: rotate(180deg);
+}
+
+.ideakit__body {
+  padding: 16px 18px 18px;
+  border-top: 1px dashed var(--line-soft);
+}
+
+.idea-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.idea-step {
+  background: var(--surface-2);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-sm);
+  padding: 10px 12px;
+}
+
+.idea-step b {
+  display: block;
+  font-size: 12.5px;
+  color: var(--primary);
+  margin-bottom: 4px;
+}
+
+.idea-step p {
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: var(--ink-2);
+  margin: 0;
+}
+
+.idea-bank__label {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+
+.idea-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+@media (max-width: 720px) {
+  .idea-cols {
+    grid-template-columns: 1fr;
+  }
+}
+
+.idea-col {
+  background: var(--surface-2);
+  border-radius: var(--r-sm);
+  padding: 10px 14px 12px;
+}
+
+.idea-col h5 {
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  margin: 0 0 8px;
+}
+
+.idea-col--pro h5 {
+  color: var(--green);
+}
+
+.idea-col--con h5 {
+  color: var(--amber);
+}
+
+.idea-col ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.idea-col li b {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.45;
+}
+
+.idea-col li span {
+  display: block;
+  font-size: 11.5px;
+  color: var(--ink-muted);
+  line-height: 1.4;
 }
 
 .write-paper textarea {
@@ -2231,6 +2428,181 @@ textarea:focus-visible,
   color: var(--ink-3);
   text-align: center;
   margin-top: 14px;
+}
+
+/* ============ Exam Library Picker (Kho đề CBT) ============ */
+.exam-picker {
+  padding: 18px 22px 16px;
+  margin-bottom: 20px;
+}
+
+.exam-picker__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.exam-picker__title {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--ink-3);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.exam-picker__total {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--primary);
+  background: var(--primary-soft);
+  border: 1px solid var(--primary-border);
+  padding: 2px 10px;
+  border-radius: var(--r-pill);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.exam-picker__tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.exam-tab {
+  font-family: var(--sans);
+  font-size: 12.5px;
+  font-weight: 600;
+  border: 1px solid var(--line);
+  border-radius: var(--r-pill);
+  background: var(--surface);
+  color: var(--ink-2);
+  padding: 6px 13px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  transition:
+    background-color 150ms ease,
+    border-color 150ms ease,
+    color 150ms ease,
+    transform 120ms var(--ease-out);
+}
+
+.exam-tab b {
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--primary);
+  background: var(--primary-soft);
+  border-radius: var(--r-pill);
+  padding: 1px 7px;
+  font-variant-numeric: tabular-nums;
+}
+
+.exam-tab.on {
+  background: var(--primary);
+  color: #FFFFFF;
+  border-color: var(--primary);
+}
+
+.exam-tab.on b {
+  background: rgba(255, 255, 255, 0.2);
+  color: #FFFFFF;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .exam-tab:not(.on):hover {
+    border-color: var(--primary);
+    color: var(--primary);
+  }
+}
+
+.exam-tab:active {
+  transform: scale(0.96);
+}
+
+.exam-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(148px, 1fr));
+  gap: 8px;
+  max-height: 216px;
+  overflow-y: auto;
+  padding-right: 4px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--line) transparent;
+}
+
+.exam-grid::-webkit-scrollbar {
+  width: 6px;
+}
+
+.exam-grid::-webkit-scrollbar-thumb {
+  background: var(--line);
+  border-radius: 3px;
+}
+
+.exam-cell {
+  text-align: left;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-sm);
+  background: var(--surface);
+  padding: 8px 12px 9px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  transition:
+    background-color 150ms ease,
+    border-color 150ms ease,
+    transform 120ms var(--ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .exam-cell:not(.on):hover {
+    border-color: var(--primary-border);
+    background: var(--primary-soft);
+  }
+}
+
+.exam-cell:active {
+  transform: scale(0.97);
+}
+
+.exam-cell.on {
+  border-color: var(--primary);
+  background: var(--primary-soft);
+  box-shadow: inset 0 0 0 1px var(--primary);
+}
+
+.exam-cell__code {
+  font-size: 13.5px;
+  font-weight: 800;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+
+.exam-cell.on .exam-cell__code {
+  color: var(--primary);
+}
+
+.exam-cell__sub {
+  font-size: 11.5px;
+  color: var(--ink-3);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.exam-picker__cur {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--line-soft);
+  font-size: 13.5px;
+  color: var(--ink-2);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
 /* ============ Mock Exam Cards & Results ============ */

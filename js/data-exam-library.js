@@ -7810,3 +7810,675 @@ SPEAKING_P1.push(...THIENAN_SPEAKING_P1);
 SPEAKING_P2.push(...THIENAN_SPEAKING_P2);
 SPEAKING_P3.push(...THIENAN_SPEAKING_P3);
 VSTEP_EXAM_SETS.push(...THIENAN_EXAM_SETS);
+
+/* ==========================================================
+   NGÂN HÀNG ĐỀ TỰ BIÊN — PHÒNG THI B2
+   Đề Viết (Task 1 & Task 2) và Nói (Part 1, 2, 3) do app tự biên soạn
+   theo đúng khung đề VSTEP B1-B2-C1 — không trích từ nguồn ngoài.
+   Bài mẫu chuẩn band B2+, kèm checklist chấm & cụm từ ăn điểm.
+   ========================================================== */
+
+const SELF_WRITING = [
+  {
+    id: "w25",
+    task: 1,
+    official: false,
+    type: "Thư điện tử — tư vấn em bạn đi học (Đề tự biên)",
+    time: 20,
+    target: 120,
+    prompt: "You have received an email from your English friend, Peter, whose younger brother is going to study at a university in your city. Read part of his email below:\n\n“My brother Jack has just been accepted at a university in your city, and he will be moving there next month. Could you tell me what the weather is usually like, whether it is easy to find a room to rent, how much money he will need each month, and if there are any part-time jobs for students?”\n\nWrite an email responding to Peter. You should write at least 120 words. You do not need to include your name or address. Your response will be evaluated in terms of Task Fulfillment, Organization, Vocabulary and Grammar.",
+    checklist: [
+      "Chào hỏi thân mật + chúc mừng tin em trai bạn đậu đại học",
+      "Trả lời ĐỦ 4 ý: thời tiết, thuê phòng, chi phí mỗi tháng, việc làm thêm",
+      "Đưa con số cụ thể (giá phòng, chi phí, lương part-time)",
+      "Kết thư: đề nghị đón/sẵn sàng giúp đỡ thêm",
+      "Đủ ≥120 từ, giọng thân tình đúng email bạn bè"
+    ],
+    phrases: [
+      "It was lovely to hear from you — congratulations to Jack!",
+      "The weather here is warm and humid, so he should pack light clothes.",
+      "A decent room near the campus costs around $150–200 a month.",
+      "He can get by comfortably on about $400 a month.",
+      "Part-time jobs are everywhere — cafés and tutoring centres always need students.",
+      "Tell him to drop me a line when he arrives — I'll show him around."
+    ],
+    model: "Dear Peter,\n\nIt was lovely to hear from you — and congratulations to Jack on getting accepted! He is going to love studying here.\n\nTo answer your questions: the weather is warm and humid most of the year, with heavy rain in June and July, so he should pack light clothes and a good raincoat. Finding a room is quite easy; a decent room near the campus costs around $150–200 a month, and the university dormitory is even cheaper.\n\nAs for living costs, Jack can get by comfortably on about $400 a month, including food and transport. Part-time jobs are everywhere — coffee shops and English tutoring centres are always looking for students, usually paying around $4 an hour.\n\nTell Jack to drop me a line when he arrives. I will be happy to pick him up and show him around the city!\n\nBest wishes,"
+  },
+  {
+    id: "w26",
+    task: 1,
+    official: false,
+    type: "Thư hỏi thông tin khóa học — bán trang trọng (Đề tự biên)",
+    time: 20,
+    target: 120,
+    prompt: "You want to take an evening English course at the Sunrise Language Centre. Write an email to the centre asking for the following information: the course schedule, the tuition fees, the number of students in each class, the qualifications of the teachers, and whether there is a free trial lesson.\n\nWrite at least 120 words. You do not need to include your name or address. Your response will be evaluated in terms of Task Fulfillment, Organization, Vocabulary and Grammar.",
+    checklist: [
+      "Mở thư bán trang trọng: Dear Sir or Madam + nêu ngay mục đích (enquire about)",
+      "Hỏi ĐỦ 5 ý: lịch học, học phí, sĩ số lớp, trình độ giáo viên, buổi học thử",
+      "Câu hỏi gián tiếp lịch sự: Could you tell me / I would be grateful if",
+      "Kết thư trang trọng: I look forward to your reply + Yours faithfully",
+      "Đủ ≥120 từ, đoạn ngắn rõ ý, không dùng từ lóng"
+    ],
+    phrases: [
+      "I am writing to enquire about your evening English courses.",
+      "Could you please let me know the timetable and the start date?",
+      "I would be grateful if you could tell me the tuition fee for the whole course.",
+      "How many students are there in each class?",
+      "Could you also tell me about the teachers' qualifications?",
+      "Finally, do you offer a free trial lesson before registration?"
+    ],
+    model: "Dear Sir or Madam,\n\nI am writing to enquire about the evening English courses at your centre. I finish work at 5 p.m., so a class starting after 6.30 p.m. would suit me best. Could you please send me the timetable and the start date of the next course?\n\nI would also be grateful if you could let me know the tuition fee for the whole course and whether it includes textbooks and practice tests. In addition, how many students are there in each class? I prefer a small group so that I can have more speaking practice. Could you also tell me about the teachers' qualifications and experience?\n\nFinally, do you offer a free trial lesson so that I can experience the class before registering?\n\nThank you very much for your help. I look forward to your reply.\n\nYours faithfully,"
+  },
+  {
+    id: "w27",
+    task: 1,
+    official: false,
+    type: "Thư điện tử — bạn lần đầu sang Việt Nam (Đề tự biên)",
+    time: 20,
+    target: 120,
+    prompt: "Your Australian friend Sarah is going to visit Vietnam for the first time next month. Read part of her email below:\n\n“I can’t believe I’m finally coming to Vietnam! What should I pack? Is it better to stay in a hotel or a homestay? Which places should I definitely visit, and is there any food I must try?”\n\nWrite an email responding to Sarah. You should write at least 120 words. You do not need to include your name or address. Your response will be evaluated in terms of Task Fulfillment, Organization, Vocabulary and Grammar.",
+    checklist: [
+      "Thể hiện sự háo hức (I can't wait either!) + chào hỏi thân mật",
+      "Trả lời ĐỦ 4 ý: đồ mang theo, khách sạn hay homestay, địa điểm, món ăn",
+      "Gợi ý cụ thể: tên địa điểm (Hạ Long, Hội An), tên món (phở, bánh mì)",
+      "Đưa lý do cho từng gợi ý",
+      "Đủ ≥120 từ, giọng vui vẻ, kết mời gọi/đề nghị đi cùng"
+    ],
+    phrases: [
+      "I'm so excited that you're finally coming!",
+      "Pack light, breathable clothes — it's going to be hot.",
+      "I'd definitely recommend a homestay in Hoi An — much more authentic.",
+      "You can't leave without trying phở and bánh mì.",
+      "If I were you, I'd spend at least two days in Ha Long Bay.",
+      "Let me know your dates and I'll plan something for us."
+    ],
+    model: "Dear Sarah,\n\nI'm so excited that you're finally coming — I can't wait either!\n\nAbout packing: bring light, breathable clothes, sunscreen and comfortable shoes because you'll walk a lot. A light raincoat is useful too — the weather can change quickly.\n\nI'd definitely recommend a homestay rather than a hotel, at least for a few nights. You will experience real local life, and the hosts usually cook amazing food. In Hoi An or Sapa, a good homestay costs only about $15 a night.\n\nAs for places, you can't miss Ha Long Bay and the old town of Hoi An. And the food! You must try phở for breakfast, bánh mì from a street cart, and fresh spring rolls.\n\nSend me your dates and I'll help you plan the whole trip!\n\nLots of love,"
+  },
+  {
+    id: "w28",
+    task: 1,
+    official: false,
+    type: "Thư xin lỗi & hẹn lại — bán trang trọng (Đề tự biên)",
+    time: 20,
+    target: 120,
+    prompt: "You had an appointment with your English tutor, Mr. Brown, yesterday afternoon, but you could not come. Write an email to Mr. Brown. In your email, you should apologize for missing the appointment, explain why you could not come, and suggest a new time to meet.\n\nWrite at least 120 words. You do not need to include your name or address. Your response will be evaluated in terms of Task Fulfillment, Organization, Vocabulary and Grammar.",
+    checklist: [
+      "Mở đầu xin lỗi ngay, giọng chân thành (I am so sorry / Please accept my apologies)",
+      "Giải thích lý do hợp lý, ngắn gọn (ốm, việc gia đình khẩn cấp)",
+      "Đề xuất thời gian hẹn mới CỤ THỂ (ngày, giờ) + hỏi ý kiến thầy",
+      "Cam kết không tái phạm / cảm ơn sự thông cảm",
+      "Đủ ≥120 từ, giọng lịch sự bán trang trọng"
+    ],
+    phrases: [
+      "I am so sorry that I missed our appointment yesterday.",
+      "Unfortunately, my little brother fell ill and I had to take him to hospital.",
+      "I should have called you, but everything happened so quickly.",
+      "Would it be possible to reschedule our session to Friday at 4 p.m.?",
+      "I promise this will not happen again.",
+      "Thank you very much for your understanding."
+    ],
+    model: "Dear Mr. Brown,\n\nI am so sorry that I missed our lesson yesterday afternoon. Please accept my sincere apologies.\n\nUnfortunately, my little brother suddenly fell ill just before I was about to leave home, and I had to take him to the hospital. Everything happened so quickly that I completely forgot to call you — I know I should have, and I feel terrible about it.\n\nWould it be possible to reschedule our session? I am free on Friday afternoon after 4 p.m., or any time on Saturday morning, whichever suits you better. I will, of course, prepare the essay and the speaking practice we agreed on.\n\nI promise this will not happen again. Thank you very much for your understanding, and once again I am very sorry.\n\nBest regards,"
+  },
+  {
+    id: "w29",
+    task: 1,
+    official: false,
+    type: "Thư mời đi du lịch cuối tuần (Đề tự biên)",
+    time: 20,
+    target: 120,
+    prompt: "You are organizing a two-day trip to the beach for your group of friends next weekend. Write an email to your friend Minh inviting him to join the trip. In your email, tell him where and when the trip is, how you will travel there, what he should bring, and how much it will cost.\n\nWrite at least 120 words. You do not need to include your name or address. Your response will be evaluated in terms of Task Fulfillment, Organization, Vocabulary and Grammar.",
+    checklist: [
+      "Mở đầu vui vẻ + đưa lời mời rõ ràng (Would you like to join us?)",
+      "ĐỦ thông tin: địa điểm, thời gian, phương tiện, đồ cần mang, chi phí",
+      "Kể 1-2 hoạt động hấp dẫn để thuyết phục (BBQ, bơi, ngắm bình minh)",
+      "Hạn chót xác nhận + kết háo hức",
+      "Đủ ≥120 từ, giọng thân mật năng động"
+    ],
+    phrases: [
+      "A group of us are planning a two-day trip to Vung Tau next weekend — would you like to come?",
+      "We're taking the early bus on Saturday morning.",
+      "All you need to bring is your swimsuit, sunscreen and a good mood!",
+      "It should cost around $40 each, including the guesthouse and food.",
+      "We're planning a BBQ on the beach on Saturday night.",
+      "Let me know by Thursday so I can book the rooms."
+    ],
+    model: "Hi Minh,\n\nGuess what — a group of us are planning a two-day trip to Vung Tau next weekend, and we all want you to come!\n\nWe're taking the early bus on Saturday morning at 6.30 from the central station, so we will arrive before lunch. On Saturday we're going to swim and play volleyball on the beach, and in the evening there will be a BBQ with seafood. On Sunday morning we plan to watch the sunrise and visit the lighthouse before heading home.\n\nAll you need to bring is your swimsuit, sunscreen, a hat and a change of clothes. It should cost around $40 each, including the guesthouse and all the food.\n\nCan you let me know by Thursday so I can book the rooms? It won't be the same without you!\n\nCheers,"
+  },
+  {
+    id: "w30",
+    task: 1,
+    official: false,
+    type: "Thư phàn nàn sản phẩm lỗi — trang trọng (Đề tự biên)",
+    time: 20,
+    target: 120,
+    prompt: "Last week you bought a pair of wireless headphones from the TechStore website. When the parcel arrived, the headphones were damaged and did not work. Write an email to the shop manager. In your email, describe what you ordered and the problem, explain how you feel about it, and ask for a replacement or a full refund.\n\nWrite at least 120 words. You do not need to include your name or address. Your response will be evaluated in terms of Task Fulfillment, Organization, Vocabulary and Grammar.",
+    checklist: [
+      "Mở thư trang trọng (Dear Sir or Madam) + nêu ngay mục đích phàn nàn",
+      "Mô tả đơn hàng cụ thể: sản phẩm, ngày đặt, mã đơn (tự bịa hợp lý)",
+      "Nêu rõ lỗi + cảm xúc (disappointed, unacceptable)",
+      "Yêu cầu hành động rõ ràng: thay hàng hoặc hoàn tiền + thời hạn",
+      "Đủ ≥120 từ, giọng cứng nhưng lịch sự — không thô lỗ"
+    ],
+    phrases: [
+      "I am writing to complain about a product I bought from your website.",
+      "I ordered a pair of wireless headphones on 5 May (order #TS-10293).",
+      "Unfortunately, when the parcel arrived, the box was crushed and the headphones would not turn on.",
+      "I must say I am very disappointed with your service.",
+      "I would like you to send me a replacement or give me a full refund.",
+      "I look forward to hearing from you within the next few days."
+    ],
+    model: "Dear Sir or Madam,\n\nI am writing to complain about a product I bought from your website. On 5 May I ordered a pair of SoundPro wireless headphones (order #TS-10293), which arrived yesterday. Unfortunately, the box was badly crushed and the headphones inside would not turn on at all, even after charging overnight.\n\nI must say I am very disappointed. I paid $85 for a brand-new product, and I chose your shop because of its good reputation. To make matters worse, I needed the headphones for an online course that starts tomorrow.\n\nI would like you to either send me a replacement immediately or give me a full refund. I am attaching photos of the damaged parcel and the receipt.\n\nI look forward to your reply within the next two working days.\n\nYours faithfully,"
+  },
+  {
+    id: "w31",
+    task: 2,
+    official: false,
+    type: "Luận văn — du học hay học trong nước (Đề tự biên)",
+    time: 40,
+    target: 250,
+    prompt: "Some people believe that studying abroad brings students many benefits, while others think that studying in their home country is a better choice. Discuss both views and give your own opinion.\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience. You should write at least 250 words.",
+    checklist: [
+      "Mở bài paraphrase đề + nêu rõ sẽ bàn 2 phía và quan điểm cá nhân",
+      "Thân bài 1: lý do người ta thích du học (chất lượng, độc lập, ngoại ngữ) + ví dụ",
+      "Thân bài 2: lý do học trong nước tốt hơn (chi phí, gia đình, trường nội địa ngày càng tốt)",
+      "Đoạn quan điểm cá nhân rõ ràng + lý do",
+      "Kết bài tóm gọn, ≥250 từ, dùng discourse markers đa dạng"
+    ],
+    phrases: [
+      "It is often argued that studying abroad is a life-changing opportunity.",
+      "On the one hand, overseas universities offer world-class facilities and degrees.",
+      "On the other hand, the cost of tuition and living can be a heavy burden.",
+      "Admittedly, local universities have improved considerably in recent years.",
+      "In my view, studying abroad is worthwhile if the family can afford it.",
+      "In conclusion, both paths have merits, and the choice depends on individual circumstances."
+    ],
+    model: "In recent years, studying overseas has become a dream for many students and their families. While some believe it offers unmatched benefits, others argue that studying at home is a wiser decision. This essay will discuss both perspectives and explain why I believe studying abroad is valuable, provided that students can afford it.\n\nOn the one hand, studying in a foreign country exposes students to world-class education. Universities in countries like Australia or the UK often have modern facilities, experienced professors and internationally recognized degrees. Moreover, living alone abroad teaches independence: students must cook, manage money and solve problems by themselves. Finally, using English every day is the fastest way to become fluent — a skill that greatly improves job prospects.\n\nOn the other hand, studying in one's home country has clear advantages. The most obvious is cost: tuition fees and living expenses abroad can be ten times higher, which places a heavy burden on families. In addition, students at home enjoy emotional support from family and friends, so they rarely suffer from homesickness or culture shock. It is also true that local universities have improved dramatically and now offer many internationally accredited programmes at a fraction of the price.\n\nIn my view, studying abroad is a worthwhile investment for those who can afford it, because the independence and language skills gained are difficult to obtain at home. However, it is not the only path to success.\n\nIn conclusion, both choices have their own merits, and students should decide based on their financial situation and personal goals."
+  },
+  {
+    id: "w32",
+    task: 2,
+    official: false,
+    type: "Luận văn — học trực tuyến thay lớp học truyền thống (Đề tự biên)",
+    time: 40,
+    target: 250,
+    prompt: "Some people think that online learning will completely replace traditional classroom education in the future. To what extent do you agree or disagree with this opinion?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience. You should write at least 250 words.",
+    checklist: [
+      "Nêu rõ mức độ đồng ý ngay mở bài (partly / completely disagree)",
+      "Thân bài 1: điểm mạnh của học online (linh hoạt, rẻ, học lại được) + ví dụ",
+      "Thân bài 2: vì sao lớp học truyền thống không thể bị thay thế (tương tác, kỷ luật, kỹ năng mềm)",
+      "Phản biện hoặc nhượng bộ (Admittedly...) để essay có chiều sâu",
+      "Kết luận nhất quán với quan điểm mở bài, ≥250 từ"
+    ],
+    phrases: [
+      "It is widely believed that technology will one day make classrooms obsolete.",
+      "While online learning offers undeniable flexibility, I disagree that it can fully replace traditional education.",
+      "One major advantage of e-learning is that students can study at their own pace.",
+      "However, face-to-face interaction is essential for developing communication skills.",
+      "Moreover, many students lack the self-discipline required for online study.",
+      "A blended approach is probably the most realistic future."
+    ],
+    model: "It is widely believed that online education will one day make traditional classrooms a thing of the past. While e-learning offers undeniable benefits, I disagree that it can completely replace face-to-face education.\n\nAdmittedly, online learning has remarkable advantages. Students can study at their own pace, rewatch recorded lectures and access courses from top universities without leaving home. It is also far cheaper, since there are no commuting or facility costs. During the recent pandemic, online platforms kept education running when schools were closed, proving that they are more than just a backup solution. Some even argue that recorded lectures are more effective than live ones, since students can pause, rewind and take notes at their own speed.\n\nHowever, there are strong reasons why the classroom will survive. Firstly, face-to-face interaction is essential for developing communication and teamwork skills, which are difficult to build through a screen. A good teacher can also read students' expressions and adjust the lesson instantly — something no algorithm can do well. Secondly, online study demands a high level of self-discipline. Many young learners are easily distracted by games and social media, so they learn far less effectively at home; indeed, online courses consistently report much lower completion rates than traditional ones. For every motivated learner who thrives online, many more quietly fall behind without anyone noticing. Finally, schools are not only places for knowledge; they are where children make friends and learn social values.\n\nIn conclusion, although online learning will certainly grow and complement traditional teaching, I believe the classroom will remain the heart of education. A blended approach, combining both methods, is the most realistic future."
+  },
+  {
+    id: "w33",
+    task: 2,
+    official: false,
+    type: "Luận văn — sống ở thành phố lớn (Đề tự biên)",
+    time: 40,
+    target: 250,
+    prompt: "Nowadays, more and more young people choose to live and work in big cities. What are the advantages and disadvantages of living in a big city? Give your own opinion.\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience. You should write at least 250 words.",
+    checklist: [
+      "Mở bài giới thiệu xu hướng dân cư + nêu sẽ phân tích 2 mặt",
+      "Ưu điểm: việc làm, lương cao, dịch vụ (bệnh viện, trường học, giải trí) + ví dụ",
+      "Nhược điểm: chi phí, ô nhiễm, kẹt xe, cạnh tranh, cô đơn + ví dụ",
+      "Quan điểm cá nhân ở kết bài (cân nhắc giai đoạn cuộc sống)",
+      "≥250 từ, so sánh song hành hợp lý, không lặp ý"
+    ],
+    phrases: [
+      "In recent decades, cities have attracted millions of young people from the countryside.",
+      "The greatest advantage of urban life is the abundance of job opportunities.",
+      "Big cities also offer better healthcare, education and entertainment.",
+      "However, this convenience comes at a price — literally.",
+      "High living costs, air pollution and traffic congestion are daily realities.",
+      "Personally, I believe city life suits young workers, but not necessarily families."
+    ],
+    model: "In recent decades, big cities have attracted millions of young people who leave their hometowns in search of a better life. Although urban life offers exciting opportunities, it also brings serious challenges. This essay will examine both sides before giving my own view.\n\nOn the positive side, the greatest advantage of a big city is opportunity. Most large companies, international corporations and well-paid jobs are concentrated in urban areas, so ambitious young people can build careers that would be impossible in the countryside. A graduate in a small town may have only a handful of employers to choose from, whereas the same person in the city can apply to hundreds of companies. In addition, cities offer superior services: modern hospitals, prestigious universities, shopping centres and endless entertainment options. Life is simply more convenient — everything you need is within reach.\n\nOn the negative side, these benefits come at a high price. Rent and daily expenses in cities like Hanoi or Ho Chi Minh City can consume most of a young worker's salary. Moreover, city dwellers must deal with air pollution, traffic jams and constant noise, which seriously affect their health. Another drawback is the competitive, fast-paced lifestyle: many young people feel stressed and lonely even though they are surrounded by millions of others.\n\nIn conclusion, living in a big city is a trade-off between opportunity and quality of life. Personally, I believe it suits young people at the start of their careers, when gaining experience matters most, but a quieter place may be a better choice for raising a family."
+  },
+  {
+    id: "w34",
+    task: 2,
+    official: false,
+    type: "Luận văn — cấm nhựa dùng một lần (Đề tự biên)",
+    time: 40,
+    target: 250,
+    prompt: "Some people think that governments should completely ban single-use plastics such as bags, bottles and straws. Others believe that educating people to use less plastic is a better solution. Discuss both views and give your own opinion.\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience. You should write at least 250 words.",
+    checklist: [
+      "Mở bài đặt vấn đề rác nhựa + tóm 2 quan điểm",
+      "Phía cấm: hiệu quả nhanh, bắt buộc doanh nghiệp đổi (ví dụ nước đã cấm)",
+      "Phía giáo dục: lệnh cấm khó thực thi, thói quen mới bền lâu",
+      "Quan điểm cá nhân: kết hợp cả hai (cấm + giáo dục song song)",
+      "≥250 từ, ví dụ cụ thể (Rwanda, Kenya, phí túi nilon)"
+    ],
+    phrases: [
+      "Plastic pollution has become one of the most urgent environmental problems.",
+      "Supporters of a ban argue that only strict laws can change behaviour quickly.",
+      "A complete ban forces businesses to find eco-friendly alternatives.",
+      "Critics, however, point out that bans are hard to enforce.",
+      "Education creates lasting habits rather than temporary compliance.",
+      "In my view, the most effective approach is a combination of both."
+    ],
+    model: "Plastic pollution has become one of the most urgent environmental problems of our time. Some argue that governments should simply ban single-use plastics, while others believe that education is a better long-term solution. In my view, both measures are necessary.\n\nSupporters of a ban have a strong argument: only strict laws can change behaviour quickly. When plastic bags are banned, shops and manufacturers are forced to find alternatives such as paper bags or biodegradable materials. Countries like Rwanda have shown that a nationwide ban can dramatically reduce plastic waste within just a few years. Even charging a small fee for plastic bags, as many supermarkets now do, has cut usage by more than half in some cities. Without legal pressure, most businesses would choose cheap plastic because it is more profitable.\n\nOn the other hand, critics point out that bans are difficult to enforce, especially in developing countries where cheap plastic is part of daily life. A ban without alternatives simply pushes the problem underground. Moreover, rules alone do not change attitudes. Education, by contrast, teaches people why plastic is harmful, creating voluntary and lasting habits. A person who understands the issue will bring a reusable bottle not because they must, but because they want to.\n\nIn my opinion, the best approach is to combine the two. Governments should ban the most harmful items, such as plastic straws and thin bags, while investing in public education campaigns so that people understand and support the change.\n\nIn conclusion, laws change behaviour quickly, but education changes minds — and we need both to solve the plastic crisis."
+  },
+  {
+    id: "w35",
+    task: 2,
+    official: false,
+    type: "Luận văn — sinh viên làm thêm (Đề tự biên)",
+    time: 40,
+    target: 250,
+    prompt: "Many university students take part-time jobs while studying. Do the advantages of this outweigh the disadvantages?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience. You should write at least 250 words.",
+    checklist: [
+      "Trả lời trực tiếp dạng câu hỏi outweigh ở mở bài",
+      "Ưu điểm: kinh nghiệm thực tế, thu nhập, kỹ năng mềm, CV",
+      "Nhược điểm: mất thời gian học, stress, điểm số giảm",
+      "Cân nhắc điều kiện: giờ làm hợp lý (≤15h/tuần), đúng ngành",
+      "Kết luận rõ: lợi > hại NẾU biết cân bằng, ≥250 từ"
+    ],
+    phrases: [
+      "Working part-time has become almost a tradition among university students.",
+      "The most obvious benefit is financial independence.",
+      "A part-time job also provides real-world experience that no lecture can teach.",
+      "Nevertheless, working too many hours can seriously damage academic performance.",
+      "Students who work more than twenty hours a week often fall behind.",
+      "On balance, the advantages outweigh the drawbacks — as long as work does not take over."
+    ],
+    model: "Working part-time has become almost a tradition among university students. While some worry that jobs harm academic results, I believe the advantages clearly outweigh the disadvantages, provided that students manage their time well.\n\nThe benefits are significant. Firstly, a part-time job gives students financial independence: they can pay for books, transport and personal expenses without asking their parents. Secondly, it provides real-world experience that no lecture can offer. A student working in a café, for example, learns to deal with customers, handle pressure and work in a team — soft skills that employers value highly. Finally, early work experience makes a CV stand out; many graduates struggle to find jobs precisely because they have never worked before. Surveys repeatedly show that employers prefer candidates with real work experience, even in an unrelated field, over those with only high grades.\n\nAdmittedly, there are real risks. Students who work too many hours have less time for studying, revision and sleep. As a result, their grades may suffer, and in extreme cases they burn out completely. Working in a job unrelated to one's field may also bring little career benefit.\n\nHowever, these problems usually come from working too much rather than working itself. A job of ten to fifteen hours a week, ideally related to the student's major, brings experience without harming study. Universities can also help by offering on-campus positions with flexible schedules.\n\nIn conclusion, a part-time job is one of the most valuable experiences a student can have — as long as it remains 'part-time' and does not replace the main job of being a student."
+  },
+  {
+    id: "w36",
+    task: 2,
+    official: false,
+    type: "Luận văn — công nghệ làm con người ít giao tiếp (Đề tự biên)",
+    time: 40,
+    target: 250,
+    prompt: "Some people believe that modern technology such as smartphones and social media has made people less sociable in real life. To what extent do you agree or disagree?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience. You should write at least 250 words.",
+    checklist: [
+      "Mở bài nêu tranh luận + quan điểm cá nhân rõ ràng",
+      "Lập luận đồng ý: nghiện điện thoại, gia đình cùng bàn ăn mỗi người một màn hình, kỹ năng giao tiếp giảm",
+      "Lập luận phản biện: công nghệ giúp kết nối xa, nhóm sở thích, người nhút nhát dễ mở lòng",
+      "Nêu điều kiện then chốt: cách dùng chứ không phải bản thân công nghệ",
+      "≥250 từ, ví dụ đời thực (phubbing, video call, group chat)"
+    ],
+    phrases: [
+      "It is a common sight today: a group of friends sitting together, each staring at a phone.",
+      "Critics argue that social media gives us hundreds of 'friends' but fewer real ones.",
+      "Constant notifications train us to prefer screens over people.",
+      "However, technology also connects people who would otherwise be isolated.",
+      "The problem, in my view, is not technology itself but how we use it.",
+      "If used mindfully, smartphones can strengthen rather than weaken relationships."
+    ],
+    model: "It is a common sight today: a group of friends sitting at the same table, each staring at a smartphone. Many people believe technology is making us less sociable in real life, and to a large extent, I agree — although the technology itself is not entirely to blame.\n\nThere is strong evidence that screens weaken face-to-face relationships. Social media gives us hundreds of online 'friends' but often fewer real ones. Constant notifications train our brains to prefer quick digital interactions over deep conversation, and many young people now feel awkward making small talk or speaking on the phone. Research suggests that heavy social media users report higher levels of loneliness than moderate users. Within families, it is increasingly common for everyone to eat dinner while looking at separate screens — together physically, but miles apart mentally.\n\nHowever, it would be unfair to say technology only isolates us. For people who are shy, elderly or living far from home, apps and video calls are a lifeline. Interest-based communities help people find friends who share their passions, something that would be impossible offline. During the pandemic, technology kept entire relationships alive.\n\nIn my view, the problem is not technology itself but how we use it. A smartphone used mindlessly at the dinner table destroys connection; the same device used to video-call a grandparent creates it.\n\nIn conclusion, technology can indeed make people less sociable when it replaces real interaction, but used wisely, it can bring people closer than ever. The choice is ours."
+  }
+];
+
+const SELF_SPEAKING_P1 = [
+  {
+    id: "s22",
+    official: false,
+    topic: "Music — Âm nhạc (Đề tự biên)",
+    questions: [
+      "Do you like listening to music?",
+      "What kind of music do you usually listen to?",
+      "Do you prefer listening to music alone or with other people?"
+    ],
+    sample: "Yes, I'm a big music fan — I honestly can't imagine a day without it. I mostly listen to pop and acoustic ballads, because they help me relax after work, but when I need energy for the gym I switch to upbeat electronic tracks. As for listening alone or with others, it depends on my mood. When I'm studying, I prefer being alone with my headphones on so I can concentrate, but at parties or on road trips, sharing music with friends is half the fun — we always end up singing along together.",
+    tip: "Với câu hỏi sở thích: đừng chỉ nói 'Yes I like music' — nêu THỂ LOẠI cụ thể + bối cảnh nghe (khi học, khi tập gym) để câu trả lời có chiều sâu."
+  },
+  {
+    id: "s23",
+    official: false,
+    topic: "Shopping — Mua sắm (Đề tự biên)",
+    questions: [
+      "Do you enjoy shopping?",
+      "Do you prefer shopping online or in physical stores?",
+      "What was the last thing you bought for yourself?"
+    ],
+    sample: "To be honest, I enjoy shopping for things I really need, but I'm not the type who shops for fun. These days I mostly shop online because it saves time and I can compare prices across different stores in seconds. That said, for clothes and shoes I still prefer physical stores — you really need to try things on. The last thing I bought for myself was a wireless mouse, just last week. My old one broke, and I found a great deal online with next-day delivery, which was super convenient.",
+    tip: "Câu 'last thing you bought' là cơ hội kể chuyện nhỏ: món đồ + lý do mua + trải nghiệm. Chi tiết cụ thể (tuần trước, con chuột không dây) tạo cảm giác tự nhiên."
+  },
+  {
+    id: "s24",
+    official: false,
+    topic: "Films & TV — Phim ảnh (Đề tự biên)",
+    questions: [
+      "How often do you watch films?",
+      "What kind of films do you like best?",
+      "Do you prefer watching films at the cinema or at home?"
+    ],
+    sample: "I usually watch one or two films a week, mostly on weekend evenings when I finally have free time. My favourite genre is probably science fiction — films like Interstellar fascinate me because they combine entertainment with big ideas about life and the universe. Between the cinema and home, I'd say it depends on the film. For blockbusters with amazing effects, the big screen and surround sound at the cinema are unbeatable. But for quiet dramas, I'm happy watching at home on my laptop with a cup of tea.",
+    tip: "Dùng 'it depends' khi so sánh hai lựa chọn là chiến thuật khôn ngoan: vừa trả lời tự nhiên vừa tạo cơ hội nói dài với ví dụ cho từng trường hợp."
+  },
+  {
+    id: "s25",
+    official: false,
+    topic: "Transport — Phương tiện đi lại (Đề tự biên)",
+    questions: [
+      "How do you usually get to work or school?",
+      "Is public transport convenient in your city?",
+      "How could public transport be improved?"
+    ],
+    sample: "I usually get to work by motorbike — it's the most practical option in my city because it's fast and can weave through traffic jams. Honestly, public transport here is still quite limited. We do have buses, and they're cheap, but they're often crowded and not very punctual. The new metro line has improved things a lot though. If I could suggest improvements, I'd say we need more bus routes covering residential areas, and better air-conditioning on the buses — that would definitely encourage more people to leave their motorbikes at home.",
+    tip: "Câu 'how could it be improved' cần gợi ý CỤ THỂ, khả thi (thêm tuyến xe, điều hòa, giá vé) — tránh nói chung chung kiểu 'it should be better'."
+  },
+  {
+    id: "s26",
+    official: false,
+    topic: "Hometown — Quê hương (Đề tự biên)",
+    questions: [
+      "Where is your hometown?",
+      "What do you like most about it?",
+      "Has your hometown changed much in recent years?"
+    ],
+    sample: "My hometown is Da Nang, a coastal city in central Vietnam. What I love most about it is the balance — it has beautiful beaches and mountains, but it's also modern and clean, and the people are incredibly friendly. The pace of life is relaxed compared to Hanoi or Ho Chi Minh City. And yes, it has changed dramatically in recent years. The skyline is completely different now with new bridges and hotels, and tourism has boomed. Some people miss the quiet old days, but I think the changes have mostly been for the better.",
+    tip: "Câu hỏi về thay đổi: dùng thì hiện tại hoàn thành (has changed, has boomed) + ý kiến cá nhân ở cuối để câu trả lời có 'voice' riêng."
+  },
+  {
+    id: "s27",
+    official: false,
+    topic: "Pets — Thú cưng (Đề tự biên)",
+    questions: [
+      "Do you like animals?",
+      "Did you have a pet when you were a child?",
+      "Why do you think people keep pets?"
+    ],
+    sample: "Yes, I'm definitely an animal lover, especially dogs — they're so loyal and expressive. When I was a child, my family had a little dog named Mun, which means 'black' in Vietnamese because of her fur. She used to wait for me at the gate every afternoon when I came home from school, and I have such warm memories of her. I think people keep pets mainly for companionship. A pet greets you with pure joy no matter how bad your day was, and for many people living alone, that emotional connection really matters.",
+    tip: "Kể một kỷ niệm nhỏ về thú cưng (tên, thói quen của nó) là cách tuyệt vời để câu trả lời đậm chất cá nhân — giám khảo rất thích storytelling ngắn."
+  }
+];
+
+const SELF_SPEAKING_P2 = [
+  {
+    id: "s32",
+    official: false,
+    topic: "Hoạt động cho CLB tiếng Anh (Đề tự biên)",
+    situation: "Your English club wants to organize an activity to improve members' speaking skills. Three activities are suggested: a debate competition, watching an English film together, and inviting a foreign guest speaker. Which option do you think is the best?",
+    points: [
+      "Giới thiệu tình huống bằng 1-2 câu tự nhiên",
+      "So sánh 3 lựa chọn: ưu điểm + nhược điểm của từng cái",
+      "Chọn 1 lựa chọn + lý do rõ ràng, đứng đắn",
+      "Phản biện nhẹ: thừa nhận điểm tốt của 2 lựa chọn còn lại",
+      "Kết: nhấn mạnh lại lựa chọn + hiệu ứng kỳ vọng"
+    ],
+    sample: "Choosing an activity for our English club is exciting because all three options have real value. Let me compare them. A debate competition would push members to think fast and speak under pressure, which is great for fluency, but it might intimidate shy members. Watching a film together is fun and relaxing, though it is a passive activity — people watch more than they speak. In my opinion, inviting a foreign guest speaker is the best choice. Talking with a native speaker gives everyone authentic practice that films and debates cannot provide, and even shy members can simply ask questions at their own pace. Besides, a guest can share real cultural insights and correct our mistakes naturally. Although debates and films are enjoyable, real conversation is the fastest way to improve speaking, so the guest speaker gets my vote.",
+    tip: "Cấu trúc an toàn cho Part 2: mở (tình huống) → so sánh nhanh 2 lựa chọn loại → chọn + 2-3 lý do → phản biện nhẹ → kết. Đừng phân tích cả 3 quá sâu, sẽ hết giờ."
+  },
+  {
+    id: "s33",
+    official: false,
+    topic: "Địa điểm họp lớp (Đề tự biên)",
+    situation: "Your class is planning a reunion five years after graduation. Three places are suggested: a restaurant, a park, and a former classmate's house. Which option do you think is the best?",
+    points: [
+      "Nhắc lại bối cảnh: họp lớp sau 5 năm tốt nghiệp",
+      "Phân tích nhanh nhà hàng (tiện, đắt) và công viên (rẻ, phụ thuộc thời tiết)",
+      "Chọn nhà bạn cũ + lý do: ấm cúng, tự do, gợi nhớ kỷ niệm",
+      "Đề cập chi phí và hoạt động có thể tổ chức",
+      "Kết: khẳng định lựa chọn + không khí mong đợi"
+    ],
+    sample: "A five-year reunion deserves a setting where everyone can relax and really catch up. Let me weigh the three options. A restaurant is convenient — no cooking, no cleaning — but it's usually noisy, expensive, and there's often a time limit on the table. A park is cheap and spacious, perfect for games, but the weather could ruin everything, and there's nowhere comfortable to sit and talk for hours. I believe a classmate's house is the best choice. It feels warm and private, just like our old classroom days. We could cook together, play music without bothering anyone, and stay as long as we want. It's also the cheapest option since everyone can contribute a dish. Sure, the host has to clean up afterwards, but with twenty friends helping, that's a small price to pay. The cozy atmosphere will make the reunion truly memorable.",
+    tip: "Đừng quên yếu tố KINH TẾ (chi phí) khi so sánh địa điểm — giám khảo đánh giá cao lập luận thực tế, đa chiều."
+  },
+  {
+    id: "s34",
+    official: false,
+    topic: "Chọn điểm du lịch cho gia đình (Đề tự biên)",
+    situation: "Your family is planning a summer holiday. Three destinations are suggested: a beach resort, a mountain retreat, and a big city tour. Which option do you think is the best for the whole family?",
+    points: [
+      "Lưu ý đề yêu cầu chọn cho CẢ GIA ĐÌNH (nhiều lứa tuổi)",
+      "Phân tích mountain retreat (đẹp nhưng vất vả cho người già/trẻ nhỏ)",
+      "Phân tích city tour (nhiều hoạt động nhưng đông, căng thẳng)",
+      "Chọn beach resort: thư giãn + hoạt động cho mọi lứa tuổi",
+      "Kết: nhấn mạnh mục tiêu kỳ nghỉ là quây quần, nghỉ ngơi"
+    ],
+    sample: "Planning a family holiday means finding something that suits everyone, from grandparents to little kids. Let me consider the options. A mountain retreat offers stunning scenery and fresh air, but hiking trails can be physically demanding for elderly family members and small children. A big city tour sounds exciting with museums and shopping, yet cities in summer are hot, crowded and exhausting — the opposite of relaxing. That's why I'd choose a beach resort. Beaches offer something for every generation: children build sandcastles and swim safely in shallow water, parents enjoy seafood and water sports, and grandparents can simply relax under the shade with a book. Resorts are also designed for families, with pools, restaurants and activities in one place, so nobody has to travel far. A holiday should bring the family together to unwind, and the beach does that perfectly.",
+    tip: "Mấu chốt của đề này là phân tích theo ĐỐI TƯỢNG (trẻ em/người lớn/người già) — thể hiện tư duy sắp xếp ý rất tốt, được cộng điểm Organization."
+  },
+  {
+    id: "s35",
+    official: false,
+    topic: "Quà tặng thầy cô (Đề tự biên)",
+    situation: "Your class wants to give your English teacher a thank-you gift at the end of the course. Three items are suggested: a handmade photo album, a bouquet of flowers, and an English novel. Which option do you think is the best?",
+    points: [
+      "Nêu tiêu chí chọn quà: ý nghĩa cá nhân > giá trị vật chất",
+      "Flowers: đẹp nhưng tàn nhanh, hơi thông dụng",
+      "English novel: thiết thực nhưng khó chọn đúng sở thích",
+      "Photo album: chứa kỷ niệm cả lớp, duy nhất, cảm động",
+      "Kết: lời cảm ơn chân thành gửi thầy cô"
+    ],
+    sample: "Choosing a thank-you gift is about meaning more than money, so let me compare the three ideas. A bouquet of flowers is beautiful and traditional, but flowers wilt within days, and honestly it's a gift people give when they can't think of anything else. An English novel is practical — our teacher loves reading — but we don't know her taste well, and she might already own the book we choose. I'd strongly vote for the handmade photo album. It could collect photos from all our lessons, trips and class parties, with personal messages from every student. Years from now, she could open it and remember exactly who we were. No shop sells memories like that. Making it by hand also shows we invested time and effort, not just money. I'm sure it would touch her heart far more than flowers or any book.",
+    tip: "Dùng tiêu chí 'meaning over money' làm trục lập luận cho các đề quà tặng — đây là khung phản biện mạnh, áp dụng được cho nhiều tình huống tương tự."
+  },
+  {
+    id: "s36",
+    official: false,
+    topic: "Gây quỹ từ thiện ở trường (Đề tự biên)",
+    situation: "Your school wants to raise money for children in poor mountainous areas. Three activities are suggested: a bake sale, a talent show, and a used-book fair. Which option do you think would raise the most money?",
+    points: [
+      "Làm rõ tiêu chí: hoạt động nào gây quỹ HIỆU QUẢ NHẤT",
+      "Bake sale: dễ làm nhưng quy mô nhỏ, giá rẻ",
+      "Used-book fair: ý nghĩa nhưng ít người mua nhiều",
+      "Talent show: bán vé + tài trợ + quy mô toàn trường",
+      "Kết: chọn talent show + cách phát huy (vé, bán đồ ăn kèm)"
+    ],
+    sample: "The key question is which activity can raise the most money, so let me think about scale. A bake sale is charming and easy to organize — students love homemade cakes — but cakes sell for only a few thousand dong each, so the total would be modest. A used-book fair is meaningful since it promotes reading too, but again, used books are cheap, and honestly not everyone buys books. In my view, a talent show is the strongest fundraiser. The whole school can get involved: performers, audience, even sponsors. We could charge entrance tickets, sell snacks during the show, and invite parents — multiplying the money raised compared to the other two. A good show also creates a memorable event that people talk about, building a tradition for future years. Small activities bring small money; a big stage brings a big result.",
+    tip: "Khi đề hỏi 'which raises the MOST money', hãy bám tiêu chí định lượng (giá vé × số khán giả) thay vì nói cảm tính — đó là tư duy phân tích giám khảo tìm kiếm."
+  },
+  {
+    id: "s37",
+    official: false,
+    topic: "Chọn môn học tự chọn (Đề tự biên)",
+    situation: "You can take one extra elective course next semester. Three courses are suggested: public speaking, photography, and web design. Which option do you think is the best choice for you?",
+    points: [
+      "Nêu tiêu chí cá nhân: môn nào hữu ích lâu dài cho nghề nghiệp/cuộc sống",
+      "Photography: sở thích đẹp nhưng thiên về giải trí",
+      "Web design: thực tế nhưng có thể tự học online",
+      "Public speaking: kỹ năng mềm dùng mọi nơi, khó tự học",
+      "Kết: khẳng định lựa chọn phù hợp với bản thân"
+    ],
+    sample: "Picking an elective is really about which skill pays off longest. Photography is a lovely hobby and would teach me to see the world more artistically, but for me it's more entertainment than a career skill — I could learn the basics from YouTube. Web design is extremely practical in this digital age and looks great on a CV, yet again, it's a technical skill you can self-study with online courses. I'd choose public speaking, and here's why. Firstly, it's the one skill that helps in every field — job interviews, presentations, even daily conversations. Secondly, unlike technical subjects, you can't learn it alone; you need a real audience and a teacher's feedback, which is exactly what a classroom offers. Finally, surveys show public speaking is people's biggest fear — conquering it now gives me an edge for life.",
+    tip: "Lập luận 'kỹ năng này khó tự học nên cần lớp học' là góc phản biện rất hay cho dạng chọn môn học — nó đảo ngược logic thông thường một cách thuyết phục."
+  }
+];
+
+const SELF_SPEAKING_P3 = [
+  {
+    id: "s41",
+    official: false,
+    topic: "Healthy lifestyle — Lối sống lành mạnh (Đề tự biên)",
+    mindmap: {
+      center: "Healthy lifestyle",
+      branches: [
+        "Eat a balanced diet",
+        "Exercise regularly",
+        "Get enough sleep",
+        "Your own idea"
+      ]
+    },
+    followups: [
+      "What healthy habits do you have?",
+      "Why do many young people live unhealthily nowadays?",
+      "Should schools teach students how to live healthily?"
+    ],
+    sample: "Today I'd like to talk about how to maintain a healthy lifestyle, which involves three key habits. First and foremost is a balanced diet — this means eating plenty of vegetables and protein while limiting fast food and sugary drinks; my own rule is cooking at home at least five days a week. Secondly, regular exercise keeps both body and mind strong; you don't need a gym membership — a thirty-minute walk or a bike ride counts just as much. Thirdly, getting enough sleep is often forgotten; adults need seven to eight hours, because no diet or workout can fix chronic tiredness. As my own addition, I'd say managing stress matters too — meditation or simply meeting friends protects our mental health. Personally, I cycle to work and never skip breakfast. Many young people live unhealthily mainly because of busy schedules and phone addiction before bed, and yes, schools absolutely should teach healthy habits early.",
+    tip: "Part 3: triển khai mindmap theo công thức Ý CHÍNH → GIẢI THÍCH → VÍ DỤ CÁ NHÂN. Nhớ trả lời luôn câu follow-up cuối bài để khỏi bị giám khảo nhắc."
+  },
+  {
+    id: "s42",
+    official: false,
+    topic: "Learning foreign languages — Học ngoại ngữ (Đề tự biên)",
+    mindmap: {
+      center: "Learning foreign languages",
+      branches: [
+        "Better job opportunities",
+        "Travel more easily",
+        "Understand other cultures",
+        "Your own idea"
+      ]
+    },
+    followups: [
+      "How many foreign languages can you speak?",
+      "At what age should children start learning a foreign language?",
+      "Will translation apps replace the need to learn languages?"
+    ],
+    sample: "I'd like to discuss the benefits of learning foreign languages. The first benefit is better job opportunities — in Vietnam, a candidate with strong English can earn a significantly higher salary, and multinational companies almost always require it. Secondly, languages make travelling far easier and richer; you can read signs, order food, and most importantly, talk to local people instead of just taking photos. Thirdly, learning a language opens a window to another culture — through English I've come to understand not just grammar, but humour, films and ways of thinking very different from my own. My own addition would be brain training: studies suggest bilingual people stay mentally sharper as they age. Personally I speak English and a little French. I believe children should start early, around age six, when pronunciation comes naturally. And no, translation apps won't replace learning — they translate words, but never feelings.",
+    tip: "Câu follow-up 'will apps replace learning' — đừng trả lời yes/no đơn giản; phân biệt 'words vs feelings/nuance' là câu kết rất đẹp."
+  },
+  {
+    id: "s43",
+    official: false,
+    topic: "Protecting the environment — Bảo vệ môi trường (Đề tự biên)",
+    mindmap: {
+      center: "Protecting the environment",
+      branches: [
+        "Save energy and water",
+        "Reduce plastic waste",
+        "Plant more trees",
+        "Your own idea"
+      ]
+    },
+    followups: [
+      "What do you personally do to protect the environment?",
+      "Do you think individuals can really make a difference?",
+      "What should the government do about pollution?"
+    ],
+    sample: "Protecting the environment starts with small daily actions. The first step is saving energy and water — turning off lights and taps seems trivial, but if every household did it, the national savings would be enormous. Secondly, we must reduce plastic waste: bringing a reusable bottle and refusing plastic bags are easy habits once you start. Thirdly, planting trees matters enormously; trees clean our air, cool our cities, and Vietnam's reforestation programmes show real results. My own idea is education — when children learn why nature matters, they protect it for life. Personally, I carry a fabric bag and sort rubbish at home. Do individuals make a difference? Absolutely — every big change in history started with ordinary people. As for government, stricter fines for polluting factories and investment in public transport would have the greatest impact, because laws change behaviour faster than slogans.",
+    tip: "Câu 'do individuals make a difference' là câu hỏi quan điểm — trả lời dứt khoát + ví dụ nguyên lý (every big change starts small) ghi điểm mạnh."
+  },
+  {
+    id: "s44",
+    official: false,
+    topic: "Online shopping — Mua sắm trực tuyến (Đề tự biên)",
+    mindmap: {
+      center: "Online shopping",
+      branches: [
+        "Convenient and time-saving",
+        "Easy to compare prices",
+        "Home delivery",
+        "Your own idea"
+      ]
+    },
+    followups: [
+      "Do you often shop online? What do you usually buy?",
+      "What are the risks of shopping online?",
+      "Will online shopping completely replace traditional shops?"
+    ],
+    sample: "Online shopping has changed how we buy everything, and its benefits are clear. The first is convenience — you can order anything at midnight from your bed instead of fighting traffic to reach a store. Secondly, comparing prices takes seconds: I always check three or four sellers before buying, something impossible in physical shops. Thirdly, home delivery saves real time — my mother now orders groceries online weekly. My own addition is access to products that local stores simply don't stock, especially imported books and electronics. As for me, I shop online about twice a month, mostly for electronics and books. There are risks though — fake products, misleading photos, and data theft — so I only buy from official stores with good reviews. Will it replace traditional shops? Not completely, I believe, because people will always want to touch, try and experience products in person — especially food and clothes.",
+    tip: "Câu hỏi về 'risks' nên kể rủi ro cụ thể (hàng giả, ảnh ảo, đánh cắp dữ liệu) + cách bạn phòng tránh — thể hiện kinh nghiệm thực, không nói lý thuyết."
+  },
+  {
+    id: "s45",
+    official: false,
+    topic: "A good friend — Tố chất người bạn tốt (Đề tự biên)",
+    mindmap: {
+      center: "Qualities of a good friend",
+      branches: [
+        "Honest and trustworthy",
+        "Supportive in hard times",
+        "A good listener",
+        "Your own idea"
+      ]
+    },
+    followups: [
+      "Do you have many friends or a few close friends?",
+      "How do you keep in touch with your friends?",
+      "Is it harder to make friends as we get older?"
+    ],
+    sample: "In my view, three qualities make a truly good friend. First comes honesty — a real friend tells you the truth even when it hurts, like honestly saying your plan is unrealistic rather than just agreeing. Second, a good friend is supportive in hard times; anyone can celebrate your success, but true friends appear when you fail — I still remember my friend Hoa staying up all night helping me before my entrance exam. Third, being a good listener matters more than giving advice; sometimes we just need someone to hear us without judging. My own addition is a sense of humour — friends who make us laugh turn bad days around instantly. Personally, I prefer a few close friends over many acquaintances; we keep in touch through a group chat and meet monthly. And yes, making friends does get harder with age, because adults have less free time and more caution — which makes old friendships even more precious.",
+    tip: "Cấu trúc 'tố chất → giải thích → minh họa cá nhân' cho mỗi ý làm bài nói sống động; chèn tên người thật (Hoa) vào ví dụ tạo authenticity."
+  },
+  {
+    id: "s46",
+    official: false,
+    topic: "Smartphones for students — Điện thoại cho học sinh sinh viên (Đề tự biên)",
+    mindmap: {
+      center: "Smartphones for students",
+      branches: [
+        "A powerful learning tool",
+        "Stay connected with family",
+        "Entertainment and relaxation",
+        "Your own idea"
+      ]
+    },
+    followups: [
+      "How do you use your smartphone for study?",
+      "Do smartphones distract students from learning?",
+      "Should schools ban smartphones in class?"
+    ],
+    sample: "Smartphones are controversial in education, but their benefits for students are real. Firstly, a smartphone is a powerful learning tool — dictionary apps, online courses and YouTube lectures put a library in your pocket; I learned more English from podcasts than from any textbook. Secondly, phones keep students connected with family, which matters when studying far from home — a quick video call reassures worried parents. Thirdly, they provide entertainment and relaxation; short breaks with music or games help students recharge between study sessions. My own addition is organizational skills: calendar and reminder apps teach time management. I personally use my phone for vocabulary apps and recording my speaking practice. Do phones distract students? They can — the problem isn't the device but self-control. As for banning them in class, I'd say ban them during lessons but teach digital discipline, because students will need to manage technology for the rest of their lives.",
+    tip: "Đứng ở lập trường CÂN BẰNG (benefits + risks + điều kiện) cho các đề hai mặt như smartphone — tránh cực đoan, giám khảo thích 'nuanced view'."
+  }
+];
+
+const SELF_EXAM_SETS = [
+  {
+    id: "exam22",
+    code: "Đề 22",
+    name: "Đề tự biên 01 (Native American Maritime Culture)",
+    source: "Đề tổng hợp tự biên — Ngân hàng câu hỏi Phòng thi B2 (Đọc: Đề mẫu Bộ GD&ĐT · Nghe: Bộ Nghe Test 3 · Viết/Nói: đề tự biên)",
+    badge: "Tự biên #01",
+    readingSetIndex: 0,
+    listeningSet: 6,
+    w1Id: "w25",
+    w2Id: "w31",
+    s1Id: "s22",
+    s2Id: "s32",
+    s3Id: "s41",
+  },
+  {
+    id: "exam23",
+    code: "Đề 23",
+    name: "Đề tự biên 02 (Working in Extreme Environments)",
+    source: "Đề tổng hợp tự biên — Ngân hàng câu hỏi Phòng thi B2 (Đọc: Đề số 06 ZIM & PREP · Nghe: Bộ Nghe Test 1 · Viết/Nói: đề tự biên)",
+    badge: "Tự biên #02",
+    readingSetIndex: 5,
+    listeningSet: 4,
+    w1Id: "w26",
+    w2Id: "w32",
+    s1Id: "s23",
+    s2Id: "s33",
+    s3Id: "s42",
+  },
+  {
+    id: "exam24",
+    code: "Đề 24",
+    name: "Đề tự biên 03 (Glencorn Lodge in County Antrim)",
+    source: "Đề tổng hợp tự biên — Ngân hàng câu hỏi Phòng thi B2 (Đọc: Sách ĐHQGHN Test 01 · Nghe: Bộ Nghe Test 4 · Viết/Nói: đề tự biên)",
+    badge: "Tự biên #03",
+    readingSetIndex: 6,
+    listeningSet: 7,
+    w1Id: "w27",
+    w2Id: "w33",
+    s1Id: "s24",
+    s2Id: "s34",
+    s3Id: "s43",
+  },
+  {
+    id: "exam25",
+    code: "Đề 25",
+    name: "Đề tự biên 04 (Humanitarian Dorothea Dix & Mental Health Reform)",
+    source: "Đề tổng hợp tự biên — Ngân hàng câu hỏi Phòng thi B2 (Đọc: Sách ĐHQGHN Test 07 · Nghe: Bộ Nghe Test 5 · Viết/Nói: đề tự biên)",
+    badge: "Tự biên #04",
+    readingSetIndex: 12,
+    listeningSet: 8,
+    w1Id: "w28",
+    w2Id: "w34",
+    s1Id: "s25",
+    s2Id: "s35",
+    s3Id: "s44",
+  }
+];
+
+WRITING.push(...SELF_WRITING);
+SPEAKING_P1.push(...SELF_SPEAKING_P1);
+SPEAKING_P2.push(...SELF_SPEAKING_P2);
+SPEAKING_P3.push(...SELF_SPEAKING_P3);
+VSTEP_EXAM_SETS.push(...SELF_EXAM_SETS);

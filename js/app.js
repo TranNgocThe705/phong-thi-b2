@@ -406,8 +406,8 @@ function viewHome(){
   const totalMCQs = GRAMMAR.length + VOCAB.length + totalReadingQs + totalListeningQs;
   const totalSpeak = SPEAKING_P1.length + SPEAKING_P2.length + SPEAKING_P3.length;
   const modDefs = [
-    ["Nền tảng", "Ngữ pháp & Cấu trúc", "12 chuyên đề trọng tâm thường gặp nhất trong đề VSTEP: thì, câu bị động, câu điều kiện, mệnh đề quan hệ.", GRAMMAR.length + " câu hỏi", "#/ngu-phap"],
-    ["Nền tảng", "Từ vựng B2 & Flashcard", "Collocation, phrasal verbs, từ vựng theo 6 chủ đề học thuật kèm hệ thống thẻ ghi nhớ lặp lại ngắt quãng.", VOCAB.length + " câu + 48 thẻ", "#/tu-vung"],
+    ["Nền tảng", "Ngữ pháp & Cấu trúc", new Set(GRAMMAR.map(q => q.topic)).size + " chuyên đề trọng tâm thường gặp nhất trong đề VSTEP: thì, bị động, điều kiện, đảo ngữ, câu chẻ, mệnh đề rút gọn.", GRAMMAR.length + " câu hỏi", "#/ngu-phap"],
+    ["Nền tảng", "Từ vựng B2 & Flashcard", "Collocation, phrasal verbs, idiom, cặp từ dễ nhầm và từ vựng theo " + new Set(VOCAB.map(q => q.set)).size + " chủ đề kèm hệ thống thẻ ghi nhớ lặp lại ngắt quãng.", VOCAB.length + " câu + " + CARDS.length + " thẻ", "#/tu-vung"],
     ["Kỹ năng 1", "Đọc hiểu VSTEP", ALL_READING_SETS.length + " bộ đề Reading Full Test (" + (ALL_READING_SETS.length * 4) + " bài đọc dài) từ Sách NXB ĐHQGHN, Anh ngữ Thiên Ân, ĐH Ngoại Thương, ĐH Đồng Tháp, EVSTEP, Vivian, ZIM & PREP.", totalReadingQs + " câu hỏi", "#/doc"],
     ["Kỹ năng 2", "Nghe hiểu 2 giọng đọc", [...new Set(LISTENING.map(g => g.set || 1))].length + " bộ đề Listening đủ Part 1, Part 2, Part 3 phát trực tiếp bằng 2 giọng đọc kèm lời thoại (Transcript) đối chiếu.", totalListeningQs + " câu hỏi", "#/nghe"],
     ["Kỹ năng 3", "Viết thư & Luận văn", WRITING.length + " đề Task 1 & Task 2 từ các bộ đề thi thật, tích hợp AI chấm theo 4 tiêu chí VSTEP và AI nâng cấp bài lên B2/C1.", WRITING.length + " đề luyện", "#/viet"],
@@ -523,8 +523,8 @@ function viewGrammar(){
   const topics = [...new Set(GRAMMAR.map(q => q.topic))];
   let filter = "all";
   app.innerHTML = moduleHead("Học phần 1", "Ngữ pháp &amp; Cấu trúc B2",
-    "12 chuyên đề ngữ pháp cốt lõi của VSTEP B2. Chọn đáp án để xem giải thích ngay lập tức; những câu trả lời sai sẽ tự động được lưu vào Sổ lỗi.",
-    "60 câu trắc nghiệm") + `
+    topics.length + " chuyên đề ngữ pháp cốt lõi của VSTEP B2, từ thì, bị động, điều kiện đến đảo ngữ, câu chẻ và mệnh đề rút gọn. Chọn đáp án để xem giải thích ngay lập tức; câu trả lời sai tự động được lưu vào Sổ lỗi.",
+    GRAMMAR.length + " câu trắc nghiệm") + `
     <div class="topic-bar" id="topicBar">
       <button class="chip on" data-t="all">Tất cả chủ đề <span class="n">${GRAMMAR.length}</span></button>
       ${topics.map(t => `<button class="chip" data-t="${esc(t)}">${esc(t)} <span class="n">${GRAMMAR.filter(q => q.topic === t).length}</span></button>`).join("")}
@@ -547,8 +547,8 @@ function viewGrammar(){
 function viewVocab(tab){
   tab = tab || "quiz";
   app.innerHTML = moduleHead("Học phần 2", "Từ vựng B2 &amp; Flashcard",
-    "Rèn luyện collocation, phrasal verbs và từ vựng theo 6 chủ đề thường gặp trong đề thi, kết hợp thẻ ghi nhớ Flashcard lật 3D theo phương pháp lặp lại ngắt quãng.",
-    "60 câu hỏi & 48 thẻ từ") + `
+    "Rèn luyện collocation, phrasal verbs, thành ngữ, cặp từ dễ nhầm và từ vựng theo " + new Set(VOCAB.map(q => q.set)).size + " chủ đề thường gặp trong đề thi, kết hợp thẻ ghi nhớ Flashcard lật 3D theo phương pháp lặp lại ngắt quãng.",
+    VOCAB.length + " câu hỏi & " + CARDS.length + " thẻ từ") + `
     <div class="topic-bar">
       <button class="chip ${tab === "quiz" ? "on" : ""}" data-tab="quiz">Luyện câu hỏi trắc nghiệm</button>
       <button class="chip ${tab === "cards" ? "on" : ""}" data-tab="cards">Học thẻ Flashcard 3D</button>
@@ -840,19 +840,132 @@ function viewListening(selSet){
 }
 
 /* ================= VIẾT ================= */
-function viewWriting(sel){
+/* Ngân hàng ý tưởng vạn năng — triển khai ý khi gặp đề lạ (dùng cho Task 2 & Nói Part 3) */
+const IDEA_BANK = [
+  ["Giáo dục", [
+    ["broadens career prospects and earning potential", "mở rộng cơ hội nghề nghiệp và thu nhập"],
+    ["reduces inequality between social groups", "thu hẹp bất bình đẳng giữa các tầng lớp"],
+    ["develops critical thinking and problem-solving skills", "rèn tư duy phản biện và kỹ năng giải quyết vấn đề"],
+    ["supplies a skilled workforce for the economy", "cung cấp nhân lực chất lượng cho nền kinh tế"]],
+    [
+    ["high tuition fees place a heavy burden on families", "học phí cao tạo gánh nặng cho gia đình"],
+    ["theory-heavy curricula often lack practical skills", "chương trình nặng lý thuyết, thiếu kỹ năng thực hành"],
+    ["intense academic pressure harms students' mental health", "áp lực học tập ảnh hưởng sức khỏe tinh thần"],
+    ["a degree no longer guarantees stable employment", "tấm bằng không còn đảm bảo việc làm ổn định"]]],
+  ["Công nghệ", [
+    ["saves time and effort through automation", "tiết kiệm thời gian nhờ tự động hóa"],
+    ["widens access to information and public services", "mở rộng tiếp cận thông tin và dịch vụ công"],
+    ["creates entirely new industries and jobs", "tạo ra ngành nghề và việc làm hoàn toàn mới"],
+    ["connects people regardless of distance", "kết nối con người bất kể khoảng cách"]],
+    [
+    ["automation replaces manual workers and causes job losses", "máy móc thay thế lao động thủ công gây thất nghiệp"],
+    ["excessive screen time weakens face-to-face skills", "dùng màn hình quá nhiều làm giảm kỹ năng giao tiếp trực tiếp"],
+    ["raises serious concerns about privacy and data security", "đặt ra lo ngại về riêng tư và an toàn dữ liệu"],
+    ["widens the gap between digital haves and have-nots", "nới rộng khoảng cách giữa người có và không có công nghệ"]]],
+  ["Môi trường", [
+    ["protects public health by reducing pollution", "bảo vệ sức khỏe cộng đồng nhờ giảm ô nhiễm"],
+    ["preserves natural resources for future generations", "giữ gìn tài nguyên cho thế hệ sau"],
+    ["green industries create sustainable jobs", "công nghiệp xanh tạo việc làm bền vững"],
+    ["ecotourism generates income while conserving nature", "du lịch sinh thái tạo thu nhập đồng thời bảo tồn thiên nhiên"]],
+    [
+    ["green transition raises costs for businesses and consumers", "chuyển đổi xanh làm tăng chi phí cho doanh nghiệp và người tiêu dùng"],
+    ["strict environmental rules can slow economic growth", "quy định môi trường nghiêm ngặt có thể làm chậm tăng trưởng"],
+    ["eco-friendly habits are inconvenient to maintain", "thói quen thân thiện môi trường khó duy trì vì bất tiện"],
+    ["developing regions often lack funding for green policies", "vùng đang phát triển thường thiếu ngân sách cho chính sách xanh"]]],
+  ["Sức khỏe", [
+    ["healthy citizens are more productive workers", "người dân khỏe mạnh làm việc năng suất hơn"],
+    ["prevention is far cheaper than treatment", "phòng bệnh rẻ hơn nhiều so với chữa bệnh"],
+    ["improves quality of life and life expectancy", "nâng cao chất lượng sống và tuổi thọ"],
+    ["reduces the financial burden on healthcare systems", "giảm gánh nặng tài chính cho hệ thống y tế"]],
+    [
+    ["healthcare costs strain both family and state budgets", "chi phí y tế đè nặng ngân sách gia đình và nhà nước"],
+    ["fast-paced modern life makes healthy habits hard to keep", "nhịp sống nhanh khiến thói quen lành mạnh khó duy trì"],
+    ["health campaigns can limit personal freedom of choice", "chiến dịch sức khỏe đôi khi hạn chế tự do lựa chọn cá nhân"],
+    ["rural areas still lack access to quality medical services", "vùng nông thôn vẫn thiếu dịch vụ y tế chất lượng"]]],
+  ["Kinh tế & Việc làm", [
+    ["raises living standards across society", "nâng cao mức sống của toàn xã hội"],
+    ["generates tax revenue for public services", "tạo nguồn thuế cho dịch vụ công"],
+    ["flexible work improves work-life balance", "làm việc linh hoạt cải thiện cân bằng cuộc sống"],
+    ["small businesses drive innovation and local employment", "doanh nghiệp nhỏ thúc đẩy đổi mới và việc làm địa phương"]],
+    [
+    ["rapid growth often widens the rich-poor gap", "tăng trưởng nhanh thường nới rộng khoảng cách giàu nghèo"],
+    ["insecure contracts leave workers without stability", "hợp đồng không ổn định khiến người lao động thiếu an toàn"],
+    ["overwork culture damages health and family life", "văn hóa làm việc quá sức hại sức khỏe và đời sống gia đình"],
+    ["economic dependence on one sector is risky", "phụ thuộc kinh tế vào một ngành tiềm ẩn rủi ro"]]],
+  ["Gia đình & Xã hội", [
+    ["strong family support builds emotional resilience", "sự hỗ trợ gia đình tạo sức bật tinh thần"],
+    ["community activities reduce loneliness and isolation", "hoạt động cộng đồng giảm cô đơn và cô lập"],
+    ["shared values create social stability and trust", "giá trị chung tạo sự ổn định và tin cậy xã hội"],
+    ["close-knit neighbourhoods improve safety for children", "khu dân cư gắn kết giúp trẻ em an toàn hơn"]],
+    [
+    ["generation gaps frequently cause family conflict", "khác biệt thế hệ thường gây mâu thuẫn gia đình"],
+    ["social pressure can limit individual freedom", "áp lực xã hội có thể hạn chế tự do cá nhân"],
+    ["rapid urbanisation weakens traditional community bonds", "đô thị hóa nhanh làm suy yếu gắn kết cộng đồng truyền thống"],
+    ["both parents working means less time with children", "cha mẹ cùng đi làm khiến thời gian bên con bị cắt giảm"]]],
+  ["Truyền thông", [
+    ["spreads information instantly to a wide audience", "lan truyền thông tin tức thì tới đông đảo công chúng"],
+    ["gives ordinary citizens a public voice", "trao tiếng nói công khai cho người dân thường"],
+    ["holds organisations and authorities accountable", "giám sát trách nhiệm của tổ chức và chính quyền"],
+    ["educational content reaches learners everywhere", "nội dung giáo dục tiếp cận người học ở mọi nơi"]],
+    [
+    ["fake news misleads the public and spreads panic", "tin giả đánh lừa công chúng và gây hoang mang"],
+    ["sensational headlines reduce trust in the media", "tiêu đề giật gân làm giảm niềm tin vào báo chí"],
+    ["constant exposure to negative news causes anxiety", "tiếp xúc liên tục tin xấu gây lo âu"],
+    ["social media algorithms trap users in echo chambers", "thuật toán mạng xã hội nhốt người dùng trong buồng vang"]]],
+  ["Du lịch & Văn hóa", [
+    ["tourism creates jobs and boosts local income", "du lịch tạo việc làm và tăng thu nhập địa phương"],
+    ["travel broadens horizons and cultural understanding", "đi lại mở rộng tầm nhìn và hiểu biết văn hóa"],
+    ["visitor spending helps fund heritage preservation", "chi tiêu của khách giúp tài trợ bảo tồn di sản"],
+    ["cultural exchange promotes tolerance between nations", "giao lưu văn hóa thúc đẩy sự khoan dung giữa các quốc gia"]],
+    [
+    ["overtourism damages fragile natural environments", "du lịch quá tải phá hủy môi trường tự nhiên nhạy cảm"],
+    ["commercialisation erodes authentic local culture", "thương mại hóa làm mất bản sắc văn hóa địa phương"],
+    ["tourism pushes up prices for local residents", "du lịch đẩy giá sinh hoạt lên cao cho người dân bản địa"],
+    ["mass tourism produces large carbon footprints", "du lịch đại trà tạo dấu chân carbon lớn"]]]
+];
+let ideaKitOpen = false;
+
+function viewWriting(sel, wFilter){
   sel = sel || 0;
+  wFilter = wFilter || "all";
   const t = WRITING[sel];
+  const officialCount = WRITING.filter(w => w.official).length;
+  const t1Count = WRITING.filter(w => w.task === 1).length;
+  const t2Count = WRITING.length - t1Count;
+  const wIdxs = WRITING.map((_, i) => i).filter(i => wFilter === "all" || (wFilter === "t1" ? WRITING[i].task === 1 : WRITING[i].task === 2));
   app.innerHTML = moduleHead("Học phần 5", "Luyện Viết VSTEP (Writing)",
-    "Chọn đề Task 1 (Thư/Email) hoặc Task 2 (Luận văn) từ 14 đề thi thực tế. Hệ thống tự động đếm từ, phân tích cục bộ, chấm điểm 4 tiêu chí VSTEP bằng AI và nâng cấp bài viết lên B2/C1.",
+    "Ngân hàng " + WRITING.length + " đề Viết (" + officialCount + " đề thi thật + " + (WRITING.length - officialCount) + " đề tự biên): Task 1 Thư/Email ≥120 từ và Task 2 Luận văn ≥250 từ. Hệ thống tự động đếm từ, phân tích cục bộ, chấm điểm 4 tiêu chí VSTEP bằng AI và nâng cấp bài viết lên B2/C1.",
     WRITING.length + " đề luyện | 60 phút") + `
+    <div class="topic-bar" style="margin:0 0 14px">
+      ${[["all", "Tất cả (" + WRITING.length + ")"], ["t1", "Task 1 — Thư/Email (" + t1Count + ")"], ["t2", "Task 2 — Luận văn (" + t2Count + ")"]].map(([k, l]) => `<button class="chip ${wFilter === k ? "on" : ""}" data-wf="${k}">${l}</button>`).join("")}
+    </div>
     <div class="wtask-picker" id="wPicker">
-      ${WRITING.map((w, i) => `
-        <button class="wtask ${i === sel ? "on" : ""}" data-i="${i}">
-          <span class="t">Task ${w.task} (${w.time} phút)${w.official ? " • Đề chính thức" : ""}</span>
-          <b>${esc(w.type)}</b>
-          <span style="font-size:12px;color:var(--ink-3)">Tối thiểu ${w.target} từ</span>
-        </button>`).join("")}
+      ${wIdxs.map(i => { const w = WRITING[i]; return `
+        <button class="wtask ${i === sel ? "on" : ""}" data-i="${i}" title="${esc(w.type)}">
+          <span class="wtask__code">${w.id.toUpperCase()}</span>
+          <span class="wtask__name">${esc(w.type)}</span>
+          ${w.official ? '<span class="wtask__tag">Đề thật</span>' : ""}
+          <span class="wtask__meta">T${w.task} · ${w.time}p · ≥${w.target}t</span>
+        </button>`; }).join("")}
+    </div>
+    <div class="sheet ideakit ${ideaKitOpen ? "open" : ""}" id="ideaKit">
+      <button class="ideakit__head" id="ideaKitBtn" type="button">
+        <span class="ideakit__title">Bí ý tưởng? Bộ công cụ triển khai ý khi gặp đề lạ <small>· dùng được cho cả Nói Part 3</small></span>
+        <span class="ideakit__arrow">▾</span>
+      </button>
+      <div class="ideakit__body" id="ideaKitBody" ${ideaKitOpen ? "" : "hidden"}>
+        <div class="idea-steps">
+          <div class="idea-step"><b>1 · Nhận dạng đề (30 giây)</b><p>Gạch chân từ khóa và xác định dạng đề: Opinion (agree/disagree) chọn rõ một phía; Discussion trình bày hai mặt rồi kết luận; Advantages–Disadvantages viết hai đoạn cân bằng; Problem–Solution một đoạn nguyên nhân kèm một đoạn giải pháp.</p></div>
+          <div class="idea-step"><b>2 · Vặn ý bằng 3 góc nhìn P-E-S</b><p>Personal: tiền bạc, thời gian, sức khỏe, cảm xúc. Economic: việc làm, chi phí, năng suất. Social: công bằng, môi trường, cộng đồng. Với mỗi góc nhìn tự hỏi: ai được lợi, ai chịu thiệt?</p></div>
+          <div class="idea-step"><b>3 · Đảo chiều khi vẫn bí</b><p>Hỏi ngược: "nếu KHÔNG có điều này thì điều gì xảy ra?" để sinh ý phản diện. Hoặc đổi chủ thể từ cá nhân sang gia đình, doanh nghiệp, chính phủ để mở khóa thêm lập luận.</p></div>
+          <div class="idea-step"><b>4 · Khóa ý vào khung đoạn</b><p>Mỗi đoạn thân bài: Câu chủ đề → Giải thích vì sao → Ví dụ thực tế → Câu nối quay lại đề. Hai ý triển khai sâu luôn ăn điểm hơn bốn ý liệt kê nông.</p></div>
+        </div>
+        <div class="idea-bank__label">Ngân hàng ý vạn năng: chọn chủ đề gần đề nhất rồi biến tấu cho khớp đề của bạn</div>
+        <div class="topic-bar" id="ideaThemes" style="margin:0 0 10px">
+          ${IDEA_BANK.map((t, i) => `<button class="chip ${i === 0 ? "on" : ""}" data-it="${i}">${esc(t[0])}</button>`).join("")}
+        </div>
+        <div class="idea-cols" id="ideaCols"></div>
+      </div>
     </div>
     <div class="write-layout">
       <div class="sheet write-paper">
@@ -889,7 +1002,26 @@ function viewWriting(sel){
         <button class="btn btn--ghost" id="wSampleBtn" style="margin-top:12px">Xem / Ẩn bài mẫu B2</button>
       </div>
     </div>`;
-  $$("#wPicker .wtask").forEach(b => b.onclick = () => { $$("#wPicker .wtask").forEach(x => x.classList.remove("on")); b.classList.add("on"); viewWriting(+b.dataset.i); });
+  $$(".chip[data-wf]").forEach(b => b.onclick = () => {
+    const k = b.dataset.wf;
+    let idx = sel;
+    if(k !== "all" && WRITING[idx].task !== (k === "t1" ? 1 : 2)) idx = WRITING.findIndex(w => w.task === (k === "t1" ? 1 : 2));
+    viewWriting(idx, k);
+  });
+  $$("#wPicker .wtask").forEach(b => b.onclick = () => { $$("#wPicker .wtask").forEach(x => x.classList.remove("on")); b.classList.add("on"); viewWriting(+b.dataset.i, wFilter); });
+  $("#ideaKitBtn").onclick = () => {
+    ideaKitOpen = !ideaKitOpen;
+    $("#ideaKit").classList.toggle("open", ideaKitOpen);
+    $("#ideaKitBody").hidden = !ideaKitOpen;
+  };
+  const renderIdeas = i => {
+    const [, pros, cons] = IDEA_BANK[i];
+    $("#ideaCols").innerHTML = `
+      <div class="idea-col idea-col--pro"><h5>Ý THUẬN: dùng cho mặt ủng hộ</h5><ul>${pros.map(p => `<li><b>${esc(p[0])}</b><span>${esc(p[1])}</span></li>`).join("")}</ul></div>
+      <div class="idea-col idea-col--con"><h5>Ý PHẢN / RỦI RO: dùng cho mặt chống hoặc nhượng bộ</h5><ul>${cons.map(p => `<li><b>${esc(p[0])}</b><span>${esc(p[1])}</span></li>`).join("")}</ul></div>`;
+  };
+  renderIdeas(0);
+  $$("#ideaThemes .chip").forEach(b => b.onclick = () => { $$("#ideaThemes .chip").forEach(x => x.classList.remove("on")); b.classList.add("on"); renderIdeas(+b.dataset.it); });
   $$("#wCheck li").forEach(li => li.onclick = () => li.classList.toggle("done"));
   const area = $("#wArea");
   const meter = $("#wMeter");
@@ -1008,7 +1140,7 @@ function viewSpeaking(part){
 
     body.innerHTML = `
       <div class="topic-bar" id="spBar">
-        ${ITEMS.map((x, i) => `<button class="chip ${i === cur ? "on" : ""}" data-i="${i}">${esc(x.topic)}${x.official ? " (Đề chính thức)" : ""}</button>`).join("")}
+        ${ITEMS.map((x, i) => `<button class="chip ${i === cur ? "on" : ""}" data-i="${i}">${esc(x.topic.replace(/\s*\([^)]*\)\s*$/, ""))}</button>`).join("")}
       </div>
       <div class="speak-layout">
         <div>
@@ -1133,25 +1265,60 @@ function viewSpeaking(part){
 }
 
 /* ================= THI THỬ ================= */
-function viewMock(selExamIdx){
+const EXAM_GROUP_ORDER = ["Đề gốc & Thực chiến", "Sách NXB ĐHQGHN", "Anh ngữ Thiên Ân", "Đề tự biên — Phòng thi B2"];
+
+function examGroupOf(e){
+  const t = ((e.badge || "") + " " + (e.source || "")).toLowerCase();
+  if (t.includes("tự biên")) return "Đề tự biên — Phòng thi B2";
+  if (t.includes("thiên ân")) return "Anh ngữ Thiên Ân";
+  if (t.includes("đhqghn") || t.includes("quốc gia hà nội")) return "Sách NXB ĐHQGHN";
+  return "Đề gốc & Thực chiến";
+}
+
+function examCellSub(e){
+  const m = (e.name || "").match(/\(([^)]{4,80})\)/);
+  return m ? m[1] : (e.badge || "");
+}
+
+function viewMock(selExamIdx, selGroup){
   selExamIdx = selExamIdx !== undefined ? selExamIdx : 0;
+  selGroup = selGroup || "*";
   const ex = VSTEP_EXAM_SETS[selExamIdx] || VSTEP_EXAM_SETS[0];
   const rSet = ALL_READING_SETS[ex.readingSetIndex] || ALL_READING_SETS[0];
   const lGroups = LISTENING.filter(g => (g.set || 1) === ex.listeningSet);
   const lCount = lGroups.reduce((s, g) => s + g.qs.length, 0);
 
+  const examGroups = {};
+  VSTEP_EXAM_SETS.forEach((item, i) => {
+    const g = examGroupOf(item);
+    (examGroups[g] = examGroups[g] || []).push(i);
+  });
+  const groupNames = [
+    ...EXAM_GROUP_ORDER.filter(g => examGroups[g]),
+    ...Object.keys(examGroups).filter(g => !EXAM_GROUP_ORDER.includes(g))
+  ];
+  const visIdxs = selGroup === "*" ? VSTEP_EXAM_SETS.map((_, i) => i) : (examGroups[selGroup] || []);
+
   app.innerHTML = moduleHead("Phòng thi CBT", "Thi thử VSTEP B2 trên máy tính (Kho " + VSTEP_EXAM_SETS.length + " Bộ đề)",
     "Chọn 1 trong " + VSTEP_EXAM_SETS.length + " Bộ đề thi thực chiến được bóc tách từ Sách 10 bộ đề NXB ĐHQGHN, 5 đề Full 4 kỹ năng Anh ngữ Thiên Ân (VSTEP Collection 20 Mock Tests), PDF các trường đại học (ĐH Đồng Tháp, ĐH Ngoại Thương FTU) và các hệ thống luyện thi lớn (EVSTEP, Vivian, ZIM, PREP).",
     VSTEP_EXAM_SETS.length + " bộ đề Full 4 kỹ năng") + `
-    <div class="sheet sheet--pad" style="margin-bottom:20px;padding:18px 22px">
-      <div style="font-size:12.5px;font-weight:700;color:var(--ink-3);margin-bottom:10px">CHỌN MÃ BỘ ĐỀ THI TRƯỚC KHI VÀO PHÒNG THI (${VSTEP_EXAM_SETS.length} BỘ ĐỀ):</div>
-      <div class="topic-bar" id="mockExamPicker" style="margin:0">
-        ${VSTEP_EXAM_SETS.map((item, i) => `
-          <button class="chip ${i === selExamIdx ? "on" : ""}" data-exi="${i}">
-            <span>${esc(item.code)} (${esc(item.badge)})</span>
-          </button>`).join("")}
+    <div class="sheet exam-picker">
+      <div class="exam-picker__top">
+        <span class="exam-picker__title">Chọn mã bộ đề trước khi vào phòng thi</span>
+        <span class="exam-picker__total">${VSTEP_EXAM_SETS.length} bộ đề</span>
       </div>
-      <div style="margin-top:12px;font-size:13.5px;color:var(--ink-2);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px">
+      <div class="exam-picker__tabs">
+        <button class="exam-tab ${selGroup === "*" ? "on" : ""}" data-grp="*">Tất cả <b>${VSTEP_EXAM_SETS.length}</b></button>
+        ${groupNames.map(g => `<button class="exam-tab ${selGroup === g ? "on" : ""}" data-grp="${esc(g)}">${esc(g)} <b>${examGroups[g].length}</b></button>`).join("")}
+      </div>
+      <div class="exam-grid" id="mockExamPicker">
+        ${visIdxs.map(i => { const item = VSTEP_EXAM_SETS[i]; return `
+          <button class="exam-cell ${i === selExamIdx ? "on" : ""}" data-exi="${i}">
+            <span class="exam-cell__code">${esc(item.code)}</span>
+            <span class="exam-cell__sub">${esc(examCellSub(item))}</span>
+          </button>`; }).join("")}
+      </div>
+      <div class="exam-picker__cur">
         <span><b>Bộ đề đang chọn:</b> ${esc(ex.code)} — ${esc(ex.name)}</span>
         <span style="color:var(--primary);font-weight:600">Nguồn: ${esc(ex.source)}</span>
       </div>
@@ -1202,7 +1369,13 @@ function viewMock(selExamIdx){
     </div>
     <p style="font-size:13px;color:var(--ink-3);margin-top:16px">Quy chế tính điểm chuẩn VSTEP: Điểm trung bình 4 kỹ năng làm tròn đến 0.5 — Từ <b>4.0–5.5</b> đạt B1, từ <b>6.0–8.0</b> đạt B2, từ <b>8.5–10.0</b> đạt C1.</p>`;
 
-  $$("#mockExamPicker .chip").forEach(b => b.onclick = () => viewMock(+b.dataset.exi));
+  $$(".exam-tab").forEach(b => b.onclick = () => {
+    const g = b.dataset.grp;
+    let idx = selExamIdx;
+    if (g !== "*" && !(examGroups[g] || []).includes(idx)) idx = examGroups[g][0];
+    viewMock(idx, g);
+  });
+  $$("#mockExamPicker .exam-cell").forEach(b => b.onclick = () => viewMock(+b.dataset.exi, selGroup));
   $("#startFullCBT").onclick = () => runFullCBTExam(selExamIdx);
   $$(".mock-opt").forEach(b => b.onclick = () => runMock(b.dataset.mode, selExamIdx));
 }
@@ -2123,6 +2296,7 @@ function viewStrategy(){
         <li><b>Văn phong (Register):</b> Task 2 luôn viết trang trọng (Formal), tuyệt đối tránh viết tắt như “don't, can't, it's”.</li>
         <li><b>Cấu trúc đoạn thân bài:</b> Mỗi đoạn thân bài gồm Câu chủ đề (Topic sentence) + Giải thích (Reason) + Ví dụ thực tế (Example).</li>
         <li><b>Phân bổ độ dài:</b> Task 1 viết khoảng 130–160 từ (trong 20 phút); Task 2 viết khoảng 260–300 từ (trong 40 phút).</li>
+        <li><b>Gặp đề lạ không trúng tủ?</b> Mở “Bộ công cụ triển khai ý” ngay trên trang <a href="#/viet"><b>Luyện Viết</b></a> để vặn ý bằng 3 góc nhìn và tra ngân hàng ý vạn năng theo 8 chủ đề.</li>
       </ul>
     </div>
 

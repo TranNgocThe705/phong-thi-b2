@@ -4,6 +4,24 @@
    - Không có key: bộ phân tích cục bộ (rule-based) vẫn chạy đủ
    ============================================================ */
 
+/* Dịch mã lỗi API sang hướng dẫn xử lý tiếng Việt (trả null nếu không nhận diện được) */
+function aiErrorHint(status, raw, model){
+  let j = null;
+  try { j = JSON.parse(raw); } catch(e){}
+  const msg = (j && j.error && j.error.message) || raw || "";
+  const st = (j && j.error && j.error.status) || "";
+  if(status === 400) return "API Key không hợp lệ hoặc sai định dạng (" + st + "). Kiểm tra lại đã copy ĐỦ khóa chưa — khóa Gemini thường bắt đầu bằng “AIza”.";
+  if(status === 401) return "API Key không hợp lệ (401 Unauthorized). Hãy kiểm tra lại khóa hoặc tạo khóa mới.";
+  if(status === 403){
+    if(/suspend/i.test(msg)) return "Project Google Cloud gắn với khóa này đã bị ĐÌNH CHỈ (suspended) nên khóa vô hiệu. Cách sửa: vào aistudio.google.com → Get API key → chọn “Create API key in new project” để cấp khóa mới rồi dán lại vào đây.";
+    if(/referer|referrer|block/i.test(msg)) return "Khóa đang bị chặn bởi giới hạn referrer — vào Google Cloud Console → Credentials bỏ giới hạn hoặc tạo khóa mới không giới hạn.";
+    return "Khóa không có quyền truy cập model này (403 " + st + "). Thử đổi Tên Model thành “gemini-2.0-flash” hoặc tạo khóa mới tại aistudio.google.com.";
+  }
+  if(status === 404) return "Không tìm thấy model “" + (model || "") + "”. Kiểm tra lại Tên Model — gợi ý: gemini-2.0-flash, gemini-2.5-flash hoặc để trống để dùng mặc định.";
+  if(status === 429) return "Đã hết hạn ngạch (quota) miễn phí — chờ khoảng 1 phút rồi thử lại, hoặc đổi sang model khác trong ô Tên Model.";
+  return null;
+}
+
 const AI = {
   KEY_STORE: "b2.ai.key.v1",
   cfg(){
@@ -29,7 +47,7 @@ const AI = {
         generationConfig: { temperature: 0.4, maxOutputTokens: maxTokens }
       };
       const r = await fetch(url, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
-      if(!r.ok){ const t = await r.text(); throw new Error("Gemini lỗi " + r.status + ": " + t.slice(0, 200)); }
+      if(!r.ok){ const t = await r.text(); throw new Error(aiErrorHint(r.status, t, model) || ("Gemini lỗi " + r.status + ": " + t.slice(0, 160))); }
       const j = await r.json();
       return (j.candidates?.[0]?.content?.parts || []).map(p => p.text || "").join("");
     } else {
@@ -47,7 +65,7 @@ const AI = {
           ]
         })
       });
-      if(!r.ok){ const t = await r.text(); throw new Error("API lỗi " + r.status + ": " + t.slice(0, 200)); }
+      if(!r.ok){ const t = await r.text(); throw new Error(aiErrorHint(r.status, t, model) || ("API lỗi " + r.status + ": " + t.slice(0, 160))); }
       const j = await r.json();
       return j.choices?.[0]?.message?.content || "";
     }
