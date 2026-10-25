@@ -18,7 +18,7 @@ Mọi file JS/CSS local được load kèm `?v=YYYYMMDD` trong `index.html`. **K
 
 ## Cấu trúc dữ liệu
 
-- `js/data-exam-library.js` — kho đề trung tâm: `ALL_READING_SETS` (21 bộ), `LISTENING` (8 bộ), `WRITING` (36), `SPEAKING_P1/P2/P3` (17 mỗi phần), `VSTEP_EXAM_SETS` (25 đề CBT). Block mới append cuối file rồi `ARR.push(...)` — xem mẫu block Thiên Ân / Tự biên.
+- `js/data-exam-library.js` — kho đề trung tâm: `ALL_READING_SETS` (21 bộ), `LISTENING` (8 bộ), `WRITING` (87: 19 Task 1 + 68 Task 2), `SPEAKING_P1/P2/P3` (17/23/68), `VSTEP_EXAM_SETS` (31 đề CBT). Block mới append cuối file rồi `ARR.push(...)` — xem mẫu block Thiên Ân / Tự biên / Đề thi thật.
 - `js/data-grammar.js` `GRAMMAR` (100 câu/20 chủ đề), `js/data-vocab.js` `VOCAB` (100 câu/14 chủ đề) + `CARDS` (144 thẻ).
 - Câu hỏi bắt buộc có `id`, `q`, `opts` (4), `a` (index), `ex` (giải thích tiếng Việt).
 - Đề CBT map kỹ năng qua `readingSetIndex`, `listeningSet`, `w1Id/w2Id`, `s1Id/s2Id/s3Id`.
