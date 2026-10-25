@@ -1937,6 +1937,7 @@ function runFullCBTExam(examIdx, draft){
   let readCurPassage = draft ? Math.min(Math.max(+draft.readCurPassage || 0, 0), readPassages.length - 1) : 0;
   let listenCurGroup = draft ? Math.min(Math.max(+draft.listenCurGroup || 0, 0), listenGroups.length - 1) : 0;
   const readHL = draft && draft.readHL || {};
+  const listenPlayed = Array.from({ length: listenGroups.length }, (_, i) => !!(draft && Array.isArray(draft.listenPlayed) && draft.listenPlayed[i]));
   let submitted = false;
 
   const saveDraft = () => {
@@ -1944,7 +1945,7 @@ function runFullCBTExam(examIdx, draft){
     try{
       localStorage.setItem(CBT_DRAFT_KEY, JSON.stringify({
         v: 1, examIdx: examIdx || 0, stageIdx, stageLeft, totalElapsed,
-        listenCurGroup, readCurPassage, listenPicks, readPicks, readFlags,
+        listenCurGroup, readCurPassage, listenPicks, readPicks, readFlags, listenPlayed,
         readHL, writeData, speakData, savedAt: Date.now()
       }));
       const el = $("#cbtSavedAt");
@@ -2042,24 +2043,26 @@ function runFullCBTExam(examIdx, draft){
     const g = listenGroups[listenCurGroup];
     const groupStartIdx = listenQs.findIndex(q => q.gid === g.gid);
     const ansCount = listenPicks.filter(x => x !== undefined).length;
+    const played = !!listenPlayed[listenCurGroup];
+    const stillPlaying = played && TTS.speaking;
 
     mount.innerHTML = `
       <div class="topic-bar">
         ${listenGroups.map((lg, i) => { const lab = (lg.title.includes("—") ? lg.title.split("—").pop() : lg.title.split(":").pop() || lg.title).trim(); return `<button class="chip ${i === listenCurGroup ? "on" : ""}" data-lg="${i}" title="${esc(lg.title)}">Part ${lg.part} · ${esc(lab.length > 42 ? lab.slice(0, 40) + "…" : lab)}</button>`; }).join("")}
       </div>
       <div class="cbt-main">
-          <div class="tape" id="cbtTape">
+          <div class="tape ${stillPlaying ? "playing" : ""}" id="cbtTape">
             <div class="tape__wave" aria-hidden="true">
               <div class="tape__bar"></div><div class="tape__bar"></div><div class="tape__bar"></div>
               <div class="tape__bar"></div><div class="tape__bar"></div><div class="tape__bar"></div>
             </div>
             <div class="tape__info">
               <b>Phần Nghe Part ${g.part}: ${esc(g.title)}</b>
-              <span id="cbtListenStatus">Bấm Phát bài nghe để nghe đoạn băng và chọn đáp án bên dưới</span>
+              <span id="cbtListenStatus">${stillPlaying ? "Đang phát đoạn băng…" : played ? "Đoạn này đã phát — mỗi đoạn chỉ được nghe 01 lần (như thi thật)" : "Mỗi đoạn chỉ được phát 01 lần — đọc trước câu hỏi rồi bấm Phát"}</span>
             </div>
             <div class="tape__ctrl">
-              <button class="btn btn--tape btn--sm" id="cbtPlayBtn">${ICO.play}<span>Phát bài nghe</span></button>
-              <button class="btn btn--tape btn--sm" id="cbtStopBtn">${ICO.stop}<span>Dừng</span></button>
+              <button class="btn btn--tape btn--sm" id="cbtPlayBtn" ${played ? "disabled" : ""}>${played ? ICO.stop : ICO.play}<span>${played ? "Đã phát 1 lần" : "Phát bài nghe"}</span></button>
+              <button class="btn btn--tape btn--sm" id="cbtStopBtn" ${stillPlaying ? "" : "disabled"}>${ICO.stop}<span>Dừng</span></button>
               <button class="btn btn--tape btn--sm" id="cbtScrBtn">${ICO.book}<span>Transcript</span></button>
             </div>
           </div>
@@ -2099,23 +2102,33 @@ function runFullCBTExam(examIdx, draft){
 
     $$("[data-lg]", mount).forEach(b => b.onclick = () => { TTS.stop(); listenCurGroup = +b.dataset.lg; renderListeningStage(mount); });
     const tape = $("#cbtTape", mount);
-    const stEl = $("#cbtListenStatus", mount);
+    const setStatus = t => { const st = $("#cbtListenStatus", mount); if(st) st.textContent = t; };
     $("#cbtPlayBtn", mount).onclick = () => {
+      if(listenPlayed[listenCurGroup]) return;
+      listenPlayed[listenCurGroup] = true;
+      saveDraft();
+      const pb = $("#cbtPlayBtn", mount), sb = $("#cbtStopBtn", mount);
+      if(pb){ pb.disabled = true; const sp = pb.querySelector("span"); if(sp) sp.textContent = "Đã phát 1 lần"; }
+      if(sb) sb.disabled = false;
       TTS.speak(g.script, {
         rate: 1,
         onLine: (li) => {
-          stEl.textContent = `Đang phát câu thoại ${li + 1} / ${g.script.length}…`;
+          setStatus(`Đang phát câu thoại ${li + 1} / ${g.script.length}…`);
           $$(".script-line", mount).forEach((el, idx) => el.classList.toggle("active-line", idx === li));
         },
         onEnd: () => {
-          tape.classList.remove("playing");
-          stEl.textContent = "Đã phát xong đoạn băng.";
+          const t2 = $("#cbtTape", mount);
+          if(t2) t2.classList.remove("playing");
+          setStatus("Đã phát xong đoạn băng — không thể nghe lại.");
           $$(".script-line", mount).forEach(el => el.classList.remove("active-line"));
+          const sb2 = $("#cbtStopBtn", mount);
+          if(sb2) sb2.disabled = true;
         }
       });
       tape.classList.add("playing");
     };
-    $("#cbtStopBtn", mount).onclick = () => { TTS.stop(); tape.classList.remove("playing"); stEl.textContent = "Đã dừng âm thanh."; $$(".script-line", mount).forEach(el => el.classList.remove("active-line")); };
+    const stopBtn = $("#cbtStopBtn", mount);
+    if(stopBtn) stopBtn.onclick = () => { TTS.stop(); tape.classList.remove("playing"); setStatus("Đã dừng — đoạn này không thể nghe lại."); $$(".script-line", mount).forEach(el => el.classList.remove("active-line")); stopBtn.disabled = true; };
     $("#cbtScrBtn", mount).onclick = () => {
       const sb = $("#cbtScrBox", mount);
       sb.classList.toggle("open");
