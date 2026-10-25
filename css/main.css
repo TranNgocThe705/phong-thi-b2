@@ -3599,3 +3599,8 @@ textarea:focus-visible,
   font-size: 12.5px;
   padding: 7px 11px;
 }
+
+/* Focus outline bị .ideakit overflow:hidden cắt — kéo vào trong nút */
+.ideakit__head:focus-visible {
+  outline-offset: -4px;
+}
