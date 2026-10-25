@@ -1523,6 +1523,8 @@ function runFullCBTExam(examIdx, draft){
         listenCurGroup, readCurPassage, listenPicks, readPicks, readFlags,
         writeData, speakData, savedAt: Date.now()
       }));
+      const el = $("#cbtSavedAt");
+      if(el) el.textContent = "Đã lưu nháp · " + new Date().toLocaleTimeString("vi-VN", { hour: "2-digit", minute: "2-digit" });
     }catch(e){}
   };
   window.__cbtSave = saveDraft;
@@ -1543,6 +1545,7 @@ function runFullCBTExam(examIdx, draft){
             <span style="font-size:12.5px;font-weight:600;color:var(--ink-3)" id="cbtStageLabel">Thời gian phần Nghe:</span>
             <span class="t" id="cbtTimer">${fmtTime(stageLeft)}</span>
           </div>
+          <span class="cbt-saved" id="cbtSavedAt"></span>
           <button class="btn btn--sm" id="cbtNextStage"><span>Chuyển phần tiếp</span>${ICO.next}</button>
           <button class="btn btn--sm btn--solid" id="cbtSubmitAll">Nộp bài 4 kỹ năng</button>
         </div>
@@ -1552,6 +1555,10 @@ function runFullCBTExam(examIdx, draft){
     <div id="cbtStageMount"></div>`;
 
   const timerEl = $("#cbtTimer"), barEl = $("#cbtTimerBar"), labelEl = $("#cbtStageLabel");
+  if(draft && draft.savedAt){
+    const el = $("#cbtSavedAt");
+    if(el) el.textContent = "Đã khôi phục nháp lúc " + new Date(draft.savedAt).toLocaleTimeString("vi-VN", { hour: "2-digit", minute: "2-digit" });
+  }
   const timerInt = setInterval(() => {
     if(submitted) return;
     stageLeft--;
@@ -2610,6 +2617,17 @@ function viewSettings(){
         <b>Hướng dẫn lấy khóa Gemini miễn phí:</b> Truy cập <code>aistudio.google.com</code> → chọn <b>Get API key</b> bằng tài khoản Google.<br>
         <b>Bảo mật tuyệt đối:</b> Khóa API chỉ được lưu trong <code>localStorage</code> trên máy tính của bạn và gửi yêu cầu trực tiếp tới máy chủ Google/OpenAI.
       </div>
+    </div>
+    <div class="sheet sheet--pad" style="max-width:740px;margin-top:22px">
+      <div class="section-head" style="margin-top:0;margin-bottom:14px"><span class="section-head__no">Dữ liệu</span><h2 style="font-size:22px">Sao lưu &amp; khôi phục</h2></div>
+      <p style="font-size:13.5px;color:var(--ink-2);line-height:1.75;margin-bottom:16px">Toàn bộ tiến trình học (lịch sử thi, Sổ lỗi, hộp flashcard, bài thi dở, cấu hình AI) nằm trong trình duyệt. Xuất bản sao lưu để chuyển máy hoặc phòng trường hợp dữ liệu trình duyệt bị xóa.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <button class="btn btn--solid" id="dataExport">Tải bản sao lưu (.json)</button>
+        <button class="btn" id="dataImportBtn">Khôi phục từ tệp…</button>
+        <input type="file" id="dataImportFile" accept=".json,application/json" style="display:none">
+      </div>
+      <div id="dataIoOut" style="margin-top:14px"></div>
+      <p style="font-size:12.5px;color:var(--ink-3);margin-top:12px">Tệp sao lưu chứa toàn bộ dữ liệu — kể cả API Key nếu bạn đã lưu — hãy giữ riêng tư và không chia sẻ tệp này.</p>
     </div>`;
   const provSel = $("#aiProvider");
   provSel.onchange = () => { $("#baseUrlRow").style.display = provSel.value === "openai" ? "flex" : "none"; };
@@ -2627,6 +2645,42 @@ function viewSettings(){
     }
   };
   $("#aiClear").onclick = () => { localStorage.removeItem(AI.KEY_STORE); $("#aiKey").value = ""; $("#aiTestOut").innerHTML = '<div class="notice"><span>Đã xóa API Key khỏi trình duyệt.</span></div>'; };
+  $("#dataExport").onclick = () => {
+    const data = {};
+    for(let i = 0; i < localStorage.length; i++){
+      const k = localStorage.key(i);
+      if(k && k.indexOf("b2.") === 0) data[k] = localStorage.getItem(k);
+    }
+    const blob = new Blob([JSON.stringify({ app: "phong-thi-b2", v: 1, exportedAt: new Date().toISOString(), data }, null, 2)], { type: "application/json" });
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "phong-thi-b2-backup-" + todayStr() + ".json";
+    a.click();
+    setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+    $("#dataIoOut").innerHTML = `<div class="notice" style="border-color:var(--green-border);background:var(--green-soft);color:var(--green)"><span>Đã xuất ${Object.keys(data).length} mục dữ liệu.</span></div>`;
+  };
+  $("#dataImportBtn").onclick = () => $("#dataImportFile").click();
+  $("#dataImportFile").onchange = e => {
+    const f = e.target.files[0];
+    e.target.value = "";
+    if(!f) return;
+    const rd = new FileReader();
+    rd.onload = () => {
+      try{
+        const j = JSON.parse(rd.result);
+        const data = j && j.data;
+        if(!data || typeof data !== "object") throw new Error("Tệp không đúng định dạng sao lưu.");
+        const keys = Object.keys(data).filter(k => k.indexOf("b2.") === 0);
+        if(!keys.length) throw new Error("Không tìm thấy dữ liệu hợp lệ trong tệp.");
+        if(!confirm(`Khôi phục sẽ GHI ĐÈ toàn bộ dữ liệu hiện tại (${keys.length} mục). Tiếp tục?`)) return;
+        keys.forEach(k => localStorage.setItem(k, data[k]));
+        location.reload();
+      }catch(err){
+        $("#dataIoOut").innerHTML = `<div class="notice"><span><b>Không thể khôi phục:</b> ${esc(err.message)}</span></div>`;
+      }
+    };
+    rd.readAsText(f);
+  };
 }
 
 /* ================= KHỞI ĐỘNG ================= */
