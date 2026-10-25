@@ -12,6 +12,51 @@ const fmtTime = s => { s = Math.max(0, Math.round(s)); return String(Math.floor(
 const todayStr = () => new Date().toISOString().slice(0, 10);
 const LETTERS = ["A", "B", "C", "D"];
 const toHalf = x => Math.round(x * 2) / 2;
+
+/* ---------- Đánh dấu đoạn chữ (highlight) trong bài đọc ---------- */
+function hlApply(body, texts){
+  if(!body || !texts || !texts.length) return;
+  texts.forEach(t => {
+    if(!t) return;
+    const walker = document.createTreeWalker(body, NodeFilter.SHOW_TEXT);
+    while(walker.nextNode()){
+      const node = walker.currentNode;
+      if(node.parentElement && node.parentElement.closest(".hl")) continue;
+      const i = node.nodeValue.indexOf(t);
+      if(i < 0) continue;
+      const r = document.createRange();
+      r.setStart(node, i); r.setEnd(node, i + t.length);
+      const sp = document.createElement("span"); sp.className = "hl";
+      try { r.surroundContents(sp); } catch(e){}
+      break;
+    }
+  });
+}
+function hlClearAll(body){
+  if(!body) return;
+  $$(".hl", body).forEach(sp => {
+    const p = sp.parentNode;
+    while(sp.firstChild) p.insertBefore(sp.firstChild, sp);
+    p.removeChild(sp);
+  });
+  body.normalize();
+}
+function hlBind(body, store, onChange){
+  if(!body) return;
+  body.addEventListener("mouseup", () => {
+    const sel = window.getSelection();
+    if(!sel || sel.isCollapsed || !sel.rangeCount) return;
+    const range = sel.getRangeAt(0);
+    if(!body.contains(range.commonAncestorContainer)) return;
+    const text = sel.toString().trim();
+    if(text.length < 2 || text.length > 400){ sel.removeAllRanges(); return; }
+    const sp = document.createElement("span"); sp.className = "hl";
+    try { range.surroundContents(sp); }
+    catch(e){ try { const frag = range.extractContents(); sp.appendChild(frag); range.insertNode(sp); } catch(e2){} }
+    if(sp.textContent.trim() && !store.includes(text)){ store.push(text); if(onChange) onChange(); }
+    sel.removeAllRanges();
+  });
+}
 const CBT_DRAFT_KEY = "b2.cbt.draft.v1";
 
 /* ================= SVG ICONS ================= */
@@ -301,7 +346,7 @@ function mountQuiz(mount, cfg){
     mount.innerHTML = `
       <div class="quiz-layout">
         <div class="quiz-main">
-          ${passHtml ? `<div class="sheet passage-panel">${passHtml}</div>` : ""}
+          ${passHtml ? (cfg.split ? `<div class="read-split"><div class="sheet passage-panel read-split__passage">${passHtml}</div><div class="read-split__qs">` : `<div class="sheet passage-panel">${passHtml}</div>`) : ""}
           <div class="sheet q-card sheet--pad">
             <div class="q-prog" aria-hidden="true">
               <div class="q-prog__fill" style="transform:scaleX(${progRatio})"></div>
@@ -322,6 +367,7 @@ function mountQuiz(mount, cfg){
             </div>
             <p class="kbd-hint">Phím tắt: <b>A–D</b> chọn đáp án, phím mũi tên <b>Trái / Phải</b> chuyển câu, nhấp đúp vào từ tiếng Anh bất kỳ để tra từ điển.</p>
           </div>
+          ${passHtml && cfg.split ? `</div></div>` : ""}
         </div>
         <aside class="quiz-side">
           <div class="side-block">
@@ -342,6 +388,7 @@ function mountQuiz(mount, cfg){
         </aside>
       </div>`;
 
+    if(cfg.onPassage) cfg.onPassage($(".passage-body", mount));
     const paint = () => {
       $$(".opt", mount).forEach((el, i) => {
         el.classList.remove("sel", "correct", "wrong", "dim");
@@ -725,6 +772,8 @@ function vocabCards(){
 }
 
 /* ================= ĐỌC HIỂU ================= */
+const practiceHL = {};
+const HL_TOOLS = `<div class="passage-hltools"><button class="btn btn--sm btn--ghost" id="hlClear" type="button">Xóa đánh dấu</button><span class="hint">Bôi đen đoạn chữ trong bài để đánh dấu</span></div>`;
 function viewReading(part, setIdx){
   part = part || "p4";
   setIdx = setIdx || 0;
@@ -755,27 +804,43 @@ function viewReading(part, setIdx){
   }
   else if(part === "p2"){
     body.innerHTML = `
-      <div class="sheet passage-panel">
-        <h3>Bốn hoạt động cuối tuần</h3><span class="src">Đọc 4 đoạn giới thiệu dưới đây và chọn đoạn phù hợp với từng nhận định</span>
-        <div class="p2-texts">${READING_P2_TEXTS.map(t => `
-          <div class="p2-text"><b>Đoạn ${t.key}: ${esc(t.title)}</b><br>${esc(t.body)}</div>`).join("")}
+      <div class="read-split">
+        <div class="sheet passage-panel read-split__passage">
+          <h3>Bốn hoạt động cuối tuần</h3><span class="src">Đọc 4 đoạn giới thiệu dưới đây và chọn đoạn phù hợp với từng nhận định</span>
+          ${HL_TOOLS}
+          <div class="p2-texts" id="p2Texts">${READING_P2_TEXTS.map(t => `
+            <div class="p2-text"><b>Đoạn ${t.key}: ${esc(t.title)}</b><br>${esc(t.body)}</div>`).join("")}
+          </div>
         </div>
-      </div>
-      <div id="quizMount"></div>`;
+        <div id="quizMount"></div>
+      </div>`;
     mountQuiz($("#quizMount"), {
       items: READING_P2.map(q => ({ id: q.id, q: esc(q.q), opts: q.opts.map(esc), a: q.a, ex: q.ex, tag: "Đối chiếu" }))
     });
+    const p2b = $("#p2Texts");
+    practiceHL["p2"] = practiceHL["p2"] || [];
+    hlApply(p2b, practiceHL["p2"]);
+    hlBind(p2b, practiceHL["p2"]);
+    $("#hlClear").onclick = () => { practiceHL["p2"].length = 0; hlClearAll(p2b); };
   }
   else if(part === "p3"){
     body.innerHTML = `
-      <div class="sheet passage-panel">
-        <h3>${esc(READING_P3_PASSAGE.title)}</h3><span class="src">Chọn câu phù hợp nhất để điền vào mỗi vị trí trống trong bài đọc</span>
-        <div class="passage-body">${esc(READING_P3_PASSAGE.body).replace(/__(\(\d+\))__/g, '<span class="blank-no">$1</span>').replace(/\n/g, "<br>")}</div>
-      </div>
-      <div id="quizMount"></div>`;
+      <div class="read-split">
+        <div class="sheet passage-panel read-split__passage">
+          <h3>${esc(READING_P3_PASSAGE.title)}</h3><span class="src">Chọn câu phù hợp nhất để điền vào mỗi vị trí trống trong bài đọc</span>
+          ${HL_TOOLS}
+          <div class="passage-body" id="p3PassBody">${esc(READING_P3_PASSAGE.body).replace(/__(\(\d+\))__/g, '<span class="blank-no">$1</span>').replace(/\n/g, "<br>")}</div>
+        </div>
+        <div id="quizMount"></div>
+      </div>`;
     mountQuiz($("#quizMount"), {
       items: READING_P3.map(q => ({ id: q.id, q: esc(q.q), opts: q.opts.map(esc), a: q.a, ex: q.ex, tag: "Điền câu" }))
     });
+    const p3b = $("#p3PassBody");
+    practiceHL["p3"] = practiceHL["p3"] || [];
+    hlApply(p3b, practiceHL["p3"]);
+    hlBind(p3b, practiceHL["p3"]);
+    $("#hlClear").onclick = () => { practiceHL["p3"].length = 0; hlClearAll(p3b); };
   }
   else {
     const curSet = ALL_READING_SETS[setIdx] || ALL_READING_SETS[0];
@@ -796,11 +861,21 @@ function viewReading(part, setIdx){
     const render = () => {
       const p = curSet.passages[cur];
       mountQuiz($("#quizMount"), {
+        split: true,
         items: p.questions.map(q => {
           const qid = setIdx === 0 ? ("ro" + q.n) : (curSet.id + "_" + q.n);
           return { id: qid, q: esc(q.q), opts: q.opts.map(esc), a: q.a, ex: q.ex, tag: `Đề ${String(setIdx + 1).padStart(2, "0")} | Câu ${q.n}/40`, src: curSet.title.split(":")[0] };
         }),
-        getPassage: () => `<h3>${esc(p.title.replace(/^PASSAGE \d+\s*[-–]\s*/i, "Passage " + (cur + 1) + ": "))}</h3><span class="src">Nguồn: ${esc(curSet.source)}</span><div class="passage-body">${esc(p.body)}</div>`
+        getPassage: () => `<h3>${esc(p.title.replace(/^PASSAGE \d+\s*[-–]\s*/i, "Passage " + (cur + 1) + ": "))}</h3><span class="src">Nguồn: ${esc(curSet.source)}</span>${HL_TOOLS}<div class="passage-body">${esc(p.body)}</div>`,
+        onPassage: bodyEl => {
+          if(!bodyEl) return;
+          const k = setIdx + ":" + cur;
+          practiceHL[k] = practiceHL[k] || [];
+          hlApply(bodyEl, practiceHL[k]);
+          hlBind(bodyEl, practiceHL[k]);
+          const cb = $("#hlClear");
+          if(cb) cb.onclick = () => { practiceHL[k].length = 0; hlClearAll(bodyEl); };
+        }
       });
     };
     $$("#rSetBar .chip").forEach(b => b.onclick = () => viewReading("p4", +b.dataset.si));
@@ -1610,6 +1685,7 @@ function runFullCBTExam(examIdx, draft){
   let totalElapsed = draft ? (+draft.totalElapsed || 0) : 0;
   let readCurPassage = draft ? Math.min(Math.max(+draft.readCurPassage || 0, 0), readPassages.length - 1) : 0;
   let listenCurGroup = draft ? Math.min(Math.max(+draft.listenCurGroup || 0, 0), listenGroups.length - 1) : 0;
+  const readHL = draft && draft.readHL || {};
   let submitted = false;
 
   const saveDraft = () => {
@@ -1618,7 +1694,7 @@ function runFullCBTExam(examIdx, draft){
       localStorage.setItem(CBT_DRAFT_KEY, JSON.stringify({
         v: 1, examIdx: examIdx || 0, stageIdx, stageLeft, totalElapsed,
         listenCurGroup, readCurPassage, listenPicks, readPicks, readFlags,
-        writeData, speakData, savedAt: Date.now()
+        readHL, writeData, speakData, savedAt: Date.now()
       }));
       const el = $("#cbtSavedAt");
       if(el) el.textContent = "Đã lưu nháp · " + new Date().toLocaleTimeString("vi-VN", { hour: "2-digit", minute: "2-digit" });
@@ -1828,11 +1904,14 @@ function runFullCBTExam(examIdx, draft){
       </div>
       <div class="quiz-layout">
         <div class="quiz-main">
-          <div class="sheet passage-panel">
+          <div class="read-split">
+          <div class="sheet passage-panel read-split__passage">
             <h3>${esc(p.title.replace(/^PASSAGE \d+ - /, "Passage " + (readCurPassage + 1) + ": "))}</h3>
             <span class="src">Đề thi VSTEP Reading Bậc 3–5 (40 câu / 60 phút)</span>
-            <div class="passage-body" style="max-height:420px;overflow-y:auto;padding-right:8px">${esc(p.body)}</div>
+            ${HL_TOOLS}
+            <div class="passage-body" id="cbtPassBody">${esc(p.body)}</div>
           </div>
+          <div class="read-split__qs">
           <div style="display:flex;flex-direction:column;gap:14px">
             ${pQs.map(q => {
               const qi = q.n - 1;
@@ -1852,6 +1931,8 @@ function runFullCBTExam(examIdx, draft){
             <button class="btn btn--ghost" id="rPrevP" ${readCurPassage === 0 ? "disabled" : ""}>${ICO.prev}<span>Passage trước</span></button>
             <span class="q-nav__mid">Passage ${readCurPassage + 1} / 4</span>
             <button class="btn btn--solid" id="rNextP">${readCurPassage < 3 ? `<span>Passage tiếp theo</span>${ICO.next}` : `<span>Sang kỹ năng Viết</span>${ICO.next}`}</button>
+          </div>
+          </div>
           </div>
         </div>
         <aside class="quiz-side">
@@ -1889,6 +1970,11 @@ function runFullCBTExam(examIdx, draft){
       if(readCurPassage < 3){ readCurPassage++; renderReadingStage(mount); window.scrollTo(0, 0); }
       else goStage(2);
     };
+    const pb = $("#cbtPassBody", mount);
+    readHL[readCurPassage] = readHL[readCurPassage] || [];
+    hlApply(pb, readHL[readCurPassage]);
+    hlBind(pb, readHL[readCurPassage], saveDraft);
+    $("#hlClear", mount).onclick = () => { readHL[readCurPassage].length = 0; hlClearAll(pb); saveDraft(); };
   }
 
   /* ---- STAGE 3: WRITING ---- */
