@@ -1944,6 +1944,10 @@ function runFullCBTExam(examIdx, draft){
      Viết Task 1 = 20' rồi khóa (Task 2 dùng hết phần còn lại của 60'),
      Nói Part 1 = 3', Part 2 = 4', Part 3 = phần còn lại của 12'. */
   const SUB_LIMITS = { w1: 20 * 60, s1: 3 * 60, s2: 4 * 60 };
+  /* Giây đọc trước câu hỏi mỗi đoạn nghe như thi thật (recording tự phát sau chờ) */
+  const LISTEN_PREP = { 1: 60, 2: 45, 3: 60 };
+  const listenPrepUntil = {};   /* gid -> timestamp hết giờ xem đề */
+  let listenPrepIv = null;
   let subLeft = draft && +draft.subLeft > 0 ? Math.min(+draft.subLeft, stageLeft) : 0;
   let subCap = draft && +draft.subCap > 0 ? +draft.subCap : 0;
   function resetSubTimer(){
@@ -2042,6 +2046,7 @@ function runFullCBTExam(examIdx, draft){
     TTS.stop();
     if(STT.active) STT.stop();
     stopSpeakCapture();
+    clearInterval(listenPrepIv); listenPrepIv = null;
     stageIdx = nextIdx;
     stageLeft = STAGES[stageIdx].secs;
     resetSubTimer();
@@ -2072,6 +2077,7 @@ function runFullCBTExam(examIdx, draft){
     TTS.stop();
     if(STT.active) STT.stop();
     stopSpeakCapture();
+    clearInterval(listenPrepIv); listenPrepIv = null;
     resetSubTimer();
     timerEl.textContent = fmtTime(subLeft);
     barEl.style.transform = "scaleX(1)";
@@ -2157,8 +2163,9 @@ function runFullCBTExam(examIdx, draft){
     $$("[data-lg]", mount).forEach(b => b.onclick = () => { TTS.stop(); listenCurGroup = +b.dataset.lg; renderListeningStage(mount); });
     const tape = $("#cbtTape", mount);
     const setStatus = t => { const st = $("#cbtListenStatus", mount); if(st) st.textContent = t; };
-    $("#cbtPlayBtn", mount).onclick = () => {
+    const startPlay = () => {
       if(listenPlayed[listenCurGroup]) return;
+      clearInterval(listenPrepIv); listenPrepIv = null;
       listenPlayed[listenCurGroup] = true;
       saveDraft();
       const pb = $("#cbtPlayBtn", mount), sb = $("#cbtStopBtn", mount);
@@ -2181,6 +2188,28 @@ function runFullCBTExam(examIdx, draft){
       });
       tape.classList.add("playing");
     };
+    const playBtn = $("#cbtPlayBtn", mount);
+    if(playBtn) playBtn.onclick = startPlay;
+    /* Thời gian xem đề trước khi băng phát — giống phòng thi thật */
+    clearInterval(listenPrepIv); listenPrepIv = null;
+    if(!played){
+      const gIdx = listenCurGroup;
+      if(!(g.gid in listenPrepUntil)) listenPrepUntil[g.gid] = Date.now() + (LISTEN_PREP[g.part] || 45) * 1000;
+      const prepTick = () => {
+        const left = Math.ceil((listenPrepUntil[g.gid] - Date.now()) / 1000);
+        if(left <= 0){
+          clearInterval(listenPrepIv); listenPrepIv = null;
+          const b = $("#cbtPlayBtn", mount);
+          if(b && !b.disabled && stageIdx === 0 && listenCurGroup === gIdx) b.click();   /* hết giờ xem đề → tự phát */
+          return;
+        }
+        setStatus(`Đọc trước câu hỏi — băng tự phát sau ${left} giây`);
+        const pb2 = $("#cbtPlayBtn", mount);
+        if(pb2){ const sp = pb2.querySelector("span"); if(sp) sp.textContent = `Phát ngay (${left}s)`; }
+      };
+      prepTick();
+      listenPrepIv = setInterval(prepTick, 500);
+    }
     const stopBtn = $("#cbtStopBtn", mount);
     if(stopBtn) stopBtn.onclick = () => { TTS.stop(); tape.classList.remove("playing"); setStatus("Đã dừng — đoạn này không thể nghe lại."); $$(".script-line", mount).forEach(el => el.classList.remove("active-line")); stopBtn.disabled = true; };
     $("#cbtScrBtn", mount).onclick = () => {
@@ -2405,7 +2434,7 @@ function runFullCBTExam(examIdx, draft){
         </div>
         <div class="sheet rec-panel" id="cbtSpeakPanel">
           <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
-            <span style="font-size:13.5px;font-weight:700"><span class="rec-dot"></span>Thu âm trả lời Part ${pt} (hoặc nhập trực tiếp bên dưới)</span>
+            <span style="font-size:13.5px;font-weight:700"><span class="rec-dot"></span>Thu âm trả lời Part ${pt} — nên dành ~${pt === 1 ? 20 : pt === 2 ? 45 : 60}s đầu đọc đề, gạch ý rồi mới nói</span>
             <span class="rec-time" id="cbtRecTime">00:00</span>
           </div>
           <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap">
@@ -2498,6 +2527,7 @@ function runFullCBTExam(examIdx, draft){
     if(!auto && !confirm("Bạn có chắc chắn muốn nộp bài thi VSTEP 4 kỹ năng và xem bảng điểm tổng kết không?")) return;
     submitted = true;
     clearInterval(timerInt);
+    clearInterval(listenPrepIv); listenPrepIv = null;
     localStorage.removeItem(CBT_DRAFT_KEY);
     window.__cbtSave = null;
     window.onbeforeunload = null;
