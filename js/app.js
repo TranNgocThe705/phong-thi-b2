@@ -1741,7 +1741,12 @@ function runFullCBTExam(examIdx, draft){
             <div class="tape__ctrl">
               <button class="btn btn--tape btn--sm" id="cbtPlayBtn">${ICO.play}<span>Phát bài nghe</span></button>
               <button class="btn btn--tape btn--sm" id="cbtStopBtn">${ICO.stop}<span>Dừng</span></button>
+              <button class="btn btn--tape btn--sm" id="cbtScrBtn">${ICO.book}<span>Transcript</span></button>
             </div>
+          </div>
+          <div class="script-box" id="cbtScrBox">
+            <h5>Lời thoại bài nghe (Transcript) — chỉ nên mở sau khi đã chọn đáp án</h5>
+            ${g.script.map((l, idx) => `<div class="script-line ${l.v === 2 ? "v2" : l.v === 0 ? "nar" : ""}" data-line="${idx}"><span class="spk">${l.v === 0 ? "Dẫn" : l.v === 1 ? "Nữ" : "Nam"}</span><span>${esc(l.t)}</span></div>`).join("")}
           </div>
           <div style="margin-top:18px;display:flex;flex-direction:column;gap:14px">
             ${g.qs.map((q, localI) => {
@@ -1779,12 +1784,26 @@ function runFullCBTExam(examIdx, draft){
     $("#cbtPlayBtn", mount).onclick = () => {
       TTS.speak(g.script, {
         rate: 1,
-        onLine: (li) => { stEl.textContent = `Đang phát câu thoại ${li + 1} / ${g.script.length}…`; },
-        onEnd: () => { tape.classList.remove("playing"); stEl.textContent = "Đã phát xong đoạn băng."; }
+        onLine: (li) => {
+          stEl.textContent = `Đang phát câu thoại ${li + 1} / ${g.script.length}…`;
+          $$(".script-line", mount).forEach((el, idx) => el.classList.toggle("active-line", idx === li));
+        },
+        onEnd: () => {
+          tape.classList.remove("playing");
+          stEl.textContent = "Đã phát xong đoạn băng.";
+          $$(".script-line", mount).forEach(el => el.classList.remove("active-line"));
+        }
       });
       tape.classList.add("playing");
     };
-    $("#cbtStopBtn", mount).onclick = () => { TTS.stop(); tape.classList.remove("playing"); stEl.textContent = "Đã dừng âm thanh."; };
+    $("#cbtStopBtn", mount).onclick = () => { TTS.stop(); tape.classList.remove("playing"); stEl.textContent = "Đã dừng âm thanh."; $$(".script-line", mount).forEach(el => el.classList.remove("active-line")); };
+    $("#cbtScrBtn", mount).onclick = () => {
+      const sb = $("#cbtScrBox", mount);
+      sb.classList.toggle("open");
+      const on = sb.classList.contains("open");
+      $("#cbtScrBtn", mount).classList.toggle("on", on);
+      $("#cbtScrBtn span", mount).textContent = on ? "Ẩn transcript" : "Transcript";
+    };
     $$(".opt[data-qi]", mount).forEach(btn => btn.onclick = () => {
       const qi = +btn.dataset.qi, oi = +btn.dataset.oi;
       listenPicks[qi] = oi;
