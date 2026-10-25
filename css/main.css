@@ -160,7 +160,7 @@ textarea:focus-visible,
 }
 
 .topbar__in {
-  max-width: 1220px;
+  max-width: 1520px;
   margin: 0 auto;
   padding: 0 24px;
   display: flex;
@@ -307,7 +307,7 @@ textarea:focus-visible,
 .app {
   position: relative;
   z-index: 1;
-  max-width: 1220px;
+  max-width: 1520px;
   margin: 0 auto;
   padding: 36px 24px 96px;
   min-height: calc(100vh - 180px);
@@ -337,7 +337,7 @@ textarea:focus-visible,
 }
 
 .foot__in {
-  max-width: 1220px;
+  max-width: 1520px;
   margin: 0 auto;
   padding: 32px 24px 44px;
   display: flex;
