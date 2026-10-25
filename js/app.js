@@ -3140,6 +3140,15 @@ function viewSettings(){
 /* ================= KHỞI ĐỘNG ================= */
 Dict.mount();
 $("#menuBtn").onclick = () => $("#nav").classList.toggle("open");
+/* Ẩn topbar khi cuộn xuống để giành không gian làm bài, hiện lại khi cuộn lên */
+(function(){
+  let lastY = 0;
+  window.addEventListener("scroll", () => {
+    const y = window.scrollY;
+    document.body.classList.toggle("nav-hidden", y > lastY && y > 140);
+    lastY = y;
+  }, { passive: true });
+})();
 if("serviceWorker" in navigator && /^https?:$/.test(location.protocol)){
   navigator.serviceWorker.register("sw.js").catch(() => {});
 }

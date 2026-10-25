@@ -3767,3 +3767,17 @@ textarea:focus-visible,
   width: 34px;
   height: 34px;
 }
+
+/* Topbar tự ẩn khi cuộn xuống để giành không gian làm bài, hiện lại khi cuộn lên */
+.topbar { transition: transform 240ms ease; }
+.quiz-side,
+.qprogress-bar,
+.read-split__passage,
+.read-split--bar .read-split__passage,
+.cbt-bar { transition: top 240ms ease; }
+body.nav-hidden .topbar { transform: translateY(-110%); }
+body.nav-hidden .quiz-side,
+body.nav-hidden .qprogress-bar,
+body.nav-hidden .read-split__passage { top: 12px; }
+body.nav-hidden .read-split--bar .read-split__passage { top: 64px; }
+body.nav-hidden .cbt-bar { top: 12px; }
