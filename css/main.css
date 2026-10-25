@@ -3863,6 +3863,112 @@ body.nav-hidden .cbt-bar { top: 12px; }
   margin-top: 7px;
 }
 
+/* Thư viện mẹo thi chi tiết (trang Chiến thuật) */
+.tips-doc {
+  display: grid;
+  grid-template-columns: 300px minmax(0, 1fr);
+  gap: 22px;
+  margin-top: 18px;
+  align-items: start;
+}
+.tips-doc__nav {
+  position: sticky;
+  top: 84px;
+  max-height: calc(100vh - 110px);
+  overflow: auto;
+  padding-right: 4px;
+}
+.tips-doc__group {
+  margin-bottom: 16px;
+}
+.tips-doc__group > span {
+  display: block;
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 6px;
+}
+.tip-nav__it {
+  display: block;
+  width: 100%;
+  text-align: left;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-2);
+  background: none;
+  border: none;
+  border-left: 2px solid var(--line-soft);
+  padding: 7px 10px;
+  cursor: pointer;
+  transition: color 120ms ease, border-color 120ms ease, background-color 120ms ease;
+}
+.tip-nav__it:hover { color: var(--primary); }
+.tip-nav__it.on {
+  color: var(--primary);
+  border-left-color: var(--primary);
+  background: var(--primary-soft);
+  border-radius: 0 8px 8px 0;
+}
+.tips-doc__body {
+  min-width: 0;
+  font-size: 14.5px;
+  line-height: 1.75;
+  color: var(--ink-2);
+}
+.tip-title {
+  font-size: 21px;
+  font-weight: 800;
+  color: var(--ink);
+  margin-bottom: 14px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--line-soft);
+}
+.tip-h {
+  color: var(--ink);
+  font-weight: 800;
+  margin: 18px 0 8px;
+  line-height: 1.4;
+}
+h2.tip-h { font-size: 18px; }
+h3.tip-h { font-size: 16px; color: var(--primary); }
+h4.tip-h, h5.tip-h { font-size: 14.5px; }
+.tips-doc__body p { margin: 8px 0; }
+.tips-doc__body code {
+  font-family: var(--mono);
+  font-size: 12.5px;
+  background: var(--primary-soft);
+  color: var(--primary);
+  padding: 1px 6px;
+  border-radius: 5px;
+}
+.tip-pre {
+  background: var(--ink);
+  color: #E8ECF4;
+  font-family: var(--mono);
+  font-size: 12.8px;
+  line-height: 1.65;
+  border-radius: var(--r-md);
+  padding: 14px 18px;
+  overflow-x: auto;
+  margin: 10px 0;
+  white-space: pre;
+}
+.tip-tabrow { font-size: 13.5px; }
+@media (max-width: 1040px) {
+  .tips-doc { grid-template-columns: 1fr; }
+  .tips-doc__nav {
+    position: static;
+    max-height: none;
+    display: flex;
+    gap: 14px;
+    overflow-x: auto;
+    padding-bottom: 6px;
+  }
+  .tips-doc__group { min-width: 220px; }
+}
+
 /* Phiếu trả lời nổi full ngang đáy màn trong phòng thi CBT */
 .cbt-dock {
   position: fixed;

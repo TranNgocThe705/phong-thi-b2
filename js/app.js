@@ -330,6 +330,61 @@ const Dict = {
   }
 };
 
+/* ================= MINI MARKDOWN → HTML (cho thư viện mẹo) ================= */
+function mdToHtml(md){
+  const inl = s => esc(s)
+    .replace(/\*\*([^*]+)\*\*/g, "<b>$1</b>")
+    .replace(/__([^_]+)__/g, "<b>$1</b>")
+    .replace(/\*([^*\n]+)\*/g, "<i>$1</i>")
+    .replace(/(^|\s)_([^_\n]+)_/g, "$1<i>$2</i>")
+    .replace(/`([^`\n]+)`/g, "<code>$1</code>");
+  const out = [];
+  let code = null;
+  const stack = [];               /* stack {indent, tag} của các list đang mở */
+  const closeTo = ind => { while(stack.length && stack[stack.length-1].indent > ind) out.push(`</${stack.pop().tag}>`); };
+  const closeAll = () => closeTo(-1);
+  for(const raw of md.split(/\r?\n/)){
+    const line = raw.replace(/\s+$/, "");
+    if(code !== null){
+      if(/^\s*```/.test(line)){ out.push(`<pre class="tip-pre"><code>${esc(code.join("\n"))}</code></pre>`); code = null; }
+      else code.push(line);
+      continue;
+    }
+    if(/^\s*```/.test(line)){ closeAll(); code = []; continue; }
+    if(!line.trim()){ closeAll(); continue; }
+    if(/^\s*---+\s*$/.test(line)){ closeAll(); out.push('<hr class="hr-dash">'); continue; }
+    const h = line.match(/^\s{0,3}(#{1,4})\s+(.*)/);
+    if(h){ closeAll(); const lv = Math.min(h[1].length + 1, 5); out.push(`<h${lv} class="tip-h">${inl(h[2])}</h${lv}>`); continue; }
+    /* table markdown: |a|b| */
+    if(/^\s*\|.+\|\s*$/.test(line)){
+      closeAll();
+      const cells = line.trim().replace(/^\||\|$/g, "").split("|").map(c => c.trim());
+      if(!/^[\s:-]+$/.test(cells.join(""))){
+        out.push(`<p class="tip-tabrow">${cells.map(inl).join(" <b>·</b> ")}</p>`);
+      }
+      continue;
+    }
+    const m = line.match(/^(\s*)([-*+]|\d+\.)\s+(.*)/);
+    if(m){
+      const indent = Math.floor(m[1].length / 2);
+      const tag = /^\d/.test(m[2]) ? "ol" : "ul";
+      closeTo(indent - 1);
+      if(stack.length && stack[stack.length-1].indent === indent && stack[stack.length-1].tag === tag){}
+      else{
+        if(stack.length && stack[stack.length-1].indent === indent) out.push(`</${stack.pop().tag}>`);
+        out.push(`<${tag} class="tips">`); stack.push({ indent, tag });
+      }
+      out.push(`<li>${inl(m[3])}</li>`);
+      continue;
+    }
+    closeAll();
+    out.push(`<p>${inl(line)}</p>`);
+  }
+  closeAll();
+  if(code !== null) out.push(`<pre class="tip-pre"><code>${esc(code.join("\n"))}</code></pre>`);
+  return out.join("\n");
+}
+
 /* ================= ROUTER ================= */
 const app = $("#app");
 const ROUTES = {
@@ -3053,7 +3108,7 @@ const GUESS_DEMOS = [
 function viewStrategy(){
   app.innerHTML = moduleHead("Phương pháp", "Chiến thuật làm bài thi VSTEP B2",
     "Hệ thống mẹo phân bổ thời gian, kỹ thuật đoán từ mới trong ngữ cảnh và khung cấu trúc trả lời giúp bạn tối ưu điểm số ở cả 4 kỹ năng.",
-    "6 chuyên đề thực chiến") + `
+    `6 chuyên đề nhanh + ${TIPS.length} tài liệu chi tiết`) + `
 
   <div class="strat-grid">
     <div class="sheet sheet--pad strat-card">
@@ -3128,7 +3183,32 @@ function viewStrategy(){
         <li><b>Bước 3:</b> Luyện viết và thu âm bài nói theo đề chính thức, dùng AI chấm theo 4 tiêu chí để hoàn thiện kỹ năng.</li>
       </ul>
     </div>
+  </div>
+
+  <div class="sheet sheet--pad" style="margin-top:26px">
+    <span class="tag">Thư viện mẹo chi tiết</span>
+    <h3 style="margin-top:8px">Sổ tay chiến thuật từng phần thi (${TIPS.length} tài liệu)</h3>
+    <p style="font-size:14px;color:var(--ink-3);max-width:80ch">Hướng dẫn đầy đủ cho từng Part của 4 kỹ năng, template thư/bài nói mẫu, cụm câu vạn năng và từ vựng theo 10 chủ đề hay ra thi — chọn tài liệu ở cột trái để đọc.</p>
+    <div class="tips-doc">
+      <nav class="tips-doc__nav" id="tipsNav">
+        ${[...new Set(TIPS.map(t => t.group))].map(gr => `
+          <div class="tips-doc__group"><span>${esc(gr)}</span>
+            ${TIPS.filter(t => t.group === gr).map(t => `<button class="tip-nav__it" data-tip="${t.id}">${esc(t.title.replace(/^[^:–-]+[:–-]\s*/, ""))}</button>`).join("")}
+          </div>`).join("")}
+      </nav>
+      <div class="tips-doc__body" id="tipDoc"></div>
+    </div>
   </div>`;
+
+  const tipBody = $("#tipDoc"), tipNav = $("#tipsNav");
+  const openTip = id => {
+    const d = TIPS.find(t => t.id === id) || TIPS[0];
+    tipBody.innerHTML = `<h2 class="tip-title">${esc(d.title)}</h2>` + mdToHtml(d.md);
+    $$(".tip-nav__it", tipNav).forEach(b => b.classList.toggle("on", b.dataset.tip === d.id));
+    tipBody.scrollTop = 0;
+  };
+  $$(".tip-nav__it", tipNav).forEach(b => b.onclick = () => openTip(b.dataset.tip));
+  openTip(TIPS[0].id);
 
   let di = 0, answered = false;
   const demoEl = $("#guessDemo");

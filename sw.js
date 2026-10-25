@@ -1,6 +1,6 @@
 /* Phòng Thi B2 — Service Worker (PWA offline shell)
    Lưu ý: khi bump ?v= trong index.html, bump thêm hằng CACHE dưới đây để xoá cache cũ. */
-const CACHE = "b2-pwa-20261025ae";
+const CACHE = "b2-pwa-20261025af";
 const FONT_HOSTS = new Set(["fonts.googleapis.com", "fonts.gstatic.com"]);
 
 self.addEventListener("install", e => {
