@@ -404,11 +404,43 @@ function mountQuiz(mount, cfg){
 }
 
 /* ================= TRANG CHỦ ================= */
+function bandChartSVG(pts){
+  const W = 660, H = 232, L = 34, R = 46, T = 18, B = 30;
+  const iw = W - L - R, ih = H - T - B;
+  const y = v => (T + (10 - v) / 10 * ih).toFixed(1);
+  const n = pts.length;
+  const x = i => (L + (n === 1 ? iw / 2 : i / (n - 1) * iw)).toFixed(1);
+  const grid = [0, 2, 4, 6, 8, 10].map(v =>
+    `<line x1="${L}" y1="${y(v)}" x2="${W - R}" y2="${y(v)}" stroke="var(--line-soft)" stroke-width="1"/>` +
+    `<text x="${L - 7}" y="${+y(v) + 3.5}" text-anchor="end" font-size="10" fill="var(--ink-muted)">${v}</text>`).join("");
+  const bands = [[4, "var(--amber)", "B1"], [6, "var(--green)", "B2"], [8.5, "var(--teal)", "C1"]]
+    .map(([v, c, lb]) =>
+      `<line x1="${L}" y1="${y(v)}" x2="${W - R}" y2="${y(v)}" stroke="${c}" stroke-width="1.5" stroke-dasharray="5 4"/>` +
+      `<text x="${W - R + 7}" y="${+y(v) + 3.5}" font-size="10" font-weight="800" fill="${c}">${lb}</text>`).join("");
+  const line = pts.map((p, i) => (i ? "L " : "M ") + x(i) + " " + y(p.s)).join(" ");
+  const area = line + ` L ${x(n - 1)} ${T + ih} L ${x(0)} ${T + ih} Z`;
+  const dots = pts.map((p, i) =>
+    `<circle cx="${x(i)}" cy="${y(p.s)}" r="${i === n - 1 ? 5 : 3.5}" fill="${i === n - 1 ? "var(--primary)" : "#fff"}" stroke="var(--primary)" stroke-width="2"><title>${esc(p.lb)} · ${p.s}/10 · ${p.d}</title></circle>`).join("");
+  const dts = pts.map((p, i) => `<text x="${x(i)}" y="${H - 8}" text-anchor="middle" font-size="9" fill="var(--ink-muted)">${esc(p.d)}</text>`).join("");
+  const lastLb = `<text x="${Math.min(+x(n - 1), W - R - 26)}" y="${+y(pts[n - 1].s) - 12}" font-size="12.5" font-weight="800" fill="var(--primary)">${pts[n - 1].s}</text>`;
+  return `<svg class="bandchart" viewBox="0 0 ${W} ${H}" role="img" aria-label="Biểu đồ band điểm qua ${n} bài thi gần nhất">` +
+    `<path d="${area}" fill="var(--primary)" opacity="0.07"/>${grid}${bands}` +
+    `<path d="${line}" fill="none" stroke="var(--primary)" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>${dots}${dts}${lastLb}</svg>`;
+}
+
 function viewHome(){
   const total = Object.keys(Store.d.answers).length;
   const all = Store.accBy("*");
   const streak = Store.streak();
   const ai = AI.available();
+  const pendingErr = Object.values(Store.d.answers).filter(a => a && a.ok === false && !a.resolved);
+  const pendingW = (Store.d.writings || []).filter(w => !w.rewritten);
+  const staleDays = pendingErr.length ? Math.floor((Date.now() - Math.min.apply(Math, pendingErr.map(a => a.at || Date.now()))) / 864e5) : 0;
+  const showRemind = staleDays >= 1 || pendingW.length > 0;
+  const chartPts = Store.d.mocks.filter(m => isFinite(parseFloat(m.score))).slice(0, 14).reverse().map(m => {
+    const dm = String(m.date || "").match(/(\d{4})-(\d{2})-(\d{2})/);
+    return { s: parseFloat(m.score), d: dm ? dm[3] + "/" + dm[2] : String(m.date || "").slice(0, 5), lb: m.label || "Bài thi" };
+  });
   const totalReadingQs = READING_P1.length + READING_P2.length + READING_P3.length + ALL_READING_SETS.length * 40;
   const totalListeningQs = LISTENING.reduce((s, g) => s + g.qs.length, 0);
   const totalMCQs = GRAMMAR.length + VOCAB.length + totalReadingQs + totalListeningQs;
@@ -501,6 +533,14 @@ function viewHome(){
       <h2>Thống kê kết quả học tập</h2>
       <span class="section-head__meta">${Store.d.days.length} ngày hoạt động</span>
     </div>
+    ${showRemind ? `
+    <div class="sheet resume-bar" style="margin-bottom:18px">
+      <div class="resume-bar__info">
+        <b>Nhắc ôn tập từ Sổ lỗi</b>
+        <span>${pendingErr.length ? pendingErr.length + " câu trắc nghiệm chưa chốt" + (staleDays >= 1 ? " · cũ nhất " + staleDays + " ngày" : "") : ""}${pendingErr.length && pendingW.length ? " · " : ""}${pendingW.length ? pendingW.length + " bài viết cần viết lại" : ""} — ôn đều đặn trước khi quên.</span>
+      </div>
+      <div class="resume-bar__btns"><a class="btn btn--sm btn--solid" href="#/so-loi"><span>Ôn lại ngay</span></a></div>
+    </div>` : ""}
     <div class="dossier__grid">
       <div class="dossier__col">
         <h4>Độ chính xác theo từng kỹ năng</h4>
@@ -521,6 +561,11 @@ function viewHome(){
             <span class="pct ${m.pct >= 60 ? "ok" : "no"}">${m.score}/10</span></div>`).join("")
           : '<p class="hist-empty">Bạn chưa hoàn thành bài thi thử nào. Hãy thử sức với Đề nhanh 20 phút để đánh giá trình độ hiện tại.</p>'}
         </div>
+      </div>
+      <div class="dossier__col dossier__col--wide">
+        <h4>Đường tiến trình band điểm</h4>
+        <p class="dossier__hint">Điểm /10 của ${chartPts.length} bài thi gần nhất so với ngưỡng B1 (4.0), B2 (6.0) và C1 (8.5). Di chuột lên từng điểm để xem tên đề.</p>
+        ${chartPts.length >= 2 ? bandChartSVG(chartPts) : '<p class="hist-empty">Hoàn thành tối thiểu 2 bài thi thử để xem đường tiến trình band điểm của bạn.</p>'}
       </div>
     </div>
   </section>`;
@@ -2686,4 +2731,7 @@ function viewSettings(){
 /* ================= KHỞI ĐỘNG ================= */
 Dict.mount();
 $("#menuBtn").onclick = () => $("#nav").classList.toggle("open");
+if("serviceWorker" in navigator && /^https?:$/.test(location.protocol)){
+  navigator.serviceWorker.register("sw.js").catch(() => {});
+}
 route();

@@ -912,6 +912,23 @@ textarea:focus-visible,
   margin-bottom: 4px;
 }
 
+.dossier__col--wide {
+  grid-column: 1 / -1;
+}
+
+.dossier__hint {
+  font-size: 12.5px;
+  color: var(--ink-muted);
+  margin-top: 2px;
+}
+
+.bandchart {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-top: 10px;
+}
+
 .acc-rows {
   margin-top: 16px;
   display: flex;

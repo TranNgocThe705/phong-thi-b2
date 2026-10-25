@@ -1,0 +1,32 @@
+{
+  "name": "Phòng Thi B2 — Luyện thi VSTEP",
+  "short_name": "Phòng Thi B2",
+  "description": "Phòng thi thử VSTEP B2 trên máy tính: đề thi 4 kỹ năng, bấm giờ chuẩn CBT, chấm điểm và giám khảo AI.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#F4F6FA",
+  "theme_color": "#1D4ED8",
+  "lang": "vi",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
