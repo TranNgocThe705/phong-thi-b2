@@ -1029,14 +1029,20 @@ function viewWriting(sel, wFilter){
     WRITING.length + " đề luyện | 60 phút") + `
     <div class="topic-bar" style="margin:0 0 14px">
       ${[["all", "Tất cả (" + WRITING.length + ")"], ["t1", "Task 1 — Thư/Email (" + t1Count + ")"], ["t2", "Task 2 — Luận văn (" + t2Count + ")"]].map(([k, l]) => `<button class="chip ${wFilter === k ? "on" : ""}" data-wf="${k}">${l}</button>`).join("")}
+      <input class="ai-input pick-search" id="wSearch" placeholder="Tìm đề (mã W, chủ đề, nội dung)…" autocomplete="off">
     </div>
     <div class="wtask-picker" id="wPicker">
-      ${wIdxs.map(i => { const w = WRITING[i]; return `
-        <button class="wtask ${i === sel ? "on" : ""}" data-i="${i}" title="${esc(w.type)}">
+      ${wIdxs.map(i => { const w = WRITING[i];
+        const isReal = /thi thật/i.test(w.type || "");
+        const dm = (w.type || "").match(/(\d{2}-\d{2}-\d{4})/);
+        const pLine = (w.prompt || "").split("\n")[0].trim();
+        const stxt = (w.id + " " + (w.type || "") + " " + pLine).toLowerCase().replace(/["']/g, " ");
+        return `
+        <button class="wtask ${i === sel ? "on" : ""}" data-i="${i}" data-search="${esc(stxt)}" title="${esc(w.type)} — ${esc(pLine)}">
           <span class="wtask__code">${w.id.toUpperCase()}</span>
-          <span class="wtask__name">${esc(w.type)}</span>
+          <span class="wtask__name">${esc(isReal ? pLine : w.type)}</span>
           ${w.official ? '<span class="wtask__tag">Đề thật</span>' : ""}
-          <span class="wtask__meta">T${w.task} · ${w.time}p · ≥${w.target}t</span>
+          <span class="wtask__meta">T${w.task} · ${w.time}p · ≥${w.target}t${dm ? " · " + dm[1] : ""}</span>
         </button>`; }).join("")}
     </div>
     <div class="sheet ideakit ${ideaKitOpen ? "open" : ""}" id="ideaKit">
@@ -1075,6 +1081,8 @@ function viewWriting(sel, wFilter){
             <button class="btn btn--sm" id="wLocal">Phân tích cục bộ</button>
             <button class="btn btn--sm btn--solid" id="wAI">Chấm điểm AI theo Rubric</button>
             <button class="btn btn--sm btn--teal" id="wUpgrade">AI nâng cấp lên B2/C1</button>
+            <button class="btn btn--sm btn--ghost" id="wDraftDel">Xóa nháp</button>
+            <span id="wDraftAt" style="align-self:center;font-size:11.5px;font-weight:600;color:var(--ink-muted)"></span>
           </div>
         </div>
         <div id="wReport" style="padding:0 24px 24px"></div>
@@ -1100,6 +1108,10 @@ function viewWriting(sel, wFilter){
     viewWriting(idx, k);
   });
   $$("#wPicker .wtask").forEach(b => b.onclick = () => { $$("#wPicker .wtask").forEach(x => x.classList.remove("on")); b.classList.add("on"); viewWriting(+b.dataset.i, wFilter); });
+  if($("#wSearch")) $("#wSearch").oninput = e => {
+    const q = e.target.value.trim().toLowerCase();
+    $$("#wPicker .wtask").forEach(r => { r.style.display = !q || (r.dataset.search || "").includes(q) ? "" : "none"; });
+  };
   $("#ideaKitBtn").onclick = () => {
     ideaKitOpen = !ideaKitOpen;
     $("#ideaKit").classList.toggle("open", ideaKitOpen);
@@ -1126,6 +1138,25 @@ function viewWriting(sel, wFilter){
     meter.classList.toggle("hit", n >= t.target);
   };
   area.oninput = upd; upd();
+  const wDk = "b2.wdraft." + t.id;
+  const wSavedEl = $("#wDraftAt");
+  const prevW = localStorage.getItem(wDk);
+  if(prevW !== null && !area.value){ area.value = prevW; upd(); if(wSavedEl) wSavedEl.textContent = "Đã khôi phục nháp của đề " + t.id.toUpperCase(); }
+  let wDt = null;
+  area.addEventListener("input", () => {
+    clearTimeout(wDt);
+    wDt = setTimeout(() => {
+      try {
+        if(area.value.trim()) localStorage.setItem(wDk, area.value);
+        else localStorage.removeItem(wDk);
+        if(wSavedEl) wSavedEl.textContent = "Nháp tự lưu · " + new Date().toLocaleTimeString("vi-VN", { hour: "2-digit", minute: "2-digit" });
+      } catch(e){}
+    }, 700);
+  });
+  $("#wDraftDel").onclick = () => {
+    localStorage.removeItem(wDk); area.value = ""; upd();
+    if(wSavedEl) wSavedEl.textContent = "Đã xóa nháp của đề " + t.id.toUpperCase();
+  };
   $("#wSampleBtn").onclick = () => { $("#wSample").classList.toggle("open"); };
   let timerInt = null, left = t.time * 60;
   $("#wTimerBtn").onclick = () => {
@@ -1215,6 +1246,30 @@ function viewSpeaking(part){
 
   const ITEMS = part === "p1" ? SPEAKING_P1 : part === "p2" ? SPEAKING_P2 : SPEAKING_P3;
   let cur = 0;
+  body.innerHTML = `
+    <div class="topic-bar" style="margin:0 0 10px">
+      <input class="ai-input pick-search" id="spSearch" placeholder="Tìm chủ đề (mã S, từ khóa, ngày thi)…" autocomplete="off">
+    </div>
+    <div class="wtask-picker" id="spBar" style="max-height:250px;margin-bottom:16px">
+      ${ITEMS.map((x, i) => {
+        const tp = x.topic || "";
+        const dm = tp.match(/đề thi thật\s*([\d-]+)/i);
+        const isReal = /đề thi thật/i.test(tp);
+        const nm = tp.replace(/\s*—\s*đề thi thật.*$/i, "").replace(/\s*\([^)]*\)\s*$/, "");
+        const meta = dm ? dm[1] : part === "p1" ? ((x.questions || []).length + " câu") : part === "p2" ? "3 phương án" : (x.mindmap ? x.mindmap.branches.length + " nhánh" : "");
+        const stxt = ((x.id || "") + " " + tp + " " + (x.situation || "")).toLowerCase().replace(/["']/g, " ");
+        return `<button class="wtask ${i === 0 ? "on" : ""}" data-i="${i}" data-search="${esc(stxt)}" title="${esc(tp)}">
+          <span class="wtask__code">${esc((x.id || "s" + i).toUpperCase())}</span>
+          <span class="wtask__name">${esc(nm)}</span>
+          ${isReal ? '<span class="wtask__tag">Đề thật</span>' : ""}
+          <span class="wtask__meta">${esc(meta)}</span>
+        </button>`; }).join("")}
+    </div>
+    <div id="spContent"></div>`;
+  $("#spSearch").oninput = e => {
+    const q = e.target.value.trim().toLowerCase();
+    $$("#spBar .wtask").forEach(r => { r.style.display = !q || (r.dataset.search || "").includes(q) ? "" : "none"; });
+  };
   const renderOne = () => {
     const it = ITEMS[cur];
     const mapHtml = it.mindmap ? `
@@ -1229,10 +1284,7 @@ function viewSpeaking(part){
     const pointsHtml = it.points ? `<ul class="checklist">${it.points.map(p => `<li><span class="box">✓</span><span>${esc(p)}</span></li>`).join("")}</ul>` : "";
     const qsHtml = it.questions ? `<ul class="phrases">${it.questions.map(q => `<li>• <i>${esc(q)}</i></li>`).join("")}</ul>` : "";
 
-    body.innerHTML = `
-      <div class="topic-bar" id="spBar">
-        ${ITEMS.map((x, i) => `<button class="chip ${i === cur ? "on" : ""}" data-i="${i}">${esc(x.topic.replace(/\s*\([^)]*\)\s*$/, ""))}</button>`).join("")}
-      </div>
+    $("#spContent").innerHTML = `
       <div class="speak-layout">
         <div>
           <div class="sheet cue-card">
@@ -1272,7 +1324,9 @@ function viewSpeaking(part){
           </div>
         </div>
       </div>`;
-    $$("#spBar .chip").forEach(c => c.onclick = () => { if(window.recRunning) stopRec(true); cur = +c.dataset.i; renderOne(); });
+    $$("#spBar .wtask").forEach((x, i) => x.classList.toggle("on", i === cur));
+    const onSp = $("#spBar .wtask.on"); if(onSp) onSp.scrollIntoView({ block: "nearest" });
+    $$("#spBar .wtask").forEach(c => c.onclick = () => { if(window.recRunning) stopRec(true); cur = +c.dataset.i; renderOne(); });
     $("#spSampleBtn").onclick = () => { const s = $("#spSample"); s.style.display = s.style.display === "none" ? "block" : "none"; };
     if($("#spPrep")) $("#spPrep").onclick = () => {
       let s = 60; const b = $("#spPrep");
@@ -1396,6 +1450,7 @@ function viewMock(selExamIdx, selGroup){
     <div class="sheet exam-picker">
       <div class="exam-picker__top">
         <span class="exam-picker__title">Chọn mã bộ đề trước khi vào phòng thi</span>
+        <input class="ai-input pick-search" id="exSearch" placeholder="Tìm đề (mã, nguồn)…" autocomplete="off">
         <span class="exam-picker__total">${VSTEP_EXAM_SETS.length} bộ đề</span>
       </div>
       <div class="exam-picker__tabs">
@@ -1404,7 +1459,7 @@ function viewMock(selExamIdx, selGroup){
       </div>
       <div class="exam-grid" id="mockExamPicker">
         ${visIdxs.map(i => { const item = VSTEP_EXAM_SETS[i]; return `
-          <button class="exam-cell ${i === selExamIdx ? "on" : ""}" data-exi="${i}">
+          <button class="exam-cell ${i === selExamIdx ? "on" : ""}" data-exi="${i}" data-search="${esc((item.code + " " + item.name + " " + item.source).toLowerCase().replace(/["']/g, " "))}">
             <span class="exam-cell__code">${esc(item.code)}</span>
             <span class="exam-cell__sub">${esc(examCellSub(item))}</span>
           </button>`; }).join("")}
@@ -1488,6 +1543,10 @@ function viewMock(selExamIdx, selGroup){
     viewMock(idx, g);
   });
   $$("#mockExamPicker .exam-cell").forEach(b => b.onclick = () => viewMock(+b.dataset.exi, selGroup));
+  if($("#exSearch")) $("#exSearch").oninput = e => {
+    const q = e.target.value.trim().toLowerCase();
+    $$("#mockExamPicker .exam-cell").forEach(r => { r.style.display = !q || (r.dataset.search || "").includes(q) ? "" : "none"; });
+  };
   if($("#cbtResume")) $("#cbtResume").onclick = () => {
     try{ const d = JSON.parse(localStorage.getItem(CBT_DRAFT_KEY) || "null"); if(d) runFullCBTExam(d.examIdx, d); }catch(e){}
   };

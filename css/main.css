@@ -3590,3 +3590,12 @@ textarea:focus-visible,
     print-color-adjust: exact;
   }
 }
+
+.pick-search {
+  min-width: 200px;
+  flex: 1 1 240px;
+  max-width: 340px;
+  margin-left: auto;
+  font-size: 12.5px;
+  padding: 7px 11px;
+}
