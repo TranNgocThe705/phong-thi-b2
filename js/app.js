@@ -3140,12 +3140,13 @@ function viewSettings(){
 /* ================= KHỞI ĐỘNG ================= */
 Dict.mount();
 $("#menuBtn").onclick = () => $("#nav").classList.toggle("open");
-/* Ẩn topbar khi cuộn xuống để giành không gian làm bài, hiện lại khi cuộn lên */
+/* Ẩn topbar khi cuộn xuống để giành không gian làm bài, chỉ hiện lại khi về đầu trang */
 (function(){
   let lastY = 0;
   window.addEventListener("scroll", () => {
     const y = window.scrollY;
-    document.body.classList.toggle("nav-hidden", y > lastY && y > 140);
+    const hidden = document.body.classList.contains("nav-hidden");
+    document.body.classList.toggle("nav-hidden", y > 140 && (y > lastY || hidden));
     lastY = y;
   }, { passive: true });
 })();
