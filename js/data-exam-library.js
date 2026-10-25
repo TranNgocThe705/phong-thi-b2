@@ -8415,6 +8415,27 @@ const SELF_SPEAKING_P3 = [
     ],
     sample: "Smartphones are controversial in education, but their benefits for students are real. Firstly, a smartphone is a powerful learning tool — dictionary apps, online courses and YouTube lectures put a library in your pocket; I learned more English from podcasts than from any textbook. Secondly, phones keep students connected with family, which matters when studying far from home — a quick video call reassures worried parents. Thirdly, they provide entertainment and relaxation; short breaks with music or games help students recharge between study sessions. My own addition is organizational skills: calendar and reminder apps teach time management. I personally use my phone for vocabulary apps and recording my speaking practice. Do phones distract students? They can — the problem isn't the device but self-control. As for banning them in class, I'd say ban them during lessons but teach digital discipline, because students will need to manage technology for the rest of their lives.",
     tip: "Đứng ở lập trường CÂN BẰNG (benefits + risks + điều kiện) cho các đề hai mặt như smartphone — tránh cực đoan, giám khảo thích 'nuanced view'."
+  },
+  {
+    id: "s47",
+    official: false,
+    topic: "Public transport — Giao thông công cộng (Đề tự biên)",
+    mindmap: {
+      center: "Public transport",
+      branches: [
+        "Reduce traffic congestion",
+        "Cheaper than private vehicles",
+        "Better for the environment",
+        "Your own idea"
+      ]
+    },
+    followups: [
+      "How often do you use public transport?",
+      "What problems does public transport have in your city?",
+      "Should governments invest more in public transport?"
+    ],
+    sample: "Public transport is the backbone of any modern city, and I'd like to discuss three of its biggest benefits. Firstly, it reduces traffic congestion — one bus can replace forty private cars, so cities with good metro systems simply move faster; Hanoi during rush hour shows exactly what happens when everyone drives. Secondly, it is far cheaper than owning a vehicle — a monthly bus pass costs less than a single week of petrol, parking and maintenance combined, which is why students like me depend on it daily. Thirdly, public transport is much better for the environment: fewer engines running means lower emissions and cleaner air for everyone. My own addition would be equality — buses and trains give elderly people and those who cannot drive real independence. In my city, the biggest problems are overcrowding and unreliable schedules, so yes, governments should definitely invest more, because every đồng spent on metros saves money on roads, accidents and healthcare later.",
+    tip: "Đề hạ tầng/giao thông: luôn có sẵn 3 trục kinh tế — thời gian — môi trường. Kết bài bằng một khuyến nghị chính sách ngắn (should invest more / subsidize fares) sẽ nghe rất 'B2'."
   }
 ];
 

@@ -11,6 +11,8 @@ const pickN = (arr, n) => shuffle(arr).slice(0, n);
 const fmtTime = s => { s = Math.max(0, Math.round(s)); return String(Math.floor(s / 60)).padStart(2, "0") + ":" + String(s % 60).padStart(2, "0"); };
 const todayStr = () => new Date().toISOString().slice(0, 10);
 const LETTERS = ["A", "B", "C", "D"];
+const toHalf = x => Math.round(x * 2) / 2;
+const CBT_DRAFT_KEY = "b2.cbt.draft.v1";
 
 /* ================= SVG ICONS ================= */
 const ICO = {
@@ -36,6 +38,7 @@ const Store = {
     this.d.mocks = this.d.mocks || [];
     this.d.days = this.d.days || [];
     this.d.cards = this.d.cards || {};
+    this.d.writings = this.d.writings || [];
     if(!this.d.days.includes(todayStr())) this.d.days.push(todayStr());
     this.save();
   },
@@ -47,6 +50,8 @@ const Store = {
   },
   resolve(id, v){ if(this.d.answers[id]){ this.d.answers[id].resolved = v; this.save(); } },
   addMock(m){ this.d.mocks.unshift(m); this.save(); },
+  addWriting(w){ this.d.writings = this.d.writings || []; this.d.writings.unshift(w); this.d.writings = this.d.writings.slice(0, 20); this.save(); },
+  resolveWriting(i){ if(this.d.writings && this.d.writings[i] !== undefined){ this.d.writings.splice(i, 1); this.save(); } },
   streak(){
     const days = this.d.days.slice().sort();
     let s = 0;
@@ -251,6 +256,9 @@ const ROUTES = {
 function route(){
   const hash = location.hash.replace(/^#/, "") || "/";
   const fn = ROUTES[hash] || viewHome;
+  if(window.__cbtSave){ try{ window.__cbtSave(); }catch(e){} window.__cbtSave = null; }
+  if(window.__examKeys){ document.removeEventListener("keydown", window.__examKeys); window.__examKeys = null; }
+  window.onbeforeunload = null;
   TTS.stop();
   if(STT.active) STT.stop();
   window.scrollTo(0, 0);
@@ -528,6 +536,7 @@ function viewGrammar(){
     <div class="topic-bar" id="topicBar">
       <button class="chip on" data-t="all">Tất cả chủ đề <span class="n">${GRAMMAR.length}</span></button>
       ${topics.map(t => `<button class="chip" data-t="${esc(t)}">${esc(t)} <span class="n">${GRAMMAR.filter(q => q.topic === t).length}</span></button>`).join("")}
+      <button class="btn btn--sm btn--solid" id="gMini" style="margin-left:auto">Mini-test 15 câu · 15 phút</button>
     </div>
     <div id="quizMount"></div>`;
   const mount = $("#quizMount");
@@ -540,6 +549,9 @@ function viewGrammar(){
     $$("#topicBar .chip").forEach(x => x.classList.remove("on"));
     c.classList.add("on"); filter = c.dataset.t; render();
   });
+  $("#gMini").onclick = () => runMockExam(
+    { label: "Mini-test Ngữ pháp (15 câu ngẫu nhiên)", secs: 15 * 60, items: pickN(GRAMMAR, 15).map(mapGQ) },
+    { hash: "#/ngu-phap", text: "Quay lại Ngữ pháp" });
   render();
 }
 
@@ -565,6 +577,7 @@ function vocabQuiz(){
     <div class="topic-bar" id="setBar">
       <button class="chip on" data-t="all">Tất cả <span class="n">${VOCAB.length}</span></button>
       ${sets.map(s => `<button class="chip" data-t="${esc(s)}">${esc(s)} <span class="n">${VOCAB.filter(q => q.set === s).length}</span></button>`).join("")}
+      <button class="btn btn--sm btn--solid" id="vMini" style="margin-left:auto">Mini-test 15 câu · 15 phút</button>
     </div>
     <div id="quizMount"></div>`;
   const mount = $("#quizMount");
@@ -574,17 +587,49 @@ function vocabQuiz(){
     $$("#setBar .chip").forEach(x => x.classList.remove("on"));
     c.classList.add("on"); filter = c.dataset.t; render();
   });
+  $("#vMini").onclick = () => runMockExam(
+    { label: "Mini-test Từ vựng (15 câu ngẫu nhiên)", secs: 15 * 60, items: pickN(VOCAB, 15).map(mapVQ) },
+    { hash: "#/tu-vung", text: "Quay lại Từ vựng" });
   render();
 }
 function vocabCards(){
+  let deckMode = "all";
   let deck = CARDS.slice();
   let i = 0, flipped = false;
   const boxOf = c => (Store.d.cards[c.id] || {}).box || 1;
+  const nOf = mode => mode === "weak" ? CARDS.filter(c => boxOf(c) <= 1).length
+                    : mode === "mid" ? CARDS.filter(c => boxOf(c) === 2).length
+                    : mode === "master" ? CARDS.filter(c => boxOf(c) >= 3).length
+                    : CARDS.length;
+  const buildDeck = () => {
+    deck = deckMode === "weak" ? CARDS.filter(c => boxOf(c) <= 1)
+         : deckMode === "mid" ? CARDS.filter(c => boxOf(c) === 2)
+         : deckMode === "master" ? CARDS.filter(c => boxOf(c) >= 3)
+         : CARDS.slice();
+    if(i >= deck.length) i = 0;
+    flipped = false;
+  };
+  const deckChips = () => `
+    <div class="topic-bar" style="margin-bottom:16px">
+      ${[["all", "Tất cả"], ["weak", "Chưa thuộc"], ["mid", "Đang nhớ"], ["master", "Đã thuộc"]]
+        .map(([k, l]) => `<button class="chip ${deckMode === k ? "on" : ""}" data-dm="${k}">${l} <span class="n">${nOf(k)}</span></button>`).join("")}
+      <button class="btn btn--sm btn--ghost" id="fcShuffle" style="margin-left:auto">${ICO.flip}<span>Trộn thẻ</span></button>
+    </div>`;
+  const bindDeckChips = () => {
+    $$("[data-dm]").forEach(b => b.onclick = () => { deckMode = b.dataset.dm; buildDeck(); render(); });
+    if($("#fcShuffle")) $("#fcShuffle").onclick = () => { deck = shuffle(deck); i = 0; flipped = false; render(); };
+  };
   const render = () => {
     const c = deck[i];
     const known = Object.keys(Store.d.cards).length;
     const mastered = Object.values(Store.d.cards).filter(x => x.box >= 3).length;
-    $("#vocabBody").innerHTML = `
+    if(!c){
+      $("#vocabBody").innerHTML = deckChips() +
+        `<div class="sheet sheet--pad" style="text-align:center;padding:44px"><p style="color:var(--ink-2)">Không có thẻ nào trong nhóm này — chuyển sang nhóm khác.</p></div>`;
+      bindDeckChips();
+      return;
+    }
+    $("#vocabBody").innerHTML = deckChips() + `
       <div class="fc-stage">
         <div class="fc-card ${flipped ? "is-flipped" : ""}" id="fcCard" tabindex="0" role="button" aria-label="Thẻ từ vựng ${esc(c.word)}, bấm để lật thẻ">
           <div class="fc-card__inner">
@@ -629,6 +674,7 @@ function vocabCards(){
     };
     $("#fcYes").onclick = () => { Store.d.cards[c.id] = { box: Math.min(3, boxOf(c) + 1), at: Date.now() }; Store.save(); i = (i + 1) % deck.length; flipped = false; render(); };
     $("#fcNo").onclick = () => { Store.d.cards[c.id] = { box: 1, at: Date.now() }; Store.save(); i = (i + 1) % deck.length; flipped = false; render(); };
+    bindDeckChips();
   };
   render();
 }
@@ -1324,6 +1370,27 @@ function viewMock(selExamIdx, selGroup){
       </div>
     </div>
 
+    ${(() => {
+      try {
+        const d = JSON.parse(localStorage.getItem(CBT_DRAFT_KEY) || "null");
+        if(!d) return "";
+        const dex = VSTEP_EXAM_SETS[d.examIdx];
+        if(!dex) return "";
+        const stageNames = ["Nghe hiểu", "Đọc hiểu", "Viết", "Nói"];
+        const done = (d.listenPicks || []).filter(v => v !== null && v !== undefined).length + (d.readPicks || []).filter(v => v !== null && v !== undefined).length;
+        return `<div class="sheet resume-bar">
+          <div class="resume-bar__info">
+            <b>Bài thi dở đang được lưu: ${esc(dex.code)} — ${esc(dex.name)}</b>
+            <span>Đang ở phần ${stageNames[d.stageIdx] || ""} · còn ${fmtTime(d.stageLeft)} · đã làm ${done} câu trắc nghiệm · lưu lúc ${new Date(d.savedAt).toLocaleString("vi-VN")}</span>
+          </div>
+          <div class="resume-bar__btns">
+            <button class="btn btn--solid btn--sm" id="cbtResume"><span>Tiếp tục làm bài</span>${ICO.next}</button>
+            <button class="btn btn--ghost btn--sm" id="cbtDraftDel">Xóa bài dở</button>
+          </div>
+        </div>`;
+      } catch(e){ return ""; }
+    })()}
+
     <div class="cbt-featured">
       <div style="flex:1;min-width:280px">
         <span class="tag" style="background:rgba(56,189,248,0.16);border-color:rgba(56,189,248,0.35);color:#BAE6FD">${esc(ex.code)} • ${esc(ex.badge)} (Full 4 Kỹ năng CBT)</span>
@@ -1376,19 +1443,40 @@ function viewMock(selExamIdx, selGroup){
     viewMock(idx, g);
   });
   $$("#mockExamPicker .exam-cell").forEach(b => b.onclick = () => viewMock(+b.dataset.exi, selGroup));
-  $("#startFullCBT").onclick = () => runFullCBTExam(selExamIdx);
+  if($("#cbtResume")) $("#cbtResume").onclick = () => {
+    try{ const d = JSON.parse(localStorage.getItem(CBT_DRAFT_KEY) || "null"); if(d) runFullCBTExam(d.examIdx, d); }catch(e){}
+  };
+  if($("#cbtDraftDel")) $("#cbtDraftDel").onclick = () => {
+    localStorage.removeItem(CBT_DRAFT_KEY);
+    viewMock(selExamIdx, selGroup);
+  };
+  $("#startFullCBT").onclick = () => {
+    try{
+      const d = JSON.parse(localStorage.getItem(CBT_DRAFT_KEY) || "null");
+      if(d){
+        const dCode = (VSTEP_EXAM_SETS[d.examIdx] || {}).code || "đề khác";
+        const msg = d.examIdx === selExamIdx
+          ? "Bạn đang có bài thi dở của đề này. Bắt đầu lại từ đầu sẽ XÓA bài dở — tiếp tục?"
+          : "Bạn đang có bài thi dở của " + dCode + ". Bắt đầu đề mới sẽ GHI ĐÈ bài dở đó — tiếp tục?";
+        if(!confirm(msg)) return;
+      }
+    }catch(e){}
+    runFullCBTExam(selExamIdx);
+  };
   $$(".mock-opt").forEach(b => b.onclick = () => runMock(b.dataset.mode, selExamIdx));
 }
 
 /* ================= PHÒNG THI FULL 4 KỸ NĂNG CHUẨN CBT ================= */
-function runFullCBTExam(examIdx){
+function runFullCBTExam(examIdx, draft){
   const ex = VSTEP_EXAM_SETS[examIdx || 0] || VSTEP_EXAM_SETS[0];
   const rSet = ALL_READING_SETS[ex.readingSetIndex] || ALL_READING_SETS[0];
 
   /* Chuẩn bị dữ liệu 4 kỹ năng theo đúng Mã Bộ Đề đã chọn */
   const listenGroups = LISTENING.filter(g => (g.set || 1) === ex.listeningSet);
   const listenQs = listenGroups.flatMap(g => g.qs.map(q => ({ ...q, gid: g.gid, part: g.part, groupTitle: g.title })));
-  const listenPicks = new Array(listenQs.length).fill(undefined);
+  const listenPicks = draft && Array.isArray(draft.listenPicks) && draft.listenPicks.length === listenQs.length
+    ? draft.listenPicks.map(v => (v === null || v === undefined) ? undefined : v)
+    : new Array(listenQs.length).fill(undefined);
 
   const readPassages = rSet.passages;
   const readQs = readPassages.flatMap((p, pi) => p.questions.map(q => ({
@@ -1396,17 +1484,23 @@ function runFullCBTExam(examIdx){
     n: q.n, pi, passageTitle: p.title, q: q.q, opts: q.opts,
     a: q.a, ex: q.ex
   })));
-  const readPicks = new Array(readQs.length).fill(undefined);
-  const readFlags = new Array(readQs.length).fill(false);
+  const readPicks = draft && Array.isArray(draft.readPicks) && draft.readPicks.length === readQs.length
+    ? draft.readPicks.map(v => (v === null || v === undefined) ? undefined : v)
+    : new Array(readQs.length).fill(undefined);
+  const readFlags = draft && Array.isArray(draft.readFlags) && draft.readFlags.length === readQs.length
+    ? draft.readFlags.map(Boolean)
+    : new Array(readQs.length).fill(false);
 
   const w1Task = WRITING.find(w => w.id === ex.w1Id) || WRITING[0];
   const w2Task = WRITING.find(w => w.id === ex.w2Id) || WRITING.find(w => w.task === 2);
-  const writeData = { w1: "", w2: "", activeTask: 1 };
+  const writeData = draft && draft.writeData ? { w1: draft.writeData.w1 || "", w2: draft.writeData.w2 || "", activeTask: draft.writeData.activeTask === 2 ? 2 : 1 } : { w1: "", w2: "", activeTask: 1 };
 
   const s1Item = SPEAKING_P1.find(s => s.id === ex.s1Id) || SPEAKING_P1[0];
   const s2Item = SPEAKING_P2.find(s => s.id === ex.s2Id) || SPEAKING_P2[0];
   const s3Item = SPEAKING_P3.find(s => s.id === ex.s3Id) || SPEAKING_P3[0];
-  const speakData = { s1: "", s2: "", s3: "", activePart: 1 };
+  const speakData = draft && draft.speakData ? { s1: draft.speakData.s1 || "", s2: draft.speakData.s2 || "", s3: draft.speakData.s3 || "", activePart: [1, 2, 3].includes(draft.speakData.activePart) ? draft.speakData.activePart : 1 } : { s1: "", s2: "", s3: "", activePart: 1 };
+  const speakBlobs = { 1: null, 2: null, 3: null };
+  let stopSpeakCapture = () => {};
 
   const STAGES = [
     { key: "listening", name: "1. Nghe hiểu", secs: 40 * 60 },
@@ -1414,12 +1508,25 @@ function runFullCBTExam(examIdx){
     { key: "writing", name: "3. Viết (2 bài)", secs: 60 * 60 },
     { key: "speaking", name: "4. Nói (3 phần)", secs: 12 * 60 }
   ];
-  let stageIdx = 0;
-  let stageLeft = STAGES[0].secs;
-  let totalElapsed = 0;
-  let readCurPassage = 0;
-  let listenCurGroup = 0;
+  let stageIdx = draft ? Math.min(Math.max(+draft.stageIdx || 0, 0), STAGES.length - 1) : 0;
+  let stageLeft = draft ? Math.min(Math.max(+draft.stageLeft || 60, 5), STAGES[stageIdx].secs) : STAGES[0].secs;
+  let totalElapsed = draft ? (+draft.totalElapsed || 0) : 0;
+  let readCurPassage = draft ? Math.min(Math.max(+draft.readCurPassage || 0, 0), readPassages.length - 1) : 0;
+  let listenCurGroup = draft ? Math.min(Math.max(+draft.listenCurGroup || 0, 0), listenGroups.length - 1) : 0;
   let submitted = false;
+
+  const saveDraft = () => {
+    if(submitted) return;
+    try{
+      localStorage.setItem(CBT_DRAFT_KEY, JSON.stringify({
+        v: 1, examIdx: examIdx || 0, stageIdx, stageLeft, totalElapsed,
+        listenCurGroup, readCurPassage, listenPicks, readPicks, readFlags,
+        writeData, speakData, savedAt: Date.now()
+      }));
+    }catch(e){}
+  };
+  window.__cbtSave = saveDraft;
+  window.onbeforeunload = e => { if(!submitted){ e.preventDefault(); e.returnValue = ""; } };
 
   app.innerHTML = `
     <div class="cbt-bar">
@@ -1452,6 +1559,7 @@ function runFullCBTExam(examIdx){
     timerEl.textContent = fmtTime(stageLeft);
     barEl.style.transform = `scaleX(${Math.max(0, stageLeft / STAGES[stageIdx].secs).toFixed(4)})`;
     if(stageLeft <= 180) timerEl.classList.add("warn"); else timerEl.classList.remove("warn");
+    if(totalElapsed % 15 === 0) saveDraft();
     if(stageLeft <= 0){
       if(stageIdx < STAGES.length - 1){
         goStage(stageIdx + 1);
@@ -1461,19 +1569,25 @@ function runFullCBTExam(examIdx){
     }
   }, 1000);
 
-  function goStage(nextIdx){
-    TTS.stop();
-    if(STT.active) STT.stop();
-    stageIdx = nextIdx;
-    stageLeft = STAGES[stageIdx].secs;
+  const syncStepper = () => {
     labelEl.textContent = "Thời gian " + STAGES[stageIdx].name.replace(/^\d+\.\s*/, "") + ":";
-    timerEl.textContent = fmtTime(stageLeft);
-    barEl.style.transform = "scaleX(1)";
     $$("#cbtStepper .cbt-step").forEach((b, i) => {
       b.classList.toggle("on", i === stageIdx);
       b.classList.toggle("done", i < stageIdx);
     });
     $("#cbtNextStage").style.display = stageIdx < STAGES.length - 1 ? "inline-flex" : "none";
+  };
+
+  function goStage(nextIdx){
+    TTS.stop();
+    if(STT.active) STT.stop();
+    stopSpeakCapture();
+    stageIdx = nextIdx;
+    stageLeft = STAGES[stageIdx].secs;
+    timerEl.textContent = fmtTime(stageLeft);
+    barEl.style.transform = "scaleX(1)";
+    syncStepper();
+    saveDraft();
     window.scrollTo({ top: 0, behavior: "smooth" });
     renderStage();
   }
@@ -1563,6 +1677,7 @@ function runFullCBTExam(examIdx){
     $$(".opt[data-qi]", mount).forEach(btn => btn.onclick = () => {
       const qi = +btn.dataset.qi, oi = +btn.dataset.oi;
       listenPicks[qi] = oi;
+      saveDraft();
       renderListeningStage(mount);
     });
     $$("[data-jump-q]", mount).forEach(b => b.onclick = () => {
@@ -1630,11 +1745,13 @@ function runFullCBTExam(examIdx){
     $$(".opt[data-rqi]", mount).forEach(btn => btn.onclick = () => {
       const qi = +btn.dataset.rqi, oi = +btn.dataset.roi;
       readPicks[qi] = oi;
+      saveDraft();
       renderReadingStage(mount);
     });
     $$("[data-rflag]", mount).forEach(btn => btn.onclick = () => {
       const qi = +btn.dataset.rflag;
       readFlags[qi] = !readFlags[qi];
+      saveDraft();
       renderReadingStage(mount);
     });
     $$("[data-rjump]", mount).forEach(b => b.onclick = () => {
@@ -1698,6 +1815,7 @@ function runFullCBTExam(examIdx){
     area.oninput = () => {
       if(writeData.activeTask === 1) writeData.w1 = area.value;
       else writeData.w2 = area.value;
+      saveDraft();
       const n = countWords(area.value);
       $("#cbtWNum", mount).textContent = n;
       $("#cbtWBar", mount).style.transform = `scaleX(${Math.min(1, n / curT.target).toFixed(3)})`;
@@ -1768,31 +1886,56 @@ function runFullCBTExam(examIdx){
     const txtArea = $("#cbtSpeakText", mount);
     txtArea.oninput = () => {
       speakData[curKey] = txtArea.value;
+      saveDraft();
       $("#cbtSpCount", mount).innerHTML = `Độ dài câu trả lời: <b>${countWords(txtArea.value)}</b> từ`;
     };
     $$("[data-spt]", mount).forEach(b => b.onclick = () => {
       if(STT.active) STT.stop();
+      stopSpeakCapture();
       speakData.activePart = +b.dataset.spt;
       renderSpeakingStage(mount);
     });
     if($("#cbtNextSpPart", mount)) $("#cbtNextSpPart", mount).onclick = () => {
       if(STT.active) STT.stop();
+      stopSpeakCapture();
       speakData.activePart = pt + 1;
       renderSpeakingStage(mount);
     };
     if($("#cbtFinishBtn", mount)) $("#cbtFinishBtn", mount).onclick = () => finishFullCBT(false);
 
     if(STT.supported){
-      let recT0 = 0, recIv = null;
+      let recT0 = 0, recIv = null, mediaRec = null, mediaChunks = [], mediaStream = null;
       const panel = $("#cbtSpeakPanel", mount), timeEl = $("#cbtRecTime", mount);
+      const startCapture = async () => {
+        if(!navigator.mediaDevices || typeof MediaRecorder === "undefined") return;
+        try{
+          mediaStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+          mediaChunks = [];
+          mediaRec = new MediaRecorder(mediaStream);
+          mediaRec.ondataavailable = e => { if(e.data && e.data.size) mediaChunks.push(e.data); };
+          mediaRec.onstop = () => {
+            try{
+              const blob = new Blob(mediaChunks, { type: mediaRec.mimeType || "audio/webm" });
+              if(speakBlobs[pt]) URL.revokeObjectURL(speakBlobs[pt].url);
+              speakBlobs[pt] = { url: URL.createObjectURL(blob), mime: blob.type };
+            }catch(e){}
+            if(mediaStream){ mediaStream.getTracks().forEach(t => t.stop()); mediaStream = null; }
+          };
+          mediaRec.start();
+          if(!panel.classList.contains("recording")) mediaRec.stop();
+        }catch(e){}
+      };
+      stopSpeakCapture = () => { try{ if(mediaRec && mediaRec.state !== "inactive") mediaRec.stop(); }catch(e){} };
       $("#cbtRecStart", mount).onclick = () => {
         recT0 = Date.now();
         panel.classList.add("recording");
         const baseText = speakData[curKey] ? speakData[curKey].trim() + " " : "";
         recIv = setInterval(() => { timeEl.textContent = fmtTime((Date.now() - recT0) / 1000); }, 250);
+        startCapture();
         STT.start((fin, inter) => {
           txtArea.value = baseText + fin + inter;
           speakData[curKey] = txtArea.value;
+          saveDraft();
           $("#cbtSpCount", mount).innerHTML = `Độ dài câu trả lời: <b>${countWords(txtArea.value)}</b> từ`;
         });
       };
@@ -1800,6 +1943,7 @@ function runFullCBTExam(examIdx){
         clearInterval(recIv);
         panel.classList.remove("recording");
         STT.stop();
+        stopSpeakCapture();
       };
     }
   }
@@ -1810,8 +1954,12 @@ function runFullCBTExam(examIdx){
     if(!auto && !confirm("Bạn có chắc chắn muốn nộp bài thi VSTEP 4 kỹ năng và xem bảng điểm tổng kết không?")) return;
     submitted = true;
     clearInterval(timerInt);
+    localStorage.removeItem(CBT_DRAFT_KEY);
+    window.__cbtSave = null;
+    window.onbeforeunload = null;
     TTS.stop();
     if(STT.active) STT.stop();
+    stopSpeakCapture();
 
     /* 1. Chấm Nghe & Đọc chính xác theo đáp án */
     let listenOk = 0;
@@ -1827,13 +1975,15 @@ function runFullCBTExam(examIdx){
       Store.addAnswer(q.id, readPicks[i] === undefined ? -1 : readPicks[i], good);
     });
 
-    const listenScore = +(listenOk / listenQs.length * 10).toFixed(1);
-    const readScore = +(readOk / readQs.length * 10).toFixed(1);
+    const listenScore = toHalf(listenOk / listenQs.length * 10);
+    const readScore = toHalf(readOk / readQs.length * 10);
 
     /* 2. Điểm ước lượng cục bộ cho Viết & Nói (hiển thị tức thì, sau đó AI cập nhật) */
     const w1Local = LocalAnalyzer.scoreWritingNumeric(writeData.w1, w1Task);
     const w2Local = LocalAnalyzer.scoreWritingNumeric(writeData.w2, w2Task);
     let writeScore = +((w1Local + w2Local * 2) / 3).toFixed(1);
+    if(w1Local < 6 && countWords(writeData.w1) >= 30) Store.addWriting({ task: 1, type: w1Task.type, score: w1Local, text: writeData.w1.slice(0, 2200), code: ex.code, date: todayStr() });
+    if(w2Local < 6 && countWords(writeData.w2) >= 30) Store.addWriting({ task: 2, type: w2Task.type, score: w2Local, text: writeData.w2.slice(0, 2600), code: ex.code, date: todayStr() });
 
     const s1Local = LocalAnalyzer.scoreSpeakingNumeric(speakData.s1, 50);
     const s2Local = LocalAnalyzer.scoreSpeakingNumeric(speakData.s2, 90);
@@ -1853,7 +2003,7 @@ function runFullCBTExam(examIdx){
     const timeUsed = fmtTime(totalElapsed);
     Store.addMock({
       date: todayStr(),
-      label: "Full 4 kỹ năng CBT",
+      label: "Full 4KN · " + ex.code,
       score: overallScore,
       pct: Math.round(overallScore * 10),
       total: listenQs.length + readQs.length,
@@ -1861,6 +2011,26 @@ function runFullCBTExam(examIdx){
       timeUsed,
       at: Date.now()
     });
+
+    let subOpen = false;
+    const submissionsHtml = () => {
+      const row = (label, text, blob) => `
+        <div class="subrev">
+          <div class="subrev__head"><b>${esc(label)}</b><span>${countWords(text)} từ</span></div>
+          ${text.trim() ? `<div class="subrev__text">${esc(text)}</div>` : `<div class="subrev__text subrev__text--empty">(Bỏ trống phần này)</div>`}
+          ${blob ? `<div class="subrev__audio"><audio controls src="${blob.url}"></audio><a class="btn btn--ghost btn--sm" href="${blob.url}" download="speaking-${blob.ext || "rec"}.webm">Tải bản ghi</a></div>` : ""}
+        </div>`;
+      return `<div class="sheet sheet--pad" style="margin-bottom:18px">
+        <span class="tag">Bài làm đã nộp của bạn — đối chiếu với nhận xét của Giám khảo AI bên dưới</span>
+        <div style="margin-top:14px">
+          ${row("Writing Task 1 — " + w1Task.type, writeData.w1, null)}
+          ${row("Writing Task 2 — " + w2Task.type, writeData.w2, null)}
+          ${row("Speaking Part 1 — " + s1Item.topic, speakData.s1, speakBlobs[1])}
+          ${row("Speaking Part 2 — " + s2Item.topic, speakData.s2, speakBlobs[2])}
+          ${row("Speaking Part 3 — " + s3Item.topic, speakData.s3, speakBlobs[3])}
+        </div>
+      </div>`;
+    };
 
     const renderResultView = (aiGradingState, aiReportHtml) => {
       const b = badgeInfo(overallScore);
@@ -1894,13 +2064,18 @@ function runFullCBTExam(examIdx){
             <div class="v ${speakScore >= 6 ? "v--green" : "v--red"}" id="resSpeakScore">${speakScore}<small>/10 ${aiGradingState === "done" ? "(AI chấm)" : "(Cục bộ)"}</small></div>
           </div>
         </div>
+        <p style="font-size:12.5px;color:var(--ink-3);margin-top:10px">Điểm Nghe &amp; Đọc quy đổi thang 10 làm tròn đến 0.5 — mức ước lượng gần đúng (bảng quy đổi chính thức của VSTEP được công bố theo từng đợt thi).</p>
 
         <div style="display:flex;gap:10px;margin:22px 0;flex-wrap:wrap">
           <button class="btn btn--solid" id="cbtBtnAI">${aiGradingState === "loading" ? "Giám khảo AI đang chấm tự động…" : "Chấm lại Viết & Nói bằng Giám khảo AI"}</button>
           <button class="btn btn--teal" id="cbtUpgradeWrite">AI nâng cấp bài Viết lên B2/C1</button>
           <button class="btn btn--teal" id="cbtUpgradeSpeak">AI nâng cấp bài Nói lên B2/C1</button>
-          <button class="btn" id="cbtReviewMC">Xem giải thích 65 câu Nghe &amp; Đọc</button>
+          <button class="btn" id="cbtReviewMC">Xem giải thích ${listenQs.length + readQs.length} câu Nghe &amp; Đọc</button>
+          <button class="btn" id="cbtSubToggle">${subOpen ? "Ẩn bài đã nộp" : "Xem lại bài đã nộp (Viết & Nói)"}</button>
+          <button class="btn btn--ghost" id="cbtPrint">In phiếu điểm</button>
         </div>
+
+        <div id="cbtSubOut">${subOpen ? submissionsHtml() : ""}</div>
 
         <div id="cbtAIOut">${aiReportHtml || ""}</div>
         <div id="cbtUpgradeOut"></div>
@@ -1967,6 +2142,12 @@ function runFullCBTExam(examIdx){
         }).join("");
         $("#cbtReviewOut").scrollIntoView({ behavior: "smooth" });
       };
+      $("#cbtSubToggle").onclick = () => {
+        subOpen = !subOpen;
+        $("#cbtSubOut").innerHTML = subOpen ? submissionsHtml() : "";
+        $("#cbtSubToggle").textContent = subOpen ? "Ẩn bài đã nộp" : "Xem lại bài đã nộp (Viết & Nói)";
+      };
+      $("#cbtPrint").onclick = () => window.print();
     };
 
     async function runAIGrading(){
@@ -2003,14 +2184,18 @@ function runFullCBTExam(examIdx){
     runAIGrading();
   }
 
+  syncStepper();
   renderStage();
 }
+
+const mapGQ = q => ({ id: q.id, section: "Ngữ pháp", q: esc(q.q), opts: q.opts.map(esc), a: q.a, ex: q.ex });
+const mapVQ = q => ({ id: q.id, section: "Từ vựng", q: esc(q.q), opts: q.opts.map(esc), a: q.a, ex: q.ex });
 
 function buildMockItems(mode, examIdx){
   const ex = VSTEP_EXAM_SETS[examIdx || 0] || VSTEP_EXAM_SETS[0];
   const rSet = ALL_READING_SETS[ex.readingSetIndex] || ALL_READING_SETS[0];
-  const g = q => ({ id: q.id, section: "Ngữ pháp", q: esc(q.q), opts: q.opts.map(esc), a: q.a, ex: q.ex });
-  const v = q => ({ id: q.id, section: "Từ vựng", q: esc(q.q), opts: q.opts.map(esc), a: q.a, ex: q.ex });
+  const g = mapGQ;
+  const v = mapVQ;
   const r = (q, part) => ({ id: q.id, section: "Đọc hiểu", q: esc(q.q), opts: q.opts.map(esc), a: q.a, ex: q.ex, tag: part });
   const fromSetPassage = (p, pi) => p.questions.map(q => ({
     id: (ex.readingSetIndex === 0 ? "ro" + q.n : rSet.id + "_" + q.n),
@@ -2040,7 +2225,13 @@ function buildMockItems(mode, examIdx){
 }
 
 function runMock(mode, examIdx){
-  const { label, secs, items } = buildMockItems(mode, examIdx);
+  runMockExam(buildMockItems(mode, examIdx), { hash: "#/thi-thu", text: "Quay lại danh sách đề thi" });
+}
+
+/* Bộ chạy đề trắc nghiệm bấm giờ — dùng chung cho đề thi thử & mini-test chuyên đề */
+function runMockExam(m, back){
+  const { label, secs, items } = m;
+  back = back || { hash: "#/thi-thu", text: "Quay lại" };
   const picks = new Array(items.length).fill(undefined);
   const flags = new Array(items.length).fill(false);
   let idx = 0, left = secs, timerInt = null, submitted = false;
@@ -2064,6 +2255,8 @@ function runMock(mode, examIdx){
         <div class="side-block"><h4>Chú giải trạng thái</h4>
           <p style="font-size:12.5px;color:var(--ink-2);line-height:1.8">
           • Nền xanh: Đã chọn đáp án<br>• Viền vàng: Đánh dấu xem lại<br>• Viền đậm: Câu đang mở</p>
+          <hr class="hr-dash">
+          <p style="font-size:12px;color:var(--ink-3);line-height:1.8"><b>Phím tắt:</b> <code>1–4</code> hoặc <code>A–D</code> chọn đáp án · <code>←</code>/<code>→</code> chuyển câu · <code>F</code> đánh dấu</p>
         </div>
       </aside>
     </div>`;
@@ -2131,6 +2324,8 @@ function runMock(mode, examIdx){
     if(!auto && unanswered > 0 && !confirm("Bạn còn " + unanswered + " câu chưa chọn đáp án. Bạn có chắc chắn muốn nộp bài không?")) return;
     submitted = true;
     clearInterval(timerInt);
+    document.removeEventListener("keydown", keyHandler);
+    if(window.__examKeys === keyHandler) window.__examKeys = null;
     const timeUsed = fmtTime(secs - left);
     let ok = 0;
     const perSection = {};
@@ -2147,7 +2342,7 @@ function runMock(mode, examIdx){
     Store.addMock({ date: todayStr(), label, score, pct, total: items.length, ok, timeUsed, at: Date.now() });
 
     app.innerHTML = `
-      <a href="#/thi-thu" class="backlink">${ICO.prev}<span>Quay lại danh sách đề thi</span></a>
+      <a href="${back.hash}" class="backlink">${ICO.prev}<span>${esc(back.text)}</span></a>
       <div class="sheet result-head">
         <div>
           <span class="tag">Kết quả bài thi: ${esc(label)} (Thời gian làm: ${timeUsed})</span>
@@ -2165,6 +2360,7 @@ function runMock(mode, examIdx){
       </div>
       <div style="display:flex;gap:12px;margin:24px 0;flex-wrap:wrap">
         <button class="btn btn--solid" id="rReview">Xem đáp án &amp; giải thích từng câu</button>
+        <button class="btn" id="rPrint">In phiếu kết quả</button>
         <a class="btn" href="#/so-loi">Mở Sổ lỗi cá nhân</a>
         <a class="btn btn--ghost" href="#/">Về trang tổng quan</a>
       </div>
@@ -2183,7 +2379,24 @@ function runMock(mode, examIdx){
       }).join("");
       $("#rReview").scrollIntoView({ behavior: "smooth" });
     };
+    $("#rPrint").onclick = () => window.print();
   }
+
+  /* Phím tắt: 1–4 / A–D chọn đáp án, ←/→ chuyển câu, F đánh dấu */
+  const keyHandler = e => {
+    if(submitted) return;
+    if(e.target && /^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName)) return;
+    const k = e.key.toLowerCase();
+    if(["1", "2", "3", "4"].includes(k) || ["a", "b", "c", "d"].includes(k)){
+      const oi = "1234".includes(k) ? +k - 1 : "abcd".indexOf(k);
+      if(oi < items[idx].opts.length){ picks[idx] = oi; renderQ(); }
+    }
+    else if(e.key === "ArrowRight" && idx < items.length - 1){ idx++; renderQ(); }
+    else if(e.key === "ArrowLeft" && idx > 0){ idx--; renderQ(); }
+    else if(k === "f"){ flags[idx] = !flags[idx]; renderQ(); }
+  };
+  document.addEventListener("keydown", keyHandler);
+  window.__examKeys = keyHandler;
 
   $("#mSubmit").onclick = () => submit(false);
   renderQ();
@@ -2210,31 +2423,51 @@ function viewMistakes(){
     }
     return null;
   };
+  const lowWritings = Store.d.writings || [];
   app.innerHTML = moduleHead("Ôn tập cá nhân", "Sổ lỗi cần khắc phục",
-    "Tất cả những câu bạn từng chọn sai ở các học phần và bài thi thử được tổng hợp tại đây kèm giải thích. Khi đã nắm vững kiến thức, hãy bấm Đã hiểu để hoàn thành.",
-    wrong.length + " câu cần xem lại");
-  if(!wrong.length){
-    app.insertAdjacentHTML("beforeend", `<div class="sheet sheet--pad" style="text-align:center;padding:56px 30px"><h2 style="font-size:26px">Sổ lỗi hiện đang trống!</h2><p style="color:var(--ink-2);margin-top:8px">Bạn chưa làm sai câu nào hoặc đã ôn tập xong toàn bộ các câu sai trước đó.</p><a class="btn btn--solid" href="#/thi-thu" style="margin-top:18px"><span>Làm bài thi thử mới</span>${ICO.next}</a></div>`);
-    return;
+    "Tất cả những câu bạn từng chọn sai ở các học phần và bài thi thử, cùng các bài Viết bị chấm dưới 6.0 được tổng hợp tại đây kèm giải thích. Khi đã nắm vững kiến thức, hãy bấm Đã hiểu để hoàn thành.",
+    wrong.length + " câu & " + lowWritings.length + " bài viết cần xem lại");
+  if(lowWritings.length){
+    app.insertAdjacentHTML("beforeend", `
+      <div style="margin-bottom:34px">
+        <div class="section-head"><span class="section-head__no">Bài viết dưới 6.0</span><h2 style="font-size:22px">Bài Viết cần viết lại</h2><span class="section-head__meta">${lowWritings.length} bài</span></div>
+        ${lowWritings.map((w, i) => `
+          <div class="sheet sheet--pad" style="margin-bottom:14px">
+            <div class="subrev__head" style="margin-bottom:8px">
+              <b>Task ${w.task} · ${esc(w.type)}</b>
+              <span><span class="tag" style="background:var(--red-soft);border-color:var(--red-border);color:var(--red)">${w.score}/10</span> <span style="font-size:12px;color:var(--ink-3)">${esc(w.code || "")} · ${esc(w.date || "")}</span></span>
+            </div>
+            <div class="subrev__text">${esc(w.text)}</div>
+            <div style="display:flex;gap:10px;margin-top:12px;flex-wrap:wrap">
+              <a class="btn btn--sm" href="#/viet">Viết lại đề này</a>
+              <button class="btn btn--sm btn--green" data-wresolve="${i}">✓ Đã cải thiện — Xóa khỏi sổ</button>
+            </div>
+          </div>`).join("")}
+      </div>`);
   }
-  const groups = {};
-  wrong.forEach(([id]) => { const f = findQ(id); if(!f) return; const key = f.src; (groups[key] = groups[key] || []).push([id, f.q]); });
-  app.insertAdjacentHTML("beforeend", Object.entries(groups).map(([src, rows]) => `
-    <div style="margin-bottom:34px">
-      <div class="section-head"><span class="section-head__no">Cần ôn lại</span><h2 style="font-size:22px">${esc(src)}</h2><span class="section-head__meta">${rows.length} câu</span></div>
-      ${rows.map(([id, q]) => {
-        const a = Store.d.answers[id];
-        return `<div class="sheet sheet--pad" style="margin-bottom:14px">
-          <div class="q-card__text" style="font-size:18px;margin-top:4px">${esc(q.q)}</div>
-          <div class="opts">
-            ${q.opts.map((o, j) => `<div class="opt ${j === q.a ? "correct" : j === a.pick ? "wrong" : "dim"}"><span class="key">${LETTERS[j]}</span><span>${esc(o)}</span></div>`).join("")}
-          </div>
-          <div class="explain explain--no"><span class="explain__tag">Đáp án đúng là ${LETTERS[q.a]}</span><p>${q.ex || ""}</p></div>
-          <button class="btn btn--sm btn--green" data-resolve="${id}" style="margin-top:14px">✓ Đã hiểu rõ — Xóa khỏi sổ lỗi</button>
-        </div>`;
-      }).join("")}
-    </div>`).join(""));
+  if(!wrong.length){
+    app.insertAdjacentHTML("beforeend", `<div class="sheet sheet--pad" style="text-align:center;padding:56px 30px"><h2 style="font-size:26px">${lowWritings.length ? "Không còn câu trắc nghiệm nào sai!" : "Sổ lỗi hiện đang trống!"}</h2><p style="color:var(--ink-2);margin-top:8px">Bạn chưa làm sai câu nào hoặc đã ôn tập xong toàn bộ các câu sai trước đó.</p><a class="btn btn--solid" href="#/thi-thu" style="margin-top:18px"><span>Làm bài thi thử mới</span>${ICO.next}</a></div>`);
+  } else {
+    const groups = {};
+    wrong.forEach(([id]) => { const f = findQ(id); if(!f) return; const key = f.src; (groups[key] = groups[key] || []).push([id, f.q]); });
+    app.insertAdjacentHTML("beforeend", Object.entries(groups).map(([src, rows]) => `
+      <div style="margin-bottom:34px">
+        <div class="section-head"><span class="section-head__no">Cần ôn lại</span><h2 style="font-size:22px">${esc(src)}</h2><span class="section-head__meta">${rows.length} câu</span></div>
+        ${rows.map(([id, q]) => {
+          const a = Store.d.answers[id];
+          return `<div class="sheet sheet--pad" style="margin-bottom:14px">
+            <div class="q-card__text" style="font-size:18px;margin-top:4px">${esc(q.q)}</div>
+            <div class="opts">
+              ${q.opts.map((o, j) => `<div class="opt ${j === q.a ? "correct" : j === a.pick ? "wrong" : "dim"}"><span class="key">${LETTERS[j]}</span><span>${esc(o)}</span></div>`).join("")}
+            </div>
+            <div class="explain explain--no"><span class="explain__tag">Đáp án đúng là ${LETTERS[q.a]}</span><p>${q.ex || ""}</p></div>
+            <button class="btn btn--sm btn--green" data-resolve="${id}" style="margin-top:14px">✓ Đã hiểu rõ — Xóa khỏi sổ lỗi</button>
+          </div>`;
+        }).join("")}
+      </div>`).join(""));
+  }
   $$("[data-resolve]").forEach(b => b.onclick = () => { Store.resolve(b.dataset.resolve, true); viewMistakes(); });
+  $$("[data-wresolve]").forEach(b => b.onclick = () => { Store.resolveWriting(+b.dataset.wresolve); viewMistakes(); });
 }
 
 /* ================= CHIẾN THUẬT ================= */
