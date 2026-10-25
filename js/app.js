@@ -2047,8 +2047,7 @@ function runFullCBTExam(examIdx, draft){
       <div class="topic-bar">
         ${listenGroups.map((lg, i) => { const lab = (lg.title.includes("—") ? lg.title.split("—").pop() : lg.title.split(":").pop() || lg.title).trim(); return `<button class="chip ${i === listenCurGroup ? "on" : ""}" data-lg="${i}" title="${esc(lg.title)}">Part ${lg.part} · ${esc(lab.length > 42 ? lab.slice(0, 40) + "…" : lab)}</button>`; }).join("")}
       </div>
-      <div class="quiz-layout">
-        <div class="quiz-main">
+      <div class="cbt-main">
           <div class="tape" id="cbtTape">
             <div class="tape__wave" aria-hidden="true">
               <div class="tape__bar"></div><div class="tape__bar"></div><div class="tape__bar"></div>
@@ -2087,16 +2086,16 @@ function runFullCBTExam(examIdx, draft){
             <span class="q-nav__mid">Đoạn nghe ${listenCurGroup + 1} / ${listenGroups.length}</span>
             <button class="btn btn--solid" id="lNextG">${listenCurGroup < listenGroups.length - 1 ? `<span>Đoạn nghe tiếp</span>${ICO.next}` : `<span>Sang kỹ năng Đọc</span>${ICO.next}`}</button>
           </div>
-        </div>
-        <aside class="quiz-side">
-          <div class="side-block">
-            <h4><span>Phiếu trả lời Nghe</span><span id="cbtListenCount">${ansCount}/${listenQs.length}</span></h4>
-            <div class="grid-q">
-              ${listenQs.map((q, qi) => `<button class="gq ${listenPicks[qi] !== undefined ? "ans" : ""} ${q.gid === g.gid ? "cur" : ""}" data-jump-q="${qi}">${qi + 1}</button>`).join("")}
-            </div>
+      </div>
+      <div class="cbt-dock">
+        <div class="cbt-dock__in">
+          <span class="cbt-dock__stats"><b>Phiếu trả lời Nghe</b><span id="cbtListenCount">${ansCount}/${listenQs.length}</span></span>
+          <div class="grid-q grid-q--row cbt-dock__grid">
+            ${listenQs.map((q, qi) => `<button class="gq ${listenPicks[qi] !== undefined ? "ans" : ""} ${q.gid === g.gid ? "cur" : ""}" data-jump-q="${qi}">${qi + 1}</button>`).join("")}
           </div>
-        </aside>
-      </div>`;
+        </div>
+      </div>
+      <div style="height:104px"></div>`;
 
     $$("[data-lg]", mount).forEach(b => b.onclick = () => { TTS.stop(); listenCurGroup = +b.dataset.lg; renderListeningStage(mount); });
     const tape = $("#cbtTape", mount);
@@ -2148,22 +2147,21 @@ function runFullCBTExam(examIdx, draft){
     const p = readPassages[readCurPassage];
     const pQs = readQs.filter(q => q.pi === readCurPassage);
     const ansCount = readPicks.filter(x => x !== undefined).length;
+    const flagCt = readFlags.filter(Boolean).length;
 
     mount.innerHTML = `
       <div class="topic-bar">
         ${readPassages.map((rp, i) => `<button class="chip ${i === readCurPassage ? "on" : ""}" data-rp="${i}">Passage ${i + 1} (Câu ${i * 10 + 1}–${(i + 1) * 10})</button>`).join("")}
       </div>
-      <div class="quiz-layout">
-        <div class="quiz-main">
-          <div class="read-split">
-          <div class="sheet passage-panel read-split__passage">
-            <h3>${esc(p.title.replace(/^PASSAGE \d+ - /, "Passage " + (readCurPassage + 1) + ": "))}</h3>
-            <span class="src">Đề thi VSTEP Reading Bậc 3–5 (40 câu / 60 phút)</span>
-            ${HL_TOOLS}
-            <div class="passage-body" id="cbtPassBody">${paragraphizePassage(esc(p.body))}</div>
-          </div>
-          <div class="read-split__qs">
-          <div style="display:flex;flex-direction:column;gap:14px">
+      <div class="read-split">
+        <div class="sheet passage-panel read-split__passage">
+          <h3>${esc(p.title.replace(/^PASSAGE \d+ - /, "Passage " + (readCurPassage + 1) + ": "))}</h3>
+          <span class="src">Đề thi VSTEP Reading Bậc 3–5 (40 câu / 60 phút)</span>
+          ${HL_TOOLS}
+          <div class="passage-body" id="cbtPassBody">${paragraphizePassage(esc(p.body))}</div>
+        </div>
+        <div class="read-split__qs">
+        <div style="display:flex;flex-direction:column;gap:14px">
             ${pQs.map(q => {
               const qi = q.n - 1;
               return `<div class="sheet q-card sheet--pad" id="cbt-rq-${qi}">
@@ -2183,18 +2181,17 @@ function runFullCBTExam(examIdx, draft){
             <span class="q-nav__mid">Passage ${readCurPassage + 1} / 4</span>
             <button class="btn btn--solid" id="rNextP">${readCurPassage < 3 ? `<span>Passage tiếp theo</span>${ICO.next}` : `<span>Sang kỹ năng Viết</span>${ICO.next}`}</button>
           </div>
-          </div>
+        </div>
+      </div>
+      <div class="cbt-dock">
+        <div class="cbt-dock__in">
+          <span class="cbt-dock__stats"><b>Phiếu trả lời Đọc</b><span>${ansCount}/40${flagCt ? ` · ⚑ ${flagCt}` : ""}</span></span>
+          <div class="grid-q grid-q--row cbt-dock__grid">
+            ${readQs.map((q, qi) => `<button class="gq ${readPicks[qi] !== undefined ? "ans" : ""} ${readFlags[qi] ? "flag" : ""} ${q.pi === readCurPassage ? "cur" : ""}" data-rjump="${qi}">${qi + 1}</button>`).join("")}
           </div>
         </div>
-        <aside class="quiz-side">
-          <div class="side-block">
-            <h4><span>Phiếu trả lời Đọc</span><span>${ansCount}/40</span></h4>
-            <div class="grid-q">
-              ${readQs.map((q, qi) => `<button class="gq ${readPicks[qi] !== undefined ? "ans" : ""} ${readFlags[qi] ? "flag" : ""} ${q.pi === readCurPassage ? "cur" : ""}" data-rjump="${qi}">${qi + 1}</button>`).join("")}
-            </div>
-          </div>
-        </aside>
-      </div>`;
+      </div>
+      <div style="height:104px"></div>`;
 
     $$("[data-rp]", mount).forEach(b => b.onclick = () => { readCurPassage = +b.dataset.rp; renderReadingStage(mount); });
     $$(".opt[data-rqi]", mount).forEach(btn => btn.onclick = () => {
