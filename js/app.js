@@ -450,6 +450,74 @@ function mountQuiz(mount, cfg){
   render();
 }
 
+/* Hiện cả cụm câu hỏi của một bài nghe (đọc trước như phòng thi thật),
+   vẫn chấm tức thì kèm giải thích khi luyện tập. */
+function mountListenGroup(mount, g){
+  const items = g.qs;
+  mount.innerHTML = `
+    <div class="quiz-layout">
+      <div class="quiz-main" style="display:flex;flex-direction:column;gap:14px">
+        ${items.map((q, i) => `
+          <div class="sheet q-card sheet--pad" id="lq-${i}">
+            <div class="q-card__top">
+              <span class="q-card__no">Câu ${i + 1} / ${items.length}<em>Part ${g.part} · ${esc(g.title)}</em></span>
+            </div>
+            <div class="q-card__text" style="margin:10px 0 14px">${esc(q.q)}</div>
+            <div class="opts">
+              ${q.opts.map((o, oi) => `<button class="opt" data-lq="${i}" data-oi="${oi}"><span class="key">${LETTERS[oi]}</span><span>${esc(o)}</span></button>`).join("")}
+            </div>
+            <div class="lq-ex" data-ex="${i}"></div>
+          </div>`).join("")}
+      </div>
+      <aside class="quiz-side">
+        <div class="side-block">
+          <h4><span>Tiến độ đoạn nghe</span><span class="lq-count"></span></h4>
+          <div class="grid-q">
+            ${items.map((q, i) => `<button class="gq" data-ljump="${i}">${i + 1}</button>`).join("")}
+          </div>
+        </div>
+      </aside>
+    </div>`;
+
+  const updCount = () => {
+    const c = $(".lq-count", mount);
+    if(c) c.textContent = items.filter(q => Store.d.answers[q.id] !== undefined).length + "/" + items.length;
+  };
+  const paint = i => {
+    const q = items[i], rec = Store.d.answers[q.id], card = $("#lq-" + i, mount);
+    if(!card) return;
+    $$(".opt", card).forEach((el, oi) => {
+      el.classList.remove("sel", "correct", "wrong", "dim");
+      if(rec === undefined) return;
+      if(oi === q.a) el.classList.add("correct");
+      else if(oi === rec.pick) el.classList.add("wrong");
+      else el.classList.add("dim");
+      el.disabled = true;
+    });
+    if(rec){
+      const ex = $(".lq-ex", card);
+      if(ex) ex.innerHTML = `<div class="explain ${rec.ok ? "explain--ok" : "explain--no"}">
+        <span class="explain__tag">${rec.ok ? "Chính xác! Giải thích chi tiết:" : "Đáp án đúng là " + LETTERS[q.a] + " — Giải thích:"}</span>
+        <p>${esc(q.ex || "")}</p></div>`;
+    }
+    const gBtn = $(`.gq[data-ljump="${i}"]`, mount);
+    if(gBtn && rec) gBtn.classList.add(rec.ok ? "done-ok" : "done-no");
+  };
+  items.forEach((q, i) => paint(i));
+  updCount();
+  $$(".opt[data-lq]", mount).forEach(el => el.onclick = () => {
+    const i = +el.dataset.lq, oi = +el.dataset.oi, q = items[i];
+    if(Store.d.answers[q.id] !== undefined) return;
+    Store.addAnswer(q.id, oi, oi === q.a);
+    paint(i);
+    updCount();
+  });
+  $$("[data-ljump]", mount).forEach(b => b.onclick = () => {
+    const el = $("#lq-" + b.dataset.ljump, mount);
+    if(el) el.scrollIntoView({ behavior: "smooth", block: "center" });
+  });
+}
+
 /* ================= TRANG CHỦ ================= */
 function bandChartSVG(pts){
   const W = 660, H = 232, L = 34, R = 46, T = 18, B = 30;
@@ -992,9 +1060,7 @@ function viewListening(selSet){
       $("span", scrBtn).textContent = on ? "Ẩn transcript" : "Transcript";
       if(on) sb.scrollIntoView({ behavior: "smooth", block: "nearest" });
     };
-    mountQuiz($("#q-" + g.gid), {
-      items: g.qs.map(q => ({ id: q.id, q: esc(q.q), opts: q.opts.map(esc), a: q.a, ex: q.ex, tag: "Part " + g.part }))
-    });
+    mountListenGroup($("#q-" + g.gid), g);
   });
 }
 
