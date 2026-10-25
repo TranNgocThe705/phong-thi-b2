@@ -3755,8 +3755,15 @@ textarea:focus-visible,
 .grid-q--row {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: 5px;
   padding: 0;
   max-height: none;
   overflow: visible;
+}
+
+.grid-q--row .gq {
+  flex: 0 0 auto;
+  width: 34px;
+  height: 34px;
 }
