@@ -552,25 +552,28 @@ function mountListenGroup(mount, g){
 
 /* Cụm câu hỏi xếp chồng cho bài đọc: thanh tiến độ + danh sách câu
    nằm ngang sticky trên đầu, các câu hỏi cuộn liên tục bên dưới. */
-function mountReadGroup(mount, items){
+function mountReadGroup(mount, items, barMount){
   let defer = localStorage.getItem("b2.quiz.defer") !== "0";
   const picks = items.map(() => undefined);
   let submittedG = items.every(q => Store.d.answers[q.id] !== undefined);
 
   const render = () => {
-    mount.innerHTML = `
-      <div class="qprogress-bar">
-        <span class="qprogress-bar__stats">${submittedG || !defer
-          ? `Đã làm <b class="rq-count">0/${items.length}</b> · Đúng <b class="rq-ok" style="color:var(--green)">0</b> · Ôn lại <b class="rq-no" style="color:var(--red)">0</b>`
-          : `Đã chọn <b class="rq-count">0/${items.length}</b>`}</span>
-        <div class="grid-q grid-q--row">
-          ${items.map((q, i) => `<button class="gq" data-rjump="${i}" title="Câu ${i + 1}">${i + 1}</button>`).join("")}
-        </div>
-        <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
-          <button class="btn btn--sm btn--ghost" id="rqMode">${defer ? "Chế độ: chấm khi nộp" : "Chế độ: chấm tức thì"}</button>
-          ${defer ? `<button class="btn btn--sm btn--solid" id="rqSubmit" ${submittedG ? "disabled" : ""}>Nộp bài chấm điểm</button>` : ""}
-        </div>
+    const barEl = barMount || null;
+    const barScope = barEl || mount;
+    const barHTML = `
+      <span class="qprogress-bar__stats">${submittedG || !defer
+        ? `Đã làm <b class="rq-count">0/${items.length}</b> · Đúng <b class="rq-ok" style="color:var(--green)">0</b> · Ôn lại <b class="rq-no" style="color:var(--red)">0</b>`
+        : `Đã chọn <b class="rq-count">0/${items.length}</b>`}</span>
+      <div class="grid-q grid-q--row">
+        ${items.map((q, i) => `<button class="gq" data-rjump="${i}" title="Câu ${i + 1}">${i + 1}</button>`).join("")}
       </div>
+      <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+        <button class="btn btn--sm btn--ghost" id="rqMode">${defer ? "Chế độ: chấm khi nộp" : "Chế độ: chấm tức thì"}</button>
+        ${defer ? `<button class="btn btn--sm btn--solid" id="rqSubmit" ${submittedG ? "disabled" : ""}>Nộp bài chấm điểm</button>` : ""}
+      </div>`;
+    if(barEl) barEl.innerHTML = barHTML;
+    mount.innerHTML = `
+      ${barEl ? "" : `<div class="qprogress-bar">${barHTML}</div>`}
       <div style="display:flex;flex-direction:column;gap:14px">
         ${items.map((q, i) => `
           <div class="sheet q-card sheet--pad" id="rq-${i}">
@@ -589,7 +592,7 @@ function mountReadGroup(mount, items){
     const updCount = () => {
       const done = items.filter(q => Store.d.answers[q.id] !== undefined).length;
       const ok = items.filter(q => Store.d.answers[q.id]?.ok).length;
-      const c = $(".rq-count", mount), o = $(".rq-ok", mount), n = $(".rq-no", mount);
+      const c = $(".rq-count", barScope), o = $(".rq-ok", barScope), n = $(".rq-no", barScope);
       if(defer && !submittedG){ if(c) c.textContent = picks.filter(v => v !== undefined).length + "/" + items.length; }
       else {
         if(c) c.textContent = done + "/" + items.length;
@@ -618,7 +621,7 @@ function mountReadGroup(mount, items){
           <span class="explain__tag">${rec.ok ? "Chính xác! Giải thích chi tiết:" : "Đáp án đúng là " + LETTERS[q.a] + " — Giải thích:"}</span>
           <p>${esc(q.ex || "")}</p></div>`;
       }
-      const gBtn = $(`.gq[data-rjump="${i}"]`, mount);
+      const gBtn = $(`.gq[data-rjump="${i}"]`, barScope);
       if(gBtn){
         gBtn.classList.toggle("sel-pick", defer && !submittedG && rec === undefined && picks[i] !== undefined);
         if(rec) gBtn.classList.add(rec.ok ? "done-ok" : "done-no");
@@ -634,22 +637,22 @@ function mountReadGroup(mount, items){
       paint(i);
       updCount();
     });
-    $$("[data-rjump]", mount).forEach(b => b.onclick = () => {
+    $$("[data-rjump]", barScope).forEach(b => b.onclick = () => {
       const el = $("#rq-" + b.dataset.rjump, mount);
       if(el) el.scrollIntoView({ behavior: "smooth", block: "center" });
     });
-    if($("#rqMode", mount)) $("#rqMode", mount).onclick = () => {
+    if($("#rqMode", barScope)) $("#rqMode", barScope).onclick = () => {
       defer = !defer;
       localStorage.setItem("b2.quiz.defer", defer ? "1" : "0");
       render();
     };
-    if($("#rqSubmit", mount)) $("#rqSubmit", mount).onclick = () => {
+    if($("#rqSubmit", barScope)) $("#rqSubmit", barScope).onclick = () => {
       if(submittedG) return;
       items.forEach((q, i) => { if(Store.d.answers[q.id] === undefined) Store.addAnswer(q.id, picks[i] === undefined ? -1 : picks[i], picks[i] === q.a); });
       submittedG = true;
       render();
-      const bar = $(".qprogress-bar", mount);
-      if(bar) bar.scrollIntoView({ behavior: "smooth", block: "start" });
+      if(barEl) barEl.scrollIntoView({ behavior: "smooth", block: "start" });
+      else { const bar = $(".qprogress-bar", mount); if(bar) bar.scrollIntoView({ behavior: "smooth", block: "start" }); }
     };
   };
   render();
@@ -1009,6 +1012,7 @@ function viewReading(part, setIdx){
   }
   else if(part === "p2"){
     body.innerHTML = `
+      <div class="qprogress-bar" id="rgBar2"></div>
       <div class="read-split">
         <div class="sheet passage-panel read-split__passage">
           <h3>Bốn hoạt động cuối tuần</h3><span class="src">Đọc 4 đoạn giới thiệu dưới đây và chọn đoạn phù hợp với từng nhận định</span>
@@ -1019,7 +1023,7 @@ function viewReading(part, setIdx){
         </div>
         <div class="read-split__qs" id="quizMount"></div>
       </div>`;
-    mountReadGroup($("#quizMount"), READING_P2.map(q => ({ id: q.id, q: esc(q.q), opts: q.opts.map(esc), a: q.a, ex: q.ex, tag: "Đối chiếu" })));
+    mountReadGroup($("#quizMount"), READING_P2.map(q => ({ id: q.id, q: esc(q.q), opts: q.opts.map(esc), a: q.a, ex: q.ex, tag: "Đối chiếu" })), $("#rgBar2"));
     const p2b = $("#p2Texts");
     practiceHL["p2"] = practiceHL["p2"] || [];
     hlApply(p2b, practiceHL["p2"]);
@@ -1028,6 +1032,7 @@ function viewReading(part, setIdx){
   }
   else if(part === "p3"){
     body.innerHTML = `
+      <div class="qprogress-bar" id="rgBar3"></div>
       <div class="read-split">
         <div class="sheet passage-panel read-split__passage">
           <h3>${esc(READING_P3_PASSAGE.title)}</h3><span class="src">Chọn câu phù hợp nhất để điền vào mỗi vị trí trống trong bài đọc</span>
@@ -1036,7 +1041,7 @@ function viewReading(part, setIdx){
         </div>
         <div class="read-split__qs" id="quizMount"></div>
       </div>`;
-    mountReadGroup($("#quizMount"), READING_P3.map(q => ({ id: q.id, q: esc(q.q), opts: q.opts.map(esc), a: q.a, ex: q.ex, tag: "Điền câu" })));
+    mountReadGroup($("#quizMount"), READING_P3.map(q => ({ id: q.id, q: esc(q.q), opts: q.opts.map(esc), a: q.a, ex: q.ex, tag: "Điền câu" })), $("#rgBar3"));
     const p3b = $("#p3PassBody");
     practiceHL["p3"] = practiceHL["p3"] || [];
     hlApply(p3b, practiceHL["p3"]);
@@ -1062,6 +1067,7 @@ function viewReading(part, setIdx){
     const render = () => {
       const p = curSet.passages[cur];
       $("#quizMount").innerHTML = `
+        <div class="qprogress-bar" id="rgBar"></div>
         <div class="read-split">
           <div class="sheet passage-panel read-split__passage">
             <h3>${esc(p.title.replace(/^PASSAGE \d+\s*[-–]\s*/i, "Passage " + (cur + 1) + ": "))}</h3>
@@ -1074,7 +1080,7 @@ function viewReading(part, setIdx){
       mountReadGroup($("#rqMount"), p.questions.map(q => {
         const qid = setIdx === 0 ? ("ro" + q.n) : (curSet.id + "_" + q.n);
         return { id: qid, q: esc(q.q), opts: q.opts.map(esc), a: q.a, ex: q.ex, tag: `Đề ${String(setIdx + 1).padStart(2, "0")} | Câu ${q.n}/40`, src: curSet.title.split(":")[0] };
-      }));
+      }), $("#rgBar"));
       const bodyEl = $("#quizMount .passage-body");
       const k = setIdx + ":" + cur;
       practiceHL[k] = practiceHL[k] || [];
