@@ -41,6 +41,40 @@ function hlClearAll(body){
   });
   body.normalize();
 }
+/* In đậm từ/cụm được câu hỏi hỏi nghĩa ngay trong bài đọc (vocab-in-context) */
+function markVocabInPassage(body, qTexts){
+  if(!body || !qTexts || !qTexts.length) return;
+  const found = new Set();
+  const qRe = /"([^"]{1,60})"|“([^”]{1,60})”|‘([^’]{1,60})’|'([^']{1,60})'/g;
+  qTexts.forEach(t => {
+    if(!/(word|phrase|expression|term|meaning|refers|replace|vocabulary)/i.test(t)) return;
+    let m;
+    while((m = qRe.exec(t))){
+      const w = (m[1] || m[2] || m[3] || m[4] || "").trim();
+      if(w && !/^\d+$/.test(w)) found.add(w);
+    }
+  });
+  if(!found.size) return;
+  const escR = s => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const nodes = [];
+  const walker = document.createTreeWalker(body, NodeFilter.SHOW_TEXT);
+  let n;
+  while((n = walker.nextNode())) nodes.push(n);
+  found.forEach(w => {
+    const pat = new RegExp("\\b" + escR(w) + "\\b", "i");
+    for(const node of nodes){
+      const mt = node.nodeValue.match(pat);
+      if(!mt) continue;
+      const target = node.splitText(mt.index);
+      target.splitText(mt[0].length);
+      const strong = document.createElement("strong");
+      strong.className = "vocab-mark";
+      strong.textContent = mt[0];
+      target.parentNode.replaceChild(strong, target);
+      break;
+    }
+  });
+}
 function hlBind(body, store, onChange){
   if(!body) return;
   body.addEventListener("mouseup", () => {
@@ -1027,6 +1061,7 @@ function viewReading(part, setIdx){
     const p2b = $("#p2Texts");
     practiceHL["p2"] = practiceHL["p2"] || [];
     hlApply(p2b, practiceHL["p2"]);
+    markVocabInPassage(p2b, READING_P2.map(q => q.q));
     hlBind(p2b, practiceHL["p2"]);
     $("#hlClear").onclick = () => { practiceHL["p2"].length = 0; hlClearAll(p2b); };
   }
@@ -1045,6 +1080,7 @@ function viewReading(part, setIdx){
     const p3b = $("#p3PassBody");
     practiceHL["p3"] = practiceHL["p3"] || [];
     hlApply(p3b, practiceHL["p3"]);
+    markVocabInPassage(p3b, READING_P3.map(q => q.q));
     hlBind(p3b, practiceHL["p3"]);
     $("#hlClear").onclick = () => { practiceHL["p3"].length = 0; hlClearAll(p3b); };
   }
@@ -1085,6 +1121,7 @@ function viewReading(part, setIdx){
       const k = setIdx + ":" + cur;
       practiceHL[k] = practiceHL[k] || [];
       hlApply(bodyEl, practiceHL[k]);
+      markVocabInPassage(bodyEl, p.questions.map(q => q.q));
       hlBind(bodyEl, practiceHL[k]);
       const cb = $("#hlClear");
       if(cb) cb.onclick = () => { practiceHL[k].length = 0; hlClearAll(bodyEl); };
@@ -2182,6 +2219,7 @@ function runFullCBTExam(examIdx, draft){
     const pb = $("#cbtPassBody", mount);
     readHL[readCurPassage] = readHL[readCurPassage] || [];
     hlApply(pb, readHL[readCurPassage]);
+    markVocabInPassage(pb, pQs.map(q => q.q));
     hlBind(pb, readHL[readCurPassage], saveDraft);
     $("#hlClear", mount).onclick = () => { readHL[readCurPassage].length = 0; hlClearAll(pb); saveDraft(); };
   }
