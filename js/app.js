@@ -1047,7 +1047,7 @@ function viewReading(part, setIdx){
   else if(part === "p2"){
     body.innerHTML = `
       <div class="qprogress-bar" id="rgBar2"></div>
-      <div class="read-split">
+      <div class="read-split read-split--bar">
         <div class="sheet passage-panel read-split__passage">
           <h3>Bốn hoạt động cuối tuần</h3><span class="src">Đọc 4 đoạn giới thiệu dưới đây và chọn đoạn phù hợp với từng nhận định</span>
           ${HL_TOOLS}
@@ -1068,7 +1068,7 @@ function viewReading(part, setIdx){
   else if(part === "p3"){
     body.innerHTML = `
       <div class="qprogress-bar" id="rgBar3"></div>
-      <div class="read-split">
+      <div class="read-split read-split--bar">
         <div class="sheet passage-panel read-split__passage">
           <h3>${esc(READING_P3_PASSAGE.title)}</h3><span class="src">Chọn câu phù hợp nhất để điền vào mỗi vị trí trống trong bài đọc</span>
           ${HL_TOOLS}
@@ -1104,7 +1104,7 @@ function viewReading(part, setIdx){
       const p = curSet.passages[cur];
       $("#quizMount").innerHTML = `
         <div class="qprogress-bar" id="rgBar"></div>
-        <div class="read-split">
+        <div class="read-split read-split--bar">
           <div class="sheet passage-panel read-split__passage">
             <h3>${esc(p.title.replace(/^PASSAGE \d+\s*[-–]\s*/i, "Passage " + (cur + 1) + ": "))}</h3>
             <span class="src">Nguồn: ${esc(curSet.source)}</span>

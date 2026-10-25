@@ -1508,15 +1508,17 @@ textarea:focus-visible,
 }
 
 .gq.done-ok {
-  background: var(--green);
-  border-color: var(--green);
-  color: #FFFFFF;
+  background: var(--green-soft);
+  border-color: var(--green-border);
+  color: var(--green);
+  font-weight: 700;
 }
 
 .gq.done-no {
-  background: var(--red);
-  border-color: var(--red);
-  color: #FFFFFF;
+  background: var(--red-soft);
+  border-color: var(--red-border);
+  color: var(--red);
+  font-weight: 700;
 }
 
 /* Timer */
@@ -3646,6 +3648,12 @@ textarea:focus-visible,
   min-width: 0;
 }
 
+/* Khi có thanh tiến độ ngang phía trên, hạ panel bài đọc xuống dưới nó */
+.read-split--bar .read-split__passage {
+  top: 152px;
+  max-height: calc(100vh - 176px);
+}
+
 /* Công cụ đánh dấu */
 .passage-hltools {
   display: flex;
@@ -3684,7 +3692,8 @@ textarea:focus-visible,
   .read-split {
     grid-template-columns: 1fr;
   }
-  .read-split__passage {
+  .read-split__passage,
+  .read-split--bar .read-split__passage {
     position: static;
     max-height: 380px;
   }
