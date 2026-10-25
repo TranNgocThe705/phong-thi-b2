@@ -1106,6 +1106,11 @@ textarea:focus-visible,
   background: #FFFFFF;
 }
 
+.chip[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 /* ============ Quiz Workspace ============ */
 .quiz-layout {
   display: grid;

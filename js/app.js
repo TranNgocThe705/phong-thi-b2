@@ -1940,13 +1940,28 @@ function runFullCBTExam(examIdx, draft){
   const listenPlayed = Array.from({ length: listenGroups.length }, (_, i) => !!(draft && Array.isArray(draft.listenPlayed) && draft.listenPlayed[i]));
   let submitted = false;
 
+  /* Đồng hồ riêng cho từng task/part như thi CBT thật:
+     Viết Task 1 = 20' rồi khóa (Task 2 dùng hết phần còn lại của 60'),
+     Nói Part 1 = 3', Part 2 = 4', Part 3 = phần còn lại của 12'. */
+  const SUB_LIMITS = { w1: 20 * 60, s1: 3 * 60, s2: 4 * 60 };
+  let subLeft = draft && +draft.subLeft > 0 ? Math.min(+draft.subLeft, stageLeft) : 0;
+  let subCap = draft && +draft.subCap > 0 ? +draft.subCap : 0;
+  function resetSubTimer(){
+    if(stageIdx === 2)      subLeft = writeData.activeTask === 1 ? Math.min(SUB_LIMITS.w1, stageLeft) : stageLeft;
+    else if(stageIdx === 3) subLeft = speakData.activePart < 3 ? Math.min(SUB_LIMITS["s" + speakData.activePart], stageLeft) : stageLeft;
+    else                    subLeft = stageLeft;
+    subCap = Math.max(1, subLeft);
+  }
+  if(!subLeft) resetSubTimer();
+  if(!subCap) subCap = Math.max(1, subLeft);
+
   const saveDraft = () => {
     if(submitted) return;
     try{
       localStorage.setItem(CBT_DRAFT_KEY, JSON.stringify({
         v: 1, examIdx: examIdx || 0, stageIdx, stageLeft, totalElapsed,
         listenCurGroup, readCurPassage, listenPicks, readPicks, readFlags, listenPlayed,
-        readHL, writeData, speakData, savedAt: Date.now()
+        subLeft, subCap, readHL, writeData, speakData, savedAt: Date.now()
       }));
       const el = $("#cbtSavedAt");
       if(el) el.textContent = "Đã lưu nháp · " + new Date().toLocaleTimeString("vi-VN", { hour: "2-digit", minute: "2-digit" });
@@ -1980,6 +1995,8 @@ function runFullCBTExam(examIdx, draft){
     <div id="cbtStageMount"></div>`;
 
   const timerEl = $("#cbtTimer"), barEl = $("#cbtTimerBar"), labelEl = $("#cbtStageLabel");
+  timerEl.textContent = fmtTime(subLeft);
+  barEl.style.transform = `scaleX(${Math.max(0, subLeft / subCap).toFixed(4)})`;
   if(draft && draft.savedAt){
     const el = $("#cbtSavedAt");
     if(el) el.textContent = "Đã khôi phục nháp lúc " + new Date(draft.savedAt).toLocaleTimeString("vi-VN", { hour: "2-digit", minute: "2-digit" });
@@ -1987,22 +2004,33 @@ function runFullCBTExam(examIdx, draft){
   const timerInt = setInterval(() => {
     if(submitted) return;
     stageLeft--;
+    subLeft--;
     totalElapsed++;
-    timerEl.textContent = fmtTime(stageLeft);
-    barEl.style.transform = `scaleX(${Math.max(0, stageLeft / STAGES[stageIdx].secs).toFixed(4)})`;
-    if(stageLeft <= 180) timerEl.classList.add("warn"); else timerEl.classList.remove("warn");
+    timerEl.textContent = fmtTime(Math.max(0, subLeft));
+    barEl.style.transform = `scaleX(${Math.min(1, Math.max(0, subLeft / subCap)).toFixed(4)})`;
+    const warnAt = stageIdx === 3 ? 45 : stageIdx === 2 ? 120 : 180;
+    if(subLeft <= warnAt) timerEl.classList.add("warn"); else timerEl.classList.remove("warn");
     if(totalElapsed % 15 === 0) saveDraft();
-    if(stageLeft <= 0){
-      if(stageIdx < STAGES.length - 1){
-        goStage(stageIdx + 1);
-      } else {
-        finishFullCBT(true);
-      }
+    if(subLeft <= 0){
+      if(stageIdx === 2 && writeData.activeTask === 1){
+        writeData.activeTask = 2;
+        advanceSubTask("Hết 20 phút Task 1 — bài thư đã khóa, chuyển sang Task 2.");
+      } else if(stageIdx === 3 && speakData.activePart < 3){
+        speakData.activePart++;
+        advanceSubTask(`Hết giờ Part ${speakData.activePart - 1} — chuyển sang Part ${speakData.activePart}.`);
+      } else if(stageLeft <= 0){
+        if(stageIdx < STAGES.length - 1) goStage(stageIdx + 1);
+        else finishFullCBT(true);
+      } else subLeft = stageLeft;   /* resync nếu draft cũ lệch */
     }
   }, 1000);
 
   const syncStepper = () => {
-    labelEl.textContent = "Thời gian " + STAGES[stageIdx].name.replace(/^\d+\.\s*/, "") + ":";
+    labelEl.textContent = stageIdx === 2
+      ? `Thời gian Viết Task ${writeData.activeTask}:`
+      : stageIdx === 3
+      ? `Thời gian Nói Part ${speakData.activePart}:`
+      : "Thời gian " + STAGES[stageIdx].name.replace(/^\d+\.\s*/, "") + ":";
     $$("#cbtStepper .cbt-step").forEach((b, i) => {
       b.classList.toggle("on", i === stageIdx);
       b.classList.toggle("done", i < stageIdx);
@@ -2016,7 +2044,8 @@ function runFullCBTExam(examIdx, draft){
     stopSpeakCapture();
     stageIdx = nextIdx;
     stageLeft = STAGES[stageIdx].secs;
-    timerEl.textContent = fmtTime(stageLeft);
+    resetSubTimer();
+    timerEl.textContent = fmtTime(subLeft);
     barEl.style.transform = "scaleX(1)";
     syncStepper();
     saveDraft();
@@ -2036,6 +2065,31 @@ function runFullCBTExam(examIdx, draft){
     else if(stageIdx === 1) renderReadingStage(mount);
     else if(stageIdx === 2) renderWritingStage(mount);
     else renderSpeakingStage(mount);
+  }
+
+  /* Hết giờ một task/part → khóa phần đó, nhảy sang phần tiếp với đồng hồ riêng */
+  function advanceSubTask(msg){
+    TTS.stop();
+    if(STT.active) STT.stop();
+    stopSpeakCapture();
+    resetSubTimer();
+    timerEl.textContent = fmtTime(subLeft);
+    barEl.style.transform = "scaleX(1)";
+    timerEl.classList.remove("warn");
+    syncStepper();
+    saveDraft();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    renderStage();
+    if(msg){
+      const m = $("#cbtStageMount");
+      if(m){
+        const n = document.createElement("div");
+        n.className = "notice";
+        n.style.marginBottom = "16px";
+        n.innerHTML = `<span>${esc(msg)}</span>`;
+        m.prepend(n);
+      }
+    }
   }
 
   /* ---- STAGE 1: LISTENING ---- */
@@ -2246,13 +2300,13 @@ function runFullCBTExam(examIdx, draft){
 
     mount.innerHTML = `
       <div class="topic-bar">
-        <button class="chip ${writeData.activeTask === 1 ? "on" : ""}" data-wt="1">Task 1: Viết Thư/Email (≥120 từ • Hệ số 1) <span class="n">${countWords(writeData.w1)} từ</span></button>
-        <button class="chip ${writeData.activeTask === 2 ? "on" : ""}" data-wt="2">Task 2: Viết Luận văn Essay (≥250 từ • Hệ số 2) <span class="n">${countWords(writeData.w2)} từ</span></button>
+        <button class="chip ${writeData.activeTask === 1 ? "on" : ""}" data-wt="1" ${writeData.activeTask !== 1 ? "disabled" : ""}>Task 1: Viết Thư/Email (20 phút • ≥120 từ • Hệ số 1) ${writeData.activeTask !== 1 ? "✓ đã nộp " : ""}<span class="n">${countWords(writeData.w1)} từ</span></button>
+        <button class="chip ${writeData.activeTask === 2 ? "on" : ""}" data-wt="2">Task 2: Viết Luận văn Essay (40 phút • ≥250 từ • Hệ số 2) <span class="n">${countWords(writeData.w2)} từ</span></button>
       </div>
       <div class="write-layout">
         <div class="sheet write-paper">
           <div style="padding:22px 26px 0">
-            <span class="tag">Writing Task ${curT.task}: ${esc(curT.type)} (Khuyến nghị ${curT.time} phút | Tối thiểu ${curT.target} từ)</span>
+            <span class="tag">Writing Task ${curT.task}: ${esc(curT.type)} (${curT.task === 1 ? "20 phút — hết giờ tự khóa, không quay lại được" : "Dùng hết thời gian còn lại của phần Viết"} | Tối thiểu ${curT.target} từ)</span>
             <div class="prompt-box">${esc(curT.prompt).replace(/\n/g, "<br>")}</div>
           </div>
           <textarea id="cbtWriteArea" placeholder="Nhập bài làm Task ${curT.task} của bạn vào đây… Hệ thống tự động lưu khi bạn chuyển qua lại giữa Task 1 và Task 2.">${esc(curText)}</textarea>
@@ -2294,8 +2348,24 @@ function runFullCBTExam(examIdx, draft){
       $("#cbtStatW1", mount).textContent = countWords(writeData.w1) + " / 120 từ";
       $("#cbtStatW2", mount).textContent = countWords(writeData.w2) + " / 250 từ";
     };
-    $$("[data-wt]", mount).forEach(b => b.onclick = () => { writeData.activeTask = +b.dataset.wt; renderWritingStage(mount); });
-    if($("#cbtToTask2", mount)) $("#cbtToTask2", mount).onclick = () => { writeData.activeTask = 2; renderWritingStage(mount); };
+    const gotoTask2 = () => {
+      if(writeData.activeTask === 2) return;
+      if(!confirm("Chuyển sang Task 2? Bài Task 1 sẽ bị KHÓA và không quay lại chỉnh sửa được.")) return;
+      writeData.activeTask = 2;
+      resetSubTimer();
+      syncStepper();
+      timerEl.textContent = fmtTime(subLeft);
+      barEl.style.transform = "scaleX(1)";
+      saveDraft();
+      renderWritingStage(mount);
+    };
+    $$("[data-wt]", mount).forEach(b => b.onclick = () => {
+      const t = +b.dataset.wt;
+      if(t === writeData.activeTask) return;
+      if(t < writeData.activeTask) return;   // task đã hết giờ — khóa, không quay lại
+      gotoTask2();
+    });
+    if($("#cbtToTask2", mount)) $("#cbtToTask2", mount).onclick = gotoTask2;
     if($("#cbtToSpeak", mount)) $("#cbtToSpeak", mount).onclick = () => goStage(3);
   }
 
@@ -2323,9 +2393,9 @@ function runFullCBTExam(examIdx, draft){
 
     mount.innerHTML = `
       <div class="topic-bar">
-        <button class="chip ${pt === 1 ? "on" : ""}" data-spt="1">Part 1: Social Interaction (3p) <span class="n">${countWords(speakData.s1)} từ</span></button>
-        <button class="chip ${pt === 2 ? "on" : ""}" data-spt="2">Part 2: Solution Discussion (4p) <span class="n">${countWords(speakData.s2)} từ</span></button>
-        <button class="chip ${pt === 3 ? "on" : ""}" data-spt="3">Part 3: Topic Development (5p) <span class="n">${countWords(speakData.s3)} từ</span></button>
+        <button class="chip ${pt === 1 ? "on" : ""}" data-spt="1" ${pt !== 1 ? "disabled" : ""}>Part 1: Social Interaction (3 phút) ${pt > 1 ? "✓ đã nộp " : ""}<span class="n">${countWords(speakData.s1)} từ</span></button>
+        <button class="chip ${pt === 2 ? "on" : ""}" data-spt="2" ${pt !== 2 ? "disabled" : ""}>Part 2: Solution Discussion (4 phút) ${pt > 2 ? "✓ đã nộp " : ""}<span class="n">${countWords(speakData.s2)} từ</span></button>
+        <button class="chip ${pt === 3 ? "on" : ""}" data-spt="3" ${pt !== 3 ? "disabled" : ""}>Part 3: Topic Development (5 phút) <span class="n">${countWords(speakData.s3)} từ</span></button>
       </div>
       <div class="speak-layout">
         <div class="sheet cue-card">
@@ -2361,15 +2431,18 @@ function runFullCBTExam(examIdx, draft){
       $("#cbtSpCount", mount).innerHTML = `Độ dài câu trả lời: <b>${countWords(txtArea.value)}</b> từ`;
     };
     $$("[data-spt]", mount).forEach(b => b.onclick = () => {
-      if(STT.active) STT.stop();
-      stopSpeakCapture();
-      speakData.activePart = +b.dataset.spt;
-      renderSpeakingStage(mount);
+      const t = +b.dataset.spt;
+      if(t === speakData.activePart) return;   // part khác bị khóa — không xem lại/xem trước
     });
     if($("#cbtNextSpPart", mount)) $("#cbtNextSpPart", mount).onclick = () => {
       if(STT.active) STT.stop();
       stopSpeakCapture();
       speakData.activePart = pt + 1;
+      resetSubTimer();
+      syncStepper();
+      timerEl.textContent = fmtTime(subLeft);
+      barEl.style.transform = "scaleX(1)";
+      saveDraft();
       renderSpeakingStage(mount);
     };
     if($("#cbtFinishBtn", mount)) $("#cbtFinishBtn", mount).onclick = () => finishFullCBT(false);
