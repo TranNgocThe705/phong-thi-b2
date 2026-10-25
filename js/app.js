@@ -869,6 +869,7 @@ function viewListening(selSet){
         <div class="tape__ctrl">
           <button class="btn btn--tape btn--sm">${ICO.play}<span>Phát bài nghe</span></button>
           <button class="btn btn--tape btn--sm">${ICO.stop}<span>Dừng</span></button>
+          <button class="btn btn--tape btn--sm" data-scr>${ICO.book}<span>Transcript</span></button>
         </div>
       </div>
       <div class="script-box" id="sb-${g.gid}">
@@ -886,7 +887,7 @@ function viewListening(selSet){
     });
     const tape = $(".tape", wrap);
     const statusEl = $(`#status-${g.gid}`, wrap);
-    const [playBtn, stopBtn] = $$(".tape__ctrl .btn", wrap);
+    const [playBtn, stopBtn, scrBtn] = $$(".tape__ctrl .btn", wrap);
     playBtn.onclick = () => {
       TTS.speak(g.script, {
         rate,
@@ -908,25 +909,17 @@ function viewListening(selSet){
       statusEl.textContent = "Đã dừng phát âm thanh.";
       $$(".script-line", wrap).forEach(el => el.classList.remove("active-line"));
     };
+    scrBtn.onclick = () => {
+      const sb = $("#sb-" + g.gid);
+      sb.classList.toggle("open");
+      const on = sb.classList.contains("open");
+      scrBtn.classList.toggle("on", on);
+      $("span", scrBtn).textContent = on ? "Ẩn transcript" : "Transcript";
+      if(on) sb.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    };
     mountQuiz($("#q-" + g.gid), {
       items: g.qs.map(q => ({ id: q.id, q: esc(q.q), opts: q.opts.map(esc), a: q.a, ex: q.ex, tag: "Part " + g.part }))
     });
-    const obs = new MutationObserver(() => {
-      if($("#q-" + g.gid).innerHTML && !$("#tbtn-" + g.gid)){
-        const btn = document.createElement("button");
-        btn.className = "btn btn--ghost"; btn.id = "tbtn-" + g.gid;
-        btn.style.marginTop = "12px";
-        btn.textContent = "Xem lời thoại (Transcript)";
-        btn.onclick = () => {
-          const sb = $("#sb-" + g.gid);
-          sb.classList.toggle("open");
-          btn.textContent = sb.classList.contains("open") ? "Ẩn lời thoại (Transcript)" : "Xem lời thoại (Transcript)";
-        };
-        $("#q-" + g.gid).after(btn);
-        obs.disconnect();
-      }
-    });
-    obs.observe($("#q-" + g.gid), { childList: true });
   });
 }
 
