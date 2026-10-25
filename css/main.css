@@ -3640,7 +3640,7 @@ textarea:focus-visible,
 /* ============ Reading split view (bài đọc trái · câu hỏi phải) ============ */
 .read-split {
   display: grid;
-  grid-template-columns: minmax(0, 1.04fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
   gap: 18px;
   align-items: start;
 }
