@@ -15,9 +15,9 @@ function aiErrorHint(status, raw, model){
   if(status === 403){
     if(/suspend/i.test(msg)) return "Project Google Cloud gắn với khóa này đã bị ĐÌNH CHỈ (suspended) nên khóa vô hiệu. Cách sửa: vào aistudio.google.com → Get API key → chọn “Create API key in new project” để cấp khóa mới rồi dán lại vào đây.";
     if(/referer|referrer|block/i.test(msg)) return "Khóa đang bị chặn bởi giới hạn referrer — vào Google Cloud Console → Credentials bỏ giới hạn hoặc tạo khóa mới không giới hạn.";
-    return "Khóa không có quyền truy cập model này (403 " + st + "). Thử đổi Tên Model thành “gemini-2.0-flash” hoặc tạo khóa mới tại aistudio.google.com.";
+    return "Khóa không có quyền truy cập model này (403 " + st + "). Bấm “Lấy danh sách model khả dụng” trong trang Cài đặt để chọn model khóa được phép dùng, hoặc tạo khóa mới tại aistudio.google.com.";
   }
-  if(status === 404) return "Không tìm thấy model “" + (model || "") + "”. Kiểm tra lại Tên Model — gợi ý: gemini-2.0-flash, gemini-2.5-flash hoặc để trống để dùng mặc định.";
+  if(status === 404) return "Không tìm thấy model “" + (model || "") + "”. Kiểm tra lại Tên Model — bấm “Lấy danh sách model khả dụng” trong trang Cài đặt để xem đúng các model khóa của bạn được dùng, hoặc để trống để dùng mặc định.";
   if(status === 429) return "Đã hết hạn ngạch (quota) miễn phí — chờ khoảng 1 phút rồi thử lại, hoặc đổi sang model khác trong ô Tên Model.";
   return null;
 }
@@ -38,7 +38,7 @@ const AI = {
     const c = this.cfg();
     if(!this.available()) throw new Error("Chưa cấu hình API key — mở trang Cài đặt AI.");
     const provider = c.provider || "gemini";
-    const model = c.model || (provider === "gemini" ? "gemini-2.0-flash" : "gpt-4o-mini");
+    const model = c.model || (provider === "gemini" ? "gemini-2.5-flash" : "gpt-4o-mini");
     if(provider === "gemini"){
       const url = "https://generativelanguage.googleapis.com/v1beta/models/" + model + ":generateContent?key=" + encodeURIComponent(c.key);
       const body = {
@@ -69,6 +69,28 @@ const AI = {
       const j = await r.json();
       return j.choices?.[0]?.message?.content || "";
     }
+  },
+
+  /* ---- liệt kê model mà API key được phép dùng (đọc thẳng từ máy chủ) ---- */
+  async listModels(cfgOverride){
+    const c = cfgOverride || this.cfg();
+    if(!c.key) throw new Error("Nhập API Key trước rồi bấm lấy danh sách.");
+    const provider = c.provider || "gemini";
+    if(provider === "gemini"){
+      const r = await fetch("https://generativelanguage.googleapis.com/v1beta/models?key=" + encodeURIComponent(c.key) + "&pageSize=200");
+      if(!r.ok){ const t = await r.text(); throw new Error(aiErrorHint(r.status, t, "") || ("Gemini lỗi " + r.status + ": " + t.slice(0, 160))); }
+      const j = await r.json();
+      return (j.models || [])
+        .filter(m => (m.supportedGenerationMethods || []).includes("generateContent"))
+        .map(m => (m.name || "").replace(/^models\//, ""))
+        .filter(Boolean)
+        .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
+    }
+    const base = (c.baseUrl || "https://api.openai.com/v1").replace(/\/+$/, "");
+    const r = await fetch(base + "/models", { headers: { "Authorization": "Bearer " + c.key } });
+    if(!r.ok){ const t = await r.text(); throw new Error(aiErrorHint(r.status, t, "") || ("API lỗi " + r.status + ": " + t.slice(0, 160))); }
+    const j = await r.json();
+    return (j.data || []).map(m => m.id).filter(Boolean).sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
   },
 
   /* ============ 1. CHẤM VIẾT THEO RUBRIC VSTEP ============ */

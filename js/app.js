@@ -3057,9 +3057,14 @@ function viewSettings(){
       <div class="side-stat"><span class="k">API Key của bạn</span>
         <input id="aiKey" type="password" class="ai-input" style="width:310px" placeholder="Dán API Key vào đây…" value="${esc(c.key || "")}"></div>
       <div class="side-stat"><span class="k">Tên Model (tùy chọn)</span>
-        <input id="aiModel" class="ai-input" style="width:310px" placeholder="gemini-2.0-flash hoặc gpt-4o-mini" value="${esc(c.model || "")}"></div>
+        <input id="aiModel" class="ai-input" style="width:310px" placeholder="Để trống = mặc định, hoặc bấm nút lấy danh sách" value="${esc(c.model || "")}"></div>
       <div class="side-stat" id="baseUrlRow" style="display:${c.provider === "openai" ? "flex" : "none"}"><span class="k">Base URL (tùy chọn)</span>
         <input id="aiBase" class="ai-input" style="width:310px" placeholder="https://openrouter.ai/api/v1" value="${esc(c.baseUrl || "")}"></div>
+      <div style="margin:6px 0 4px">
+        <button class="btn btn--sm" id="aiModelsBtn">Lấy danh sách model khả dụng</button>
+        <span style="font-size:12.5px;color:var(--ink-3);margin-left:10px">Server trả về đúng các model mà khóa của bạn được phép dùng</span>
+        <div id="aiModelList" style="margin-top:12px"></div>
+      </div>
       <div style="display:flex;gap:10px;margin-top:20px;flex-wrap:wrap">
         <button class="btn btn--solid" id="aiSave">Lưu cài đặt</button>
         <button class="btn" id="aiTest">Kiểm tra kết nối</button>
@@ -3099,6 +3104,24 @@ function viewSettings(){
     }
   };
   $("#aiClear").onclick = () => { localStorage.removeItem(AI.KEY_STORE); $("#aiKey").value = ""; $("#aiTestOut").innerHTML = '<div class="notice"><span>Đã xóa API Key khỏi trình duyệt.</span></div>'; };
+  $("#aiModelsBtn").onclick = async () => {
+    const wrap = $("#aiModelList");
+    wrap.innerHTML = '<p style="font-size:13.5px;color:var(--ink-2)">Đang hỏi máy chủ về các model khả dụng…</p>';
+    try{
+      const live = { provider: provSel.value, key: $("#aiKey").value.trim(), baseUrl: $("#aiBase").value.trim() };
+      const models = await AI.listModels(live);
+      if(!models.length){ wrap.innerHTML = '<div class="notice"><span>Máy chủ không trả về model nào.</span></div>'; return; }
+      wrap.innerHTML = `<div style="font-size:12.5px;color:var(--ink-2);margin-bottom:8px"><b>${models.length} model khả dụng</b> — bấm để điền vào ô Tên Model:</div>
+        <div class="wtask-picker" style="max-height:230px">${models.map(m => `<button type="button" class="wtask" data-m="${esc(m)}"><span class="wtask__id" style="text-transform:none;font-size:12.5px">${esc(m)}</span></button>`).join("")}</div>`;
+      $$("#aiModelList .wtask").forEach(b => b.onclick = () => {
+        $("#aiModel").value = b.dataset.m;
+        $$("#aiModelList .wtask").forEach(x => x.classList.remove("on"));
+        b.classList.add("on");
+      });
+    }catch(e){
+      wrap.innerHTML = `<div class="notice"><span><b>Không lấy được danh sách:</b> ${esc(e.message)}</span></div>`;
+    }
+  };
   $("#dataExport").onclick = () => {
     const data = {};
     for(let i = 0; i < localStorage.length; i++){
