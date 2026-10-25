@@ -81,7 +81,8 @@ function paragraphizePassage(escHtml){
 }
 function hlBind(body, store, onChange){
   if(!body) return;
-  body.addEventListener("mouseup", () => {
+  body.addEventListener("mouseup", e => {
+    if(e.detail > 1) return; /* nhấp đúp/đúp ba dành cho tra từ, không đánh dấu */
     const sel = window.getSelection();
     if(!sel || sel.isCollapsed || !sel.rangeCount) return;
     const range = sel.getRangeAt(0);
