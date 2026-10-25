@@ -1597,6 +1597,30 @@ textarea:focus-visible,
   white-space: pre-line;
 }
 
+.passage-body .para {
+  margin-bottom: 16px;
+}
+
+.passage-body .para:last-child {
+  margin-bottom: 0;
+}
+
+.passage-body .para-no {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  color: var(--primary);
+  background: var(--primary-soft);
+  border: 1px solid var(--primary-border);
+  border-radius: 5px;
+  padding: 0 5px;
+  margin-right: 8px;
+  vertical-align: 2px;
+  user-select: none;
+}
+
 .passage-body .blank-no {
   font-family: var(--sans);
   font-size: 13px;

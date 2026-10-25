@@ -56,13 +56,11 @@ function markVocabInPassage(body, qTexts){
   });
   if(!found.size) return;
   const escR = s => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-  const nodes = [];
-  const walker = document.createTreeWalker(body, NodeFilter.SHOW_TEXT);
-  let n;
-  while((n = walker.nextNode())) nodes.push(n);
   found.forEach(w => {
     const pat = new RegExp("\\b" + escR(w) + "\\b", "i");
-    for(const node of nodes){
+    const walker = document.createTreeWalker(body, NodeFilter.SHOW_TEXT);
+    let node;
+    while((node = walker.nextNode())){
       const mt = node.nodeValue.match(pat);
       if(!mt) continue;
       const target = node.splitText(mt.index);
@@ -74,6 +72,12 @@ function markVocabInPassage(body, qTexts){
       break;
     }
   });
+}
+
+/* Chia bài đọc thành các đoạn đánh số ¶1..¶N để dò câu hỏi theo "paragraph N" */
+function paragraphizePassage(escHtml){
+  const paras = escHtml.split(/\n\s*\n/);
+  return paras.map((t, i) => `<div class="para"><span class="para-no" title="Đoạn ${i + 1}">¶${i + 1}</span>${t}</div>`).join("");
 }
 function hlBind(body, store, onChange){
   if(!body) return;
@@ -1072,7 +1076,7 @@ function viewReading(part, setIdx){
         <div class="sheet passage-panel read-split__passage">
           <h3>${esc(READING_P3_PASSAGE.title)}</h3><span class="src">Chọn câu phù hợp nhất để điền vào mỗi vị trí trống trong bài đọc</span>
           ${HL_TOOLS}
-          <div class="passage-body" id="p3PassBody">${esc(READING_P3_PASSAGE.body).replace(/__(\(\d+\))__/g, '<span class="blank-no">$1</span>').replace(/\n/g, "<br>")}</div>
+          <div class="passage-body" id="p3PassBody">${paragraphizePassage(esc(READING_P3_PASSAGE.body).replace(/__(\(\d+\))__/g, '<span class="blank-no">$1</span>'))}</div>
         </div>
         <div class="read-split__qs" id="quizMount"></div>
       </div>`;
@@ -1109,7 +1113,7 @@ function viewReading(part, setIdx){
             <h3>${esc(p.title.replace(/^PASSAGE \d+\s*[-–]\s*/i, "Passage " + (cur + 1) + ": "))}</h3>
             <span class="src">Nguồn: ${esc(curSet.source)}</span>
             ${HL_TOOLS}
-            <div class="passage-body">${esc(p.body)}</div>
+            <div class="passage-body">${paragraphizePassage(esc(p.body))}</div>
           </div>
           <div class="read-split__qs" id="rqMount"></div>
         </div>`;
@@ -2155,7 +2159,7 @@ function runFullCBTExam(examIdx, draft){
             <h3>${esc(p.title.replace(/^PASSAGE \d+ - /, "Passage " + (readCurPassage + 1) + ": "))}</h3>
             <span class="src">Đề thi VSTEP Reading Bậc 3–5 (40 câu / 60 phút)</span>
             ${HL_TOOLS}
-            <div class="passage-body" id="cbtPassBody">${esc(p.body)}</div>
+            <div class="passage-body" id="cbtPassBody">${paragraphizePassage(esc(p.body))}</div>
           </div>
           <div class="read-split__qs">
           <div style="display:flex;flex-direction:column;gap:14px">
