@@ -3048,22 +3048,43 @@ function viewSettings(){
   app.innerHTML = moduleHead("Cấu hình hệ thống", "Cài đặt Trợ lý Giám khảo AI",
     "Toàn bộ ngân hàng đề, từ điển và bộ phân tích cục bộ đều hoạt động miễn phí. Để kích hoạt Giám khảo AI chấm chi tiết bài Viết và bài Nói theo thang VSTEP, bạn có thể nhập API Key cá nhân (chỉ lưu trữ cục bộ trên trình duyệt của bạn).",
     AI.available() ? "Trạng thái: Đã kết nối AI" : "Trạng thái: Chưa kết nối AI") + `
-    <div class="sheet sheet--pad" style="max-width:740px">
-      <div class="side-stat"><span class="k">Nhà cung cấp mô hình</span>
-        <select id="aiProvider" class="ai-input" style="width:310px">
-          <option value="gemini" ${c.provider !== "openai" ? "selected" : ""}>Google Gemini (Khuyên dùng - Miễn phí)</option>
-          <option value="openai" ${c.provider === "openai" ? "selected" : ""}>OpenAI / Tương thích (OpenRouter, Groq…)</option>
-        </select></div>
-      <div class="side-stat"><span class="k">API Key của bạn</span>
-        <input id="aiKey" type="password" class="ai-input" style="width:310px" placeholder="Dán API Key vào đây…" value="${esc(c.key || "")}"></div>
-      <div class="side-stat"><span class="k">Tên Model (tùy chọn)</span>
-        <input id="aiModel" class="ai-input" style="width:310px" placeholder="Để trống = mặc định, hoặc bấm nút lấy danh sách" value="${esc(c.model || "")}"></div>
-      <div class="side-stat" id="baseUrlRow" style="display:${c.provider === "openai" ? "flex" : "none"}"><span class="k">Base URL (tùy chọn)</span>
-        <input id="aiBase" class="ai-input" style="width:310px" placeholder="https://openrouter.ai/api/v1" value="${esc(c.baseUrl || "")}"></div>
-      <div style="margin:6px 0 4px">
-        <button class="btn btn--sm" id="aiModelsBtn">Lấy danh sách model khả dụng</button>
-        <span style="font-size:12.5px;color:var(--ink-3);margin-left:10px">Server trả về đúng các model mà khóa của bạn được phép dùng</span>
-        <div id="aiModelList" style="margin-top:12px"></div>
+    <div class="sheet sheet--pad" style="max-width:760px">
+      <div class="ai-conn ${AI.available() ? "is-on" : ""}">
+        <span class="ai-conn__dot"></span>
+        <div style="flex:1;min-width:0">
+          <b>${AI.available() ? "Giám khảo AI đã kết nối" : "Chưa kết nối AI"}</b>
+          <div class="ai-conn__sub">${AI.available()
+            ? esc((c.provider === "openai" ? "OpenAI/Tương thích" : "Google Gemini") + " · " + (c.model || (c.provider === "openai" ? "gpt-4o-mini" : "gemini-2.5-flash")) + " · khóa " + (c.key || "").slice(0, 6) + "••••")
+            : "Nhập API Key bên dưới để bật chấm bài AI"}</div>
+        </div>
+        <span class="ai-conn__store">Lưu cục bộ · localStorage</span>
+      </div>
+      <div class="ai-form">
+        <div class="ai-field">
+          <label class="ai-field__lb" for="aiProvider">Nhà cung cấp mô hình</label>
+          <select id="aiProvider" class="ai-input">
+            <option value="gemini" ${c.provider !== "openai" ? "selected" : ""}>Google Gemini (Khuyên dùng — Miễn phí)</option>
+            <option value="openai" ${c.provider === "openai" ? "selected" : ""}>OpenAI / Tương thích (OpenRouter, Groq…)</option>
+          </select>
+        </div>
+        <div class="ai-field">
+          <label class="ai-field__lb" for="aiKey">API Key của bạn</label>
+          <input id="aiKey" type="password" class="ai-input" placeholder="Dán API Key vào đây…" value="${esc(c.key || "")}" autocomplete="off">
+          <small class="ai-field__hint">Khóa chỉ lưu trong <b>localStorage của trình duyệt này</b> (khóa <code>b2.ai.key.v1</code>) và gửi thẳng tới máy chủ Google/OpenAI khi chấm bài — không qua máy chủ trung gian nào.</small>
+        </div>
+        <div class="ai-field">
+          <label class="ai-field__lb" for="aiModel">Tên Model <em style="font-weight:500;color:var(--ink-3)">(để trống = mặc định)</em></label>
+          <div class="ai-field__row">
+            <input id="aiModel" class="ai-input" placeholder="Mặc định: gemini-2.5-flash / gpt-4o-mini" value="${esc(c.model || "")}">
+            <button class="btn btn--sm" id="aiModelsBtn" type="button" style="flex:0 0 auto">Lấy danh sách</button>
+          </div>
+          <small class="ai-field__hint">Bấm "Lấy danh sách" để server trả về đúng các model khóa của bạn được phép dùng.</small>
+          <div id="aiModelList" style="margin-top:10px"></div>
+        </div>
+        <div class="ai-field" id="baseUrlRow" style="display:${c.provider === "openai" ? "block" : "none"}">
+          <label class="ai-field__lb" for="aiBase">Base URL <em style="font-weight:500;color:var(--ink-3)">(tùy chọn, cho OpenRouter/Groq…)</em></label>
+          <input id="aiBase" class="ai-input" placeholder="https://openrouter.ai/api/v1" value="${esc(c.baseUrl || "")}">
+        </div>
       </div>
       <div style="display:flex;gap:10px;margin-top:20px;flex-wrap:wrap">
         <button class="btn btn--solid" id="aiSave">Lưu cài đặt</button>
@@ -3074,7 +3095,7 @@ function viewSettings(){
       <hr class="hr-dash">
       <div style="font-size:13.5px;color:var(--ink-2);line-height:1.75">
         <b>Hướng dẫn lấy khóa Gemini miễn phí:</b> Truy cập <code>aistudio.google.com</code> → chọn <b>Get API key</b> bằng tài khoản Google.<br>
-        <b>Bảo mật tuyệt đối:</b> Khóa API chỉ được lưu trong <code>localStorage</code> trên máy tính của bạn và gửi yêu cầu trực tiếp tới máy chủ Google/OpenAI.
+        <b>Cấu hình lưu ở đâu?</b> Trong <code>localStorage</code> của trình duyệt hiện tại — chỉ máy này thấy, đổi trình duyệt/máy khác cần nhập lại (hoặc dùng bản sao lưu JSON bên dưới).
       </div>
     </div>
     <div class="sheet sheet--pad" style="max-width:740px;margin-top:22px">
@@ -3089,7 +3110,7 @@ function viewSettings(){
       <p style="font-size:12.5px;color:var(--ink-3);margin-top:12px">Tệp sao lưu chứa toàn bộ dữ liệu — kể cả API Key nếu bạn đã lưu — hãy giữ riêng tư và không chia sẻ tệp này.</p>
     </div>`;
   const provSel = $("#aiProvider");
-  provSel.onchange = () => { $("#baseUrlRow").style.display = provSel.value === "openai" ? "flex" : "none"; };
+  provSel.onchange = () => { $("#baseUrlRow").style.display = provSel.value === "openai" ? "block" : "none"; };
   $("#aiSave").onclick = () => {
     AI.saveCfg({ provider: provSel.value, key: $("#aiKey").value.trim(), model: $("#aiModel").value.trim(), baseUrl: $("#aiBase").value.trim() });
     $("#aiTestOut").innerHTML = '<div class="notice"><span><b>Đã lưu cấu hình!</b> Giám khảo AI đã sẵn sàng hoạt động ở học phần Viết và Nói.</span></div>';
