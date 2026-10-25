@@ -1483,6 +1483,12 @@ textarea:focus-visible,
   border-color: var(--primary);
 }
 
+.gq.sel-pick {
+  background: var(--primary-soft);
+  border-color: var(--primary-border);
+  color: var(--primary);
+}
+
 .gq.flag {
   border-color: var(--amber);
   color: var(--amber);

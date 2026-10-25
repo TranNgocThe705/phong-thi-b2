@@ -454,136 +454,205 @@ function mountQuiz(mount, cfg){
    vẫn chấm tức thì kèm giải thích khi luyện tập. */
 function mountListenGroup(mount, g){
   const items = g.qs;
-  mount.innerHTML = `
-    <div class="quiz-layout">
-      <div class="quiz-main" style="display:flex;flex-direction:column;gap:14px">
-        ${items.map((q, i) => `
-          <div class="sheet q-card sheet--pad" id="lq-${i}">
-            <div class="q-card__top">
-              <span class="q-card__no">Câu ${i + 1} / ${items.length}<em>Part ${g.part} · ${esc(g.title)}</em></span>
-            </div>
-            <div class="q-card__text" style="margin:10px 0 14px">${esc(q.q)}</div>
-            <div class="opts">
-              ${q.opts.map((o, oi) => `<button class="opt" data-lq="${i}" data-oi="${oi}"><span class="key">${LETTERS[oi]}</span><span>${esc(o)}</span></button>`).join("")}
-            </div>
-            <div class="lq-ex" data-ex="${i}"></div>
-          </div>`).join("")}
-      </div>
-      <aside class="quiz-side">
-        <div class="side-block">
-          <h4><span>Tiến độ đoạn nghe</span><span class="lq-count"></span></h4>
-          <div class="grid-q">
-            ${items.map((q, i) => `<button class="gq" data-ljump="${i}">${i + 1}</button>`).join("")}
-          </div>
-        </div>
-      </aside>
-    </div>`;
+  let defer = localStorage.getItem("b2.quiz.defer") !== "0";
+  const picks = items.map(() => undefined);
+  let submittedG = items.every(q => Store.d.answers[q.id] !== undefined);
 
-  const updCount = () => {
-    const c = $(".lq-count", mount);
-    if(c) c.textContent = items.filter(q => Store.d.answers[q.id] !== undefined).length + "/" + items.length;
-  };
-  const paint = i => {
-    const q = items[i], rec = Store.d.answers[q.id], card = $("#lq-" + i, mount);
-    if(!card) return;
-    $$(".opt", card).forEach((el, oi) => {
-      el.classList.remove("sel", "correct", "wrong", "dim");
-      if(rec === undefined) return;
-      if(oi === q.a) el.classList.add("correct");
-      else if(oi === rec.pick) el.classList.add("wrong");
-      else el.classList.add("dim");
-      el.disabled = true;
-    });
-    if(rec){
-      const ex = $(".lq-ex", card);
-      if(ex) ex.innerHTML = `<div class="explain ${rec.ok ? "explain--ok" : "explain--no"}">
-        <span class="explain__tag">${rec.ok ? "Chính xác! Giải thích chi tiết:" : "Đáp án đúng là " + LETTERS[q.a] + " — Giải thích:"}</span>
-        <p>${esc(q.ex || "")}</p></div>`;
-    }
-    const gBtn = $(`.gq[data-ljump="${i}"]`, mount);
-    if(gBtn && rec) gBtn.classList.add(rec.ok ? "done-ok" : "done-no");
-  };
-  items.forEach((q, i) => paint(i));
-  updCount();
-  $$(".opt[data-lq]", mount).forEach(el => el.onclick = () => {
-    const i = +el.dataset.lq, oi = +el.dataset.oi, q = items[i];
-    if(Store.d.answers[q.id] !== undefined) return;
-    Store.addAnswer(q.id, oi, oi === q.a);
-    paint(i);
+  const render = () => {
+    mount.innerHTML = `
+      <div class="quiz-layout">
+        <div class="quiz-main" style="display:flex;flex-direction:column;gap:14px">
+          ${items.map((q, i) => `
+            <div class="sheet q-card sheet--pad" id="lq-${i}">
+              <div class="q-card__top">
+                <span class="q-card__no">Câu ${i + 1} / ${items.length}<em>Part ${g.part} · ${esc(g.title)}</em></span>
+              </div>
+              <div class="q-card__text" style="margin:10px 0 14px">${esc(q.q)}</div>
+              <div class="opts">
+                ${q.opts.map((o, oi) => `<button class="opt" data-lq="${i}" data-oi="${oi}"><span class="key">${LETTERS[oi]}</span><span>${esc(o)}</span></button>`).join("")}
+              </div>
+              <div class="lq-ex" data-ex="${i}"></div>
+            </div>`).join("")}
+        </div>
+        <aside class="quiz-side">
+          <div class="side-block">
+            <h4><span>Tiến độ đoạn nghe</span><span class="lq-count"></span></h4>
+            <div class="grid-q">
+              ${items.map((q, i) => `<button class="gq" data-ljump="${i}">${i + 1}</button>`).join("")}
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px;margin-top:12px">
+              <button class="btn btn--sm btn--ghost" id="lqMode">${defer ? "Chấm khi nộp" : "Chấm tức thì"}</button>
+              ${defer ? `<button class="btn btn--sm btn--solid" id="lqSubmit" ${submittedG ? "disabled" : ""}>Nộp bài chấm điểm</button>` : ""}
+            </div>
+          </div>
+        </aside>
+      </div>`;
+
+    const updCount = () => {
+      const c = $(".lq-count", mount);
+      if(!c) return;
+      if(defer && !submittedG) c.textContent = picks.filter(v => v !== undefined).length + "/" + items.length;
+      else c.textContent = items.filter(q => Store.d.answers[q.id] !== undefined).length + "/" + items.length;
+    };
+    const paint = i => {
+      const q = items[i], rec = Store.d.answers[q.id], card = $("#lq-" + i, mount);
+      if(!card) return;
+      $$(".opt", card).forEach((el, oi) => {
+        el.classList.remove("sel", "correct", "wrong", "dim");
+        if(rec === undefined){
+          el.disabled = false;
+          if(defer && oi === picks[i]) el.classList.add("sel");
+          return;
+        }
+        if(oi === q.a) el.classList.add("correct");
+        else if(oi === rec.pick) el.classList.add("wrong");
+        else el.classList.add("dim");
+        el.disabled = true;
+      });
+      if(rec){
+        const ex = $(".lq-ex", card);
+        if(ex) ex.innerHTML = `<div class="explain ${rec.ok ? "explain--ok" : "explain--no"}">
+          <span class="explain__tag">${rec.ok ? "Chính xác! Giải thích chi tiết:" : "Đáp án đúng là " + LETTERS[q.a] + " — Giải thích:"}</span>
+          <p>${esc(q.ex || "")}</p></div>`;
+      }
+      const gBtn = $(`.gq[data-ljump="${i}"]`, mount);
+      if(gBtn){
+        gBtn.classList.toggle("sel-pick", defer && !submittedG && rec === undefined && picks[i] !== undefined);
+        if(rec) gBtn.classList.add(rec.ok ? "done-ok" : "done-no");
+      }
+    };
+    items.forEach((q, i) => paint(i));
     updCount();
-  });
-  $$("[data-ljump]", mount).forEach(b => b.onclick = () => {
-    const el = $("#lq-" + b.dataset.ljump, mount);
-    if(el) el.scrollIntoView({ behavior: "smooth", block: "center" });
-  });
+    $$(".opt[data-lq]", mount).forEach(el => el.onclick = () => {
+      const i = +el.dataset.lq, oi = +el.dataset.oi, q = items[i];
+      if(Store.d.answers[q.id] !== undefined || submittedG) return;
+      if(defer){ picks[i] = oi; }
+      else { Store.addAnswer(q.id, oi, oi === q.a); }
+      paint(i);
+      updCount();
+    });
+    $$("[data-ljump]", mount).forEach(b => b.onclick = () => {
+      const el = $("#lq-" + b.dataset.ljump, mount);
+      if(el) el.scrollIntoView({ behavior: "smooth", block: "center" });
+    });
+    if($("#lqMode", mount)) $("#lqMode", mount).onclick = () => {
+      defer = !defer;
+      localStorage.setItem("b2.quiz.defer", defer ? "1" : "0");
+      render();
+    };
+    if($("#lqSubmit", mount)) $("#lqSubmit", mount).onclick = () => {
+      if(submittedG) return;
+      items.forEach((q, i) => { if(Store.d.answers[q.id] === undefined) Store.addAnswer(q.id, picks[i] === undefined ? -1 : picks[i], picks[i] === q.a); });
+      submittedG = true;
+      render();
+    };
+  };
+  render();
 }
 
 /* Cụm câu hỏi xếp chồng cho bài đọc: thanh tiến độ + danh sách câu
    nằm ngang sticky trên đầu, các câu hỏi cuộn liên tục bên dưới. */
 function mountReadGroup(mount, items){
-  mount.innerHTML = `
-    <div class="qprogress-bar">
-      <span class="qprogress-bar__stats">Đã làm <b class="rq-count">0/${items.length}</b> · Đúng <b class="rq-ok" style="color:var(--green)">0</b> · Ôn lại <b class="rq-no" style="color:var(--red)">0</b></span>
-      <div class="grid-q grid-q--row">
-        ${items.map((q, i) => `<button class="gq" data-rjump="${i}" title="Câu ${i + 1}">${i + 1}</button>`).join("")}
-      </div>
-    </div>
-    <div style="display:flex;flex-direction:column;gap:14px">
-      ${items.map((q, i) => `
-        <div class="sheet q-card sheet--pad" id="rq-${i}">
-          <div class="q-card__top">
-            <span class="q-card__no">Câu ${i + 1} / ${items.length}${q.tag ? `<em>${q.tag}</em>` : ""}</span>
-            <span style="font-size:12.5px;font-weight:600;color:var(--ink-3)">${q.src ? esc(q.src) : ""}</span>
-          </div>
-          <div class="q-card__text" style="margin:10px 0 14px">${q.q}</div>
-          <div class="opts">
-            ${q.opts.map((o, oi) => `<button class="opt" data-rqi="${i}" data-oi="${oi}"><span class="key">${LETTERS[oi]}</span><span>${o}</span></button>`).join("")}
-          </div>
-          <div class="lq-ex"></div>
-        </div>`).join("")}
-    </div>`;
+  let defer = localStorage.getItem("b2.quiz.defer") !== "0";
+  const picks = items.map(() => undefined);
+  let submittedG = items.every(q => Store.d.answers[q.id] !== undefined);
 
-  const updCount = () => {
-    const done = items.filter(q => Store.d.answers[q.id] !== undefined).length;
-    const ok = items.filter(q => Store.d.answers[q.id]?.ok).length;
-    const c = $(".rq-count", mount), o = $(".rq-ok", mount), n = $(".rq-no", mount);
-    if(c) c.textContent = done + "/" + items.length;
-    if(o) o.textContent = ok;
-    if(n) n.textContent = done - ok;
-  };
-  const paint = i => {
-    const q = items[i], rec = Store.d.answers[q.id], card = $("#rq-" + i, mount);
-    if(!card) return;
-    $$(".opt", card).forEach((el, oi) => {
-      el.classList.remove("sel", "correct", "wrong", "dim");
-      if(rec === undefined) return;
-      if(oi === q.a) el.classList.add("correct");
-      else if(oi === rec.pick) el.classList.add("wrong");
-      else el.classList.add("dim");
-      el.disabled = true;
-    });
-    if(rec){
-      const ex = $(".lq-ex", card);
-      if(ex) ex.innerHTML = `<div class="explain ${rec.ok ? "explain--ok" : "explain--no"}">
-        <span class="explain__tag">${rec.ok ? "Chính xác! Giải thích chi tiết:" : "Đáp án đúng là " + LETTERS[q.a] + " — Giải thích:"}</span>
-        <p>${esc(q.ex || "")}</p></div>`;
-    }
-    const gBtn = $(`.gq[data-rjump="${i}"]`, mount);
-    if(gBtn && rec) gBtn.classList.add(rec.ok ? "done-ok" : "done-no");
-  };
-  items.forEach((q, i) => paint(i));
-  updCount();
-  $$(".opt[data-rqi]", mount).forEach(el => el.onclick = () => {
-    const i = +el.dataset.rqi, oi = +el.dataset.oi, q = items[i];
-    if(Store.d.answers[q.id] !== undefined) return;
-    Store.addAnswer(q.id, oi, oi === q.a);
-    paint(i);
+  const render = () => {
+    mount.innerHTML = `
+      <div class="qprogress-bar">
+        <span class="qprogress-bar__stats">${submittedG || !defer
+          ? `Đã làm <b class="rq-count">0/${items.length}</b> · Đúng <b class="rq-ok" style="color:var(--green)">0</b> · Ôn lại <b class="rq-no" style="color:var(--red)">0</b>`
+          : `Đã chọn <b class="rq-count">0/${items.length}</b>`}</span>
+        <div class="grid-q grid-q--row">
+          ${items.map((q, i) => `<button class="gq" data-rjump="${i}" title="Câu ${i + 1}">${i + 1}</button>`).join("")}
+        </div>
+        <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+          <button class="btn btn--sm btn--ghost" id="rqMode">${defer ? "Chế độ: chấm khi nộp" : "Chế độ: chấm tức thì"}</button>
+          ${defer ? `<button class="btn btn--sm btn--solid" id="rqSubmit" ${submittedG ? "disabled" : ""}>Nộp bài chấm điểm</button>` : ""}
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:14px">
+        ${items.map((q, i) => `
+          <div class="sheet q-card sheet--pad" id="rq-${i}">
+            <div class="q-card__top">
+              <span class="q-card__no">Câu ${i + 1} / ${items.length}${q.tag ? `<em>${q.tag}</em>` : ""}</span>
+              <span style="font-size:12.5px;font-weight:600;color:var(--ink-3)">${q.src ? esc(q.src) : ""}</span>
+            </div>
+            <div class="q-card__text" style="margin:10px 0 14px">${q.q}</div>
+            <div class="opts">
+              ${q.opts.map((o, oi) => `<button class="opt" data-rqi="${i}" data-oi="${oi}"><span class="key">${LETTERS[oi]}</span><span>${o}</span></button>`).join("")}
+            </div>
+            <div class="lq-ex"></div>
+          </div>`).join("")}
+      </div>`;
+
+    const updCount = () => {
+      const done = items.filter(q => Store.d.answers[q.id] !== undefined).length;
+      const ok = items.filter(q => Store.d.answers[q.id]?.ok).length;
+      const c = $(".rq-count", mount), o = $(".rq-ok", mount), n = $(".rq-no", mount);
+      if(defer && !submittedG){ if(c) c.textContent = picks.filter(v => v !== undefined).length + "/" + items.length; }
+      else {
+        if(c) c.textContent = done + "/" + items.length;
+        if(o) o.textContent = ok;
+        if(n) n.textContent = done - ok;
+      }
+    };
+    const paint = i => {
+      const q = items[i], rec = Store.d.answers[q.id], card = $("#rq-" + i, mount);
+      if(!card) return;
+      $$(".opt", card).forEach((el, oi) => {
+        el.classList.remove("sel", "correct", "wrong", "dim");
+        if(rec === undefined){
+          el.disabled = false;
+          if(defer && oi === picks[i]) el.classList.add("sel");
+          return;
+        }
+        if(oi === q.a) el.classList.add("correct");
+        else if(oi === rec.pick) el.classList.add("wrong");
+        else el.classList.add("dim");
+        el.disabled = true;
+      });
+      if(rec){
+        const ex = $(".lq-ex", card);
+        if(ex) ex.innerHTML = `<div class="explain ${rec.ok ? "explain--ok" : "explain--no"}">
+          <span class="explain__tag">${rec.ok ? "Chính xác! Giải thích chi tiết:" : "Đáp án đúng là " + LETTERS[q.a] + " — Giải thích:"}</span>
+          <p>${esc(q.ex || "")}</p></div>`;
+      }
+      const gBtn = $(`.gq[data-rjump="${i}"]`, mount);
+      if(gBtn){
+        gBtn.classList.toggle("sel-pick", defer && !submittedG && rec === undefined && picks[i] !== undefined);
+        if(rec) gBtn.classList.add(rec.ok ? "done-ok" : "done-no");
+      }
+    };
+    items.forEach((q, i) => paint(i));
     updCount();
-  });
-  $$("[data-rjump]", mount).forEach(b => b.onclick = () => {
-    const el = $("#rq-" + b.dataset.rjump, mount);
-    if(el) el.scrollIntoView({ behavior: "smooth", block: "center" });
-  });
+    $$(".opt[data-rqi]", mount).forEach(el => el.onclick = () => {
+      const i = +el.dataset.rqi, oi = +el.dataset.oi, q = items[i];
+      if(Store.d.answers[q.id] !== undefined || submittedG) return;
+      if(defer){ picks[i] = oi; }
+      else { Store.addAnswer(q.id, oi, oi === q.a); }
+      paint(i);
+      updCount();
+    });
+    $$("[data-rjump]", mount).forEach(b => b.onclick = () => {
+      const el = $("#rq-" + b.dataset.rjump, mount);
+      if(el) el.scrollIntoView({ behavior: "smooth", block: "center" });
+    });
+    if($("#rqMode", mount)) $("#rqMode", mount).onclick = () => {
+      defer = !defer;
+      localStorage.setItem("b2.quiz.defer", defer ? "1" : "0");
+      render();
+    };
+    if($("#rqSubmit", mount)) $("#rqSubmit", mount).onclick = () => {
+      if(submittedG) return;
+      items.forEach((q, i) => { if(Store.d.answers[q.id] === undefined) Store.addAnswer(q.id, picks[i] === undefined ? -1 : picks[i], picks[i] === q.a); });
+      submittedG = true;
+      render();
+      const bar = $(".qprogress-bar", mount);
+      if(bar) bar.scrollIntoView({ behavior: "smooth", block: "start" });
+    };
+  };
+  render();
 }
 
 /* ================= TRANG CHỦ ================= */
