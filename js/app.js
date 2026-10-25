@@ -518,6 +518,74 @@ function mountListenGroup(mount, g){
   });
 }
 
+/* Cụm câu hỏi xếp chồng cho bài đọc: thanh tiến độ + danh sách câu
+   nằm ngang sticky trên đầu, các câu hỏi cuộn liên tục bên dưới. */
+function mountReadGroup(mount, items){
+  mount.innerHTML = `
+    <div class="qprogress-bar">
+      <span class="qprogress-bar__stats">Đã làm <b class="rq-count">0/${items.length}</b> · Đúng <b class="rq-ok" style="color:var(--green)">0</b> · Ôn lại <b class="rq-no" style="color:var(--red)">0</b></span>
+      <div class="grid-q grid-q--row">
+        ${items.map((q, i) => `<button class="gq" data-rjump="${i}" title="Câu ${i + 1}">${i + 1}</button>`).join("")}
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:14px">
+      ${items.map((q, i) => `
+        <div class="sheet q-card sheet--pad" id="rq-${i}">
+          <div class="q-card__top">
+            <span class="q-card__no">Câu ${i + 1} / ${items.length}${q.tag ? `<em>${q.tag}</em>` : ""}</span>
+            <span style="font-size:12.5px;font-weight:600;color:var(--ink-3)">${q.src ? esc(q.src) : ""}</span>
+          </div>
+          <div class="q-card__text" style="margin:10px 0 14px">${q.q}</div>
+          <div class="opts">
+            ${q.opts.map((o, oi) => `<button class="opt" data-rqi="${i}" data-oi="${oi}"><span class="key">${LETTERS[oi]}</span><span>${o}</span></button>`).join("")}
+          </div>
+          <div class="lq-ex"></div>
+        </div>`).join("")}
+    </div>`;
+
+  const updCount = () => {
+    const done = items.filter(q => Store.d.answers[q.id] !== undefined).length;
+    const ok = items.filter(q => Store.d.answers[q.id]?.ok).length;
+    const c = $(".rq-count", mount), o = $(".rq-ok", mount), n = $(".rq-no", mount);
+    if(c) c.textContent = done + "/" + items.length;
+    if(o) o.textContent = ok;
+    if(n) n.textContent = done - ok;
+  };
+  const paint = i => {
+    const q = items[i], rec = Store.d.answers[q.id], card = $("#rq-" + i, mount);
+    if(!card) return;
+    $$(".opt", card).forEach((el, oi) => {
+      el.classList.remove("sel", "correct", "wrong", "dim");
+      if(rec === undefined) return;
+      if(oi === q.a) el.classList.add("correct");
+      else if(oi === rec.pick) el.classList.add("wrong");
+      else el.classList.add("dim");
+      el.disabled = true;
+    });
+    if(rec){
+      const ex = $(".lq-ex", card);
+      if(ex) ex.innerHTML = `<div class="explain ${rec.ok ? "explain--ok" : "explain--no"}">
+        <span class="explain__tag">${rec.ok ? "Chính xác! Giải thích chi tiết:" : "Đáp án đúng là " + LETTERS[q.a] + " — Giải thích:"}</span>
+        <p>${esc(q.ex || "")}</p></div>`;
+    }
+    const gBtn = $(`.gq[data-rjump="${i}"]`, mount);
+    if(gBtn && rec) gBtn.classList.add(rec.ok ? "done-ok" : "done-no");
+  };
+  items.forEach((q, i) => paint(i));
+  updCount();
+  $$(".opt[data-rqi]", mount).forEach(el => el.onclick = () => {
+    const i = +el.dataset.rqi, oi = +el.dataset.oi, q = items[i];
+    if(Store.d.answers[q.id] !== undefined) return;
+    Store.addAnswer(q.id, oi, oi === q.a);
+    paint(i);
+    updCount();
+  });
+  $$("[data-rjump]", mount).forEach(b => b.onclick = () => {
+    const el = $("#rq-" + b.dataset.rjump, mount);
+    if(el) el.scrollIntoView({ behavior: "smooth", block: "center" });
+  });
+}
+
 /* ================= TRANG CHỦ ================= */
 function bandChartSVG(pts){
   const W = 660, H = 232, L = 34, R = 46, T = 18, B = 30;
@@ -880,11 +948,9 @@ function viewReading(part, setIdx){
             <div class="p2-text"><b>Đoạn ${t.key}: ${esc(t.title)}</b><br>${esc(t.body)}</div>`).join("")}
           </div>
         </div>
-        <div id="quizMount"></div>
+        <div class="read-split__qs" id="quizMount"></div>
       </div>`;
-    mountQuiz($("#quizMount"), {
-      items: READING_P2.map(q => ({ id: q.id, q: esc(q.q), opts: q.opts.map(esc), a: q.a, ex: q.ex, tag: "Đối chiếu" }))
-    });
+    mountReadGroup($("#quizMount"), READING_P2.map(q => ({ id: q.id, q: esc(q.q), opts: q.opts.map(esc), a: q.a, ex: q.ex, tag: "Đối chiếu" })));
     const p2b = $("#p2Texts");
     practiceHL["p2"] = practiceHL["p2"] || [];
     hlApply(p2b, practiceHL["p2"]);
@@ -899,11 +965,9 @@ function viewReading(part, setIdx){
           ${HL_TOOLS}
           <div class="passage-body" id="p3PassBody">${esc(READING_P3_PASSAGE.body).replace(/__(\(\d+\))__/g, '<span class="blank-no">$1</span>').replace(/\n/g, "<br>")}</div>
         </div>
-        <div id="quizMount"></div>
+        <div class="read-split__qs" id="quizMount"></div>
       </div>`;
-    mountQuiz($("#quizMount"), {
-      items: READING_P3.map(q => ({ id: q.id, q: esc(q.q), opts: q.opts.map(esc), a: q.a, ex: q.ex, tag: "Điền câu" }))
-    });
+    mountReadGroup($("#quizMount"), READING_P3.map(q => ({ id: q.id, q: esc(q.q), opts: q.opts.map(esc), a: q.a, ex: q.ex, tag: "Điền câu" })));
     const p3b = $("#p3PassBody");
     practiceHL["p3"] = practiceHL["p3"] || [];
     hlApply(p3b, practiceHL["p3"]);
@@ -928,23 +992,27 @@ function viewReading(part, setIdx){
 
     const render = () => {
       const p = curSet.passages[cur];
-      mountQuiz($("#quizMount"), {
-        split: true,
-        items: p.questions.map(q => {
-          const qid = setIdx === 0 ? ("ro" + q.n) : (curSet.id + "_" + q.n);
-          return { id: qid, q: esc(q.q), opts: q.opts.map(esc), a: q.a, ex: q.ex, tag: `Đề ${String(setIdx + 1).padStart(2, "0")} | Câu ${q.n}/40`, src: curSet.title.split(":")[0] };
-        }),
-        getPassage: () => `<h3>${esc(p.title.replace(/^PASSAGE \d+\s*[-–]\s*/i, "Passage " + (cur + 1) + ": "))}</h3><span class="src">Nguồn: ${esc(curSet.source)}</span>${HL_TOOLS}<div class="passage-body">${esc(p.body)}</div>`,
-        onPassage: bodyEl => {
-          if(!bodyEl) return;
-          const k = setIdx + ":" + cur;
-          practiceHL[k] = practiceHL[k] || [];
-          hlApply(bodyEl, practiceHL[k]);
-          hlBind(bodyEl, practiceHL[k]);
-          const cb = $("#hlClear");
-          if(cb) cb.onclick = () => { practiceHL[k].length = 0; hlClearAll(bodyEl); };
-        }
-      });
+      $("#quizMount").innerHTML = `
+        <div class="read-split">
+          <div class="sheet passage-panel read-split__passage">
+            <h3>${esc(p.title.replace(/^PASSAGE \d+\s*[-–]\s*/i, "Passage " + (cur + 1) + ": "))}</h3>
+            <span class="src">Nguồn: ${esc(curSet.source)}</span>
+            ${HL_TOOLS}
+            <div class="passage-body">${esc(p.body)}</div>
+          </div>
+          <div class="read-split__qs" id="rqMount"></div>
+        </div>`;
+      mountReadGroup($("#rqMount"), p.questions.map(q => {
+        const qid = setIdx === 0 ? ("ro" + q.n) : (curSet.id + "_" + q.n);
+        return { id: qid, q: esc(q.q), opts: q.opts.map(esc), a: q.a, ex: q.ex, tag: `Đề ${String(setIdx + 1).padStart(2, "0")} | Câu ${q.n}/40`, src: curSet.title.split(":")[0] };
+      }));
+      const bodyEl = $("#quizMount .passage-body");
+      const k = setIdx + ":" + cur;
+      practiceHL[k] = practiceHL[k] || [];
+      hlApply(bodyEl, practiceHL[k]);
+      hlBind(bodyEl, practiceHL[k]);
+      const cb = $("#hlClear");
+      if(cb) cb.onclick = () => { practiceHL[k].length = 0; hlClearAll(bodyEl); };
     };
     $$("#rSetBar .chip").forEach(b => b.onclick = () => viewReading("p4", +b.dataset.si));
     $$("#psBar .chip").forEach(c => c.onclick = () => { $$("#psBar .chip").forEach(x => x.classList.remove("on")); c.classList.add("on"); cur = +c.dataset.i; render(); });

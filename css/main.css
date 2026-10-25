@@ -3675,3 +3675,41 @@ textarea:focus-visible,
     max-height: 380px;
   }
 }
+
+/* Thanh tiến độ + danh sách câu nằm ngang (thay cột phải) */
+.qprogress-bar {
+  position: sticky;
+  top: 84px;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  background: var(--surface);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-md);
+  padding: 10px 14px;
+  margin-bottom: 14px;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.05);
+}
+
+.qprogress-bar__stats {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--ink-2);
+  white-space: nowrap;
+}
+
+.qprogress-bar__stats b {
+  font-variant-numeric: tabular-nums;
+}
+
+.grid-q--row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  padding: 0;
+  max-height: none;
+  overflow: visible;
+}
